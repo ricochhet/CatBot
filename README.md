@@ -13,7 +13,9 @@ npm install discord.js
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change, or contact Ricochet#7498 on Discord.
 
 ```bash
-None of this is required to contribute to the development of CatBot, it's simply for ease of use. Simply follow the current layout of code, which should be self-explanatory. 
+None of this is required to contribute to the development of CatBot, 
+it's simply for ease of use. Simply follow the current layout of code, 
+which should be self-explanatory. 
 ```
 
 ```bash
@@ -22,5 +24,7 @@ Unauthorized copying of this file, via any medium is strictly prohibited
 Proprietary and confidential
 Written by Ricochet#7498 (John), September 2019 - Onward
 
-The distribution of similar products cannot be utilized without permission from Ricochet#7498, this project cannot be copied, cloned, imitated, etc. These acts are prohibited without permission or credit from the author (Ricochet#7498).
+The distribution of similar products cannot be utilized without permission from Ricochet#7498, 
+this project cannot be copied, cloned, imitated, etc. 
+These acts are prohibited without permission or credit from the author (Ricochet#7498).
 ```
