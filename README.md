@@ -18,11 +18,15 @@ it's simply for ease of use. Simply follow the current layout of code,
 which should be self-explanatory. 
 ```
 
+# Licensing
 ```bash
 Copyright (C) John Thums
-Unauthorized copying of this file, via any medium is strictly prohibited
+Unauthorized copying of this project, via any medium is strictly prohibited
+Redistribution of this project is prohibited by law.
 Proprietary and confidential
-Written by Ricochet#7498 (John), September 2019 - Onward
+Written by Ricochet#7498 (John), September 2019 - Onward```
+
+<Closed Source>
 
 The distribution of similar products cannot be utilized without permission from Ricochet#7498, 
 this project cannot be copied, cloned, imitated, etc. 
