@@ -4,7 +4,7 @@ Guides for adding features to CatBot.
 # Usage
 CatBot uses multiple libraries, modules, and utilities, [nodejs](https://nodejs.org/en/) and [discord.js](https://discord.js.org/#/)
 ```bash
-When making commands, make sure they are lowercase only
+When making commands, make sure they are lowercase only. Embeds have a 1024 char limit, make use of pages if neccessary
 ```
 
 # Installations
