@@ -4,7 +4,7 @@ Guides for adding features to CatBot.
 # Usage
 CatBot uses multiple libraries, modules, and utilities, [nodejs](https://nodejs.org/en/) and [discord.js](https://discord.js.org/#/)
 ```
-Read "commandNameExample.js" first
+Read through "commandNameExample.js" first.
 
 When making commands, make sure they are lowercase only.
 using args[0] and anything higher is for each argument after the command.
