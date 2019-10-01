@@ -4,12 +4,14 @@ Guides for adding features to CatBot.
 # Usage
 CatBot uses multiple libraries, modules, and utilities, [nodejs](https://nodejs.org/en/) and [discord.js](https://discord.js.org/#/)
 ```
+Read "commandNameExample.js" first
+
 When making commands, make sure they are lowercase only.
 using args[0] and anything higher is for each argument after the command.
 Example: +command args[0] args[1] etc, add as many as needed.
 The word "command" will be used to define the command name.
 
-I'll add more info if needed
+I'll add more info if needed.
 ```
 
 Learn more about embeds [here](https://discordjs.guide/popular-topics/embeds.html#notes)
