@@ -32,11 +32,11 @@ which should be self-explanatory.
 
 # Licensing
 ```
-Copyright (C) John
+Copyright (C) JT
 Unauthorized copying of this project, via any medium is strictly prohibited
 Redistribution of this project is prohibited by law.
 Proprietary and confidential
-Written by Ricochet#7498 (John), September 2019 - Onward
+Written by Ricochet#7498, September 2019 - Onward
 
 The distribution of similar products cannot be utilized without permission from Ricochet#7498, 
 this project cannot be copied, cloned, imitated, etc. 
