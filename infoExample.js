@@ -22,6 +22,8 @@ if(input == "itemname") {
   .setFooter('Info Menu');
 
   message.channel.send(monsterEmbed);
+} else {
+  message.channel.send("That item doesn't seem to exist!");
 }
 
 // continue with else if's like "itemname2"
