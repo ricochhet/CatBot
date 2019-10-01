@@ -23,7 +23,7 @@ which should be self-explanatory.
 
 # Licensing
 ```bash
-Copyright (C) John Thums
+Copyright (C) John
 Unauthorized copying of this project, via any medium is strictly prohibited
 Redistribution of this project is prohibited by law.
 Proprietary and confidential
