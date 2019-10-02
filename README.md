@@ -38,7 +38,14 @@ Redistribution of this project is prohibited by law.
 Proprietary and confidential
 Written by Ricochet#7498, September 2019 - Onward
 
+Using this code for malicious intent, whether it be try to make a clone, imitation, or similar,
+is restricted to needing explicit permission from the owner, if this permission is not truly given, 
+it can lead to a takedown, or a fine in worse circumstances.
+
 The distribution of similar products cannot be utilized without permission from Ricochet#7498, 
 this project cannot be copied, cloned, imitated, etc. 
 These acts are prohibited without permission or credit from the author (Ricochet#7498).
+
+TL;DR: Don't steal the code here for making your own bot, that's not what it's purpose is, please don't-
+do anything bad.
 ```
