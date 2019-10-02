@@ -19,6 +19,11 @@ Learn more about embeds [here](https://discordjs.guide/popular-topics/embeds.htm
 # Installations
 ```bash
 npm install discord.js
+npm install dblapi.js (optional)
+npm install express.js (optional)
+npm install cheerio
+npm install request
+npm install request-promise
 ```
 
 # Contributors
