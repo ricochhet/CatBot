@@ -1,0 +1,9 @@
+if(command === "Beta hr Blah Blah") {
+    const listEmbed = new Discord.RichEmbed()
+    .setColor('#8fde5d')
+    .addField("Beta High Rank Armor", "Alloy Beta Armor Set\n Anja Beta Armor Set\n Baan Beta Armor Set\n Barnos Beta Armor Set\n Barroth Beta Armor Set\n Bazel Beta Armor Set\n Bone Beta Armor Set\n Butterfly Beta Armor Set\n Brigade Beta Armor Set\n Chainmail Beta Armor Set\n Commission Beta Armor Set\n Damascus Beta Armor Set\n Death Stench Beta Armor Set\n Deviljho Beta Armor Set\n Diablos Beta Armor Set\n Diablos Nero Beta Armor Set\n Dodogama Beta Armor Set\n Dober Beta Armor Set\n Gajau Beta Armor Set\n Gastodon Beta Armor Set\n Girros Beta Armor Set\n Guild Cross Beta Armor Set\n High Metal Beta Armor Set\n Hornetaur Beta Armor Set\n Hunter's Beta Armor Set\n Ingot Beta Armor Set\n Jagras Beta Armor Set\n Jyura Beta Armor Set\n Kadachi Beta Armor Set\n Kestodon Beta Armor Set\n King Beetle Beta Armor Set\n Kirin Beta Armor Set\n Kulu Beta Armor Set\n Kulve Taroth Beta Armor Set\n Kushala Beta Armor Set\n Lavasioth Beta Armor Set\n Leather Beta Armor Set\n Legiana Beta Armor Set\n Lunastra Beta Armor Set\n Lumu Beta Armor Set\n Nergigante Beta Armor Set\n Odogaron Beta Armor Set\n Pukei Beta Armor Set\n Rath Heart Beta Armor Set\n Rath Soul Beta Armor Set\n Rathalos Beta Armor Set\n Rathian Beta Armor Set\n Shamos Beta Armor Set\n Teostra Beta Armor Set\n Tzitzi Beta Armor Set\n Uragaan Beta Armor Set\n Vaal Hazak Beta Armor Set\n Vespoid Beta Armor Set\n Xeno'jiiva Beta Armor Set\n Zorah Beta Armor Set\n Nergigante Gamma Armor Set\n Kirin Gamma Armor Set\n Teostra Gamma Armor Set\n Lunastra Gamma Armor Set\n Xeno'jiiva Gamma Armor Set\n Zorah Gamma Armor Set\n Kushala Gamma Armor Set\n Vaal Hazak Gamma Armor Set")
+    .setTimeStamp()
+    .setFooter('List Menu');
+    
+    message.channel.send(listEmbed);
+    }
