@@ -23,7 +23,7 @@ exports.run = (client, message, args) => {
     const listEmbed = new Discord.RichEmbed()
     .setColor('#8fde5d')
     .addField('Rare Endemic Life (World): ', "Moonlight-Gecko\n Pilot-Hare\n Dapper-Coralbird\n Wiggler-Queen\n Forest-Pteryx\n Emerald-Helmcrab\n Augurfly\n Phantom-Flutterfly\n Prism-Hercudrome\n Gold-Hercudrome\n Downy-Crake\n Bristly-Crake\n Giant Vigorwasp\n Petricanth\n Platinumfish\n King-Marlin\n Gold-Calappa", true)
-    .addField('Usage', "```+mhwendemicinfo monstername```")
+    .addField('Usage', "```+mhwinfo monstername```")
     .setTimestamp()
     .setFooter('List Menu');
 
