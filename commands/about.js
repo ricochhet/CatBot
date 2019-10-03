@@ -5,11 +5,11 @@ exports.run = (client, message, args) => {
   .setColor('#8fde5d')
   .addField('Author: ', "Ricochet#7498", true)
   .addField('Contributors', "Chad#0389", true)
-  .addField('Bot Version: ', "v1.5.2", true)
-  .addField('Changelog: ', "v1.5.2 | Possibly the biggest changes ever, we've overhauled commands, and added some new ones, try out `+mhwiteminfo <itemname>`, and `+mhwlrarmor`")
+  .addField('Bot Version: ', "v1.6.6", true)
+  .addField('Changelog: ', "v1.6.6 | Wow, we overhualed every command for the most part, and switched to databases for information! We hope you enjoy the more user friendly experience :)")
   .addField('Schedule: ', "No Outages Expected")
-  .addField('Roadmap: ', "Endemic Life Full List & Info")
-  .addField('Feedback/Requests: ', "Use +invite to recieve a server invite link for CatBots support server.")
+  .addField('Roadmap: ', "Optimization")
+  .addField('Feedback/Requests: ', "Do `+invite` to go to the support server.")
   .setTimestamp()
   .setFooter('About Menu', client.user.avatarURL);
 
