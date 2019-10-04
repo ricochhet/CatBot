@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
   if(args[0] == "lowrank") {
     const listEmbed = new Discord.RichEmbed()
     .setColor('#8fde5d')
-    .addField("Low Rank Armor", "Alloy Armor Set\n Anja Armor Set\n Baan Armor Set\n Barroth Armor Set\n Blossom Armor Set\n Bone Armor Set\n Butterfly Armor Set\n Chainmail Armor Set\n Death Stench Armor Set\n Diablos Armor Set\n Diver Armor Set\n Gala Suit Armor Set\n Gajau Armor Set\n Girros Armor Set\n Guardian Armor Set\n High Metal Armor Set\n Harvest Armor Set\n Hornetaur Armor Set\n Hunter's Armor Set\n Ingot Armor Set\n Jagras Armor Set\n Jyura Armor Set\n Kadachi Armor Set\n Kestodon Armor Set\n King Beetle Armor Set\n Kirin Armor Set\n Kulu Armor Set\n Leather Armor Set\n Legiana Armor Set\n Lumu Armor Set\n Odogaron Armor Set\n Origin Armor Set\n Pukei Armor Set\n Rathalos Armor Set\n Rathian Armor Set\n Ryu's Armor Set\n Shamos Armor Set\n Tzitzi Armor Set\n Vespoid Armor Set")
+    .addField("Low Rank Armor", "Alloy Armor Set\nAnja Armor Set\nBaan Armor Set\nBarroth Armor Set\nBlossom Armor Set\nBone Armor Set\nButterfly Armor Set\nChainmail Armor Set\nDeath Stench Armor Set\nDiablos Armor Set\nDiver Armor Set\nGala Suit Armor Set\nGajau Armor Set\nGirros Armor Set\nGuardian Armor Set\nHigh Metal Armor Set\nHarvest Armor Set\nHornetaur Armor Set\nHunter's Armor Set\nIngot Armor Set\nJagras Armor Set\nJyura Armor Set\nKadachi Armor Set\nKestodon Armor Set\nKing Beetle Armor Set\nKirin Armor Set\nKulu Armor Set\nLeather Armor Set\nLegiana Armor Set\nLumu Armor Set\nOdogaron Armor Set\nOrigin Armor Set\nPukei Armor Set\nRathalos Armor Set\nRathian Armor Set\nRyu's Armor Set\nShamos Armor Set\nTzitzi Armor Set\nVespoid Armor Set")
     .setTimestamp()
     .setFooter('List Menu');
 
@@ -12,7 +12,7 @@ exports.run = (client, message, args) => {
   } else if(args[0] == "hralpha1") {
     const listEmbed = new Discord.RichEmbed()
     .setColor('#8fde5d')
-    .addField("Alpha High Rank Armor 1", "Alloy Alpha Armor Set\n Anja Alpha Armor Set\n Azure Starlord Alpha Armor Set\n Baan Alpha Armor Set\n Barnos Alpha Armor Set\n Barroth Alpha Armor Set\n Bazel Alpha Armor Set\n Blossom Alpha Armor Set\n Bone Alpha Armor Set\n Butterfly Alpha Armor Set\n Brigade Alpha Armor Set\n Chainmail Alpha Armor Set\n Commision Alpha Armor Set\n Damascus Alpha Armor Set\n Dante Alpha Armor Set\n Death Stench Alpha Armor Set\n Deviljho Alpha Armor Set\n Diablos Alpha Armor Set\n Diablos Nero Alpha Armor Set\n Diver Alpa Armor Set\n Drachen Alpha Armor Set\n Dragonking Alpha Armor Set\n Dodogama Alpha Armor Set\n Dober Alpha Armor Set\n Faux Felyne Alpha Armor Set\n Gala Suit Alpha Armor Set\n Gajau Alpha Armor Set\n Gastadon Alpha Armor Set\n Girros Alpha Armor Set\n Guild Cross Alpha Armor Set\n High metal Alpha Armor Set\n Harvest Armor Set Alpha\n Hornetaur Alpha Armor Set\n Hunter's Alpha Armor Set\n Ingot Alpha Armor Set\n Jagras Alpha Armor Set\n Jyura Alpha Armor Set\n Kadachi Alpha Armor Set")
+    .addField("Alpha High Rank Armor 1", "Alloy Alpha Armor Set\nAnja Alpha Armor Set\nAzure Starlord Alpha Armor Set\nBaan Alpha Armor Set\nBarnos Alpha Armor Set\nBarroth Alpha Armor Set\nBazel Alpha Armor Set\nBlossom Alpha Armor Set\nBone Alpha Armor Set\nButterfly Alpha Armor Set\nBrigade Alpha Armor Set\nChainmail Alpha Armor Set\nCommision Alpha Armor Set\nDamascus Alpha Armor Set\nDante Alpha Armor Set\nDeath Stench Alpha Armor Set\nDeviljho Alpha Armor Set\nDiablos Alpha Armor Set\nDiablos Nero Alpha Armor Set\nDiver Alpa Armor Set\nDrachen Alpha Armor Set\nDragonking Alpha Armor Set\nDodogama Alpha Armor Set\nDober Alpha Armor Set\nFaux Felyne Alpha Armor Set\nGala Suit Alpha Armor Set\nGajau Alpha Armor Set\nGastadon Alpha Armor Set\nGirros Alpha Armor Set\nGuild Cross Alpha Armor Set\nHigh metal Alpha Armor Set\nHarvest Armor Set Alpha\nHornetaur Alpha Armor Set\nHunter's Alpha Armor Set\nIngot Alpha Armor Set\nJagras Alpha Armor Set\nJyura Alpha Armor Set\nKadachi Alpha Armor Set")
     .setTimestamp()
     .setFooter('List Menu');
 
@@ -20,7 +20,7 @@ exports.run = (client, message, args) => {
   } else if(args[0] == "hralpha2"){
     const listEmbed = new Discord.RichEmbed()
     .setColor('#8fde5d')
-    .addField("Alpha High Rank Armor 2", "Kestodon Alpha Armor Set\n King Beetle Alpha Armor Set\n Kirin Alpha Armor Set\n Kulu Alpha Armor Set\n Kulu Ya Ku Head Alpha\n Kulve Taroth Alpha Armor Set\n Kushala Alpha Armor Set\n Lavasioth Alpha Armor Set\n Leather Alpha Armor Set\n Legiana Alpha Armor Set\n Lunastra Alpha Armor Set\n Lumu Alpha Armor Set\n Mosswine Alpha Armor Set\n Nergigante Alpha Armor Set\n Odogaron Alpha Armor Set\n Orion Armor Alpha Set\n Pukei Alpha Armor Set\n Rath Heart Alpha Armor Set\n Rath soul Alpha Armor Set\n Rathalos Alpha Armor Set\n Rathian Alpha Armor Set\n Ryu's Alpha Armor Set\n Sakura's Alpha Armor Set\n Shamos Alpha Armor Set\n Strategist Alpha Armor Set\n Teostra Alpha Armor Set\n Tzitzi Alpha Armor Set\n Uragaan Alpha Armor Set\n Vaal Hazak Alpha Armor Set\n Vespoid Alpha Armor Set\n Xeno'jiiva Alpha Armor Set\n Zorah Alpha Armor Set")
+    .addField("Alpha High Rank Armor 2", "Kestodon Alpha Armor Set\nKing Beetle Alpha Armor Set\nKirin Alpha Armor Set\nKulu Alpha Armor Set\nKulu Ya Ku Head Alpha\nKulve Taroth Alpha Armor Set\nKushala Alpha Armor Set\nLavasioth Alpha Armor Set\nLeather Alpha Armor Set\nLegiana Alpha Armor Set\nLunastra Alpha Armor Set\nLumu Alpha Armor Set\nMosswine Alpha Armor Set\nNergigante Alpha Armor Set\nOdogaron Alpha Armor Set\nOrion Armor Alpha Set\nPukei Alpha Armor Set\nRath Heart Alpha Armor Set\nRath soul Alpha Armor Set\nRathalos Alpha Armor Set\nRathian Alpha Armor Set\nRyu's Alpha Armor Set\nSakura's Alpha Armor Set\nShamos Alpha Armor Set\nStrategist Alpha Armor Set\nTeostra Alpha Armor Set\nTzitzi Alpha Armor Set\nUragaan Alpha Armor Set\nVaal Hazak Alpha Armor Set\nVespoid Alpha Armor Set\nXeno'jiiva Alpha Armor Set\nZorah Alpha Armor Set")
     .setTimestamp()
     .setFooter('List Menu');
 
@@ -28,7 +28,7 @@ exports.run = (client, message, args) => {
   } else if(args[0] == "hrbeta1") {
     const listEmbed = new Discord.RichEmbed()
     .setColor('#8fde5d')
-    .addField("Beta High Rank Armor 1", "Alloy Beta Armor Set\n Anja Beta Armor Set\n Baan Beta Armor Set\n Barnos Beta Armor Set\n Barroth Beta Armor Set\n Bazel Beta Armor Set\n Bone Beta Armor Set\n Butterfly Beta Armor Set\n Brigade Beta Armor Set\n Chainmail Beta Armor Set\n Commission Beta Armor Set\n Damascus Beta Armor Set\n Death Stench Beta Armor Set\n Deviljho Beta Armor Set\n Diablos Beta Armor Set\n Diablos Nero Beta Armor Set\n Dodogama Beta Armor Set\n Dober Beta Armor Set\n Gajau Beta Armor Set\n Gastodon Beta Armor Set\n Girros Beta Armor Set\n Guild Cross Beta Armor Set\n High Metal Beta Armor Set\n Hornetaur Beta Armor Set\n Hunter's Beta Armor Set\n Ingot Beta Armor Set\n Jagras Beta Armor Set\n Jyura Beta Armor Set\n Kadachi Beta Armor Set\n Kestodon Beta Armor Set\n King Beetle Beta Armor Set\n Kirin Beta Armor Set\n Kulu Beta Armor Set\n Kulve Taroth Beta Armor Set\n Kushala Beta Armor Set\n Lavasioth Beta Armor Set\n Leather Beta Armor Set\n Legiana Beta Armor Set\n Lunastra Beta Armor Set\n Lumu Beta Armor Set")
+    .addField("Beta High Rank Armor 1", "Alloy Beta Armor Set\nAnja Beta Armor Set\nBaan Beta Armor Set\nBarnos Beta Armor Set\nBarroth Beta Armor Set\nBazel Beta Armor Set\nBone Beta Armor Set\nButterfly Beta Armor Set\nBrigade Beta Armor Set\nChainmail Beta Armor Set\nCommission Beta Armor Set\nDamascus Beta Armor Set\nDeath Stench Beta Armor Set\nDeviljho Beta Armor Set\nDiablos Beta Armor Set\nDiablos Nero Beta Armor Set\nDodogama Beta Armor Set\nDober Beta Armor Set\nGajau Beta Armor Set\nGastodon Beta Armor Set\nGirros Beta Armor Set\nGuild Cross Beta Armor Set\nHigh Metal Beta Armor Set\nHornetaur Beta Armor Set\nHunter's Beta Armor Set\nIngot Beta Armor Set\nJagras Beta Armor Set\nJyura Beta Armor Set\nKadachi Beta Armor Set\nKestodon Beta Armor Set\nKing Beetle Beta Armor Set\nKirin Beta Armor Set\nKulu Beta Armor Set\nKulve Taroth Beta Armor Set\nKushala Beta Armor Set\nLavasioth Beta Armor Set\nLeather Beta Armor Set\nLegiana Beta Armor Set\nLunastra Beta Armor Set\nLumu Beta Armor Set")
     .setTimestamp()
     .setFooter('List Menu');
     
@@ -36,7 +36,7 @@ exports.run = (client, message, args) => {
   } else if(args[0] == "hrbeta2") {
     const listEmbed = new Discord.RichEmbed()
     .setColor('#8fde5d')
-    .addField("Beta High Rank Armor 2", "Nergigante Beta Armor Set\n Odogaron Beta Armor Set\n Pukei Beta Armor Set\n Rath Heart Beta Armor Set\n Rath Soul Beta Armor Set\n Rathalos Beta Armor Set\n Rathian Beta Armor Set\n Shamos Beta Armor Set\n Teostra Beta Armor Set\n Tzitzi Beta Armor Set\n Uragaan Beta Armor Set\n Vaal Hazak Beta Armor Set\n Vespoid Beta Armor Set\n Xeno'jiiva Beta Armor Set\n Zorah Beta Armor Set\n Nergigante Gamma Armor Set\n Kirin Gamma Armor Set\n Teostra Gamma Armor Set\n Lunastra Gamma Armor Set\n Xeno'jiiva Gamma Armor Set\n Zorah Gamma Armor Set\n Kushala Gamma Armor Set\n Vaal Hazak Gamma Armor Set\n Kulve Taroth Gamma Armor Set")
+    .addField("Beta High Rank Armor 2", "Nergigante Beta Armor Set\nOdogaron Beta Armor Set\nPukei Beta Armor Set\nRath Heart Beta Armor Set\nRath Soul Beta Armor Set\nRathalos Beta Armor Set\nRathian Beta Armor Set\nShamos Beta Armor Set\nTeostra Beta Armor Set\nTzitzi Beta Armor Set\nUragaan Beta Armor Set\nVaal Hazak Beta Armor Set\nVespoid Beta Armor Set\nXeno'jiiva Beta Armor Set\nZorah Beta Armor Set\nNergigante Gamma Armor Set\nKirin Gamma Armor Set\nTeostra Gamma Armor Set\nLunastra Gamma Armor Set\nXeno'jiiva Gamma Armor Set\nZorah Gamma Armor Set\nKushala Gamma Armor Set\nVaal Hazak Gamma Armor Set\nKulve Taroth Gamma Armor Set")
     .setTimestamp()
     .setFooter('List Menu');
     
@@ -44,7 +44,7 @@ exports.run = (client, message, args) => {
   } else if(args[0] == "mralpha1") {
     const listEmbed = new Discord.RichEmbed()
     .setColor('#8fde5d')
-    .addField("Alpha Master Rank Armor 1", "Alloy Alpha+\n Anja Alpha+\n Baan Alpha+\n Banbaro Alpha+\n Barroth Alpha+\n Beo Alpha+\n Bone Alpha+\n Dodogama Alpha+\n Girros Alpha+\n High Metal Alpha+\n Hornetaur Alpha+\n Jagras Alpha+\n Jyura Alpha+\n Kadachi Alpha+\n Viper Kadachi Alpha+\n Kulu Alpha+\n Lumu Alpha+\n Lumu Phamtasm Alpha+\n Pukei Alpha+\n Coral Pukei Alpha+\n Rath Heart Alpha+\n Rathian Alpha+\n Tzitzi Alpha+\n Vespoid Alpha+\n Kestodon Alpha+\n Gajau Alpha+\n Shamos Alpha+\n Gastodon+\n Barnos Alpha+\n Wulg Alpha+\n Cortos Alpha+\n Artian Alpha+\n Clockwork Alpha+\n Ingot Alpha+\n Barioth Alpha+\n Nargacuga Alpha+\n Glavenus Alpha+\n Black Belt Alpha+\n Brachydios Alpha+\n Diablos Alpha+\n Odogaron Alpha+\n Uragaan Alpha+\n Rath Soul Alpha+\n Tigrex Alpha+\n Rathalos Alpha+\n Legiana Alpha+\n Shrieking Legia Alpha+\n Acidic Glavenus Alpha+\n Damascus Alpha+\n Death Garon Alpha+\n Blackveil Hazak Alpha+\n Diablos Nero Alpha+\n Dober Alpha+\n Fulgur Anja Alpha+\n Kirin Alpha+\n Kushala Alpha+\n Lavasioth Alpha+") 
+    .addField("Alpha Master Rank Armor 1", "Alloy Alpha+\nAnja Alpha+\nBaan Alpha+\nBanbaro Alpha+\nBarroth Alpha+\nBeo Alpha+\nBone Alpha+\nDodogama Alpha+\nGirros Alpha+\nHigh Metal Alpha+\nHornetaur Alpha+\nJagras Alpha+\nJyura Alpha+\nKadachi Alpha+\nViper Kadachi Alpha+\nKulu Alpha+\nLumu Alpha+\nLumu Phamtasm Alpha+\nPukei Alpha+\nCoral Pukei Alpha+\nRath Heart Alpha+\nRathian Alpha+\nTzitzi Alpha+\nVespoid Alpha+\nKestodon Alpha+\nGajau Alpha+\nShamos Alpha+\nGastodon+\nBarnos Alpha+\nWulg Alpha+\nCortos Alpha+\nArtian Alpha+\nClockwork Alpha+\nIngot Alpha+\nBarioth Alpha+\nNargacuga Alpha+\nGlavenus Alpha+\nBlack Belt Alpha+\nBrachydios Alpha+\nDiablos Alpha+\nOdogaron Alpha+\nUragaan Alpha+\nRath Soul Alpha+\nTigrex Alpha+\nRathalos Alpha+\nLegiana Alpha+\nShrieking Legia Alpha+\nAcidic Glavenus Alpha+\nDamascus Alpha+\nDeath Garon Alpha+\nBlackveil Hazak Alpha+\nDiablos Nero Alpha+\nDober Alpha+\nFulgur Anja Alpha+\nKirin Alpha+\nKushala Alpha+\nLavasioth Alpha+") 
     .setTimestamp()
     .setFooter('List Menu');
   
@@ -52,7 +52,7 @@ exports.run = (client, message, args) => {
   } else if(args[0] == "mralpha2") {
     const listEmbed = new Discord.RichEmbed()
     .setColor('#8fde5d')
-    .addField("Alpha Master Rank Armor 2", " Namielle Alpha+\n Savage Jho Alpha+\n Seething Bazel Alpha+\n Shara Ishvalda Alpha+\n Teostra Alpha+\n Velkhana Alpha+\n Zorah Alpha+\n Pearlspring Alpha+\n Lunastra Alpha+\n Yian Garuga Alpha+\n Zinogre Alpha+\n Ruiner Nergi Alpha+\n Golden Lune Alpha+\n Silver Sol Alpha+\n Guild Palace Alpha+") 
+    .addField("Alpha Master Rank Armor 2", " Namielle Alpha+\nSavage Jho Alpha+\nSeething Bazel Alpha+\nShara Ishvalda Alpha+\nTeostra Alpha+\nVelkhana Alpha+\nZorah Alpha+\nPearlspring Alpha+\nLunastra Alpha+\nYian Garuga Alpha+\nZinogre Alpha+\nRuiner Nergi Alpha+\nGolden Lune Alpha+\nSilver Sol Alpha+\nGuild Palace Alpha+") 
     .setTimestamp()
     .setFooter('List Menu');
   
@@ -60,7 +60,7 @@ exports.run = (client, message, args) => {
   } else if(args[0] == "mrbeta1") {
     const listEmbed = new Discord.RichEmbed()
     .setColor('#8fde5d')
-    .addField("Beta Master Rank Armor 1", "Alloy Beta+\n Anja Beta+\n Baan Beta+\n Banbaro Beta+\n Barroth Beta+\n Beo Beta+\n Bone Beta+\n Dodogama Beta+\n Girros Beta+\n High Metal Beta+\n Hornetaur Beta+\n Jagras Beta+\n Jyura Beta+\n Kadachi Beta+\n Viper Kadachi Beta+\n Kulu Beta+\n Lumu Beta+\n Lumu Phamtasm Beta+\n Pukei Beta+\n Coral Pukei Beta+\n Rath Heart Beta+\n Rathian Beta+\n Tzitzi Beta+\n Vespoid Beta+\n Kestodon Beta+\n Gajau Beta+\n Shamos Beta+\n Gastodon Beta+\n Barnos Beta+\n Wulg Beta+\n Cortos Beta+\n Artian Beta+\n Clockwork Beta+\n Ingot Beta+\n Barioth Beta+\n Nargacuga Beta+\n Glavenus Beta+\n Black Belt Beta+\n Brachydios Beta+\n Diablos Beta+\n Odogaron Beta+\n Uragaan Beta+\n Rath Soul Beta+\n Tigrex Beta+\n Rathalos Beta+\n Legiana Beta+\n Shrieking Legia Beta+\n Acidic Glavenus Beta+\n Damascus Beta+\n Death Garon Beta+\n Blackveil Hazak Beta+\n Diablos Nero Beta+\n Dober Beta+\n Fulgur Anja Beta+\n Kirin Beta+\n Kushala Beta+\n Lavasioth Beta+\n Namielle Betan+\n Savage Jho Beta+\n Seething Bazel Beta+")
+    .addField("Beta Master Rank Armor 1", "Alloy Beta+\nAnja Beta+\nBaan Beta+\nBanbaro Beta+\nBarroth Beta+\nBeo Beta+\nBone Beta+\nDodogama Beta+\nGirros Beta+\nHigh Metal Beta+\nHornetaur Beta+\nJagras Beta+\nJyura Beta+\nKadachi Beta+\nViper Kadachi Beta+\nKulu Beta+\nLumu Beta+\nLumu Phamtasm Beta+\nPukei Beta+\nCoral Pukei Beta+\nRath Heart Beta+\nRathian Beta+\nTzitzi Beta+\nVespoid Beta+\nKestodon Beta+\nGajau Beta+\nShamos Beta+\nGastodon Beta+\nBarnos Beta+\nWulg Beta+\nCortos Beta+\nArtian Beta+\nClockwork Beta+\nIngot Beta+\nBarioth Beta+\nNargacuga Beta+\nGlavenus Beta+\nBlack Belt Beta+\nBrachydios Beta+\nDiablos Beta+\nOdogaron Beta+\nUragaan Beta+\nRath Soul Beta+\nTigrex Beta+\nRathalos Beta+\nLegiana Beta+\nShrieking Legia Beta+\nAcidic Glavenus Beta+\nDamascus Beta+\nDeath Garon Beta+\nBlackveil Hazak Beta+\nDiablos Nero Beta+\nDober Beta+\nFulgur Anja Beta+\nKirin Beta+\nKushala Beta+\nLavasioth Beta+\nNamielle Betan+\nSavage Jho Beta+\nSeething Bazel Beta+")
     .setTimestamp()
     .setFooter('List Menu');
 
@@ -68,7 +68,7 @@ exports.run = (client, message, args) => {
   } else if(args[0] == "mrbeta2") {
     const listEmbed = new Discord.RichEmbed()
     .setColor('#8fde5d')
-    .addField("Beta Master Rank Armor 2", "Shara Ishvalda Beta+\n Teostra Beta+\n Velkhana Beta+\n Zorah Beta+\n Lunastra Beta+\n Yian Garuga Beta+\n Zinogre Beta+\n Ruiner Nergi Beta+\n Golden LUne Beta+\n Silver Sol Beta+\n Guild Palace Beta+")
+    .addField("Beta Master Rank Armor 2", "Shara Ishvalda Beta+\nTeostra Beta+\nVelkhana Beta+\nZorah Beta+\nLunastra Beta+\nYian Garuga Beta+\nZinogre Beta+\nRuiner Nergi Beta+\nGolden LUne Beta+\nSilver Sol Beta+\nGuild Palace Beta+")
     .setTimestamp()
     .setFooter('List Menu');
 

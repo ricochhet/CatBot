@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
   if(args[0] == "monsters") {
     const listEmbed = new Discord.RichEmbed()
     .setColor('#8fde5d')
-    .addField('Large Monsters (World): ', "Anjanath\n Barroth\n Bazelgeuse\n Behemoth\n Deviljho\n Diablos\n Black-Diablos\n Dodogama\n Great-Girros\n Great-Jagras\n Jyuratodus\n Kirin\n Kulu-Ya-Ku\n Kulve-Taroth\n Kushala-Daora\n Lavasioth\n Legiana\n Lunastra\n Nergigante\n Odogaron\n Paolumu\n Pukei-Pukei\n Radobaan\n Rathalos\n Azure-Rathalos\n Rathian\n Pink-Rathian\n Teostra\n Tobi-Kadachi\n Tzitzi-Ya-Ku\n Uragaan\n Vaal Hazak\n Xeno'Jiiva\n Zorah-Magdaros\n Ancient-Leshen\n Leshen", true)
+    .addField('Large Monsters (World): ', "Anjanath\nBarroth\nBazelgeuse\nBehemoth\nDeviljho\nDiablos\nBlack-Diablos\nDodogama\nGreat-Girros\nGreat-Jagras\nJyuratodus\nKirin\nKulu-Ya-Ku\nKulve-Taroth\nKushala-Daora\nLavasioth\nLegiana\nLunastra\nNergigante\nOdogaron\nPaolumu\nPukei-Pukei\nRadobaan\nRathalos\nAzure-Rathalos\nRathian\nPink-Rathian\nTeostra\nTobi-Kadachi\nTzitzi-Ya-Ku\nUragaan\nVaal Hazak\nXeno'Jiiva\nZorah-Magdaros\nAncient-Leshen\nLeshen", true)
     .addField('Usage', "```+mhwinfo monstername```")
     .setTimestamp()
     .setFooter('List Menu');
@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
   } else if(args[0] == "ibmonsters") {
     const listEmbed = new Discord.RichEmbed()
     .setColor('#8fde5d')
-    .addField('Large Monsters (Iceborne): ' , "Banbaro\n Beotodus\n Nargacuga\n Velkhana\n Tigrex\n Shrieking-Legiana\n Barioth\n Glavenus\n Brachydios\n Fulgur-Anjanath\n Ebony-Odogaron\n Acidic-Glavenus\n Viper-Tobi-Kadachi\n Coral-Pukei-Pukei\n Nightshade-Paolumu\n Namielle\n Yian-Garuga\n Shara-Ishvalda\n Savage-Deviljho\n Blackveil-Vaal-Hazak\n Seething-Bazelgeuse\n Scarred-Yian-Garuga\n Gold-Rathian\n Silver-Rathalos\n Brute-Tigrex\n Zinogre", true)
+    .addField('Large Monsters (Iceborne): ' , "Banbaro\nBeotodus\nNargacuga\nVelkhana\nTigrex\nShrieking-Legiana\nBarioth\nGlavenus\nBrachydios\nFulgur-Anjanath\nEbony-Odogaron\nAcidic-Glavenus\nViper-Tobi-Kadachi\nCoral-Pukei-Pukei\nNightshade-Paolumu\nNamielle\nYian-Garuga\nShara-Ishvalda\nSavage-Deviljho\nBlackveil-Vaal-Hazak\nSeething-Bazelgeuse\nScarred-Yian-Garuga\nGold-Rathian\nSilver-Rathalos\nBrute-Tigrex\nZinogre", true)
     .addField('Usage', "```+mhwinfo monstername```")
     .setTimestamp()
     .setFooter('List Menu');
@@ -22,7 +22,7 @@ exports.run = (client, message, args) => {
   } else if(args[0] == "endemic") {
     const listEmbed = new Discord.RichEmbed()
     .setColor('#8fde5d')
-    .addField('Rare Endemic Life (World): ', "Moonlight-Gecko\n Pilot-Hare\n Dapper-Coralbird\n Wiggler-Queen\n Forest-Pteryx\n Emerald-Helmcrab\n Augurfly\n Phantom-Flutterfly\n Prism-Hercudrome\n Gold-Hercudrome\n Downy-Crake\n Bristly-Crake\n Giant Vigorwasp\n Petricanth\n Platinumfish\n King-Marlin\n Gold-Calappa", true)
+    .addField('Rare Endemic Life (World): ', "Moonlight-Gecko\nPilot-Hare\nDapper-Coralbird\nWiggler-Queen\nForest-Pteryx\nEmerald-Helmcrab\nAugurfly\nPhantom-Flutterfly\nPrism-Hercudrome\nGold-Hercudrome\nDowny-Crake\nBristly-Crake\nGiant Vigorwasp\nPetricanth\nPlatinumfish\nKing-Marlin\nGold-Calappa", true)
     .addField('Usage', "```+mhwinfo monstername```")
     .setTimestamp()
     .setFooter('List Menu');
