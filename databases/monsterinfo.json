@@ -409,9 +409,9 @@
         "url": "https://monsterhunterworld.wiki.fextralife.com/Fulgur+Anjanath",
         "description": "Brute Wyvern",
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-fulgur_anjanath_icon.png",
-        "elements": "Fire ⭐⭐\nWater ⭐⭐(⭐⭐⭐)\nThunder :x:\nIce ⭐⭐⭐(⭐⭐)\nDragon ⭐ () when charged.",
+        "elements": "Fire ⭐⭐\nWater ⭐⭐(⭐⭐⭐)\nThunder :x:\nIce ⭐⭐⭐(⭐⭐)\nDragon ⭐\n() when charged.",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐⭐",
-        "locations": ""
+        "locations": "All Locations"
     },    
     "ebony-odogaron": {
         "title": "Ebony Odogaron",
@@ -429,7 +429,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-acidic_glavenus_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater ⭐\nThunder ⭐⭐\nIce ⭐\nDragon ⭐⭐(⭐) () when crystalized.",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
-        "locations": "Ancient Forest"
+        "locations": "Rotten Vale"
     },    
     "ruiner-nergigante": {
         "title": "Ruiner Nergigante",

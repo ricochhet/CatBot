@@ -11,17 +11,17 @@ const usageEmbed = new Discord.RichEmbed()
 .addField('Usage: ', "```+mhwiteminfo itemname```", true)
 .setTimestamp()
 .setFooter('List Menu');
-
+  
 if(!args.length) return message.channel.send(usageEmbed);
   const input = args.join(' ').toLowerCase();
 
   if (!itemList.has(input)) {
-
     let msg = 'That item doesn\'t seem to exist!';
 
     const similar = new Array();
+    
     for (const key of itemList.keys()) {
-        if (similarity(key, input) >= 0.5) {
+        if (similarity(key, input) >= 0.5){
             similar.push(key);
         }
     }

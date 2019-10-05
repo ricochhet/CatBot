@@ -20,7 +20,7 @@ exports.run = (client, message, args) => {
     .setColor('#8fde5d')
     .addField('Servers: ', client.guilds.size, true)
     .addField('Members: ', userCount, true)
-    .addField('Bot Version: ', "v1.6.8", true)
+    .addField('Bot Version: ', "v1.6.9", true)
     .addField('Heartbeat: ', pingRounded + "ms", true)
     .addField('Uptime: ', uptime, true)
     .setTimestamp()
