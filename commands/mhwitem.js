@@ -8,7 +8,7 @@ const itemList = new Map();
 exports.run = (client, message, args) => {
 const usageEmbed = new Discord.RichEmbed()
 .setColor('#8fde5d')
-.addField('Usage: ', "```+mhwiteminfo itemname```", true)
+.addField('Usage: ', "```+mhwitem itemname```", true)
 .setTimestamp()
 .setFooter('List Menu');
   
