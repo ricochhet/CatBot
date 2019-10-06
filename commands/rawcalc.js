@@ -11,7 +11,7 @@ module.exports = {
     const data = [];
     data.push('damage: base damage value');
     data.push('weapontype: bow, chargeblade, dualblades, greatsword, gunlance, hammer, heavybowgun, huntinghorn, insectglaive, lance, lightbowgun, longsword, switchaxe, swordandshield');
-    data.push('sharpness: none, red, orange, yellow, green, blue, white, purple');
+    data.push('sharpness (raw): none, red, orange, yellow, green, blue, white, purple');
     data.push('monsterpartmultiplier: multiplier value');
 
     const usageEmbed = new Discord.RichEmbed()

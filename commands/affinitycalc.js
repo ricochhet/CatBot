@@ -14,7 +14,7 @@ module.exports = {
       let rounded = addDamage.toString().split(".")[0];
   
       if(Number.isNaN(rounded)) {
-        message.channel.send("Sorry meowster, I can't calculate that!");
+        message.channel.send(`Sorry meowster, I can't calculate that! Usage: \`${this.usage}\``);
       } else {
         message.channel.send("Your damange + affinity is " + "**" + rounded + "**" + " meowster!");
       }
