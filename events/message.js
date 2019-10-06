@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = (client, message) => {
   let prefix = "+";
   
@@ -9,14 +11,28 @@ module.exports = (client, message) => {
 
   // Our standard argument/command name definition.
   const args = message.content.slice(prefix.length).trim().toLowerCase().split(/ +/g);
-  const command = args.shift().toLowerCase();
+  const cmdName = args.shift().toLowerCase();
 
   // Grab the command data from the client.commands Enmap
-  const cmd = client.commands.get(command);
+  const command = client.commands.get(cmdName);
 
   // If that command doesn't exist, silently exit and do nothing
-  if (!cmd) return;
+  if (!command) return;
+
+  // If the command requires arguments, check early
+  if (command.args && !args.length) {
+    // Print command usage if it's defined 
+    if (command.usage) {
+      const usageEmbed = new Discord.RichEmbed()
+        .setColor('#8fde5d')
+        .addField('Usage: ', command.usage, true)
+        .setTimestamp();
+      
+      message.channel.send(usageEmbed);
+    }      
+    return;  
+  }
 
   // Run the command
-  cmd.run(client, message, args);
+  command.run(client, message, args);
 };

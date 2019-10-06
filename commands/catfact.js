@@ -103,6 +103,11 @@ var catFacts = ['Unlike dogs, cats do not have a sweet tooth. Scientists believe
 'Cats can drink seawater',
 'There is a show in Iceland called "Keeping Up With the Kattarshians." Its a cat reality show that features 4 kittens who live together in fully-furnished "cat" house, Big Brother-style.',]
 
-exports.run = (client, message, args) => {
-  message.channel.send(catFacts[Math.floor(Math.random()*catFacts.length)]);	
-};
+module.exports = {
+  name: 'catfact',
+  args: false,
+  description: 'Shows a random cat fact',
+  run (client, message, args) {
+    message.channel.send(catFacts[Math.floor(Math.random()*catFacts.length)]);	
+  }
+} 
