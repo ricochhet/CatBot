@@ -111,3 +111,8 @@ module.exports = {
     message.channel.send(catFacts[Math.floor(Math.random()*catFacts.length)]);	
   }
 } 
+
+/*
+exports.run = (client, message, args) => {
+  message.channel.send(catFacts[Math.floor(Math.random()*catFacts.length)]);	
+};*/
