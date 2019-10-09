@@ -17,6 +17,12 @@ module.exports = {
   
       let pingTime = client.ping;
       let pingRounded = Math.round(pingTime);
+      
+      let messagePing = new Date().getTime() - message.createdTimestamp;
+      let messagePingRounded = Math.round(messagePing);
+      
+      let nodejsVersion = process.version;
+      let discordjsVersion = Discord.version;
   
       let userCount = client.guilds.map(g => g.memberCount).reduce((a, b) => a + b);
   
@@ -24,9 +30,12 @@ module.exports = {
       .setColor('#8fde5d')
       .addField('Servers: ', client.guilds.size, true)
       .addField('Members: ', userCount, true)
-      .addField('Bot Version: ', "v1.6.11", true)
-      .addField('Heartbeat: ', pingRounded + "ms", true)
+      .addField('Bot Version: ', "v1.6.12", true)
+      .addField('Message Latency', messagePingRounded + "ms", true)
+      .addField('API Latency: ', pingRounded + "ms", true)
       .addField('Uptime: ', uptime, true)
+      .addField('NodeJS Version', nodejsVersion, true)
+      .addField('DiscordJS Version', discordjsVersion, true)
       .setTimestamp()
       .setFooter('Status Menu', client.user.avatarURL);
   
