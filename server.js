@@ -3,9 +3,9 @@ const client = new Discord.Client();
 const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBLTOKEN, client);
 const fs = require('fs');
-const http = require('http');
-var express = require('express');
-var app = express();
+// const http = require('http');
+// var express = require('express');
+// var app = express();
 
 client.commands = new Discord.Collection();
 
