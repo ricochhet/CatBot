@@ -6,6 +6,7 @@
       "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-anjanath_icon.png",
       "elements": "Fire :x:\nWater ⭐⭐⭐\nThunder ⭐⭐\nIce ⭐⭐\nDragon ⭐⭐",
       "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐",
+      "blights": "Fireblight",
       "locations": "Ancient Forest\nWildspire Waste"
     }, 
     "barroth": {
@@ -15,6 +16,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/MHW-Barroth_Icon.png",
         "elements": "Fire ⭐⭐⭐(:x:)\nWater :x:(⭐⭐⭐)\nThunder :x:\nIce ⭐⭐\nDragon ⭐\n() when covered in mud.",
         "ailments": "Poison ⭐⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐⭐\nBlast ⭐⭐⭐\nStun ⭐",
+        "blights": "Waterblight",
         "locations": "Wildspire Waste"
     },    
     "bazelgeuse": {
@@ -24,6 +26,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-bazelgeuse_icon.png",
         "elements": "Fire :x:\nWater ⭐\nThunder ⭐⭐⭐\nIce ⭐⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐",
+        "blights": "Fireblight",
         "locations": "Ancient Forest\nCoral Highlands\nRotten Vale\nWildspire Waste\nElders Recess"
     },    
     "behemoth": {
@@ -33,6 +36,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-behemoth_icon.png",
         "elements": "Fire ⭐\nWater ⭐⭐\nThunder ⭐\nIce ⭐⭐\nDragon ⭐⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Bleeding\nFireblight\nThunderblight",
         "locations": "Elders Recess"
     },    
     "deviljho": {
@@ -42,6 +46,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-deviljho_icon.png",
         "elements": "Fire ⭐⭐\nWater ⭐⭐\nThunder ⭐⭐⭐\nIce ⭐\nDragon ⭐⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Dragonblight\nDefense Down\nFireblight (on lava terrain)\nWaterblight (on water terrain)\nEffluvial Buildup (in Rotten Vale)",
         "locations": "Ancient Forest\nCoral Highlands\nRotten Vale\nWildspire Waste\nElders Recess"
     },    
     "diablos": {
@@ -51,6 +56,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhw-diablos_icon.png",
         "elements": "Fire :x:\nWater ⭐⭐\nThunder ⭐\nIce ⭐⭐⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐⭐\nBlast ⭐⭐\nStun ⭐",
+        "blights": "Stun",
         "locations": "Wildspire Waste"
     },    
     "blackdiablos": {
@@ -60,6 +66,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-black_diablos_icon.png",
         "elements": "Fire :x:\nWater ⭐⭐\nThunder ⭐\nIce ⭐⭐⭐\nDragon :x:",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐⭐\nBlast ⭐⭐\nStun ⭐",
+        "blights": "Stun",
         "locations": "Wildspire Waste (High Rank)"
     },    
     "dodogama": {
@@ -69,6 +76,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-dodogama_icon.png",
         "elements": "Fire :x:\nWater ⭐⭐\nThunder ⭐⭐⭐\nIce ⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐⭐",
+        "blights": "Blastblight",
         "locations": "Elders Recess"
     },    
     "greatgirros": {
@@ -78,6 +86,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-great_girros_icon2.png",
         "elements": "Fire ⭐⭐\nWater ⭐⭐⭐\nThunder :x:\nIce ⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐⭐\nParalysis ⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Paralysis",
         "locations": "Rotten Vale"
     },    
     "greatjagras": {
@@ -87,6 +96,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-great_jagras_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater :x:\nThunder ⭐⭐\nIce ⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐⭐\nSleep ⭐⭐⭐\nParalysis ⭐⭐⭐\nBlast ⭐⭐⭐\nStun ⭐⭐⭐",
+        "blights": "n/a",
         "locations": "Ancient Forest"
     },    
     "jyuratodus": {
@@ -96,6 +106,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-jyuratodus_icon2.png",
         "elements": "Fire ⭐(:x:)\nWater :x:(⭐⭐⭐)\nThunder ⭐⭐⭐(:x:)\nIce ⭐\nDragon ⭐\n() when covered in mud.",
         "ailments": "Poison ⭐⭐\nSleep ⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐⭐⭐",
+        "blights": "Waterblight",
         "locations": "Wildspire Waste"
     },    
     "kirin": {
@@ -105,6 +116,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-kirin_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater ⭐⭐\nThunder :x:\nIce ⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐\nSleep ⭐⭐\nParalysis :x:\nBlast ⭐⭐\nStun ⭐",
+        "blights": "Thunderblight",
         "locations": "Coral Highlands"
     },    
     "kulu-ya-ku": {
@@ -114,6 +126,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-kulu-ya-ku_icon.png",
         "elements": "Fire ⭐⭐\nWater ⭐⭐⭐\nThunder ⭐⭐\nIce ⭐⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "n/a",
         "locations": "Ancient Forest\nWildspire Waste"
     },    
     "kulvetaroth": {
@@ -123,6 +136,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-kulve_taroth_icon.png",
         "elements": "Fire :x:(⭐)\nWater ⭐⭐\nThunder :x:(⭐⭐⭐)\nIce ⭐⭐⭐(:x:)\nDragon ⭐⭐(⭐)\n() when covered in gold.",
         "ailments": "Poison ⭐\nSleep ⭐\nParalysis ⭐\nBlast ⭐\nStun ⭐",
+        "blights": "Fireblight",
         "locations": "Caverns of El Dorado"
     },    
     "kushaladaora": {
@@ -132,6 +146,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-kushala_daora_icon.png",
         "elements": "Fire ⭐\nWater :x:\nThunder ⭐⭐⭐\nIce :x:\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐⭐\nSleep ⭐\nParalysis ⭐\nBlast ⭐⭐⭐\nStun ⭐⭐",
+        "blights": "Stun",
         "locations": "Ancient Forest\nElders Recess"
     },    
     "lavasioth": {
@@ -141,6 +156,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-lavasioth_icon.png",
         "elements": "Fire :x:(⭐)\nWater ⭐⭐⭐(⭐⭐)\nThunder ⭐⭐(:x:)\nIce ⭐⭐(:x:)\nDragon ⭐\n() when hardened.",
         "ailments": "Poison ⭐⭐⭐\nSleep ⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐⭐",
+        "blights": "Fireblight",
         "locations": "Elders Recess"
     },    
     "legiana": {
@@ -150,6 +166,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-legiana_icon.png",
         "elements": "Fire ⭐⭐\nWater ⭐\nThunder ⭐⭐⭐\nIce :x:\nDragon ⭐",
         "ailments": "Poison ⭐⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Iceblight",
         "locations": "Coral Highlands"
     },    
     "lunastra": {
@@ -159,6 +176,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-lunastra_icon2.png",
         "elements": "Fire :x:\nWater ⭐\nThunder ⭐\nIce ⭐⭐⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐\nSleep ⭐\nParalysis ⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Fireblight",
         "locations": "Elders Recess"
     },    
     "nergigante": {
@@ -168,6 +186,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-nergigante_icon.png",
         "elements": "Fire ⭐\nWater ⭐\nThunder ⭐⭐⭐\nIce ⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "n/a",
         "locations": "Elders Recess"
     },    
     "odogaron": {
@@ -177,6 +196,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-odogaron_icon.png",
         "elements": "Fire ⭐\nWater ⭐\nThunder ⭐⭐\nIce ⭐⭐⭐\nDragon :x:",
         "ailments": "Poison ⭐\nSleep ⭐⭐\nParalysis ⭐⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Bleeding",
         "locations": "Coral Highlands\nRotten Vale"
     },    
     "paolumu": {
@@ -186,6 +206,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-paolumu_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater :x:\nThunder ⭐⭐\nIce ⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐⭐\nStun ⭐⭐⭐",
+        "blights": "Wind Pressure",
         "locations": "Coral Highlands"
     },    
     "pukei-pukei": {
@@ -195,6 +216,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-pukei-pukei_icon.png",
         "elements": "Fire ⭐⭐\nWater :x:\nThunder ⭐⭐⭐\nIce ⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐\nSleep ⭐⭐⭐\nParalysis ⭐⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Poison",
         "locations": "Ancient Forest"
     },    
     "radobaan": {
@@ -204,6 +226,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-radobaan_icon.png",
         "elements": "Fire ⭐\nWater ⭐\nThunder ⭐\nIce ⭐⭐\nDragon ⭐⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐\nParalysis ⭐⭐\nBlast ⭐⭐⭐\nStun ⭐⭐",
+        "blights": "Sleep",
         "locations": "Rotten Vale"
     },    
     "rathalos": {
@@ -213,6 +236,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-rathalos_icon.png",
         "elements": "Fire :x:\nWater ⭐\nThunder ⭐⭐\nIce ⭐\nDragon ⭐⭐⭐",
         "ailments": "Poison ⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐⭐",
+        "blights": "Fireblight\nPoison\nStun",
         "locations": "Ancient Forest"
     },    
     "azurerathalos": {
@@ -222,6 +246,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-azure_rathalos_icon.png",
         "elements": "Fire :x:\nWater ⭐\nThunder ⭐\nIce ⭐⭐\nDragon ⭐⭐⭐",
         "ailments": "Poison ⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐⭐",
+        "blights": "Fireblight\nPoison\nStun",
         "locations": "Ancient Forest\nElders Recess"
     },    
     "rathian": {
@@ -231,6 +256,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-rathian_icon.png",
         "elements": "Fire :x:\nWater ⭐\nThunder ⭐⭐\nIce ⭐\nDragon ⭐⭐⭐",
         "ailments": "Poison ⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐⭐⭐",
+        "blights": "Fireblight\nPoison",
         "locations": "Ancient Forest\nWildspire Waste"
     },    
     "pinkrathian": {
@@ -240,6 +266,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-pink_rathian_icon2.png",
         "elements": "Fire :x:\nWater ⭐\nThunder ⭐⭐\nIce ⭐\nDragon ⭐⭐⭐",
         "ailments": "Poison ⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐⭐⭐",
+        "blights": "Poison",
         "locations": "Wildspire Waste\nCoral Highlands"
     },    
     "teostra": {
@@ -249,6 +276,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-teostra_icon.png",
         "elements": "Fire :x:\nWater ⭐⭐⭐\nThunder ⭐\nIce ⭐⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐\nParalysis ⭐\nBlast ⭐\nStun ⭐⭐",
+        "blights": "Fireblight\nBlastblight",
         "locations": "Wildspire Waste\nElders Recess"
     },    
     "tobi-kadachi": {
@@ -258,6 +286,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-tobi-kadachi_icon.png",
         "elements": "Fire ⭐⭐\nWater ⭐⭐⭐\nThunder :x:\nIce ⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Thunderblight",
         "locations": "Ancient Forest"
     },    
     "tzitzi-ya-ku": {
@@ -267,6 +296,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-tzitzi-ya-ku_icon2.png",
         "elements": "Fire ⭐⭐\nWater ⭐⭐\nThunder ⭐⭐⭐\nIce ⭐⭐⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Stun",
         "locations": "Coral Highlands"
     },    
     "uragaan": {
@@ -276,6 +306,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-uragaan_icon.png",
         "elements": "Fire :x:\nWater ⭐⭐⭐\nThunder ⭐\nIce ⭐⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐⭐\nSleep ⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐⭐",
+        "blights": "Sleep\nFireblight",
         "locations": "Elders Recess"
     },    
     "vaalhazak": {
@@ -285,6 +316,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-vaal_hazak_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater :x:\nThunder ⭐\nIce ⭐⭐\nDragon ⭐⭐⭐",
         "ailments": "Poison ⭐\nSleep ⭐\nParalysis ⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Effluvia",
         "locations": "Rotten Vale"
     },    
     "xeno'jiiva": {
@@ -294,6 +326,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-xeno'jiiva_icon.png",
         "elements": "Fire ⭐⭐\nWater ⭐⭐\nThunder ⭐⭐\nIce ⭐⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐⭐\nSleep :x:\nParalysis ⭐\nBlast ⭐⭐\nStun ⭐",
+        "blights": "Fireblight\nDragonblight",
         "locations": "Confluence of Fates"
     },    
     "zorahmagdaros": {
@@ -303,15 +336,17 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-zorah_magdaros_icon.png",
         "elements": "Fire :x:\nWater ⭐⭐⭐\nThunder ⭐\nIce ⭐⭐\nDragon ⭐⭐⭐",
         "ailments": "Poison :x:\nSleep :x:\nParalysis :x:\nBlast :x:\nStun :x:",
+        "blights": "Fireblight",
         "locations": "n/a"
     },    
     "ancientleshen": {
         "title": "Ancient Leshen",
-        "url": "https://monsterhunterworld.wiki.fextralife.com/Great+Girros",
+        "url": "https://monsterhunterworld.wiki.fextralife.com/Ancient+Leshen",
         "description": "Relict",
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/ancient_leshen_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater :x:\nThunder ⭐⭐\nIce ⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep :x:\nParalysis ⭐\nBlast ⭐\nStun ⭐",
+        "blights": "Bleeding",
         "locations": "Ancient Forest"
     },    
     "leshen": {
@@ -321,6 +356,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-leshen_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater :x:\nThunder ⭐⭐\nIce ⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐⭐\nSleep :x:\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐",
+        "blights": "Bleeding",
         "locations": "Ancient Forest"
     },    
     "banbaro": {
@@ -330,6 +366,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-banbaro_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater :x:\nThunder ⭐\nIce :x:\nDragon ⭐⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐⭐\nStun ⭐⭐⭐",
+        "blights": "Iceblight (in Hoarfrost Reach)\nWaterblight (in Coral Highlands)\nFireblight (in Elder's Recess)",
         "locations": "Hoarfrost Reach"
     },    
     "beotodus": {
@@ -339,6 +376,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-beotodus_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater ⭐\nThunder ⭐⭐\nIce :x:\nDragon :x:",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐⭐\nStun ⭐⭐",
+        "blights": "Iceblight",
         "locations": "Hoarfrost Reach"
     },    
     "nargacuga": {
@@ -348,6 +386,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-nargacuga_icon.png",
         "elements": "Fire ⭐⭐\nWater :x:\nThunder ⭐⭐⭐\nIce ⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Bleeding",
         "locations": "Coral Highlands\nAncient Forest"
     },    
     "velkhana": {
@@ -357,6 +396,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-velkhana_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater ⭐\nThunder ⭐⭐\nIce :x:\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐\nParalysis ⭐\nBlast ⭐⭐⭐\nStun ⭐",
+        "blights": "Iceblight",
         "locations": "Elders Recess\nHoarfrost Reach"
     },    
     "tigrex": {
@@ -366,6 +406,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-tigrex_icon.png",
         "elements": "Fire :x:\nWater ⭐\nThunder ⭐⭐⭐\nIce ⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Iceblight (on icy terrain)\nWaterblight (on water terrain)",
         "locations": "Rotten Vale\nHoarfrost Reach\nWildspire Waste\nAncient Forest\nElders Recess"
     },    
     "shriekinglegiana": {
@@ -375,6 +416,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-shrieking_legiana_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater ⭐\nThunder ⭐⭐\nIce :x:\nDragon ⭐",
         "ailments": "Poison ⭐⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Iceblight",
         "locations": "Hoarfrost Reach"
     },    
     "barioth": {
@@ -384,6 +426,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-barioth_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater :x:\nThunder ⭐⭐\nIce :x:\nDragon ⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Iceblight",
         "locations": "Hoarfrost Reach"
     },    
     "glavenus": {
@@ -393,6 +436,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-glavenus_icon.png",
         "elements": "Fire :x:\nWater ⭐⭐⭐\nThunder ⭐\nIce ⭐⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Fireblight",
         "locations": "Ancient Forest\nWildspire Waste\nElders Recess"
     },    
     "brachydios": {
@@ -402,6 +446,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-brachydios_icon.png",
         "elements": "Fire :x:\nWater ⭐⭐\nThunder ⭐\nIce ⭐⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐⭐",
+        "blights": "Blastcourge",
         "locations": "Elders Recess"
     },    
     "fulguranjanath": {
@@ -411,6 +456,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-fulgur_anjanath_icon.png",
         "elements": "Fire ⭐⭐\nWater ⭐⭐(⭐⭐⭐)\nThunder :x:\nIce ⭐⭐⭐(⭐⭐)\nDragon ⭐\n() when charged.",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐⭐",
+        "blights": "Thunderblight",
         "locations": "All Locations"
     },    
     "ebonyodogaron": {
@@ -420,6 +466,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-ebony_odogaron_icon.png",
         "elements": "Fire ⭐⭐\nWater ⭐⭐⭐\nThunder ⭐⭐\nIce ⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐⭐\nSleep :x:\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐",
+        "blights": "Dragonblight\nBleeding",
         "locations": "All Locations"
     },    
     "acidicglavenus": {
@@ -429,6 +476,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-acidic_glavenus_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater ⭐\nThunder ⭐⭐\nIce ⭐\nDragon ⭐⭐(⭐) () when crystalized.",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Defense Down",
         "locations": "Rotten Vale"
     },    
     "ruinernergigante": {
@@ -438,6 +486,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-ruiner_nergigante_icon.png",
         "elements": "Fire ⭐\nWater ⭐\nThunder ⭐⭐\nIce ⭐\nDragon ⭐⭐⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐⭐\nStun ⭐",
+        "blights": "Bleeding",
         "locations": "Guiding Lands (Level 5 or Above)"
     },    
     "vipertobi-kadachi": {
@@ -447,6 +496,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-viper_tobi-kadachi_icon.png",
         "elements": "Fire ⭐\nWater :x:\nThunder ⭐⭐⭐\nIce ⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐\nSleep ⭐⭐\nParalysis ⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Poison\nNoxious Poison\nParalysis",
         "locations": "Hoarfrost Reach"
     },    
     "coralpukei-pukei": {
@@ -456,6 +506,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-coral_pukei-pukei_icon.png",
         "elements": "Fire ⭐\nWater :x:\nThunder ⭐⭐\nIce ⭐⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Waterblight",
         "locations": "Coral Highlands"
     },    
     "nightshadepaolumu": {
@@ -465,6 +516,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-nightshade_paolumu_icon.png",
         "elements": "Fire ⭐⭐\nWater ⭐⭐⭐\nThunder ⭐\nIce ⭐\nDragon :x:",
         "ailments": "Poison ⭐⭐\nSleep ⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Sleep",
         "locations": "Wildspire Waste\nAncient Forest"
     },    
     "namielle": {
@@ -474,6 +526,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-namielle_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater :x:\nThunder :x:\nIce ⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐⭐⭐\nSleep ⭐\nParalysis ⭐\nBlast ⭐⭐⭐\nStun ⭐⭐",
+        "blights": "Waterblight\nThunderblight",
         "locations": "Coral Highlands"
     },    
     "yiangaruga": {
@@ -483,6 +536,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-yian_garuga_icon.png",
         "elements": "Fire :x:\nWater ⭐⭐⭐\nThunder :x:\nIce ⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐\nSleep ⭐\nParalysis ⭐⭐\nBlast ⭐⭐⭐\nStun ⭐⭐",
+        "blights": "Fireblight\nPoison",
         "locations": "Guiding Lands (Forest)"
     },    
     "sharaishvalda": {
@@ -492,6 +546,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-shara_ishvalda_icon.png",
         "elements": "Fire ⭐\nWater ⭐⭐\nThunder :x:\nIce ⭐⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐\nSleep :x:\nParalysis ⭐\nBlast ⭐⭐⭐(⭐⭐)\nStun ⭐\n() when released.",
+        "blights": "Stun",
         "locations": "Origin Isle"
     },    
     "savagedeviljho": {
@@ -501,6 +556,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-savage_deviljho_icon.png",
         "elements": "Fire ⭐⭐\nWater ⭐⭐\nThunder ⭐⭐⭐\nIce ⭐\nDragon ⭐⭐⭐",
         "ailments": "Poison ⭐⭐⭐\nSleep ⭐⭐⭐\nParalysis ⭐⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Defense Down\nDragonblight\nFireblight (on lava terrain)\nIceblight (on icy terrain)\nWaterblight (on water terrain)",
         "locations": "All Locations"
     },    
     "blackveilvaalhazak": {
@@ -510,6 +566,7 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-blackveil_vaal_hazak_icon.png",
         "elements": "Fire ⭐⭐\nWater :x:\nThunder ⭐\nIce ⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐\nSleep ⭐\nParalysis ⭐\nBlast ⭐⭐\nStun ⭐",
+        "blights": "Effluvial Buildup",
         "locations": "Ancient Forest\nRotten Vale"
     },    
     "seethingbazelgeuse": {
@@ -519,42 +576,47 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-seething_bazelgeuse_icon.png",
         "elements": "Fire :x:\nWater ⭐\nThunder ⭐⭐\nIce ⭐⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐⭐",
+        "blights": "Fireblight",
         "locations": "Elders Recess"
     },    
     "scarredyiangaruga": {
         "title": "Scarred Yian Garuga",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Scarred+Yian+Garuga",
         "description": "Bird Wyvern",
-        "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-gajalaka_icon.png",
+        "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhwi-scarred_yian_garuga_icon.png",
         "elements": "Fire :x:\nWater ⭐⭐⭐\nThunder :x:\nIce ⭐\nDragon ⭐⭐",
         "ailments": "Poison ⭐\nSleep ⭐\nParalysis ⭐⭐\nBlast ⭐⭐⭐\nStun ⭐⭐",
+        "blights": "Fireblight\nPoison\nStun",
         "locations": "Guiding Lands (Forest LV6 & Above)"
     },    
     "goldrathian": {
         "title": "Gold Rathian",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Gold+Rathian",
         "description": "Flying Wyvern",
-        "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-gajalaka_icon.png",
+        "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhwi-gold_rathian_icon.png",
         "elements": "Fire :x:\nWater ⭐⭐\nThunder ⭐⭐⭐\nIce ⭐\nDragon :x:",
         "ailments": "Poison ⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐⭐",
+        "blights": "Fireblight\nPoison",
         "locations": "Guiding Lands (Wildspire LV6 & Above)"
     },    
     "silverrathalos": {
         "title": "Silver Rathalos",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Silver+Rathalos",
         "description": "Flying Wyvern",
-        "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-gajalaka_icon.png",
+        "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhwi-silver_rathalos_icon.png",
         "elements": "Fire :x:\nWater ⭐⭐⭐\nThunder ⭐⭐\nIce ⭐\nDragon :x:",
         "ailments": "Poison ⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐\nStun ⭐⭐",
+        "blights": "Fireblight\nStun\nPoison",
         "locations": "Guiding Lands (Coral LV6 & Above)"
     },    
     "brutetigrex": {
         "title": "Brute Tigrex",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Brute+Tigrex",
         "description": "Flying Wyvern",
-        "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-gajalaka_icon.png",
+        "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhwi-brute_tigrex_icon.png",
         "elements": "Fire :x:\nWater ⭐⭐⭐\nThunder ⭐⭐\nIce ⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Fireblight\nWaterblight",
         "locations": "Guiding Lands (Rotten LV6 & Above)"
     },    
     "zinogre": {
@@ -564,6 +626,17 @@
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhwi-zinogre_icon.png",
         "elements": "Fire ⭐\nWater ⭐⭐\nThunder :x:\nIce ⭐⭐⭐\nDragon ⭐",
         "ailments": "Poison ⭐⭐\nSleep ⭐⭐\nParalysis ⭐\nBlast ⭐⭐\nStun ⭐⭐",
+        "blights": "Thunderblight",
+        "locations": "Guiding Lands"
+    },    
+    "rajang": {
+        "title": "Rajang",
+        "url": "https://monsterhunterworld.wiki.fextralife.com/Rajang",
+        "description": "Fanged Beast",
+        "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhwi-rajang_icon.png",
+        "elements": "Fire :x:\nWater ⭐\nThunder :x:\nIce ⭐⭐⭐\nDragon :x:",
+        "ailments": "Poison ⭐\nSleep ⭐\nParalysis ⭐\nBlast ⭐⭐\nStun ⭐",
+        "blights": "Thunderblight",
         "locations": "Guiding Lands"
     }
 }

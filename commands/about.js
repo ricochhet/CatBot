@@ -9,8 +9,8 @@ module.exports = {
       .setColor('#8fde5d')
       .addField('Author: ', "Ricochet#7498", true)
       .addField('Contributors', "Chad#0389", true)
-      .addField('Bot Version: ', "v1.6.12", true)
-      .addField('Changelog: ', "v1.6.12 | Input syntax for monsters has changed, as well as a similarity feature, most monsters don't require the '-' anymore, you can just use a space. Unless the monster has a hyphyen in their actual name, e.g tobi-kadachi")
+      .addField('Bot Version: ', "v1.6.14", true)
+      .addField('Changelog: ', "v1.6.14 | The Blight Update, Monsters now have info on what blights they inflict")
       .addField('Schedule: ', "No Outages Expected")
       .addField('Roadmap: ', "Optimization")
       .addField('Feedback/Requests: ', "Do `+support` to go to the support server.")
@@ -20,20 +20,3 @@ module.exports = {
     message.channel.send(aboutEmbed);
   }
 }
-
-/*
-exports.run = (client, message, args) => {
-  const aboutEmbed = new Discord.RichEmbed()
-  .setColor('#8fde5d')
-  .addField('Author: ', "Ricochet#7498", true)
-  .addField('Contributors', "Chad#0389", true)
-  .addField('Bot Version: ', "v1.6.10", true)
-  .addField('Changelog: ', "v1.6.10 | Added `+mhwitem` similarity feature")
-  .addField('Schedule: ', "No Outages Expected")
-  .addField('Roadmap: ', "Optimization")
-  .addField('Feedback/Support: ', "Do `+support` to go to the support server.")
-  .setTimestamp()
-  .setFooter('About Menu', client.user.avatarURL);
-
-  message.channel.send(aboutEmbed);
-}*/
