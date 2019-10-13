@@ -22,6 +22,14 @@ module.exports = {
   run (client, message, args) {
     const input = args.join('').toLowerCase();
     
+    // If input matches the alias of a monster, change input to that monster name
+    for (let [name, monster] of monsters.entries()) {
+      if (monster.aliases && monster.aliases.includes(input)) {
+        input = name;
+        break;
+      }
+    }
+
     if (!monsters.has(input) && !endemics.has(input)) {     
       let msg = 'That monster/endemic life doesn\'t seem to exist!';
 
