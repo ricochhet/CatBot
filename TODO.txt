@@ -1,0 +1,21 @@
+Current Task(s):
+(A)* Create Program to Generate Images based on the Spreadsheet
+  > Run program such as "node app.js"
+  > Program scans through Excel Spreadsheet
+  > Gets each section for each monster as it's own image
+(B) Realtime Solution to get Monster Information from Spreadsheet based on User Input
+  > `+mhwhitzones anjanath` would filter the spreadsheet to show information for that monster
+  > The end result would look similar to images I've sent to Chad, but obviously this is more dynamic
+  > May consume more memory usage, and if possible, I'd like to not create images on the fly
+    - Maybe host the spreadsheet on Google Drive, and retrieve data that way
+  > This solution is *better* and more dynamic, but may cause *higher* memory usage
+  
+Outline Taken from the Bot News Channel on Discord
+> Monster Hitzone Data / Monster Weakness & Status Values.
+> Monster HP & Flinch Values (Singeplayer & Multiplayer).
+> In-depth Quest Information, including everything you could ever possibly know for that quest.
+
+Completed Tasks:
+✔ Monster Aliases (+mhwinfo goodest boy) = (+mhwinfo dodogama). 
+
+"*" Signifies importance
