@@ -6,11 +6,12 @@ module.exports = {
   usage: 'mhwarmor <lowrank | hralpha1 | hralpha2 | hrbeta1 | hrbeta2 | mralpha1 | mralpha2 | mrbeta1 | mrbeta2>',
   description: 'List all armor',
   run (client, message, args) {
+    let input = args.join('').toLowerCase();
 
     const listEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d');
     
-    switch (args[0]) {
+    switch (input) {
       case 'lowrank':
         listEmbed.addField("Low Rank Armor", "Alloy Armor Set\nAnja Armor Set\nBaan Armor Set\nBarroth Armor Set\nBlossom Armor Set\nBone Armor Set\nButterfly Armor Set\nChainmail Armor Set\nDeath Stench Armor Set\nDiablos Armor Set\nDiver Armor Set\nGala Suit Armor Set\nGajau Armor Set\nGirros Armor Set\nGuardian Armor Set\nHigh Metal Armor Set\nHarvest Armor Set\nHornetaur Armor Set\nHunter's Armor Set\nIngot Armor Set\nJagras Armor Set\nJyura Armor Set\nKadachi Armor Set\nKestodon Armor Set\nKing Beetle Armor Set\nKirin Armor Set\nKulu Armor Set\nLeather Armor Set\nLegiana Armor Set\nLumu Armor Set\nOdogaron Armor Set\nOrigin Armor Set\nPukei Armor Set\nRathalos Armor Set\nRathian Armor Set\nRyu's Armor Set\nShamos Armor Set\nTzitzi Armor Set\nVespoid Armor Set");
         break;

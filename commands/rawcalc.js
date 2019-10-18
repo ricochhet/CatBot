@@ -10,7 +10,7 @@ module.exports = {
 
     const data = [];
     data.push('damage: base damage value');
-    data.push('weapontype: bow, chargeblade, dualblades, greatsword, gunlance, hammer, heavybowgun, huntinghorn, insectglaive, lance, lightbowgun, longsword, switchaxe, swordandshield');
+    data.push('weapontype: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns');
     data.push('sharpness (raw): none, red, orange, yellow, green, blue, white, purple');
     data.push('monsterpartmultiplier: multiplier value');
 
@@ -70,29 +70,29 @@ module.exports = {
 
       if (args[1] == "hammer") {
         rawBase = h;
-      } else if (args[1] == "greatsword") {
+      } else if (args[1] == "gs") {
         rawBase = gs;
-      } else if (args[1] == "huntinghorn") {
+      } else if (args[1] == "hh") {
         rawBase = hh;
-      } else if (args[1] == "chargeblade") {
+      } else if (args[1] == "cb") {
         rawBase = cb;
-      } else if (args[1] == "switchaxe") {
+      } else if (args[1] == "sa") {
         rawBase = sa;
-      } else if (args[1] == "longsword") {
+      } else if (args[1] == "ls") {
         rawBase = ls;
-      } else if (args[1] == "insectglaive") {
+      } else if (args[1] == "ig") {
         rawBase = ig;
       } else if (args[1] == "lance") {
         rawBase = l;
-      } else if (args[1] == "gunlance") {
+      } else if (args[1] == "gl") {
         rawBase = gl;
-      } else if (args[1] == "heavybowgun") {
+      } else if (args[1] == "hbg") {
         rawBase = hbg;
-      } else if (args[1] == "swordandshield") {
+      } else if (args[1] == "sns") {
         rawBase = sns;
-      } else if (args[1] == "dualblades") {
+      } else if (args[1] == "db") {
         rawBase = db;
-      } else if (args[1] == "lightbowgun") {
+      } else if (args[1] == "lbg") {
         rawBase = lbg;
       } else if (args[1] == "bow") {
         rawBase = bow;

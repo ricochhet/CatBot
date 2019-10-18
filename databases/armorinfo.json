@@ -1,0 +1,26 @@
+{
+    "acidicglavenusalpha+": {
+      "title": "Acidic Glavenus Alpha +",
+      "url": "https://monsterhunterworld.wiki.fextralife.com/Acidic+Glavenus+Alpha+++Armor+Set",
+      "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/acidic_glavenus_alpha_plus_armor_set-mhw-wiki-guide.png",
+      "resistances": "Defense: 750\n Fire: -15\n Water: 10\n Thunder: -5\n Ice: 10\n Dragon: -5",
+      "setBonus": "Glavenus Essence: Raises Maximum Level of Maximum Might Skill",
+      "headSkills": "Maximum Might 2x\n Effluvial Resistance x2",
+      "chestSkills": "Handicraft 2x\n Stamina Surge 1x",
+      "armSkills": "Stun Resistance 2x\n Handicraft 1x",
+      "waistSkills": "Handicraft x2\n Iron Skin x2",
+      "legSkills": "Maximum Might 2x\n Stamina Surge x1"
+    },
+      "acidicglavenusbeta+": {
+      "title": "Acidic Glavenus Beta +",
+      "url": "https://monsterhunterworld.wiki.fextralife.com/Acidic+Glavenus+Beta+++Armor+Set",
+      "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/acidic_glavenus_beta_plus_armor_set-mhw-wiki-guide.png",
+      "resistances": "Defense: 750\n Fire: -15\n Water: 10\n Thunder: -5\n Ice: 10\n Dragon: -5",
+      "setBonus": "Glavenus Essence: Raises Maximum Level of Maximum Might Skill",
+      "headSkills": "Maximum Might 1x\n Effluvial Resistance x2",
+      "chestSkills": "Handicraft 1x\n Stamina Surge 1x",
+      "armSkills": "Stun Resistance 2x",
+      "waistSkills": "Handicraft x2",
+      "legSkills": "Maximum Might 1x"
+    }
+}

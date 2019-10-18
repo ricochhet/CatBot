@@ -1,4 +1,10 @@
 Current Task(s):
+(A)*** MAKE CALCULATORS EASIER TO CODE SOMEHOW IDK
+  > Seriously though they are super hard to deal with, probably some refactoring is needed.
+(B)*** Organize Command Files | The commands are growing, we need better ways to organize them
+  > This needs to edit server.js to actually get commands properly, look at "server.js" for more
+
+Putting these on the backburner:
 (A)* Create Program to Generate Images based on the Spreadsheet
   > Run program such as "node app.js"
   > Program scans through Excel Spreadsheet

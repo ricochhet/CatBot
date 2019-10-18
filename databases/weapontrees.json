@@ -1,0 +1,134 @@
+{
+    "bonebow": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20Bow.png"
+    },
+    "bonechargeblade": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20CB.png"
+    },
+    "bonedualblades": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20DB.png"
+    },
+    "bonegunlance": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20GL.png"
+    },
+    "bonegreatsword": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20GS.png"
+    },
+    "bonehammer": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20Hammer.png"
+    },
+    "boneheavybowgun": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20HBG.png"
+    },
+    "bonehuntinghorn": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20HH.png"
+    },
+    "boneinsectglaive": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20IG.png"
+    },
+    "bonelance": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20Lance.png"
+    },
+    "bonelightbowgun": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20LBG.png"
+    },
+    "bonelongsword": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20LS.png"
+    },
+    "boneswitchaxe": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20SA.png"
+    },
+    "boneswordandshield": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Bone%20SNS.png"
+    },
+    "culldronekinsect": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Culldrone%20Kinsect.png"
+    },
+    "ironbow": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Iron%20Bow.png"
+    },
+    "ironchargeblade": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Iron%20CB.png"
+    },
+    "irondualblades": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Iron%20DB.png"
+    },
+    "irongunlance": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20GL.png"
+    },
+    "irongreatsword": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Iron%20GS.png"
+    },
+    "ironhammer": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Iron%20Hammer.png"
+    },
+    "ironheavybowgun": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Iron%20HBG.png"
+    },
+    "ironhuntinghorn": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Iron%20HH.png"
+    },
+    "ironinsectglaive": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Iron%20IG.png"
+    },
+    "ironlance": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Iron%20Lance.png"
+    },
+    "ironlightbowgun": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Iron%20LBG.png"
+    },
+    "ironlongsword": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Iron%20LS.png"
+    },
+    "ironswitchaxe": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Iron%20SA.png"
+    },
+    "ironswordandshield": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Iron%20SNS.png"
+    },
+    "mauldrone": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Mauldrone%20Kinsect.png"
+    },
+    "miscbow": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20Bow.png"
+    },
+    "miscchargeblade": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20CB.png"
+    },
+    "miscdualblades": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20DB.png"
+    },
+    "miscgunlance": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20GL.png"
+    },
+    "miscgreatsword": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20GS.png"
+    },
+    "mischammer": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20Hammer.png"
+    },
+    "mischeavybowgun": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20HBG.png"
+    },
+    "mischuntinghorn": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20HH.png"
+    },
+    "miscinsectglaive": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20IG.png"
+    },
+    "misclance": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20Lance.png"
+    },
+    "misclightbowgun": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20LBG.png"
+    },
+    "misclongsword": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20LS.png"
+    },
+    "miscswitchaxe": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20SA.png"
+    },
+    "miscswordandshield": {
+      "url": "https://raw.githubusercontent.com/ricochhet/MHWDatabase/master/MHWorld/Weapon%20Trees/Misc%20SNS.png"
+    }
+}

@@ -6,10 +6,11 @@ module.exports = {
   usage: 'mhwquests <assigned | optional | special | arena | ibassigned | iboptional>',
   description: 'List quests',
   run (client, message, args) {
+    let input = args.join('').toLowerCase();
     const listEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d');
 
-    switch (args[0]) {
+    switch (input) {
       case 'assigned':
         listEmbed
           .addField('Assigned Quests 1⭐', "Jagras of the Ancient Forest")
