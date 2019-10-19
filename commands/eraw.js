@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const { weaponsRatio } = require('../util.js');
 
 module.exports = {
   name: 'eraw',
@@ -16,56 +17,16 @@ module.exports = {
       .addField('Usage', this.usage)
       .addField('Parameters help', data.join('\n'))
       .setTimestamp();
-    
-    let h = 5.2;
-    let gs = 4.8;
-    let hh = 4.2;
-    let cb = 3.6;
-    let sa = 3.5;
-    let ls = 3.3;
-    let ig = 3.1;
-    let l = 2.3;
-    let gl = 2.3;
-    let hbg = 1.5;
-    let sns = 1.4;
-    let db = 1.4;
-    let lbg = 1.3;
-    let bow = 1.2;
-    
-    if(!args[0] == null || !args[0] == "" && !args[1] == null || !args[1] == "" ) {
-      let rawBase = 0;
-      
-      if (args[0] == "hammer") {
-        rawBase = h;
-      } else if (args[0] == "gs") {
-        rawBase = gs;
-      } else if (args[0] == "hh") {
-        rawBase = hh;
-      } else if (args[0] == "cb") {
-        rawBase = cb;
-      } else if (args[0] == "sa") {
-        rawBase = sa;
-      } else if (args[0] == "ls") {
-        rawBase = ls;
-      } else if (args[0] == "ig") {
-        rawBase = ig;
-      } else if (args[0] == "lance") {
-        rawBase = l;
-      } else if (args[0] == "gl") {
-        rawBase = gl;
-      } else if (args[0] == "hbg") {
-        rawBase = hbg;
-      } else if (args[0] == "sns") {
-        rawBase = sns;
-      } else if (args[0] == "db") {
-        rawBase = db;
-      } else if (args[0] == "lbg") {
-        rawBase = lbg;
-      } else if (args[0] == "bow") {
-        rawBase = bow;
-      } else {
-        return message.channel.send("Sorry meowster, I can't calculate that!");
-      }
+                
+    if (!args[0] || !args[1]) {
+      return message.channel.send(usageEmbed);   
+    }
+
+    if (!weaponsRatio.has(args[1])) {
+      return message.channel.send("Sorry meowster, I can't calculate that!");
+    }
+
+    const rawBase = weaponsRatio.get(args[1]);
       
       let calculate = args[1] / rawBase;
       let rounded = Math.round(calculate);
@@ -76,8 +37,5 @@ module.exports = {
       } else {
         message.channel.send("Your effective raw is " + "**" + rounded + "**" + " meowster!");
       }
-    } else {
-      message.channel.send(usageEmbed);
-    }
   }
-} 
+}

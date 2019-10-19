@@ -61,9 +61,9 @@ module.exports = {
                     sell = $(this).find('strong').text();
                 }
             });
-
+5
             const itemEmbed = new RichEmbed()
-                .setColor('#8fde5d')
+                .setColor('#8fdexd')
                 .setTitle(item.name)
                 .setThumbnail(imgUrl)
                 .setURL(item.url)
@@ -94,6 +94,14 @@ module.exports = {
         }
         return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
     },
+
+    // Weapons multiplier
+    weaponsRatio: new Map([
+        ['h', 5.2], ['gs', 4.8], ['hh', 4.2], ['cb', 3.6],
+        ['sa', 3.5], ['ls', 3.3], ['ig', 3.1], ['l', 2.3],
+        ['gl', 2.3], ['hbg', 1.5], ['sns', 1.4], ['db', 1.4],
+        ['lbg', 1.3], ['bow', 1.2]
+      ]),
 };
 
 // Computes Levenshtein distance between two strings
