@@ -63,7 +63,7 @@ module.exports = {
             });
 5
             const itemEmbed = new RichEmbed()
-                .setColor('#8fdexd')
+                .setColor('#8fde5d')
                 .setTitle(item.name)
                 .setThumbnail(imgUrl)
                 .setURL(item.url)
