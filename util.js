@@ -61,7 +61,7 @@ module.exports = {
                     sell = $(this).find('strong').text();
                 }
             });
-5
+
             const itemEmbed = new RichEmbed()
                 .setColor('#8fde5d')
                 .setTitle(item.name)
