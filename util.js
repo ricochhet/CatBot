@@ -97,8 +97,8 @@ module.exports = {
 
     // Weapons multiplier
     weaponsRatio: new Map([
-        ['h', 5.2], ['gs', 4.8], ['hh', 4.2], ['cb', 3.6],
-        ['sa', 3.5], ['ls', 3.3], ['ig', 3.1], ['l', 2.3],
+        ['hammer', 5.2], ['gs', 4.8], ['hh', 4.2], ['cb', 3.6],
+        ['sa', 3.5], ['ls', 3.3], ['ig', 3.1], ['lance', 2.3],
         ['gl', 2.3], ['hbg', 1.5], ['sns', 1.4], ['db', 1.4],
         ['lbg', 1.3], ['bow', 1.2]
       ]),
