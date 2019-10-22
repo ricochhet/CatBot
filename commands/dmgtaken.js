@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 module.exports = {
   name: 'dmgtaken',
   args: false,
-  usage: 'Calculates the percentage of the damage you take per hit',
+  usage: 'dmgtaken <defense>',
   description: 'dmgtaken <defense>',
   error (message) {
     const data = [];
