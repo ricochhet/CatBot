@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 module.exports = {
   name: 'dmgtaken',
   args: false,
+  calc : true,
   usage: 'dmgtaken <defense>',
   description: 'dmgtaken <defense>',
   error (message) {
