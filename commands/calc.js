@@ -8,7 +8,7 @@ module.exports = {
   description : 'calc is the parent command for all monster hunter math',
   error (message) {
     const data = [];
-    data.push('\n**dmgtaken Args:**\n\n Defense (Number)\n');
+    data.push('\n**dmgtaken Args:**\n\n defense: current defense value\n');
     data.push('**elemental Args:**\n\ndamage: base damage value\nsharpness (elemental): none, red, orange, yellow, green, blue, white, purple\nmonsterpartmultiplier: multiplier value\n');
     data.push('**eraw Args:**\n\ndamage: base damage value\nweapontype: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns\n');
     data.push('**raw Args:**\n\ndamage: base damage value\nweapontype: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns\nsharpness (raw): none, red, orange, yellow, green, blue, white, purple\nmonsterpartmultiplier: multiplier value\n');
@@ -28,7 +28,7 @@ module.exports = {
     let subArg = args[0]
     // Strips first arg from args
     args = args.slice(1,args.length)
-    responce = false
+    let responce = false;
 
     client.math.forEach(cmd => {
           // if subArg is command run it

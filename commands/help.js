@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const fs = require('fs');
 
 module.exports = {
   name: 'help',
@@ -16,6 +15,13 @@ module.exports = {
       if(!cmd.secret) data.push(`+${cmd.usage} - ${cmd.description}`);
     });
     helpEmbed.addField('Monster Hunter World', data.join('\n'));
+    
+    // calc commands now
+    data = [];
+    client.math.forEach(cmd => {
+      if (!cmd.secret) data.push(`+calc ${cmd.usage} - ${cmd.description}`);
+    });
+    helpEmbed.addField('Monster Hunter Math', data.join('\n'));
 
     // Other, non-variable (no args) commands
     data = [];
@@ -23,13 +29,6 @@ module.exports = {
       if (!cmd.secret){data.push(`+${cmd.name} - ${cmd.description}`)}
     });
     helpEmbed.addField('Other', data.join('\n'));
-
-    // calc commands now
-    data = [];
-    client.math.forEach(cmd => {
-      if (!cmd.secret) data.push(`+calc ${cmd.usage} - ${cmd.description}`);
-    });
-    helpEmbed.addField('Monster Hunter Math', data.join('\n'));
 
     helpEmbed.addBlankField()
       .addField('Experiencing Issues? ', "```Contact Ricochet#7498 | Do +support```")

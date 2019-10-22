@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 
-
 module.exports = {
   name: 'dmgtaken',
   args: false,
@@ -25,13 +24,13 @@ module.exports = {
     if (args.length < 1) return this.error(message)
 
     // Checks if input is a number
-    defense = Number(args[0])
+    let defense = Number(args[0])
     if (isNaN(defense)) return this.error(message)
 
     // Creates a step progress
-    step1 = defense + 80
-    step2 = 80 / step1
-    step3 = step2 * 100
+    let step1 = defense + 80
+    let step2 = 80 / step1
+    let step3 = step2 * 100
 
     // Creates the embed
     const dmgProccess = new Discord.RichEmbed()
