@@ -11,7 +11,7 @@ module.exports = {
     data.push('**elementalcalc Args:**\n\ndamage: base damage value\nsharpness (elemental): none, red, orange, yellow, green, blue, white, purple\nmonsterpartmultiplier: multiplier value\n');
     data.push('**eraw Args:**\n\ndamage: base damage value\nweapontype: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns\n');
     data.push('**rawcalc Args:**\n\ndamage: base damage value\nweapontype: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns\nsharpness (raw): none, red, orange, yellow, green, blue, white, purple\nmonsterpartmultiplier: multiplier value\n');
-    data.push('**affinitycalc**\n\naffinity: base affinity value\ndamage: base damage value')
+    data.push('**affinitycalc Args**\n\naffinity: base affinity value\ndamage: base damage value')
 
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
