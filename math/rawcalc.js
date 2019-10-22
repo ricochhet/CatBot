@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 
 module.exports = {
-  name: 'rawcalc',
+  name: 'raw',
   calc: true,
   args: true,
-  usage: 'rawcalc <damage> <weapontype> <sharpness> <monsterpartmultiplier>',
+  usage: 'raw <damage> <weapontype> <sharpness> <monsterpartmultiplier>',
   description: 'Raw calculator',
   run(client, message, args) {
 
@@ -32,7 +32,7 @@ module.exports = {
       var rawSharpWhite = 1.32;
       var rawSharpPurple = 1.39;
       var rawRangedSharpness = 1;
-  
+
       var h = 5.2;
       var gs = 4.8;
       var hh = 4.2;
@@ -109,8 +109,8 @@ module.exports = {
       } else {
         message.channel.send("Your raw damage is " + "**" + rounded + "**" + " meowster!");
       }
-    } else {            
-      message.channel.send(usageEmbed);      
+    } else {
+      message.channel.send(usageEmbed);
     }
   }
-} 
+}

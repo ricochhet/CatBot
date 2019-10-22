@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
 
 module.exports = {
-  name: 'elementalcalc',
+  name: 'elemental',
   args: true,
   calc: true,
-  usage: 'elementalcalc <damage> <sharpness> <monsterpartmultiplier>',
-  description: 'Elemental calculator',  
+  usage: 'elemental <damage> <sharpness> <monsterpartmultiplier>',
+  description: 'Elemental calculator',
   run (client, message, args) {
 
     const data = [];
@@ -18,10 +18,10 @@ module.exports = {
       .addField('Usage', this.usage)
       .addField('Parameters help', data.join('\n'))
       .setTimestamp();
-  
+
     if(!args[0] == null || !args[0] == "" && !args[1] == null || !args[1] == "" && !args[2] == null || !args[2] == "") {
       var sharpMultiplier = 0;
-  
+
       var elemSharpRed = 0.25;
       var elemSharpOrange = 0.50;
       var elemSharpYellow = 0.75;
@@ -49,10 +49,10 @@ module.exports = {
       } else {
         return message.channel.send(usageEmbed);
       }
-  
+
       var monsterPartMultiplier = sharpMultiplier * args[2];
       let rounded = Math.round(monsterPartMultiplier);
-  
+
       if(Number.isNaN(rounded)) {
         // message.channel.send("Sorry meowster, I can't calculate that!");
         message.channel.send(usageEmbed);
