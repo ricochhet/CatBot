@@ -17,25 +17,25 @@ module.exports = {
       .addField('Usage', this.usage)
       .addField('Parameters help', data.join('\n'))
       .setTimestamp();
-                
+
     if (!args[0] || !args[1]) {
-      return message.channel.send(usageEmbed);   
+      return message.channel.send(usageEmbed);
     }
 
     if (!weaponsRatio.has(args[0])) {
-      return message.channel.send(usageEmbed);  
+      return message.channel.send(usageEmbed);
       //return message.channel.send("Sorry meowster, I can't calculate that!");
     }
 
     const rawBase = weaponsRatio.get(args[0]);
     console.log(rawBase)
-      
+
       let calculate = args[1] / rawBase;
       let rounded = Math.round(calculate);
-    
+
     console.log(rawBase);
     console.log(calculate);
-  
+
       if(Number.isNaN(rounded)) {
         //message.channel.send(`Sorry meowster, I can't calculate that! Usage: \`${this.usage}\``);
         message.channel.send(usageEmbed);
@@ -63,7 +63,7 @@ module.exports = {
       .addField('Usage', this.usage)
       .addField('Parameters help', data.join('\n'))
       .setTimestamp();
-    
+
     let h = 5.2;
     let gs = 4.8;
     let hh = 4.2;
@@ -78,10 +78,10 @@ module.exports = {
     let db = 1.4;
     let lbg = 1.3;
     let bow = 1.2;
-    
+
     if(!args[0] == null || !args[0] == "" && !args[1] == null || !args[1] == "" ) {
       let rawBase = 0;
-      
+
       if (args[0] == "hammer") {
         rawBase = h;
       } else if (args[0] == "gs") {
@@ -113,10 +113,10 @@ module.exports = {
       } else {
         return message.channel.send("Sorry meowster, I can't calculate that!");
       }
-      
+
       let calculate = args[1] / rawBase;
       let rounded = Math.round(calculate);
-  
+
       if(Number.isNaN(rounded)) {
         //message.channel.send(`Sorry meowster, I can't calculate that! Usage: \`${this.usage}\``);
         message.channel.send(usageEmbed);

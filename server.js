@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const DBL = require("dblapi.js");
-const dbl = new DBL(process.env.DBLTOKEN, client);
+const secret = require('./secret.json');
 const fs = require('fs');
 // const http = require('http');
 // var express = require('express');
@@ -43,6 +42,6 @@ client.on("guildDelete", guild => {
 });
 
 //client.login(auth.token);
-client.login(process.env.TOKEN);
+client.login(secret['token']);
 
 /* Main code, this is what is ran on startup */
