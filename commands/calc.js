@@ -4,7 +4,7 @@ const fs = require('fs');
 module.exports = {
   name: 'calc',
   args: false,
-  usage : 'calc <dmgtaken/elementalcalc/eraw/rawcalc>\n<args for dmgtaken/elementalcalc/eraw/rawcalc>',
+  usage : 'calc <dmgtaken/elementalcalc/eraw/rawcalc/affinitycalc>\n<args for dmgtaken/elementalcalc/eraw/rawcalc/affinitycalc>',
   error (message) {
     const data = [];
     data.push('\n**dmgtaken Args:**\n\n Defense (Number)\n');
