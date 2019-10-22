@@ -5,6 +5,7 @@ module.exports = {
   name: 'calc',
   args: false,
   usage : 'calc <dmgtaken/elementalcalc/eraw/rawcalc/affinitycalc>\n<args for dmgtaken/elementalcalc/eraw/rawcalc/affinitycalc>',
+  description : 'calc is the parent command for all monster hunter math',
   error (message) {
     const data = [];
     data.push('\n**dmgtaken Args:**\n\n Defense (Number)\n');
@@ -27,27 +28,23 @@ module.exports = {
     let subArg = args[0]
     // Strips first arg from args
     args = args.slice(1,args.length)
+    responce = false
 
-    // Gets all Math commands from math folder
-    fs.readdir("./math", (err, files) => {
-      if (err) return console.error(err);
-      let responce = false
-      files.forEach((file) => {
-        if (!file.endsWith(".js")) return;
-        let command = require(`../math/${file}`);
-
-        // if subArg is command run it
-        if (subArg == command.name){
-          responce = true
-          command.run(client, message, args)
-        }
-      });
-
-      // Checks if there were no arguments
-      if (!responce) {
-        this.error(message)
-      }
+    client.math.forEach(cmd => {
+          // if subArg is command run it
+          if (subArg == cmd.name){
+            // set responce to true so we know not to send the help command
+            responce = true
+            cmd.run(client, message, args)
+          }
     });
+
+
+
+    // Checks if there were no arguments
+    if (!responce) {
+      this.error(message)
+    }
 
   }
 }
