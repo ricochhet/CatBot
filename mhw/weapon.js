@@ -22,13 +22,13 @@ module.exports = {
       const similarItems = new Array();
 
       for (const key of weapons.keys()) {
-          if (similarity(key, input) >= 0.5){
-              similarItems.push(key);
-          }
+        if (similarity(key, input) >= 0.5){
+          similarItems.push(key);
+        }
       }
 
       if (similarItems.length) {
-          msg += `\nDid you mean: \`${similarItems.join(', ')}\`?`;
+        msg += `\nDid you mean: \`${similarItems.join(', ')}\`?`;
       }
 
       message.channel.send(msg);
@@ -36,23 +36,23 @@ module.exports = {
         const weapon = weapons.get(input);
 
         const weaponEmbed = new Discord.RichEmbed()
-        .setColor('#8fde5d')
-        .setTitle(weapon.title)
-        .setURL(weapon.url)
-        .setThumbnail(weapon.thumbnail)
-        .addField('Type', weapon.type)
-        .addField('Attack', weapon.attack)
-        .addField('Defense', weapon.defense)
-        .addField('Sharpness', weapon.sharpness)
-        .addField('Affinity', weapon.affinity)
-        .addField('Elemental Attack', weapon.elementalattack)
-        .addField('Rarity', weapon.rarity)
-        .addField('gemslots', weapon.gemslots)
-        .addField('Wyvern Type', weapon.wyvernheart)
-        .addField('Phials', weapon.phials)
-        .addField('Notes', weapon.notes)
-        .setTimestamp()
-        .setFooter('Info Menu');
+          .setColor('#8fde5d')
+          .setTitle(weapon.title)
+          .setURL(weapon.url)
+          .setThumbnail(weapon.thumbnail)
+          .addField('Type', weapon.type)
+          .addField('Attack', weapon.attack)
+          .addField('Defense', weapon.defense)
+          .addField('Sharpness', weapon.sharpness)
+          .addField('Affinity', weapon.affinity)
+          .addField('Elemental Attack', weapon.elementalattack)
+          .addField('Rarity', weapon.rarity)
+          .addField('gemslots', weapon.gemslots)
+          .addField('Wyvern Type', weapon.wyvernheart)
+          .addField('Phials', weapon.phials)
+          .addField('Notes', weapon.notes)
+          .setTimestamp()
+          .setFooter('Info Menu');
 
       message.channel.send(weaponEmbed);
     }

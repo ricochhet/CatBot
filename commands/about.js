@@ -15,7 +15,7 @@ module.exports = {
       .addField('Feedback/Requests: ', "Do `+support` to go to the support server.")
       .setTimestamp()
       .setFooter('About Menu', client.user.avatarURL);
-  
+
     message.channel.send(aboutEmbed);
   }
 }

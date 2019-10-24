@@ -36,24 +36,23 @@ module.exports = {
       const similarItems = new Array();
 
       for (const key of monsters.keys()) {
-          if (similarity(key, input) >= 0.5){
-              similarItems.push(key);
-          }
+        if (similarity(key, input) >= 0.5){
+          similarItems.push(key);
+        }
       }
 
       for (const key of endemics.keys()) {
-          if (similarity(key, input) >= 0.5){
-              similarItems.push(key);
-          }
+        if (similarity(key, input) >= 0.5){
+          similarItems.push(key);
+        }
       }
 
       if (similarItems.length) {
-          msg += `\nDid you mean: \`${similarItems.join(', ')}\`?`;
+        msg += `\nDid you mean: \`${similarItems.join(', ')}\`?`;
       }
 
       message.channel.send(msg);
-    }
-    else if(monsters.has(input)) {
+    } else if(monsters.has(input)) {
       const monster = monsters.get(input);
 
       const monsterEmbed = new Discord.RichEmbed()
@@ -70,11 +69,10 @@ module.exports = {
         .setFooter('Info Menu');
 
       message.channel.send(monsterEmbed);
-    }
-    else if(endemics.has(input)) {
-        const endemic = endemics.get(input);
+    } else if(endemics.has(input)) {
+      const endemic = endemics.get(input);
 
-        const endemicEmbed = new Discord.RichEmbed()
+      const endemicEmbed = new Discord.RichEmbed()
         .setColor('#8fde5d')
         .setTitle(endemic.title)
         .setURL(endemic.url)

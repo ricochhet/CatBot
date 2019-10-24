@@ -10,28 +10,30 @@ module.exports = {
 
     let data = [];
 
-    // non calc commands first, that have arguments
+    // Non-Calc Commands w/ Args
     client.mhw.filter(cmd => cmd.calc != true && cmd.args === true).forEach(cmd => {
       if(!cmd.secret) data.push(`+mhw ${cmd.usage} - ${cmd.description}`);
     });
     helpEmbed.addField('Monster Hunter World', data.join('\n'));
 
-    // calc commands now
+    // Calc Commands
     data = [];
     client.math.forEach(cmd => {
       if (!cmd.secret) data.push(`+calc ${cmd.usage} - ${cmd.description}`);
     });
     helpEmbed.addField('Monster Hunter Math', data.join('\n'));
 
-    // Other, non-variable (no args) commands
+    // Other Commands w/o Args
     data = [];
     client.commands.filter(cmd => cmd.args != true).forEach(cmd => {
       if (!cmd.secret){data.push(`+${cmd.name} - ${cmd.description}`)}
     });
     helpEmbed.addField('Other', data.join('\n'));
-    
-    helpEmbed.addField('Notes', 'Using a command w/o args gets extended help')
 
+    // Notes
+    helpEmbed.addField('Notes', 'Using a command w/o args gets extended help');
+
+    // Experiencing Issues Text
     helpEmbed.addBlankField()
       .addField('Experiencing Issues? ', "```Contact Ricochet#7498 | Do +support```")
       .setTimestamp()

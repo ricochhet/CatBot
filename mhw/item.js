@@ -1,47 +1,54 @@
 const Discord = require('discord.js');
-//const rp = require('request-promise');
-//const $ = require('cheerio');
-const { fetchItem, fetchItems, similarity } = require('../util.js');
+const itemDatabase = require('../databases/iteminfo.json');
+const { similarity } = require('../util.js');
 
-const itemList = new Discord.Collection();
+const items = new Discord.Collection();
 
-module.exports = {
-    name: 'item',
-    args: true,
-    usage: 'item <itemname>',
-    description: 'Get item info',
-    run (client, message, args) {
-        const input = args.join(' ').toLowerCase();
-
-        if (!itemList.has(input)) {
-            let msg = 'That item doesn\'t seem to exist!';
-
-            const similarItems = new Array();
-
-            for (const key of itemList.keys()) {
-                if (similarity(key, input) >= 0.5){
-                    similarItems.push(key);
-                }
-            }
-
-            if (similarItems.length) {
-                msg += `\nDid you mean: \`${similarItems.join(', ')}\`?`;
-            }
-            return message.channel.send(msg);
-        }
-        else {
-            const item = itemList.get(input);
-
-            fetchItem(item, function(embed) {
-                message.channel.send(embed);
-            });
-        }
-    }
+for(const i of Object.keys(itemDatabase)) {
+  items.set(i, itemDatabase[i]);
 }
 
-Promise.all([fetchItems(itemList)])
-    .then(function() {
-        console.log('Successfully fetched items!');
-}).catch(function(err) {
-    console.error('Error fetching items, ', err);
-});
+module.exports = {
+  name: 'item',
+  args: true,
+  usage: 'item <itemname>',
+  description: 'Get item info',
+  run (client, message, args) {
+    const input = args.join('').toLowerCase();
+
+    if (!items.has(input)) {
+      let msg = 'That item doesn\'t seem to exist!';
+
+      const similarItems = new Array();
+
+      for (const key of items.keys()) {
+        if (similarity(key, input) >= 0.5){
+          similarItems.push(key);
+        }
+      }
+
+      if (similarItems.length) {
+        msg += `\nDid you mean: \`${similarItems.join(', ')}\`?`;
+      }
+
+      message.channel.send(msg);
+    } else if(items.has(input)) {
+      const item = items.get(input);
+
+      const itemEmbed = new Discord.RichEmbed()
+        .setColor('#8fde5d')
+        .setTitle(item.title)
+        .setURL(item.url)
+        .setThumbnail(item.thumbnail)
+        .setDescription(item.description)
+        .addField('Rarity', item.rarity, true)
+        .addField('Max', item.max, true)
+        .addField('Buy', item.buy, true)
+        .addField('Sell', item.sell, true)
+        .setTimestamp()
+        .setFooter('Info Menu');
+
+      message.channel.send(itemEmbed);
+    }
+  }
+}

@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
-var catFacts = ['Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.', 
-'When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.', 
+let catFacts = ['Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.',
+'When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.',
 'The technical term for a cat’s hairball is a “bezoar.”',
 'A group of cats is called a “clowder.”',
 'A cat can’t climb head first down a tree because every claw on a cat’s paw points the same way. To get down from a tree, a cat must back down.',
@@ -101,13 +101,13 @@ var catFacts = ['Unlike dogs, cats do not have a sweet tooth. Scientists believe
 'The richest cat is Blackie who was left £15 million by his owner, Ben Rea.',
 'The claws on the cat’s back paws aren’t as sharp as the claws on the front paws because the claws in the back don’t retract and, consequently, become worn',
 'Cats can drink seawater',
-'There is a show in Iceland called "Keeping Up With the Kattarshians." Its a cat reality show that features 4 kittens who live together in fully-furnished "cat" house, Big Brother-style.',]
+'There is a show in Iceland called "Keeping Up With the Kattarshians." Its a cat reality show that features 4 kittens who live together in fully-furnished "cat" house, Big Brother-style.',];
 
 module.exports = {
   name: 'catfact',
   args: false,
   description: 'Shows a random cat fact',
   run (client, message, args) {
-    message.channel.send(catFacts[Math.floor(Math.random()*catFacts.length)]);	
+    message.channel.send(catFacts[Math.floor(Math.random()*catFacts.length)]);
   }
 }

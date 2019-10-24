@@ -17,30 +17,24 @@ module.exports = {
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
       .setTimestamp();
-                
+
     if (!args[0] || !args[1]) {
-      return message.channel.send(usageEmbed);   
+      return message.channel.send(usageEmbed);
     }
 
     if (!weaponsRatio.has(args[0])) {
-      return message.channel.send(usageEmbed);  
-      //return message.channel.send("Sorry meowster, I can't calculate that!");
+      return message.channel.send(usageEmbed);
     }
 
     const rawBase = weaponsRatio.get(args[0]);
-    console.log(rawBase)
-      
-      let calculate = args[1] / rawBase;
-      let rounded = Math.round(calculate);
-    
-    console.log(rawBase);
-    console.log(calculate);
-  
-      if(Number.isNaN(rounded)) {
-        //message.channel.send(`Sorry meowster, I can't calculate that! Usage: \`${this.usage}\``);
-        message.channel.send(usageEmbed);
-      } else {
-        message.channel.send("Your effective raw is " + "**" + rounded + "**" + " meowster!");
-      }
+
+    let calculate = args[1] / rawBase;
+    let rounded = Math.round(calculate);
+
+    if(Number.isNaN(rounded)) {
+      message.channel.send(usageEmbed);
+    } else {
+      message.channel.send("Your effective raw is " + "**" + rounded + "**" + " meowster!");
+    }
   }
 }

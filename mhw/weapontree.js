@@ -22,20 +22,20 @@ module.exports = {
       const similarItems = new Array();
 
       for (const key of weapons.keys()) {
-          if (similarity(key, input) >= 0.5){
-              similarItems.push(key);
-          }
+        if (similarity(key, input) >= 0.5){
+          similarItems.push(key);
+        }
       }
 
       if (similarItems.length) {
-          msg += `\nDid you mean: \`${similarItems.join(', ')}\`?`;
+        msg += `\nDid you mean: \`${similarItems.join(', ')}\`?`;
       }
 
       message.channel.send(msg);
     } else if(weapons.has(input)) {
-        const weapon = weapons.get(input);
+      const weapon = weapons.get(input);
 
-        const weaponEmbed = new Discord.RichEmbed()
+      const weaponEmbed = new Discord.RichEmbed()
         .setColor('#8fde5d')
         .setImage(weapon.url)
         .setTimestamp()

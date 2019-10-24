@@ -23,20 +23,20 @@ module.exports = {
         const similarItems = new Array();
 
         for (const key of armors.keys()) {
-            if (similarity(key, input) >= 0.5){
-                similarItems.push(key);
-            }
+          if (similarity(key, input) >= 0.5){
+            similarItems.push(key);
+          }
         }
 
         if (similarItems.length) {
-            msg += `\nDid you mean: \`${similarItems.join(', ')}\`?`;
+          msg += `\nDid you mean: \`${similarItems.join(', ')}\`?`;
         }
 
         message.channel.send(msg);
       } else if(armors.has(input)) {
-          const armor = armors.get(input);
+        const armor = armors.get(input);
 
-          const armorEmbed = new Discord.RichEmbed()
+        const armorEmbed = new Discord.RichEmbed()
           .setColor('#8fde5d')
           .setTitle(armor.title)
           .setURL(armor.url)
