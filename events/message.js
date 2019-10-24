@@ -9,15 +9,18 @@ module.exports = (client, message) => {
   
   // Ignore message if not prefix
   if (message.content.indexOf(prefix) !== 0) return;
+
   
   // Standard argument and command definitions
   const args = message.content.slice(prefix.length).trim().toLowerCase().split(/ +/g);
   const cmdName = args.shift().toLowerCase();
   
-  
   const command = client.commands.get(cmdName);
   
   if (!command) return;
+  
+  // Ignores Secret Commands if Not Owner
+  if (command.secret && message.author.id != process.env.OWNER) return;
   
   if(command.args && !args.length) {
     if(command.usage) {

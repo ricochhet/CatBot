@@ -16,7 +16,7 @@ module.exports = {
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
-      .addField('Parameters help', data.join('\n'))
+      .addField('Parameters Help', data.join('\n'))
       .setTimestamp();
 
     if(!args[0] == null || !args[0] == "" && !args[1] == null || !args[1] == "" && !args[2] == null || !args[2] == "") {

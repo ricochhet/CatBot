@@ -30,7 +30,7 @@ module.exports = {
       .setColor('#8fde5d')
       .addField('Servers: ', client.guilds.size, true)
       .addField('Members: ', userCount, true)
-      .addField('Bot Version: ', "v1.6.17", true)
+      .addField('Bot Version: ', "v1.6.18", true)
       .addField('Message Latency', messagePingRounded + "ms", true)
       .addField('API Latency: ', pingRounded + "ms", true)
       .addField('Uptime: ', uptime, true)

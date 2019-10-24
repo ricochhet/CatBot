@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports = {
-  name: 'mathreload',
+  name: 'mhwreload',
   args: false,
   secret: true,
   run (client, message, args) {
@@ -13,11 +13,11 @@ module.exports = {
         return message.reply("That command does not exist");
       }
         
-      delete require.cache[require.resolve(`../math/${commandName}.js`)];
+      delete require.cache[require.resolve(`../mhw/${commandName}.js`)];
         
       client.math.delete(commandName);
         
-      const props = require(`../math/${commandName}.js`);
+      const props = require(`../mhw/${commandName}.js`);
         
       client.math.set(commandName, props);
         

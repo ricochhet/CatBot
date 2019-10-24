@@ -9,14 +9,14 @@ for(const i of Object.keys(weaponTreeDatabase)) {
 }
 
 module.exports = {
-  name: 'mhwweapontree',
+  name: 'weapontree',
   args: true,
-  usage: 'mhwweapontree <iron | bone | misc> <weapontype>',
+  usage: 'weapontree <iron | bone | misc> <weapontype>',
   description: 'Get weapon tree chart',
   run (client, message, args) {
     let input = args.join('').toLowerCase();
 
-    if (!weapons.has(input)) {     
+    if (!weapons.has(input)) {
       let msg = 'That weapon tree doesn\'t seem to exist!';
 
       const similarItems = new Array();
@@ -34,13 +34,13 @@ module.exports = {
       message.channel.send(msg);
     } else if(weapons.has(input)) {
         const weapon = weapons.get(input);
-      
+
         const weaponEmbed = new Discord.RichEmbed()
         .setColor('#8fde5d')
         .setImage(weapon.url)
         .setTimestamp()
         .setFooter('Info Menu');
-  
+
       message.channel.send(weaponEmbed);
     }
   }

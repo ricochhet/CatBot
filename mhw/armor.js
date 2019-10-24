@@ -9,16 +9,15 @@ for(const i of Object.keys(armorDatabase)) {
 }
 
 module.exports = {
-  name: 'mhwarmors',
+  name: 'armor',
   args: true,
-  secret: true,
-  usage: 'mhwarmors <armorname>',
+  usage: 'armor <armorname>',
   description: 'Get armor info',
   run (client, message, args) {
     if(message.author.id == process.env.OWNER) {
       let input = args.join('').toLowerCase();
 
-      if (!armors.has(input)) {     
+      if (!armors.has(input)) {
         let msg = 'That armor doesn\'t seem to exist!';
 
         const similarItems = new Array();

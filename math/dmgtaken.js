@@ -5,7 +5,7 @@ module.exports = {
   args: false,
   calc : true,
   usage: 'dmgtaken <defense>',
-  description: 'dmgtaken <defense>',
+  description: 'Damage taken calculator',
   error (message) {
     const data = [];
     data.push('defense: current defense value');
@@ -13,7 +13,7 @@ module.exports = {
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
-      .addField('Parameters help', data.join('\n'))
+      .addField('Parameters Help', data.join('\n'))
       .setTimestamp();
 
     return message.channel.send(usageEmbed)
@@ -37,7 +37,7 @@ module.exports = {
       .setColor('#8fde5d')
       .setTitle("Defense Calculation")
       .setDescription("Shows how to calculate the percentage of damage taken")
-      .addField('Process of calculating damage taken', `\`\`\`Forumla : 80 + Defense x 100\n\nDamageTaken = 80 + ${defense}\n            = ${step1.toFixed(2)}\n            = 80 / ${step1.toFixed(2)}\n            = ${step2.toFixed(2)}\n            = ${step2.toFixed(2)} * 100\n            = ${step3.toFixed(2)}%\`\`\``)
+      .addField('Process of calculating damage taken', `\`\`\`Formula : 80 + Defense x 100\n\nDamageTaken = 80 + ${defense}\n            = ${step1.toFixed(2)}\n            = 80 / ${step1.toFixed(2)}\n            = ${step2.toFixed(2)}\n            = ${step2.toFixed(2)} * 100\n            = ${step3.toFixed(2)}%\`\`\``)
 
     // Smacks that embed into the message channel
     message.channel.send(dmgProccess)

@@ -11,11 +11,11 @@ module.exports = {
     let data = [];
 
     // non calc commands first, that have arguments
-    client.commands.filter(cmd => cmd.calc != true && cmd.args === true).forEach(cmd => {
-      if(!cmd.secret) data.push(`+${cmd.usage} - ${cmd.description}`);
+    client.mhw.filter(cmd => cmd.calc != true && cmd.args === true).forEach(cmd => {
+      if(!cmd.secret) data.push(`+mhw ${cmd.usage} - ${cmd.description}`);
     });
     helpEmbed.addField('Monster Hunter World', data.join('\n'));
-    
+
     // calc commands now
     data = [];
     client.math.forEach(cmd => {
@@ -29,6 +29,8 @@ module.exports = {
       if (!cmd.secret){data.push(`+${cmd.name} - ${cmd.description}`)}
     });
     helpEmbed.addField('Other', data.join('\n'));
+    
+    helpEmbed.addField('Notes', 'Using a command w/o args gets extended help')
 
     helpEmbed.addBlankField()
       .addField('Experiencing Issues? ', "```Contact Ricochet#7498 | Do +support```")

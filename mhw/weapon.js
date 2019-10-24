@@ -9,15 +9,14 @@ for(const i of Object.keys(weaponDatabase)) {
 }
 
 module.exports = {
-  name: 'mhwweapons',
+  name: 'weapon',
   args: true,
-  secret: true,
-  usage: 'mhwweapons <weaponname>',
+  usage: 'weapon <weaponname>',
   description: 'Get weapon info',
   run (client, message, args) {
     let input = args.join('').toLowerCase();
 
-    if (!weapons.has(input)) {     
+    if (!weapons.has(input)) {
       let msg = 'That weapon doesn\'t seem to exist!';
 
       const similarItems = new Array();
@@ -35,7 +34,7 @@ module.exports = {
       message.channel.send(msg);
     } else if(weapons.has(input)) {
         const weapon = weapons.get(input);
-      
+
         const weaponEmbed = new Discord.RichEmbed()
         .setColor('#8fde5d')
         .setTitle(weapon.title)
@@ -54,7 +53,7 @@ module.exports = {
         .addField('Notes', weapon.notes)
         .setTimestamp()
         .setFooter('Info Menu');
-  
+
       message.channel.send(weaponEmbed);
     }
   }

@@ -32,14 +32,12 @@ module.exports = {
 
     client.math.forEach(cmd => {
           // if subArg is command run it
-          if (subArg == cmd.name){
+          if (subArg == cmd.name & !cmd.secret){
             // set responce to true so we know not to send the help command
             responce = true
             cmd.run(client, message, args)
           }
     });
-
-
 
     // Checks if there were no arguments
     if (!responce) {
