@@ -12,6 +12,7 @@ module.exports = (client, message) => {
 
   // Standard argument and command definitions
   const args = message.content.slice(prefix.length).trim().toLowerCase().split(/ +/g);
+  const noLowerargs = message.content.slice(prefix.length).trim().split(/ +/g);
   const cmdName = args.shift().toLowerCase();
 
   const command = client.commands.get(cmdName);
@@ -32,6 +33,8 @@ module.exports = (client, message) => {
     }
     return;
   }
+
+  if (command.capSen) return command.run(client,message,noLowerargs)
 
   command.run(client, message, args);
 };

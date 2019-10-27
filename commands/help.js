@@ -23,6 +23,13 @@ module.exports = {
     });
     helpEmbed.addField('Monster Hunter Math', data.join('\n'));
 
+    // LFG Commands
+    data = [];
+    client.lfg.forEach(cmd => {
+      if (!cmd.secret) data.push(`+lfg ${cmd.usage} - ${cmd.description}`);
+    });
+    helpEmbed.addField('Looking for group commands', data.join('\n'));
+
     // Other Commands w/o Args
     data = [];
     client.commands.filter(cmd => cmd.args != true).forEach(cmd => {

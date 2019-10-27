@@ -7,6 +7,7 @@ const fs = require('fs');
 client.commands = new Discord.Collection();
 client.math = new Discord.Collection();
 client.mhw = new Discord.Collection();
+client.lfg = new Discord.Collection();
 
 fs.readdir("./commands/", (err, files) => {
   if (err) return console.error(err);
@@ -40,6 +41,17 @@ fs.readdir("./math/", (err, files) => {
   });
 });
 
+// push all lfg command in the math collection to be used for lfg
+fs.readdir("./lfg/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./lfg/${file}`);
+    let commandName = file.split(".")[0];
+    client.lfg.set(commandName, props);
+  });
+});
+
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
@@ -50,10 +62,32 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 
-
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setActivity('for +help', { type: 'WATCHING' });
+
+  client.setInterval(() => {
+
+    let lfg = require("./databases/lfg.json")
+
+    for (sessionID in lfg) {
+
+      current = lfg[sessionID]['time']
+
+      duration = Date.now() - current
+
+      if (duration >= 7200000) delete lfg[sessionID]
+    }
+
+    var jsonObj = JSON.stringify(lfg,null,4)
+    fs.writeFile(`${__dirname}/databases/lfg.json`, jsonObj, 'utf8', function (err) {
+        if (err) {
+            console.log("An error occured while writing JSON Object to File.");
+            return console.log(err);
+        }
+
+  },60000)})
+
 });
 
 client.on("guildCreate", guild => {
