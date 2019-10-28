@@ -3,6 +3,26 @@ const client = new Discord.Client();
 const DBL = require("dblapi.js");
 const auth = require('./auth.json');
 const fs = require('fs');
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+// This URL should prob be in config file
+const url = 'mongodb://localhost:27017/catbot_test';
+const mongoClient = new MongoClient(url, { useUnifiedTopology: true, connectTimeoutMS: 10000 });
+
+// Try to connect to server
+mongoClient.connect(function (err) {
+  try {
+    assert.equal(null, err);
+    console.log("Connected successfully to MongoDB server");
+    client.useMongoDB = true;
+  } catch (e) {
+    console.log("Failed connecting to MongoDB server. Use json backups");
+    client.useMongoDB = false;
+  }
+  
+  mongoClient.close();
+});
 
 client.commands = new Discord.Collection();
 client.math = new Discord.Collection();
@@ -53,15 +73,15 @@ fs.readdir("./events/", (err, files) => {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-	client.user.setActivity('for +help', { type: 'WATCHING' });
+  client.user.setActivity('for +help', { type: 'WATCHING' });
 });
 
 client.on("guildCreate", guild => {
-    console.log("Joined a new guild: " + guild.name);
+  console.log("Joined a new guild: " + guild.name);
 })
 
 client.on("guildDelete", guild => {
-    console.log("Left a guild: " + guild.name);
+  console.log("Left a guild: " + guild.name);
 });
 
 client.login(auth.token);
