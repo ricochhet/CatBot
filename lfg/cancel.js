@@ -5,8 +5,8 @@ module.exports = {
   name: 'cancel',
   args: false,
   usage : 'cancel',
-  description : 'Cancels your current advertisement',
-  error (message) {
+  description : 'Cancels your current lfg post',
+  error(message) {
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
@@ -14,36 +14,36 @@ module.exports = {
 
     return message.channel.send(usageEmbed);
   },
-  run (client, message, args) {
-    let lfg = require("../databases/lfg.json")
+  run(client, message, args) {
+    const lfg = require('../databases/lfg.json');
 
-    const userID = message.author.id
+    const userId = message.author.id;
 
     // Checks if the user has already posted or not
-    let userfound = false;
-    let sessionID;
-    for (group in lfg) {
-      if (userfound) break
-      if (lfg[group]['userID'] == userID) {
-        userfound = true;
-        sessionID = group
+    let userFound = false;
+    let sessionId;
+    for (const group in lfg) {
+      if (lfg[group]['userID'] == userId) {
+        userFound = true;
+        sessionId = group;
+        break;
       }
     }
 
-    if (!userfound) return message.reply("Sorry Meowster but their are no current ad's by you right now")
+    if (!userFound) {
+      return message.reply('Sorry meowster but you haven\'t posted anything yet!');
+    }
 
-    delete lfg[sessionID]
-
-    var jsonObj = JSON.stringify(lfg,null,4)
-    fs.writeFile(`${__dirname.replace("lfg","databases")}/lfg.json`, jsonObj, 'utf8', function (err) {
+    // Delete session, rewrite file
+    delete lfg[sessionId];
+    const jsonObj = JSON.stringify(lfg, null, 4);
+    fs.writeFile(`${__dirname.replace('lfg', 'databases')}/lfg.json`, jsonObj, 'utf8', function(err) {
         if (err) {
-            console.log("An error occured while writing JSON Object to File.");
+            console.log('An error occured while writing JSON Object to file.');
             return console.log(err);
         }
     });
 
-
-
-    message.reply(`Meowster we cancled your prevoius advertisement \`${sessionID}\``)
-  }
-}
+    message.reply(`Meowster we canceled your previous lfg post: \`${sessionId}\``);
+  },
+};

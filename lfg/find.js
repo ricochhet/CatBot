@@ -1,13 +1,12 @@
 const Discord = require('discord.js');
-const fs = require('fs');
-const {Embeds} = require('discord-paginationembed');
+const { Embeds } = require('discord-paginationembed');
 
 module.exports = {
   name: 'find',
   args: false,
-  usage : 'find',
-  description : 'Shows all of the adverts on our bot currently right now',
-  error (message) {
+  usage: 'find',
+  description: 'Shows all the current sessions posted via CatBot',
+  error(message) {
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
@@ -15,75 +14,79 @@ module.exports = {
 
     return message.channel.send(usageEmbed);
   },
-  Chunk(arr, len) {
-    let chunks = [], i = 0, n = arr.length;
 
-    while (i < n) {
-        chunks.push(arr.slice(i, i += len));
+  Chunk(arr, len) {
+    const chunks = [];
+
+    let i = 0;
+    while (i < arr.length) {
+      chunks.push(arr.slice(i, i += len));
     }
 
     return chunks;
   },
-  async run (client, message, args) {
-    let lfg = require("../databases/lfg.json")
 
+  async run(client, message, args) {
+    const lfg = require('../databases/lfg.json');
 
-    if (Object.keys(lfg).length == 0) return message.reply("Sorry meowster but there are no current advertisements right now!")
-
-    advertisements = []
-
-    for (sessionID in lfg){
-      foo = {}
-      foo[sessionID] = lfg[sessionID]
-      advertisements.push(foo)
+    if (Object.keys(lfg).length == 0) {
+      return message.reply('Sorry meowster but there are no sessions posted right now!');
     }
 
-    let tChunks = this.Chunk(advertisements, 5);
-    let embeds = [], tEmbed;
+    const posts = [];
 
-    for (let outer of tChunks) {
-        tEmbed = new Discord.RichEmbed();
+    for (const sessionID in lfg) {
+      const post = {};
+      post[sessionID] = lfg[sessionID];
+      posts.push(post);
+    }
 
-        tEmbed
-            .setTitle("Session list")
-            .setDescription("Join up with one of the groups below to find some new friends!")
+    const tChunks = this.Chunk(posts, 5);
+    const embeds = [];
+    let tEmbed;
 
-        for (let inner of outer) {
-            sessionID = Object.keys(inner)[0]
-            let desc;
-            if (inner[sessionID]['description'] == null || inner[sessionID]['description'].length == 0){
-              desc = 'No description provided.'
-            } else {
-              desc = inner[sessionID]['description']
-            }
-            tEmbed.addField(
-                `\u200B`,
-                `\`\`\`\n`
-                + `🔖 SessionID: ${sessionID}\n`
-                + `🕹️ Platform: ${inner[sessionID]['platform']}\n`
-                + `📝 Description: ${desc}\n`
-                + `\`\`\``,
-            );
+    for (const outer of tChunks) {
+      tEmbed = new Discord.RichEmbed();
+
+      tEmbed
+        .setTitle('Session list')
+        .setDescription('Join up with one of the groups below to find some new friends!');
+
+      for (const inner of outer) {
+        const sessionID = Object.keys(inner)[0];
+        let desc;
+        if (!inner[sessionID]['description']) {
+          desc = 'No description provided.';
         }
 
-        embeds.push(tEmbed);
+        desc = inner[sessionID]['description'];
+
+        tEmbed.addField(
+          '\u200B',
+          '```\n'
+          + `🔖 SessionID: ${sessionID}\n`
+          + `🕹️ Platform: ${inner[sessionID]['platform']}\n`
+          + `📝 Description: ${desc}\n`
+          + '```',
+        );
+      }
+
+      embeds.push(tEmbed);
     }
 
-
     new Embeds()
-        .setArray(embeds)
-        .setTimeout(30 * 1000)
-        .setNavigationEmojis({
+      .setArray(embeds)
+      .setTimeout(30 * 1000)
+      .setNavigationEmojis({
         back: '◀',
         jump: '↗',
         forward: '▶',
-        delete: '🗑'
-        })
-        .setPageIndicator(true)
-        .setAuthorizedUsers([message.author.id])
-        .setChannel(message.channel)
-        .setColor('#8fde5d')
-        .build();
-      }
-
-  }
+        delete: '🗑',
+      })
+      .setPageIndicator(true)
+      .setAuthorizedUsers([message.author.id])
+      .setChannel(message.channel)
+      .setColor('#8fde5d')
+      .build();
+  },
+};

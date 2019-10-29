@@ -4,7 +4,7 @@ module.exports = {
   name: 'help',
   args: false,
   description: 'List all commands and their information',
-  run (client, message, args) {
+  run(client, message, args) {
     const helpEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d');
 
@@ -33,7 +33,7 @@ module.exports = {
     // Other Commands w/o Args
     data = [];
     client.commands.filter(cmd => cmd.args != true).forEach(cmd => {
-      if (!cmd.secret){data.push(`+${cmd.name} - ${cmd.description}`)}
+      if (!cmd.secret) data.push(`+${cmd.name} - ${cmd.description}`);
     });
     helpEmbed.addField('Other', data.join('\n'));
 
@@ -42,10 +42,10 @@ module.exports = {
 
     // Experiencing Issues Text
     helpEmbed.addBlankField()
-      .addField('Experiencing Issues? ', "```Contact Ricochet#7498 | Do +support```")
+      .addField('Experiencing Issues? ', '```Contact Ricochet#7498 | Do +support```')
       .setTimestamp()
       .setFooter('Help Menu', client.user.avatarURL);
 
     message.channel.send(helpEmbed);
-  }
-}
+  },
+};
