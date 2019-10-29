@@ -1,11 +1,5 @@
-# CatBot Guides
-Guides for adding features to CatBot.
-
-# TODO
-```
-> Make optimization our first priority with the official commands
-> Finish armor/weapon lists & info
-```
+# CatBot
+Source Code for CatBot.
 
 # Usage
 CatBot uses multiple libraries, modules, and utilities, [nodejs](https://nodejs.org/en/) and [discord.js](https://discord.js.org/#/)
