@@ -35,7 +35,7 @@ module.exports = (client, message) => {
   }
 
   if (command.caseSensitiveArgs) {
-    command.run(client, message, rawArgs);
+    return command.run(client, message, rawArgs);
   }
 
   command.run(client, message, args);
