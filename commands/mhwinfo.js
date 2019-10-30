@@ -6,11 +6,11 @@ const { similarity } = require('../util.js');
 const monsters = new Discord.Collection();
 const endemics = new Discord.Collection();
 
-for(const i of Object.keys(monsterDatabase)) {
+for (const i of Object.keys(monsterDatabase)) {
   monsters.set(monsterDatabase[i].name, monsterDatabase[i].details);
 }
 
-for(const i of Object.keys(endemicDatabase)) {
+for (const i of Object.keys(endemicDatabase)) {
   endemics.set(i, endemicDatabase[i]);
 }
 
@@ -19,11 +19,11 @@ module.exports = {
   args: true,
   usage: 'mhwinfo <monstername>',
   description: 'Get monster and endemic life info',
-  run (client, message, args) {
+  run(client, message, args) {
     let input = args.join('').toLowerCase();
 
     // If input matches the alias of a monster, change input to that monster name
-    for (let [name, monster] of monsters.entries()) {
+    for (const [name, monster] of monsters.entries()) {
       if (monster.aliases && monster.aliases.includes(input)) {
         input = name;
         break;
@@ -36,13 +36,13 @@ module.exports = {
       const similarItems = new Array();
 
       for (const key of monsters.keys()) {
-        if (similarity(key, input) >= 0.5){
+        if (similarity(key, input) >= 0.5) {
           similarItems.push(key);
         }
       }
 
       for (const key of endemics.keys()) {
-        if (similarity(key, input) >= 0.5){
+        if (similarity(key, input) >= 0.5) {
           similarItems.push(key);
         }
       }
@@ -52,7 +52,8 @@ module.exports = {
       }
 
       message.channel.send(msg);
-    } else if(monsters.has(input)) {
+    }
+    else if (monsters.has(input)) {
       const monster = monsters.get(input);
 
       const monsterEmbed = new Discord.RichEmbed()
@@ -69,7 +70,8 @@ module.exports = {
         .setFooter('Info Menu');
 
       message.channel.send(monsterEmbed);
-    } else if(endemics.has(input)) {
+    }
+    else if (endemics.has(input)) {
       const endemic = endemics.get(input);
 
       const endemicEmbed = new Discord.RichEmbed()
@@ -84,5 +86,5 @@ module.exports = {
 
       message.channel.send(endemicEmbed);
     }
-  }
-}
+  },
+};

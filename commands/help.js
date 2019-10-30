@@ -38,7 +38,11 @@ module.exports = {
     helpEmbed.addField('Other', data.join('\n'));
 
     // Notes
-    helpEmbed.addField('Notes', 'Using a command w/o args gets extended help');
+    data = [];
+    data.push('Using a command w/o args gets extended help');
+    data.push('<arg> - mandatory parameter');
+    data.push('[arg] - optional parameter');
+    helpEmbed.addField('Notes', data.join('\n'));
 
     // Experiencing Issues Text
     helpEmbed.addBlankField()

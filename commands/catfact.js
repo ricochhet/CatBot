@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-let catFacts = ['Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.',
+const catFacts = ['Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.',
 'When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.',
 'The technical term for a cat’s hairball is a “bezoar.”',
 'A group of cats is called a “clowder.”',
@@ -107,7 +105,7 @@ module.exports = {
   name: 'catfact',
   args: false,
   description: 'Shows a random cat fact',
-  run (client, message, args) {
-    message.channel.send(catFacts[Math.floor(Math.random()*catFacts.length)]);
-  }
-}
+  run(client, message, args) {
+    message.channel.send(catFacts[Math.floor(Math.random() * catFacts.length)]);
+  },
+};

@@ -20,7 +20,7 @@ module.exports = (client, message) => {
   if (!command) return;
 
   // Ignores Secret Commands if Not Owner
-  if (command.secret && message.author.id != process.env.OWNER) return;
+  // if (command.secret && message.author.id != process.env.OWNER) return;
 
   if (command.args && !args.length) {
     if (command.usage) {
