@@ -26,12 +26,13 @@ module.exports = {
 
     const subcmd = args[0];
 
-    const cmdFound = client.math.find(cmd => cmd.name === subcmd && cmd.secret === false);
+    const cmdFound = client.mhw.find(cmd => cmd.name === subcmd && cmd.secret === false);
 
     if (!cmdFound) return this.error(message);
 
     // Strip first arg (mhw)
     args = args.slice(1, args.length);
+
     cmdFound.run(client, message, args);
   },
 };

@@ -6,6 +6,7 @@ module.exports = {
   args: false,
   usage : 'subscribe [channel name]',
   description : 'Subscribe command will make CatBot automatically post lfg sessions in the given channel',
+  secret : false,
   error(message) {
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')

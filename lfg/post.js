@@ -6,6 +6,7 @@ module.exports = {
   args: true,
   usage: 'post <platform> <session id> [description]',
   description: 'Advertise your game session through CatBot for 2 hours',
+  secret : false,
   error(message) {
     const data = [];
     data.push('**platform Args:**\n Choose between PC, PS4, XBOX\n');
@@ -134,6 +135,7 @@ module.exports = {
     }
 
     // force push the remaining args into the obj
+    console.log(args.length)
     if (args.length > 2) {
       if (['ps4', 'xbox'].includes(platform)) {
         sessionObj['description'] = args.slice(4, args.length).join(' ');
@@ -161,7 +163,7 @@ module.exports = {
     if (args.length > 2 & sessionObj['platform'] == 'pc') {
       responce.addField(`**${sessionID}**`, `\`\`\`${sessionObj['description']}\`\`\``);
     }
-    else if (sessionObj['description'].length > 0 & ['ps4', 'xbox'].includes(platform)) {
+    else if (sessionObj['description'] != null & ['ps4', 'xbox'].includes(platform)) {
       responce.addField(`**${sessionID}**`, `\`\`\`${sessionObj['description']}\`\`\``);
     }
     else {

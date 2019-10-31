@@ -7,6 +7,7 @@ module.exports = {
   args: true,
   usage: 'raw <damage> <weapontype> <sharpness> <monsterpartmultiplier>',
   description: 'Raw calculator',
+  secret: false,
   run(client, message, args) {
     const data = [];
     data.push('damage: base damage value');

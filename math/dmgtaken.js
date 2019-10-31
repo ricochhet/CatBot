@@ -6,6 +6,7 @@ module.exports = {
   calc : true,
   usage: 'dmgtaken <defense>',
   description: 'Damage taken calculator',
+  secret: false,
   error (message) {
     const data = [];
     data.push('defense: current defense value');

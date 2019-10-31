@@ -13,6 +13,7 @@ module.exports = {
   args: true,
   usage: 'weapon <weaponname>',
   description: 'Get weapon info',
+  secret: false,
   run (client, message, args) {
     let input = args.join('').toLowerCase();
 

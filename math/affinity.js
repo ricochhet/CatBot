@@ -6,6 +6,7 @@ module.exports = {
   calc: true,
   usage: 'affinity <affinity> <damage>',
   description: 'Affinity calculator',
+  secret: false,
   error (message) {
     const data = [];
     data.push('affinity: base affinity value');

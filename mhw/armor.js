@@ -13,6 +13,7 @@ module.exports = {
   args: true,
   usage: 'armor <armorname>',
   description: 'Get armor info',
+  secret: false,
   run (client, message, args) {
     if(message.author.id == process.env.OWNER) {
       let input = args.join('').toLowerCase();

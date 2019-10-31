@@ -21,12 +21,12 @@ module.exports = {
     return message.channel.send(usageEmbed);
   },
   run(client, message, args) {
-
+    
     // Get sub command
     let subcmd = args[1];
     if (subcmd != undefined) subcmd = subcmd.toLowerCase();
 
-    const cmdFound = client.lfg.find(cmd => cmd.name === subcmd && cmd.secret === false);
+    const cmdFound = client.lfg.find(cmd => cmd.name == subcmd && cmd.secret == false);
 
     if (!cmdFound) return this.error(message);
 

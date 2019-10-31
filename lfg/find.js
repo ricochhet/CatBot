@@ -6,6 +6,7 @@ module.exports = {
   args: false,
   usage: 'find',
   description: 'Shows all the current sessions posted via CatBot',
+  secret : false,
   error(message) {
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')

@@ -7,6 +7,7 @@ module.exports = {
   calc: true,
   usage: 'elemental <damage> <sharpness> <monsterpartmultiplier>',
   description: 'Elemental calculator',
+  secret: false,
   run (client, message, args) {
     const data = [];
     data.push('damage: base damage value');
