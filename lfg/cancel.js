@@ -6,7 +6,6 @@ module.exports = {
   args: false,
   usage : 'cancel',
   description : 'Cancels your current lfg post',
-  secret : false,
   error(message) {
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')

@@ -10,7 +10,6 @@ module.exports = {
   args: false,
   usage: 'list <listname>',
   description: 'List items of various categories',
-  secret: false,
   error (message) {
     const data = [];
     data.push('Monsters: <monsters | ibmonsters| endemic>');

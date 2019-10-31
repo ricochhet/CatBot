@@ -13,7 +13,6 @@ module.exports = {
   args: true,
   usage: 'item <itemname>',
   description: 'Get item info',
-  secret: false,
   run (client, message, args) {
     const input = args.join('').toLowerCase();
 

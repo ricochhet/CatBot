@@ -13,7 +13,6 @@ module.exports = {
   args: true,
   usage: 'weapontree <iron | bone | misc> <weapontype>',
   description: 'Get weapon tree chart',
-  secret: false,
   run (client, message, args) {
     let input = args.join('').toLowerCase();
 

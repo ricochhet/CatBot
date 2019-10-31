@@ -26,7 +26,7 @@ module.exports = {
 
     const subcmd = args[0];
 
-    const cmdFound = client.mhw.find(cmd => cmd.name === subcmd && cmd.secret === false);
+    const cmdFound = client.mhw.find(cmd => cmd.name === subcmd && !cmd.secret);
 
     if (!cmdFound) return this.error(message);
 

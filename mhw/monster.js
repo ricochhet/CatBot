@@ -19,7 +19,6 @@ module.exports = {
   args: true,
   usage: 'monster <monstername>',
   description: 'Get monster and endemic life info',
-  secret: false,
   run (client, message, args) {
     let input = args.join('').toLowerCase();
 
