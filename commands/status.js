@@ -4,35 +4,36 @@ module.exports = {
   name: 'status',
   args: false,
   secret: true,
-  run (client, message, args) {
-    if(message.author.id == process.env.OWNER) {
+  run(client, message, args) {
+    if (message.author.id == process.env.OWNER) {
       let totalSeconds = (client.uptime / 1000);
-      let days = Math.floor(totalSeconds / 86400);
-      let hours = Math.floor(totalSeconds / 3600);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor(totalSeconds / 3600);
+
       totalSeconds %= 3600;
-      let minutes = Math.floor(totalSeconds / 60);
-      let seconds = totalSeconds % 60;
-      let secondsRounded = totalSeconds.toString().split(".")[0];
-      let uptime = `${days}:${hours}:${minutes}:${secondsRounded}`;
 
-      let pingTime = client.ping;
-      let pingRounded = Math.round(pingTime);
+      const minutes = Math.floor(totalSeconds / 60);
+      const secondsRounded = totalSeconds.toString().split('.')[0];
+      const uptime = `${days}:${hours}:${minutes}:${secondsRounded}`;
 
-      let messagePing = new Date().getTime() - message.createdTimestamp;
-      let messagePingRounded = Math.round(messagePing);
+      const pingTime = client.ping;
+      const pingRounded = Math.round(pingTime);
 
-      let nodejsVersion = process.version;
-      let discordjsVersion = Discord.version;
+      const messagePing = new Date().getTime() - message.createdTimestamp;
+      const messagePingRounded = Math.round(messagePing);
 
-      let userCount = client.guilds.map(g => g.memberCount).reduce((a, b) => a + b);
+      const nodejsVersion = process.version;
+      const discordjsVersion = Discord.version;
+
+      const userCount = client.guilds.map(g => g.memberCount).reduce((a, b) => a + b);
 
       const statusEmbed = new Discord.RichEmbed()
         .setColor('#8fde5d')
         .addField('Servers: ', client.guilds.size, true)
         .addField('Members: ', userCount, true)
-        .addField('Bot Version: ', "v1.6.18", true)
-        .addField('Message Latency', messagePingRounded + "ms", true)
-        .addField('API Latency: ', pingRounded + "ms", true)
+        .addField('Bot Version: ', 'v1.6.18', true)
+        .addField('Message Latency', messagePingRounded + 'ms', true)
+        .addField('API Latency: ', pingRounded + 'ms', true)
         .addField('Uptime: ', uptime, true)
         .addField('NodeJS Version', nodejsVersion, true)
         .addField('DiscordJS Version', discordjsVersion, true)
@@ -40,9 +41,9 @@ module.exports = {
         .setFooter('Status Menu', client.user.avatarURL);
 
       message.channel.send(statusEmbed);
-      const guildNames = client.guilds.map(g => g.name + " | " + g.id).join("\n");
+      const guildNames = client.guilds.map(g => g.name + ' | ' + g.id).join('\n');
 
       console.log(guildNames);
     }
-  }
-}
+  },
+};
