@@ -1,19 +1,19 @@
 const Discord = require('discord.js');
-const weaponTreeDatabase = require('../databases/weapontrees.json');
+const weaponTreeDatabase = require('../databases/mhw/weapontrees.json');
 const { similarity } = require('../util.js');
 
 const weapons = new Discord.Collection();
 
-for(const i of Object.keys(weaponTreeDatabase)) {
+for (const i of Object.keys(weaponTreeDatabase)) {
   weapons.set(i, weaponTreeDatabase[i]);
 }
 
 module.exports = {
   name: 'weapontree',
   args: true,
-  usage: 'weapontree <iron | bone | misc> <weapontype>',
+  usage: 'weapontree <iron, bone, misc> <weapontype>',
   description: 'Get weapon tree chart',
-  run (client, message, args) {
+  run(client, message, args) {
     let input = args.join('').toLowerCase();
 
     if (!weapons.has(input)) {
@@ -22,7 +22,7 @@ module.exports = {
       const similarItems = new Array();
 
       for (const key of weapons.keys()) {
-        if (similarity(key, input) >= 0.5){
+        if (similarity(key, input) >= 0.5) {
           similarItems.push(key);
         }
       }
@@ -32,7 +32,8 @@ module.exports = {
       }
 
       message.channel.send(msg);
-    } else if(weapons.has(input)) {
+    } 
+    else if (weapons.has(input)) {
       const weapon = weapons.get(input);
 
       const weaponEmbed = new Discord.RichEmbed()
@@ -43,5 +44,5 @@ module.exports = {
 
       message.channel.send(weaponEmbed);
     }
-  }
-}
+  },
+};

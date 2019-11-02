@@ -1,0 +1,2443 @@
+{
+    "leatherset": {
+        "title": "Leather set",
+        "url": "https://mhworld.kiranico.com/armorseries/w4wk4/leather",
+        "resistances": "Defense: 10\n Fire: +10\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Hunger Resistance"
+        ]
+    },
+    "hunter'sset": {
+        "title": "Hunter's set",
+        "url": "https://mhworld.kiranico.com/armorseries/z4r17/hunters",
+        "resistances": "Defense: 30\n Fire: +10\n Water: +10\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Scoutfly Range Up",
+            "Slinger Capacity",
+            "Stealth",
+            "Scenthound",
+            "BBQ Master"
+        ]
+    },
+    "anjaset": {
+        "title": "Anja set",
+        "url": "https://mhworld.kiranico.com/armorseries/k7zx7/anja",
+        "resistances": "Defense: 100\n Fire: +15\n Water: -15\n Thunder: -5\n Ice: -5\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Fire Attack",
+            "Anjanath Power",
+            "Marathon Runner",
+            "Special Ammo Boost",
+            "Fire Resistance",
+            "Artillery"
+        ]
+    },
+    "jagrasset": {
+        "title": "Jagras set",
+        "url": "https://mhworld.kiranico.com/armorseries/n4xy7/jagras",
+        "resistances": "Defense: 40\n Fire: -10\n Water: +10\n Thunder: -5\n Ice: -5\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Speed Eating",
+            "Intimidator",
+            "Palico Rally",
+            "Fortify",
+            "Speed Crawler"
+        ]
+    },
+    "boneset": {
+        "title": "Bone set",
+        "url": "https://mhworld.kiranico.com/armorseries/k7p27/bone",
+        "resistances": "Defense: 30\n Fire: +10\n Water: 0\n Thunder: 0\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Health Boost",
+            "Attack Boost",
+            "Slugger",
+            "Horn Maestro",
+            "Entomologist"
+        ]
+    },
+    "alloyset": {
+        "title": "Alloy set",
+        "url": "https://mhworld.kiranico.com/armorseries/14lz4/alloy",
+        "resistances": "Defense: 40\n Fire: -10\n Water: +5\n Thunder: -10\n Ice: -10\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Windproof",
+            "Water Resistance",
+            "Defense Boost",
+            "Poison Resistance",
+            "Speed Sharpening"
+        ]
+    },
+    "kestodonset": {
+        "title": "Kestodon set",
+        "url": "https://mhworld.kiranico.com/armorseries/j4mq4/kestodon",
+        "resistances": "Defense: 12\n Fire: +4\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Affinity Sliding"
+        ]
+    },
+    "gajauset": {
+        "title": "Gajau set",
+        "url": "https://mhworld.kiranico.com/armorseries/64jp4/gajau",
+        "resistances": "Defense: 12\n Fire: 0\n Water: +5\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Aquatic Expert"
+        ]
+    },
+    "vespoidset": {
+        "title": "Vespoid set",
+        "url": "https://mhworld.kiranico.com/armorseries/x72w4/vespoid",
+        "resistances": "Defense: 40\n Fire: -10\n Water: +5\n Thunder: +5\n Ice: +5\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Quick Sheath",
+            "Windproof",
+            "Paralysis Attack",
+            "Paralysis Resistance",
+            "Honey Hunter"
+        ]
+    },
+    "kuluset": {
+        "title": "Kulu set",
+        "url": "https://mhworld.kiranico.com/armorseries/x4v04/kulu",
+        "resistances": "Defense: 50\n Fire: 0\n Water: -15\n Thunder: +5\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Fire Resistance",
+            "Stamina Surge",
+            "Pro Transporter",
+            "Item Prolonger",
+            "Critical Eye"
+        ]
+    },
+    "pukeiset": {
+        "title": "Pukei set",
+        "url": "https://mhworld.kiranico.com/armorseries/24k87/pukei",
+        "resistances": "Defense: 60\n Fire: 0\n Water: +15\n Thunder: 0\n Ice: -15\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Sporepuff Expert",
+            "Item Prolonger",
+            "Poison Resistance",
+            "Poison Attack",
+            "Botanist"
+        ]
+    },
+    "jyuraset": {
+        "title": "Jyura set",
+        "url": "https://mhworld.kiranico.com/armorseries/j7ql4/jyura",
+        "resistances": "Defense: 70\n Fire: -5\n Water: +10\n Thunder: 0\n Ice: -15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Aquatic Expert",
+            "Muck Resistance",
+            "Water Attack",
+            "Ice Resistance",
+            "Focus"
+        ]
+    },
+    "barrothset": {
+        "title": "Barroth set",
+        "url": "https://mhworld.kiranico.com/armorseries/67n14/barroth",
+        "resistances": "Defense: 70\n Fire: -15\n Water: -5\n Thunder: -5\n Ice: +15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Guard",
+            "Stamina Thief",
+            "Marathon Runner",
+            "Muck Resistance",
+            "Stun Resistance"
+        ]
+    },
+    "kadachiset": {
+        "title": "Kadachi set",
+        "url": "https://mhworld.kiranico.com/armorseries/y40l4/kadachi",
+        "resistances": "Defense: 80\n Fire: 0\n Water: -15\n Thunder: 0\n Ice: +15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Constitution",
+            "Jump Master",
+            "Evade Extender",
+            "Thunder Attack",
+            "Thunder Resistance"
+        ]
+    },
+    "chainmailset": {
+        "title": "Chainmail set",
+        "url": "https://mhworld.kiranico.com/armorseries/843x7/chainmail",
+        "resistances": "Defense: 10\n Fire: 0\n Water: +10\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Master Gatherer"
+        ]
+    },
+    "hornetaurset": {
+        "title": "Hornetaur set",
+        "url": "https://mhworld.kiranico.com/armorseries/z49p7/hornetaur",
+        "resistances": "Defense: 90\n Fire: -5\n Water: -5\n Thunder: 0\n Ice: 0\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Dungmaster",
+            "Effluvial Expert",
+            "Free Meal",
+            "Carving Pro",
+            "Handicraft"
+        ]
+    },
+    "kingbeetleset": {
+        "title": "King Beetle set",
+        "url": "https://mhworld.kiranico.com/armorseries/x76m4/king-beetle",
+        "resistances": "Defense: 110\n Fire: -5\n Water: -5\n Thunder: 0\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Evade Window",
+            "Quick Sheath",
+            "Leap of Faith",
+            "Honey Hunter",
+            "Forager's Luck"
+        ]
+    },
+    "rathianset": {
+        "title": "Rathian set",
+        "url": "https://mhworld.kiranico.com/armorseries/48937/rathian",
+        "resistances": "Defense: 110\n Fire: +10\n Water: 0\n Thunder: 0\n Ice: -10\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Health Boost",
+            "Botanist",
+            "Poison Attack",
+            "Poison Resistance",
+            "Recovery Up"
+        ]
+    },
+    "girrosset": {
+        "title": "Girros set",
+        "url": "https://mhworld.kiranico.com/armorseries/45qq4/girros",
+        "resistances": "Defense: 100\n Fire: 0\n Water: -15\n Thunder: 0\n Ice: +10\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Horn Maestro",
+            "Paralysis Resistance",
+            "Palico Rally",
+            "Effluvial Expert",
+            "Paralysis Attack"
+        ]
+    },
+    "tzitziset": {
+        "title": "Tzitzi set",
+        "url": "https://mhworld.kiranico.com/armorseries/7w6k4/tzitzi",
+        "resistances": "Defense: 90\n Fire: 0\n Water: 0\n Thunder: -10\n Ice: -15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Blindsider",
+            "Constitution",
+            "Stun Resistance",
+            "Wide-Range",
+            "Sleep Resistance"
+        ]
+    },
+    "lumuset": {
+        "title": "Lumu set",
+        "url": "https://mhworld.kiranico.com/armorseries/7r217/lumu",
+        "resistances": "Defense: 100\n Fire: -15\n Water: +10\n Thunder: +5\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Stamina Surge",
+            "Master Mounter",
+            "Artillery",
+            "Divine Blessing",
+            "Windproof"
+        ]
+    },
+    "highmetalset": {
+        "title": "High Metal set",
+        "url": "https://mhworld.kiranico.com/armorseries/4zmx7/high-metal",
+        "resistances": "Defense: 90\n Fire: 0\n Water: -5\n Thunder: +15\n Ice: -10\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Ice Resistance",
+            "Earplugs",
+            "Defense Boost",
+            "Capacity Boost",
+            "Heavy Artillery"
+        ]
+    },
+    "deathstenchset": {
+        "title": "Death Stench set",
+        "url": "https://mhworld.kiranico.com/armorseries/7m587/death-stench",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "legianaset": {
+        "title": "Legiana set",
+        "url": "https://mhworld.kiranico.com/armorseries/4pm27/legiana",
+        "resistances": "Defense: 150\n Fire: -5\n Water: +10\n Thunder: +15\n Ice: -15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Divine Blessing",
+            "Legiana Blessing",
+            "Evade Window",
+            "Airborne",
+            "Ice Attack",
+            "Ice Resistance"
+        ]
+    },
+    "baanset": {
+        "title": "Baan set",
+        "url": "https://mhworld.kiranico.com/armorseries/7lpz7/baan",
+        "resistances": "Defense: 120\n Fire: 0\n Water: +10\n Thunder: -5\n Ice: 0\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Slugger",
+            "Sleep Resistance",
+            "Sleep Attack",
+            "Guard",
+            "Bleeding Resistance"
+        ]
+    },
+    "odogaronset": {
+        "title": "Odogaron set",
+        "url": "https://mhworld.kiranico.com/armorseries/7mkq7/odogaron",
+        "resistances": "Defense: 150\n Fire: +10\n Water: +10\n Thunder: -15\n Ice: -10\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Bleeding Resistance",
+            "Odogaron Power",
+            "Speed Sharpening",
+            "Constitution",
+            "Critical Eye",
+            "Quick Sheath"
+        ]
+    },
+    "ingotset": {
+        "title": "Ingot set",
+        "url": "https://mhworld.kiranico.com/armorseries/42mw7/ingot",
+        "resistances": "Defense: 140\n Fire: -10\n Water: 0\n Thunder: -5\n Ice: +15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Thunder Attack",
+            "Thunder Resistance",
+            "Health Boost",
+            "Windproof",
+            "Defense Boost"
+        ]
+    },
+    "rathalosset": {
+        "title": "Rathalos set",
+        "url": "https://mhworld.kiranico.com/armorseries/7kz84/rathalos",
+        "resistances": "Defense: 150\n Fire: +15\n Water: +5\n Thunder: +5\n Ice: -10\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Attack Boost",
+            "Rathalos Power",
+            "Weakness Exploit",
+            "Fire Resistance",
+            "Fire Attack",
+            "Jump Master"
+        ]
+    },
+    "diablosset": {
+        "title": "Diablos set",
+        "url": "https://mhworld.kiranico.com/armorseries/4qnl7/diablos",
+        "resistances": "Defense: 160\n Fire: +15\n Water: -10\n Thunder: -15\n Ice: 0\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Critical Draw",
+            "Diablos Power",
+            "Slugger",
+            "Heroics",
+            "Marathon Runner",
+            "Tremor Resistance"
+        ]
+    },
+    "kirinset": {
+        "title": "Kirin set",
+        "url": "https://mhworld.kiranico.com/armorseries/4n317/kirin",
+        "resistances": "Defense: 170\n Fire: -15\n Water: -10\n Thunder: -10\n Ice: +20\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Marathon Runner",
+            "Kirin Blessing",
+            "Divine Blessing",
+            "Blight Resistance",
+            "Thunder Attack",
+            "Thunder Resistance"
+        ]
+    },
+    "brigadeset": {
+        "title": "Brigade set",
+        "url": "https://mhworld.kiranico.com/armorseries/7zwz4/brigade",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "skullbset": {
+        "title": "Skull b set",
+        "url": "https://mhworld.kiranico.com/armorseries/7kxr4/skull-b",
+        "resistances": "Defense: 2\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "guildcrossset": {
+        "title": "Guild Cross set",
+        "url": "https://mhworld.kiranico.com/armorseries/4xjn4/guild-cross",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "blossomset": {
+        "title": "Blossom set",
+        "url": "https://mhworld.kiranico.com/armorseries/4wxn7/blossom",
+        "resistances": "Defense: 90\n Fire: +5\n Water: +5\n Thunder: +5\n Ice: +20\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Honey Hunter",
+            "Quick Sheath",
+            "Paralysis Resistance",
+            "Scoutfly Range Up",
+            "Recovery Speed"
+        ]
+    },
+    "diverset": {
+        "title": "Diver set",
+        "url": "https://mhworld.kiranico.com/armorseries/4r8x4/diver",
+        "resistances": "Defense: 110\n Fire: +5\n Water: +20\n Thunder: +5\n Ice: +5\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Marathon Runner",
+            "Critical Eye",
+            "Quick Sheath",
+            "Aquatic Expert",
+            "Hunger Resistance"
+        ]
+    },
+    "harvestset": {
+        "title": "Harvest set",
+        "url": "https://mhworld.kiranico.com/armorseries/7z8z7/harvest",
+        "resistances": "Defense: 130\n Fire: +20\n Water: +5\n Thunder: +5\n Ice: +5\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Focus",
+            "Tremor Resistance",
+            "Resentment",
+            "Constitution",
+            "Mushroomancer"
+        ]
+    },
+    "orionset": {
+        "title": "Orion set",
+        "url": "https://mhworld.kiranico.com/armorseries/4x3n7/orion",
+        "resistances": "Defense: 150\n Fire: +5\n Water: +5\n Thunder: +20\n Ice: +5\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Recovery Up",
+            "Flinch Free",
+            "Windproof",
+            "Health Boost",
+            "Heroics"
+        ]
+    },
+    "galasuitset": {
+        "title": "Gala Suit set",
+        "url": "https://mhworld.kiranico.com/armorseries/7pym4/gala-suit",
+        "resistances": "Defense: 170\n Fire: +5\n Water: +5\n Thunder: +5\n Ice: +5\n Dragon: +20",
+        "setBonus": "-",
+        "skills": [
+            "Critical Boost",
+            "Astera Blessing",
+            "Critical Draw",
+            "Maximum Might",
+            "Slinger Capacity",
+            "Divine Blessing"
+        ]
+    },
+    "bayekset": {
+        "title": "Bayek set",
+        "url": "https://mhworld.kiranico.com/armorseries/496r7/bayek",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "shamosset": {
+        "title": "Shamos set",
+        "url": "https://mhworld.kiranico.com/armorseries/761q4/shamos",
+        "resistances": "Defense: 22\n Fire: +2\n Water: +2\n Thunder: -3\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Detector"
+        ]
+    },
+    "butterflyset": {
+        "title": "Butterfly set",
+        "url": "https://mhworld.kiranico.com/armorseries/7l8r7/butterfly",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "originset": {
+        "title": "Origin set",
+        "url": "https://mhworld.kiranico.com/armorseries/412v7/origin",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "samuraiset": {
+        "title": "Samurai set",
+        "url": "https://mhworld.kiranico.com/armorseries/4lmk7/samurai",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "kulvetarothset": {
+        "title": "Kulve Taroth set",
+        "url": "https://mhworld.kiranico.com/armorseries/723q4/kulve-taroth",
+        "resistances": "Defense: 10\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "bushi\"sabi\"set": {
+        "title": "Bushi \"Sabi\" set",
+        "url": "https://mhworld.kiranico.com/armorseries/4v264/bushi-sabi",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "bushi\"homare\"set": {
+        "title": "Bushi \"Homare\" set",
+        "url": "https://mhworld.kiranico.com/armorseries/4klr7/bushi-homare",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "queenbeetleset": {
+        "title": "Queen Beetle set",
+        "url": "https://mhworld.kiranico.com/armorseries/7py84/queen-beetle",
+        "resistances": "Defense: 110\n Fire: -5\n Water: -5\n Thunder: 0\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Stun Resistance",
+            "Health Boost",
+            "Critical Eye",
+            "Defense Boost",
+            "Marathon Runner"
+        ]
+    },
+    "shadowshadesset": {
+        "title": "Shadow Shades set",
+        "url": "https://mhworld.kiranico.com/armorseries/7jmk4/shadow-shades",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "danteset": {
+        "title": "Dante set",
+        "url": "https://mhworld.kiranico.com/armorseries/42694/dante",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "drachenset": {
+        "title": "Drachen set",
+        "url": "https://mhworld.kiranico.com/armorseries/7v0n7/drachen",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "mosswinemaskset": {
+        "title": "Mosswine Mask set",
+        "url": "https://mhworld.kiranico.com/armorseries/7k9y7/mosswine-mask",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "fauxfelyneset": {
+        "title": "Faux Felyne set",
+        "url": "https://mhworld.kiranico.com/armorseries/4q914/faux-felyne",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "commissionset": {
+        "title": "Commission set",
+        "url": "https://mhworld.kiranico.com/armorseries/4n9n7/commission",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "sealedeyepatchset": {
+        "title": "Sealed Eyepatch set",
+        "url": "https://mhworld.kiranico.com/armorseries/70jv7/sealed-eyepatch",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "wigglerheadset": {
+        "title": "Wiggler Head set",
+        "url": "https://mhworld.kiranico.com/armorseries/73517/wiggler-head",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "beetleset": {
+        "title": "Beetle set",
+        "url": "https://mhworld.kiranico.com/armorseries/79l34/beetle",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "skullmaskset": {
+        "title": "Skull Mask set",
+        "url": "https://mhworld.kiranico.com/armorseries/46zp4/skull-mask",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "kulu-ya-kuheadset": {
+        "title": "Kulu-Ya-Ku Head set",
+        "url": "https://mhworld.kiranico.com/armorseries/78pp7/kulu-ya-ku-head",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "geraltofriviaset": {
+        "title": "Geralt of Rivia set",
+        "url": "https://mhworld.kiranico.com/armorseries/4x927/geralt-of-rivia",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "ciriset": {
+        "title": "Ciri set",
+        "url": "https://mhworld.kiranico.com/armorseries/7p984/ciri",
+        "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": []
+    },
+    "leatheraset": {
+        "title": "Leather a set",
+        "url": "https://mhworld.kiranico.com/armorseries/41kx4/leather-a",
+        "resistances": "Defense: 160\n Fire: +10\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Hunger Resistance",
+            "Fire Resistance",
+            "Recovery Speed",
+            "Stamina Surge",
+            "Cliffhanger"
+        ]
+    },
+    "leatherbset": {
+        "title": "Leather b set",
+        "url": "https://mhworld.kiranico.com/armorseries/799p7/leather-b",
+        "resistances": "Defense: 160\n Fire: +10\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Hunger Resistance"
+        ]
+    },
+    "chainmailaset": {
+        "title": "Chainmail a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4yyk4/chainmail-a",
+        "resistances": "Defense: 160\n Fire: 0\n Water: +10\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Master Gatherer",
+            "Guard",
+            "Water Resistance",
+            "Recovery Speed",
+            "Quick Sheath",
+            "Recovery Up"
+        ]
+    },
+    "chainmailbset": {
+        "title": "Chainmail b set",
+        "url": "https://mhworld.kiranico.com/armorseries/46km7/chainmail-b",
+        "resistances": "Defense: 160\n Fire: 0\n Water: +10\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Master Gatherer"
+        ]
+    },
+    "hunter'saset": {
+        "title": "Hunter's a set",
+        "url": "https://mhworld.kiranico.com/armorseries/78y34/hunters-a",
+        "resistances": "Defense: 180\n Fire: +10\n Water: +10\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Scoutfly Range Up",
+            "Scholar",
+            "Slinger Capacity",
+            "Stealth",
+            "Master Gatherer",
+            "Scenthound"
+        ]
+    },
+    "hunter'sbset": {
+        "title": "Hunter's b set",
+        "url": "https://mhworld.kiranico.com/armorseries/75zq4/hunters-b",
+        "resistances": "Defense: 180\n Fire: +10\n Water: +10\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Scoutfly Range Up",
+            "Slinger Capacity",
+            "Stealth",
+            "Master Gatherer",
+            "Scenthound"
+        ]
+    },
+    "boneaset": {
+        "title": "Bone a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4wkk4/bone-a",
+        "resistances": "Defense: 180\n Fire: +10\n Water: 0\n Thunder: 0\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Health Boost",
+            "Entomologist",
+            "Attack Boost",
+            "Slugger",
+            "Horn Maestro",
+            "Master Fisher"
+        ]
+    },
+    "bonebset": {
+        "title": "Bone b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4r317/bone-b",
+        "resistances": "Defense: 180\n Fire: +10\n Water: 0\n Thunder: 0\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Health Boost",
+            "Attack Boost",
+            "Slugger",
+            "Horn Maestro",
+            "Entomologist"
+        ]
+    },
+    "alloyaset": {
+        "title": "Alloy a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7z3x4/alloy-a",
+        "resistances": "Defense: 180\n Fire: -10\n Water: 0\n Thunder: -10\n Ice: -10\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Windproof",
+            "Defense Boost",
+            "Water Resistance",
+            "Speed Sharpening",
+            "Poison Resistance"
+        ]
+    },
+    "alloybset": {
+        "title": "Alloy b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4xky7/alloy-b",
+        "resistances": "Defense: 180\n Fire: -10\n Water: 0\n Thunder: -10\n Ice: -10\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Windproof",
+            "Water Resistance",
+            "Defense Boost",
+            "Poison Resistance",
+            "Speed Sharpening"
+        ]
+    },
+    "gajauaset": {
+        "title": "Gajau a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7pk24/gajau-a",
+        "resistances": "Defense: 40\n Fire: 0\n Water: +5\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Aquatic Expert",
+            "Water Attack"
+        ]
+    },
+    "gajaubset": {
+        "title": "Gajau b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4lkz7/gajau-b",
+        "resistances": "Defense: 40\n Fire: 0\n Water: +5\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Aquatic Expert",
+            "Water Attack"
+        ]
+    },
+    "kestodonaset": {
+        "title": "Kestodon a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4mlq7/kestodon-a",
+        "resistances": "Defense: 40\n Fire: +4\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Affinity Sliding",
+            "Focus"
+        ]
+    },
+    "kestodonbset": {
+        "title": "Kestodon b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4jjp4/kestodon-b",
+        "resistances": "Defense: 40\n Fire: +4\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Affinity Sliding"
+        ]
+    },
+    "vespoidaset": {
+        "title": "Vespoid a set",
+        "url": "https://mhworld.kiranico.com/armorseries/72kw4/vespoid-a",
+        "resistances": "Defense: 190\n Fire: -10\n Water: +5\n Thunder: +5\n Ice: +5\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Quick Sheath",
+            "Paralysis Attack",
+            "Windproof",
+            "Paralysis Resistance",
+            "Honey Hunter"
+        ]
+    },
+    "vespoidbset": {
+        "title": "Vespoid b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4v107/vespoid-b",
+        "resistances": "Defense: 190\n Fire: -10\n Water: +5\n Thunder: +5\n Ice: +5\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Quick Sheath",
+            "Windproof",
+            "Paralysis Attack",
+            "Paralysis Resistance",
+            "Honey Hunter"
+        ]
+    },
+    "gastodonaset": {
+        "title": "Gastodon a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4ky84/gastodon-a",
+        "resistances": "Defense: 48\n Fire: +3\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Flinch Free",
+            "Blast Resistance"
+        ]
+    },
+    "gastodonbset": {
+        "title": "Gastodon b set",
+        "url": "https://mhworld.kiranico.com/armorseries/7qjl4/gastodon-b",
+        "resistances": "Defense: 48\n Fire: +3\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Flinch Free"
+        ]
+    },
+    "barnosaset": {
+        "title": "Barnos a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7nk14/barnos-a",
+        "resistances": "Defense: 48\n Fire: +1\n Water: +1\n Thunder: +1\n Ice: 0\n Dragon: -2",
+        "setBonus": "-",
+        "skills": [
+            "Heat Guard",
+            "Iron Skin"
+        ]
+    },
+    "barnosbset": {
+        "title": "Barnos b set",
+        "url": "https://mhworld.kiranico.com/armorseries/40kl7/barnos-b",
+        "resistances": "Defense: 48\n Fire: +1\n Water: +1\n Thunder: +1\n Ice: 0\n Dragon: -2",
+        "setBonus": "-",
+        "skills": [
+            "Heat Guard"
+        ]
+    },
+    "hornetauraset": {
+        "title": "Hornetaur a set",
+        "url": "https://mhworld.kiranico.com/armorseries/43jx7/hornetaur-a",
+        "resistances": "Defense: 190\n Fire: -5\n Water: -5\n Thunder: 0\n Ice: 0\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Dungmaster",
+            "Dragon Attack",
+            "Effluvial Expert",
+            "Hunger Resistance",
+            "Free Meal",
+            "Carving Pro",
+            "Handicraft"
+        ]
+    },
+    "hornetaurbset": {
+        "title": "Hornetaur b set",
+        "url": "https://mhworld.kiranico.com/armorseries/711x7/hornetaur-b",
+        "resistances": "Defense: 190\n Fire: -5\n Water: -5\n Thunder: 0\n Ice: 0\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Dungmaster",
+            "Effluvial Expert",
+            "Free Meal",
+            "Carving Pro",
+            "Handicraft"
+        ]
+    },
+    "jagrasaset": {
+        "title": "Jagras a set",
+        "url": "https://mhworld.kiranico.com/armorseries/76nm7/jagras-a",
+        "resistances": "Defense: 200\n Fire: -10\n Water: +10\n Thunder: -5\n Ice: -5\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Speed Eating",
+            "Intimidator",
+            "Palico Rally",
+            "Fortify",
+            "Speed Crawler",
+            "Free Meal"
+        ]
+    },
+    "jagrasbset": {
+        "title": "Jagras b set",
+        "url": "https://mhworld.kiranico.com/armorseries/48l34/jagras-b",
+        "resistances": "Defense: 200\n Fire: -10\n Water: +10\n Thunder: -5\n Ice: -5\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Speed Eating",
+            "Intimidator",
+            "Palico Rally",
+            "Fortify",
+            "Speed Crawler"
+        ]
+    },
+    "kuluaset": {
+        "title": "Kulu a set",
+        "url": "https://mhworld.kiranico.com/armorseries/45yq4/kulu-a",
+        "resistances": "Defense: 200\n Fire: 0\n Water: -15\n Thunder: +5\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Fire Resistance",
+            "Weakness Exploit",
+            "Stamina Surge",
+            "Critical Eye",
+            "Pro Transporter",
+            "Item Prolonger"
+        ]
+    },
+    "kulubset": {
+        "title": "Kulu b set",
+        "url": "https://mhworld.kiranico.com/armorseries/7w1k7/kulu-b",
+        "resistances": "Defense: 200\n Fire: 0\n Water: -15\n Thunder: +5\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Fire Resistance",
+            "Stamina Surge",
+            "Pro Transporter",
+            "Item Prolonger",
+            "Critical Eye"
+        ]
+    },
+    "pukeiaset": {
+        "title": "Pukei a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7r114/pukei-a",
+        "resistances": "Defense: 210\n Fire: 0\n Water: +15\n Thunder: 0\n Ice: -15\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Sporepuff Expert",
+            "Item Prolonger",
+            "Botanist",
+            "Poison Resistance",
+            "Poison Attack"
+        ]
+    },
+    "pukeibset": {
+        "title": "Pukei b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4znx4/pukei-b",
+        "resistances": "Defense: 210\n Fire: 0\n Water: +15\n Thunder: 0\n Ice: -15\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Sporepuff Expert",
+            "Item Prolonger",
+            "Poison Resistance",
+            "Poison Attack",
+            "Botanist"
+        ]
+    },
+    "jyuraaset": {
+        "title": "Jyura a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7xly7/jyura-a",
+        "resistances": "Defense: 220\n Fire: -5\n Water: +10\n Thunder: 0\n Ice: -15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Aquatic Expert",
+            "Muck Resistance",
+            "Water Attack",
+            "Ice Resistance",
+            "Focus"
+        ]
+    },
+    "jyurabset": {
+        "title": "Jyura b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4p127/jyura-b",
+        "resistances": "Defense: 220\n Fire: -5\n Water: +10\n Thunder: 0\n Ice: -15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Aquatic Expert",
+            "Muck Resistance",
+            "Water Attack",
+            "Ice Resistance",
+            "Focus"
+        ]
+    },
+    "barrothaset": {
+        "title": "Barroth a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7lxz7/barroth-a",
+        "resistances": "Defense: 210\n Fire: -15\n Water: -5\n Thunder: -5\n Ice: +15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Guard",
+            "Stamina Thief",
+            "Marathon Runner",
+            "Muck Resistance",
+            "Stun Resistance"
+        ]
+    },
+    "barrothbset": {
+        "title": "Barroth b set",
+        "url": "https://mhworld.kiranico.com/armorseries/7mvq4/barroth-b",
+        "resistances": "Defense: 210\n Fire: -15\n Water: -5\n Thunder: -5\n Ice: +15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Guard",
+            "Stamina Thief",
+            "Marathon Runner",
+            "Muck Resistance",
+            "Stun Resistance"
+        ]
+    },
+    "kadachiaset": {
+        "title": "Kadachi a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7jnp7/kadachi-a",
+        "resistances": "Defense: 220\n Fire: 0\n Water: -15\n Thunder: 0\n Ice: +15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Constitution",
+            "Jump Master",
+            "Evade Extender",
+            "Thunder Attack",
+            "Thunder Resistance"
+        ]
+    },
+    "kadachibset": {
+        "title": "Kadachi b set",
+        "url": "https://mhworld.kiranico.com/armorseries/42nw4/kadachi-b",
+        "resistances": "Defense: 220\n Fire: 0\n Water: -15\n Thunder: 0\n Ice: +15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Constitution",
+            "Jump Master",
+            "Evade Extender",
+            "Thunder Attack",
+            "Thunder Resistance"
+        ]
+    },
+    "rathianaset": {
+        "title": "Rathian a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7vl07/rathian-a",
+        "resistances": "Defense: 230\n Fire: +10\n Water: 0\n Thunder: 0\n Ice: -10\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Health Boost",
+            "Poison Attack",
+            "Botanist",
+            "Recovery Up",
+            "Poison Resistance"
+        ]
+    },
+    "rathianbset": {
+        "title": "Rathian b set",
+        "url": "https://mhworld.kiranico.com/armorseries/7k684/rathian-b",
+        "resistances": "Defense: 230\n Fire: +10\n Water: 0\n Thunder: 0\n Ice: -10\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Health Boost",
+            "Poison Attack",
+            "Botanist",
+            "Recovery Up",
+            "Poison Resistance"
+        ]
+    },
+    "girrosaset": {
+        "title": "Girros a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4q1l4/girros-a",
+        "resistances": "Defense: 200\n Fire: 0\n Water: -15\n Thunder: 0\n Ice: +10\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Horn Maestro",
+            "Paralysis Resistance",
+            "Palico Rally",
+            "Effluvial Expert",
+            "Paralysis Attack"
+        ]
+    },
+    "girrosbset": {
+        "title": "Girros b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4nv14/girros-b",
+        "resistances": "Defense: 200\n Fire: 0\n Water: -15\n Thunder: 0\n Ice: +10\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Horn Maestro",
+            "Paralysis Resistance",
+            "Palico Rally",
+            "Effluvial Expert",
+            "Paralysis Attack"
+        ]
+    },
+    "tzitziaset": {
+        "title": "Tzitzi a set",
+        "url": "https://mhworld.kiranico.com/armorseries/70xl7/tzitzi-a",
+        "resistances": "Defense: 200\n Fire: 0\n Water: 0\n Thunder: -10\n Ice: -15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Blindsider",
+            "Stun Resistance",
+            "Constitution",
+            "Water Attack",
+            "Wide-Range",
+            "Sleep Resistance"
+        ]
+    },
+    "tzitzibset": {
+        "title": "Tzitzi b set",
+        "url": "https://mhworld.kiranico.com/armorseries/73kx7/tzitzi-b",
+        "resistances": "Defense: 200\n Fire: 0\n Water: 0\n Thunder: -10\n Ice: -15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Blindsider",
+            "Constitution",
+            "Stun Resistance",
+            "Wide-Range",
+            "Sleep Resistance"
+        ]
+    },
+    "lumuaset": {
+        "title": "Lumu a set",
+        "url": "https://mhworld.kiranico.com/armorseries/41nx7/lumu-a",
+        "resistances": "Defense: 220\n Fire: -15\n Water: +10\n Thunder: +5\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Stamina Surge",
+            "Master Mounter",
+            "Artillery",
+            "Divine Blessing",
+            "Windproof"
+        ]
+    },
+    "lumubset": {
+        "title": "Lumu b set",
+        "url": "https://mhworld.kiranico.com/armorseries/79mp7/lumu-b",
+        "resistances": "Defense: 220\n Fire: -15\n Water: +10\n Thunder: +5\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Stamina Surge",
+            "Master Mounter",
+            "Artillery",
+            "Divine Blessing",
+            "Windproof"
+        ]
+    },
+    "odogaronaset": {
+        "title": "Odogaron a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4yzk7/odogaron-a",
+        "resistances": "Defense: 270\n Fire: +10\n Water: +10\n Thunder: -15\n Ice: -10\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Bleeding Resistance",
+            "Critical Eye",
+            "Odogaron Mastery",
+            "Speed Sharpening",
+            "Constitution",
+            "Quick Sheath"
+        ]
+    },
+    "odogaronbset": {
+        "title": "Odogaron b set",
+        "url": "https://mhworld.kiranico.com/armorseries/46ym7/odogaron-b",
+        "resistances": "Defense: 270\n Fire: +10\n Water: +10\n Thunder: -15\n Ice: -10\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Bleeding Resistance",
+            "Odogaron Mastery",
+            "Speed Sharpening",
+            "Constitution",
+            "Critical Eye",
+            "Quick Sheath"
+        ]
+    },
+    "dodogamaaset": {
+        "title": "Dodogama a set",
+        "url": "https://mhworld.kiranico.com/armorseries/78r37/dodogama-a",
+        "resistances": "Defense: 240\n Fire: +10\n Water: 0\n Thunder: 0\n Ice: -15\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Blast Resistance",
+            "Blast Attack",
+            "Bombardier",
+            "Artillery",
+            "Capacity Boost"
+        ]
+    },
+    "dodogamabset": {
+        "title": "Dodogama b set",
+        "url": "https://mhworld.kiranico.com/armorseries/758q4/dodogama-b",
+        "resistances": "Defense: 240\n Fire: +10\n Water: 0\n Thunder: 0\n Ice: -15\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Blast Resistance",
+            "Blast Attack",
+            "Bombardier",
+            "Artillery",
+            "Capacity Boost"
+        ]
+    },
+    "lavasiothaset": {
+        "title": "Lavasioth a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4wwk4/lavasioth-a",
+        "resistances": "Defense: 280\n Fire: +15\n Water: -15\n Thunder: -10\n Ice: +5\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Fire Attack",
+            "Quick Sheath",
+            "Heat Guard",
+            "Affinity Sliding",
+            "Wide-Range",
+            "Recovery Up",
+            "Spread/Power Shots"
+        ]
+    },
+    "lavasiothbset": {
+        "title": "Lavasioth b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4r517/lavasioth-b",
+        "resistances": "Defense: 280\n Fire: +15\n Water: -15\n Thunder: -10\n Ice: +5\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Fire Attack",
+            "Quick Sheath",
+            "Affinity Sliding",
+            "Spread/Power Shots"
+        ]
+    },
+    "rathheartaset": {
+        "title": "Rath Heart a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7zxx7/rath-heart-a",
+        "resistances": "Defense: 260\n Fire: +15\n Water: 0\n Thunder: 0\n Ice: -15\n Dragon: -20",
+        "setBonus": "-",
+        "skills": [
+            "Evade Extender",
+            "Poison Attack",
+            "Pink Rathian Mastery",
+            "Tool Specialist",
+            "Windproof",
+            "Handicraft",
+            "Poison Resistance"
+        ]
+    },
+    "rathheartbset": {
+        "title": "Rath Heart b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4xry4/rath-heart-b",
+        "resistances": "Defense: 260\n Fire: +15\n Water: 0\n Thunder: 0\n Ice: -15\n Dragon: -20",
+        "setBonus": "-",
+        "skills": [
+            "Evade Extender",
+            "Pink Rathian Mastery",
+            "Tool Specialist",
+            "Windproof",
+            "Handicraft"
+        ]
+    },
+    "highmetalaset": {
+        "title": "High Metal a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7pj27/high-metal-a",
+        "resistances": "Defense: 250\n Fire: 0\n Water: -5\n Thunder: +15\n Ice: -10\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Ice Resistance",
+            "Earplugs",
+            "Ice Attack",
+            "Defense Boost",
+            "Capacity Boost",
+            "Heavy Artillery"
+        ]
+    },
+    "highmetalbset": {
+        "title": "High Metal b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4lvz4/high-metal-b",
+        "resistances": "Defense: 250\n Fire: 0\n Water: -5\n Thunder: +15\n Ice: -10\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Ice Resistance",
+            "Earplugs",
+            "Ice Attack",
+            "Defense Boost",
+            "Capacity Boost",
+            "Heavy Artillery"
+        ]
+    },
+    "ingotaset": {
+        "title": "Ingot a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4mjq7/ingot-a",
+        "resistances": "Defense: 250\n Fire: -10\n Water: 0\n Thunder: -5\n Ice: +15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Thunder Attack",
+            "Thunder Resistance",
+            "Health Boost",
+            "Windproof",
+            "Defense Boost"
+        ]
+    },
+    "ingotbset": {
+        "title": "Ingot b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4jyp7/ingot-b",
+        "resistances": "Defense: 250\n Fire: -10\n Water: 0\n Thunder: -5\n Ice: +15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Thunder Attack",
+            "Thunder Resistance",
+            "Health Boost",
+            "Windproof",
+            "Defense Boost"
+        ]
+    },
+    "anjaaset": {
+        "title": "Anja a set",
+        "url": "https://mhworld.kiranico.com/armorseries/725w4/anja-a",
+        "resistances": "Defense: 220\n Fire: +15\n Water: -15\n Thunder: -5\n Ice: -5\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Fire Attack",
+            "Fire Resistance",
+            "Anjanath Will",
+            "Marathon Runner",
+            "Special Ammo Boost",
+            "Artillery"
+        ]
+    },
+    "anjabset": {
+        "title": "Anja b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4v507/anja-b",
+        "resistances": "Defense: 220\n Fire: +15\n Water: -15\n Thunder: -5\n Ice: -5\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Fire Attack",
+            "Anjanath Will",
+            "Marathon Runner",
+            "Special Ammo Boost",
+            "Fire Resistance",
+            "Artillery"
+        ]
+    },
+    "legianaaset": {
+        "title": "Legiana a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4kv87/legiana-a",
+        "resistances": "Defense: 270\n Fire: -5\n Water: +10\n Thunder: +15\n Ice: -15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Divine Blessing",
+            "Ice Attack",
+            "Legiana Favor",
+            "Evade Window",
+            "Airborne",
+            "Windproof",
+            "Ice Resistance",
+            "Critical Draw"
+        ]
+    },
+    "legianabset": {
+        "title": "Legiana b set",
+        "url": "https://mhworld.kiranico.com/armorseries/7q8l4/legiana-b",
+        "resistances": "Defense: 270\n Fire: -5\n Water: +10\n Thunder: +15\n Ice: -15\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Divine Blessing",
+            "Legiana Favor",
+            "Evade Window",
+            "Airborne",
+            "Ice Attack",
+            "Ice Resistance"
+        ]
+    },
+    "baanaset": {
+        "title": "Baan a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7nn17/baan-a",
+        "resistances": "Defense: 230\n Fire: 0\n Water: +10\n Thunder: -5\n Ice: 0\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Tremor Resistance",
+            "Sleep Attack",
+            "Bleeding Resistance",
+            "Guard"
+        ]
+    },
+    "baanbset": {
+        "title": "Baan b set",
+        "url": "https://mhworld.kiranico.com/armorseries/40nl4/baan-b",
+        "resistances": "Defense: 230\n Fire: 0\n Water: +10\n Thunder: -5\n Ice: 0\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Tremor Resistance",
+            "Sleep Attack",
+            "Guard",
+            "Bleeding Resistance"
+        ]
+    },
+    "vaalhazakaset": {
+        "title": "Vaal Hazak a set",
+        "url": "https://mhworld.kiranico.com/armorseries/78r27/vaal-hazak-a",
+        "resistances": "Defense: 320\n Fire: -20\n Water: +20\n Thunder: -5\n Ice: +5\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Peak Performance",
+            "Dragon Attack",
+            "Vaal Hazak Vitality",
+            "Recovery Speed",
+            "Effluvia Resistance"
+        ]
+    },
+    "vaalhazakbset": {
+        "title": "Vaal Hazak b set",
+        "url": "https://mhworld.kiranico.com/armorseries/758j4/vaal-hazak-b",
+        "resistances": "Defense: 320\n Fire: -20\n Water: +20\n Thunder: -5\n Ice: +5\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Peak Performance",
+            "Vaal Hazak Vitality",
+            "Recovery Speed",
+            "Effluvia Resistance"
+        ]
+    },
+    "rathalosaset": {
+        "title": "Rathalos a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4wwn4/rathalos-a",
+        "resistances": "Defense: 270\n Fire: +15\n Water: +5\n Thunder: +5\n Ice: -10\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Attack Boost",
+            "Fire Attack",
+            "Rathalos Mastery",
+            "Weakness Exploit",
+            "Fire Resistance",
+            "Focus",
+            "Jump Master"
+        ]
+    },
+    "rathalosbset": {
+        "title": "Rathalos b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4r5x7/rathalos-b",
+        "resistances": "Defense: 270\n Fire: +15\n Water: +5\n Thunder: +5\n Ice: -10\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Attack Boost",
+            "Rathalos Mastery",
+            "Weakness Exploit",
+            "Fire Resistance",
+            "Fire Attack",
+            "Jump Master"
+        ]
+    },
+    "diablosaset": {
+        "title": "Diablos a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7zxz7/diablos-a",
+        "resistances": "Defense: 270\n Fire: +15\n Water: -10\n Thunder: -15\n Ice: 0\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Critical Draw",
+            "Heroics",
+            "Diablos Mastery",
+            "Slugger",
+            "Tremor Resistance",
+            "Marathon Runner"
+        ]
+    },
+    "diablosbset": {
+        "title": "Diablos b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4xyn7/diablos-b",
+        "resistances": "Defense: 270\n Fire: +15\n Water: -10\n Thunder: -15\n Ice: 0\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Critical Draw",
+            "Diablos Mastery",
+            "Slugger",
+            "Heroics",
+            "Marathon Runner",
+            "Tremor Resistance"
+        ]
+    },
+    "kirinaset": {
+        "title": "Kirin a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7pnm7/kirin-a",
+        "resistances": "Defense: 320\n Fire: -15\n Water: -10\n Thunder: -10\n Ice: +20\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Marathon Runner",
+            "Divine Blessing",
+            "Kirin Favor",
+            "Thunder Attack",
+            "Blight Resistance",
+            "Free Elem/Ammo Up",
+            "Thunder Resistance"
+        ]
+    },
+    "kirinbset": {
+        "title": "Kirin b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4ljk4/kirin-b",
+        "resistances": "Defense: 320\n Fire: -15\n Water: -10\n Thunder: -10\n Ice: +20\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Marathon Runner",
+            "Kirin Favor",
+            "Divine Blessing",
+            "Thunder Attack",
+            "Blight Resistance",
+            "Free Elem/Ammo Up"
+        ]
+    },
+    "nergiganteaset": {
+        "title": "Nergigante a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4m1v4/nergigante-a",
+        "resistances": "Defense: 320\n Fire: +5\n Water: +5\n Thunder: +5\n Ice: -15\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Maximum Might",
+            "Attack Boost",
+            "Nergigante Hunger",
+            "Stamina Surge",
+            "Agitator"
+        ]
+    },
+    "nergigantebset": {
+        "title": "Nergigante b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4j2y4/nergigante-b",
+        "resistances": "Defense: 320\n Fire: +5\n Water: +5\n Thunder: +5\n Ice: -15\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Maximum Might",
+            "Nergigante Hunger",
+            "Stamina Surge",
+            "Agitator",
+            "Attack Boost"
+        ]
+    },
+    "uragaanaset": {
+        "title": "Uragaan a set",
+        "url": "https://mhworld.kiranico.com/armorseries/72qq4/uragaan-a",
+        "resistances": "Defense: 300\n Fire: +20\n Water: -15\n Thunder: -10\n Ice: +5\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Thunder Resistance",
+            "Uragaan Protection",
+            "Partbreaker",
+            "Guard",
+            "Defense Boost"
+        ]
+    },
+    "uragaanbset": {
+        "title": "Uragaan b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4v967/uragaan-b",
+        "resistances": "Defense: 300\n Fire: +20\n Water: -15\n Thunder: -10\n Ice: +5\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Thunder Resistance",
+            "Uragaan Protection",
+            "Partbreaker",
+            "Guard"
+        ]
+    },
+    "rathsoulaset": {
+        "title": "Rath Soul a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4kmr4/rath-soul-a",
+        "resistances": "Defense: 280\n Fire: +15\n Water: +10\n Thunder: -15\n Ice: +10\n Dragon: -20",
+        "setBonus": "-",
+        "skills": [
+            "Critical Boost",
+            "Intimidator",
+            "Rathalos Mastery",
+            "Free Elem/Ammo Up",
+            "Focus",
+            "Windproof",
+            "Piercing Shots",
+            "Cliffhanger"
+        ]
+    },
+    "rathsoulbset": {
+        "title": "Rath Soul b set",
+        "url": "https://mhworld.kiranico.com/armorseries/7qvq4/rath-soul-b",
+        "resistances": "Defense: 280\n Fire: +15\n Water: +10\n Thunder: -15\n Ice: +10\n Dragon: -20",
+        "setBonus": "-",
+        "skills": [
+            "Critical Boost",
+            "Rathalos Mastery",
+            "Free Elem/Ammo Up",
+            "Focus",
+            "Windproof"
+        ]
+    },
+    "diablosneroaset": {
+        "title": "Diablos Nero a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7nmy4/diablos-nero-a",
+        "resistances": "Defense: 280\n Fire: +10\n Water: -15\n Thunder: -20\n Ice: 0\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Focus",
+            "Diablos Mastery",
+            "Resentment",
+            "Marathon Runner",
+            "Partbreaker",
+            "Normal Shots",
+            "Heroics"
+        ]
+    },
+    "diablosnerobset": {
+        "title": "Diablos Nero b set",
+        "url": "https://mhworld.kiranico.com/armorseries/40v84/diablos-nero-b",
+        "resistances": "Defense: 280\n Fire: +10\n Water: -15\n Thunder: -20\n Ice: 0\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Focus",
+            "Diablos Mastery",
+            "Resentment",
+            "Normal Shots"
+        ]
+    },
+    "bazelaset": {
+        "title": "Bazel a set",
+        "url": "https://mhworld.kiranico.com/armorseries/43y54/bazel-a",
+        "resistances": "Defense: 290\n Fire: +15\n Water: +5\n Thunder: -10\n Ice: -20\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Earplugs",
+            "Blast Attack",
+            "Bazelgeuse Protection",
+            "Guard",
+            "Blast Resistance",
+            "Critical Draw",
+            "Jump Master",
+            "Bombardier"
+        ]
+    },
+    "bazelbset": {
+        "title": "Bazel b set",
+        "url": "https://mhworld.kiranico.com/armorseries/71jw4/bazel-b",
+        "resistances": "Defense: 290\n Fire: +15\n Water: +5\n Thunder: -10\n Ice: -20\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Earplugs",
+            "Bazelgeuse Protection",
+            "Guard",
+            "Critical Draw",
+            "Bombardier"
+        ]
+    },
+    "kingbeetleaset": {
+        "title": "King Beetle a set",
+        "url": "https://mhworld.kiranico.com/armorseries/490r7/king-beetle-a",
+        "resistances": "Defense: 210\n Fire: -5\n Water: -5\n Thunder: 0\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Evade Window",
+            "Botanist",
+            "Quick Sheath",
+            "Leap of Faith",
+            "Honey Hunter",
+            "Forager's Luck"
+        ]
+    },
+    "kingbeetlebset": {
+        "title": "King Beetle b set",
+        "url": "https://mhworld.kiranico.com/armorseries/7y8p4/king-beetle-b",
+        "resistances": "Defense: 210\n Fire: -5\n Water: -5\n Thunder: 0\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Evade Window",
+            "Quick Sheath",
+            "Botanist",
+            "Honey Hunter",
+            "Forager's Luck"
+        ]
+    },
+    "brigadeaset": {
+        "title": "Brigade a set",
+        "url": "https://mhworld.kiranico.com/armorseries/769q4/brigade-a",
+        "resistances": "Defense: 260\n Fire: +5\n Water: 0\n Thunder: 0\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Recovery Speed",
+            "Horn Maestro",
+            "Divine Blessing",
+            "Heavy Artillery",
+            "Geologist",
+            "Scholar"
+        ]
+    },
+    "brigadebset": {
+        "title": "Brigade b set",
+        "url": "https://mhworld.kiranico.com/armorseries/48024/brigade-b",
+        "resistances": "Defense: 260\n Fire: +5\n Water: 0\n Thunder: 0\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Recovery Speed",
+            "Divine Blessing",
+            "Heavy Artillery",
+            "Geologist",
+            "Scholar"
+        ]
+    },
+    "damascusaset": {
+        "title": "Damascus a set",
+        "url": "https://mhworld.kiranico.com/armorseries/459j4/damascus-a",
+        "resistances": "Defense: 300\n Fire: +20\n Water: -10\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Defense Boost",
+            "Speed Sharpening",
+            "Focus",
+            "Handicraft",
+            "Iron Skin"
+        ]
+    },
+    "damascusbset": {
+        "title": "Damascus b set",
+        "url": "https://mhworld.kiranico.com/armorseries/7wvn4/damascus-b",
+        "resistances": "Defense: 300\n Fire: +20\n Water: -10\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Defense Boost",
+            "Focus",
+            "Handicraft"
+        ]
+    },
+    "doberaset": {
+        "title": "Dober a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7rkx4/dober-a",
+        "resistances": "Defense: 300\n Fire: -10\n Water: 0\n Thunder: -5\n Ice: -5\n Dragon: +20",
+        "setBonus": "-",
+        "skills": [
+            "Free Elem/Ammo Up",
+            "Dragon Resistance",
+            "Attack Boost",
+            "Mushroomancer",
+            "Stamina Surge"
+        ]
+    },
+    "doberbset": {
+        "title": "Dober b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4z5z7/dober-b",
+        "resistances": "Defense: 300\n Fire: -10\n Water: 0\n Thunder: -5\n Ice: -5\n Dragon: +20",
+        "setBonus": "-",
+        "skills": [
+            "Free Elem/Ammo Up",
+            "Attack Boost",
+            "Stamina Surge",
+            "Mushroomancer",
+            "Dragon Resistance"
+        ]
+    },
+    "xeno'jiivaaset": {
+        "title": "Xeno'jiiva a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7x6n7/xeno-jiiva-a",
+        "resistances": "Defense: 360\n Fire: -15\n Water: +10\n Thunder: +10\n Ice: +10\n Dragon: -20",
+        "setBonus": "-",
+        "skills": [
+            "Flinch Free",
+            "Special Ammo Boost",
+            "Xeno'jiiva Divinity",
+            "Power Prolonger",
+            "Blight Resistance",
+            "Critical Boost"
+        ]
+    },
+    "xeno'jiivabset": {
+        "title": "Xeno'jiiva b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4p2m4/xeno-jiiva-b",
+        "resistances": "Defense: 360\n Fire: -15\n Water: +10\n Thunder: +10\n Ice: +10\n Dragon: -20",
+        "setBonus": "-",
+        "skills": [
+            "Flinch Free",
+            "Xeno'jiiva Divinity",
+            "Power Prolonger",
+            "Blight Resistance"
+        ]
+    },
+    "teostraaset": {
+        "title": "Teostra a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7l2k7/teostra-a",
+        "resistances": "Defense: 320\n Fire: +15\n Water: -15\n Thunder: -15\n Ice: +5\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Latent Power",
+            "Teostra Technique",
+            "Special Ammo Boost",
+            "Weakness Exploit",
+            "Blast Attack"
+        ]
+    },
+    "teostrabset": {
+        "title": "Teostra b set",
+        "url": "https://mhworld.kiranico.com/armorseries/7m2v4/teostra-b",
+        "resistances": "Defense: 320\n Fire: +15\n Water: -15\n Thunder: -15\n Ice: +5\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Latent Power",
+            "Teostra Technique",
+            "Special Ammo Boost",
+            "Weakness Exploit",
+            "Blast Attack"
+        ]
+    },
+    "kushalaaset": {
+        "title": "Kushala a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7jzy7/kushala-a",
+        "resistances": "Defense: 320\n Fire: 0\n Water: +10\n Thunder: +20\n Ice: -15\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Ice Attack",
+            "Handicraft",
+            "Kushala Daora Flight",
+            "Focus",
+            "Evade Window",
+            "Evade Extender"
+        ]
+    },
+    "kushalabset": {
+        "title": "Kushala b set",
+        "url": "https://mhworld.kiranico.com/armorseries/42lq4/kushala-b",
+        "resistances": "Defense: 320\n Fire: 0\n Water: +10\n Thunder: +20\n Ice: -15\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Ice Attack",
+            "Kushala Daora Flight",
+            "Handicraft",
+            "Evade Window",
+            "Evade Extender"
+        ]
+    },
+    "skullaset": {
+        "title": "Skull a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7v667/skull-a",
+        "resistances": "Defense: 64\n Fire: -3\n Water: -1\n Thunder: -1\n Ice: -1\n Dragon: +2",
+        "setBonus": "-",
+        "skills": [
+            "Handicraft"
+        ]
+    },
+    "deathstenchaset": {
+        "title": "Death Stench a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4q2q7/death-stench-a",
+        "resistances": "Defense: 310\n Fire: +15\n Water: +10\n Thunder: +15\n Ice: -10\n Dragon: -20",
+        "setBonus": "-",
+        "skills": [
+            "Resuscitate",
+            "Critical Eye",
+            "Fortify",
+            "Free Elem/Ammo Up",
+            "Focus",
+            "Dragon Attack",
+            "Handicraft"
+        ]
+    },
+    "deathstenchbset": {
+        "title": "Death Stench b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4n2y4/death-stench-b",
+        "resistances": "Defense: 310\n Fire: +15\n Water: +10\n Thunder: +15\n Ice: -10\n Dragon: -20",
+        "setBonus": "-",
+        "skills": [
+            "Resuscitate",
+            "Fortify",
+            "Focus",
+            "Dragon Attack",
+            "Handicraft"
+        ]
+    },
+    "guildcrossaset": {
+        "title": "Guild Cross a set",
+        "url": "https://mhworld.kiranico.com/armorseries/70q84/guild-cross-a",
+        "resistances": "Defense: 310\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Divine Blessing",
+            "Thunder Resistance",
+            "Guild Guidance",
+            "Resuscitate",
+            "Ice Resistance",
+            "Tool Specialist",
+            "Water Resistance",
+            "Fortify",
+            "Dragon Resistance",
+            "Airborne",
+            "Fire Resistance"
+        ]
+    },
+    "guildcrossbset": {
+        "title": "Guild Cross b set",
+        "url": "https://mhworld.kiranico.com/armorseries/73157/guild-cross-b",
+        "resistances": "Defense: 310\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Divine Blessing",
+            "Guild Guidance",
+            "Resuscitate",
+            "Tool Specialist",
+            "Fortify",
+            "Airborne"
+        ]
+    },
+    "zorahaset": {
+        "title": "Zorah a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4y5p4/zorah-a",
+        "resistances": "Defense: 220\n Fire: +20\n Water: -15\n Thunder: -10\n Ice: -5\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Handicraft",
+            "Blast Attack",
+            "Zorah Magdaros Mastery",
+            "Windproof",
+            "Free Elem/Ammo Up",
+            "Bombardier",
+            "Fortify",
+            "Tremor Resistance",
+            "Earplugs"
+        ]
+    },
+    "zorahbset": {
+        "title": "Zorah b set",
+        "url": "https://mhworld.kiranico.com/armorseries/460q4/zorah-b",
+        "resistances": "Defense: 220\n Fire: +20\n Water: -15\n Thunder: -10\n Ice: -5\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Handicraft",
+            "Zorah Magdaros Mastery",
+            "Blast Attack",
+            "Free Elem/Ammo Up",
+            "Fortify",
+            "Bombardier"
+        ]
+    },
+    "commissionaset": {
+        "title": "Commission a set",
+        "url": "https://mhworld.kiranico.com/armorseries/78q24/commission-a",
+        "resistances": "Defense: 350\n Fire: +10\n Water: +10\n Thunder: +10\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Tool Specialist",
+            "Master Gatherer",
+            "Commission Guidance",
+            "Wide-Range",
+            "Cliffhanger",
+            "Blindsider",
+            "Carving Pro",
+            "Mushroomancer",
+            "Pro Transporter",
+            "Stealth",
+            "Affinity Sliding"
+        ]
+    },
+    "commissionbset": {
+        "title": "Commission b set",
+        "url": "https://mhworld.kiranico.com/armorseries/751j7/commission-b",
+        "resistances": "Defense: 350\n Fire: +10\n Water: +10\n Thunder: +10\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Tool Specialist",
+            "Commission Guidance",
+            "Wide-Range",
+            "Blindsider",
+            "Mushroomancer",
+            "Stealth"
+        ]
+    },
+    "fauxfelyneaset": {
+        "title": "Faux Felyne a set",
+        "url": "https://mhworld.kiranico.com/armorseries/722q7/faux-felyne-a",
+        "resistances": "Defense: 56\n Fire: +2\n Water: +2\n Thunder: +2\n Ice: +2\n Dragon: +2",
+        "setBonus": "-",
+        "skills": [
+            "Palico Rally"
+        ]
+    },
+    "mosswinemaskaset": {
+        "title": "Mosswine Mask a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4vy67/mosswine-mask-a",
+        "resistances": "Defense: 40\n Fire: +2\n Water: +2\n Thunder: +2\n Ice: +2\n Dragon: +2",
+        "setBonus": "-",
+        "skills": [
+            "Mushroomancer"
+        ]
+    },
+    "shamosaset": {
+        "title": "Shamos a set",
+        "url": "https://mhworld.kiranico.com/armorseries/48127/shamos-a",
+        "resistances": "Defense: 40\n Fire: +2\n Water: +2\n Thunder: -3\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Detector",
+            "Geologist"
+        ]
+    },
+    "shamosbset": {
+        "title": "Shamos b set",
+        "url": "https://mhworld.kiranico.com/armorseries/452j7/shamos-b",
+        "resistances": "Defense: 40\n Fire: +2\n Water: +2\n Thunder: -3\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Detector"
+        ]
+    },
+    "butterflyaset": {
+        "title": "Butterfly a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7z9p4/butterfly-a",
+        "resistances": "Defense: 210\n Fire: -5\n Water: -5\n Thunder: 0\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Stun Resistance",
+            "Defense Boost",
+            "Health Boost",
+            "Critical Eye",
+            "Marathon Runner"
+        ]
+    },
+    "butterflybset": {
+        "title": "Butterfly b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4x327/butterfly-b",
+        "resistances": "Defense: 210\n Fire: -5\n Water: -5\n Thunder: 0\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Stun Resistance",
+            "Health Boost",
+            "Critical Eye",
+            "Defense Boost",
+            "Marathon Runner"
+        ]
+    },
+    "strategistaset": {
+        "title": "Strategist a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4nqy7/strategist-a",
+        "resistances": "Defense: 56\n Fire: +2\n Water: +2\n Thunder: +2\n Ice: +2\n Dragon: +2",
+        "setBonus": "-",
+        "skills": [
+            "Critical Eye"
+        ]
+    },
+    "dragonkingaset": {
+        "title": "Dragonking a set",
+        "url": "https://mhworld.kiranico.com/armorseries/73v54/dragonking-a",
+        "resistances": "Defense: 70\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Weakness Exploit"
+        ]
+    },
+    "kulvetarothaset": {
+        "title": "Kulve Taroth a set",
+        "url": "https://mhworld.kiranico.com/armorseries/78n27/kulve-taroth-a",
+        "resistances": "Defense: 360\n Fire: +20\n Water: -10\n Thunder: -20\n Ice: +15\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Free Elem/Ammo Up",
+            "Agitator",
+            "Stun Resistance",
+            "Critical Boost",
+            "Power Prolonger",
+            "Handicraft",
+            "Wide-Range",
+            "Peak Performance"
+        ]
+    },
+    "kulvetarothbset": {
+        "title": "Kulve Taroth b set",
+        "url": "https://mhworld.kiranico.com/armorseries/75vj4/kulve-taroth-b",
+        "resistances": "Defense: 360\n Fire: +20\n Water: -10\n Thunder: -20\n Ice: +15\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Free Elem/Ammo Up",
+            "Agitator",
+            "Stun Resistance",
+            "Critical Boost",
+            "Power Prolonger",
+            "Handicraft",
+            "Wide-Range",
+            "Peak Performance"
+        ]
+    },
+    "deviljhoaset": {
+        "title": "Deviljho a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4myv4/deviljho-a",
+        "resistances": "Defense: 290\n Fire: +5\n Water: +5\n Thunder: +10\n Ice: -15\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Partbreaker",
+            "Handicraft",
+            "Speed Eating",
+            "Latent Power"
+        ]
+    },
+    "deviljhobset": {
+        "title": "Deviljho b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4jpy4/deviljho-b",
+        "resistances": "Defense: 290\n Fire: +5\n Water: +5\n Thunder: +10\n Ice: -15\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Partbreaker",
+            "Speed Eating",
+            "Latent Power"
+        ]
+    },
+    "drachenaset": {
+        "title": "Drachen a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7qyq7/drachen-a",
+        "resistances": "Defense: 360\n Fire: -10\n Water: -10\n Thunder: -10\n Ice: +15\n Dragon: +20",
+        "setBonus": "-",
+        "skills": [
+            "Critical Boost",
+            "Airborne",
+            "Soul of the Dragoon",
+            "Critical Eye",
+            "Attack Boost",
+            "Power Prolonger"
+        ]
+    },
+    "blossomaset": {
+        "title": "Blossom a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7nyy4/blossom-a",
+        "resistances": "Defense: 200\n Fire: +5\n Water: +5\n Thunder: +5\n Ice: +20\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Honey Hunter",
+            "Quick Sheath",
+            "Paralysis Resistance",
+            "Scoutfly Range Up",
+            "Recovery Speed"
+        ]
+    },
+    "diveraset": {
+        "title": "Diver a set",
+        "url": "https://mhworld.kiranico.com/armorseries/40684/diver-a",
+        "resistances": "Defense: 230\n Fire: +5\n Water: +20\n Thunder: +5\n Ice: +5\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Marathon Runner",
+            "Critical Eye",
+            "Quick Sheath",
+            "Aquatic Expert",
+            "Hunger Resistance"
+        ]
+    },
+    "harvestaset": {
+        "title": "Harvest a set",
+        "url": "https://mhworld.kiranico.com/armorseries/785p4/harvest-a",
+        "resistances": "Defense: 260\n Fire: +20\n Water: +5\n Thunder: +5\n Ice: +5\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Focus",
+            "Tremor Resistance",
+            "Resentment",
+            "Constitution",
+            "Mushroomancer"
+        ]
+    },
+    "orionaset": {
+        "title": "Orion a set",
+        "url": "https://mhworld.kiranico.com/armorseries/75367/orion-a",
+        "resistances": "Defense: 290\n Fire: +5\n Water: +5\n Thunder: +20\n Ice: +5\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Recovery Up",
+            "Flinch Free",
+            "Windproof",
+            "Health Boost",
+            "Heroics"
+        ]
+    },
+    "galasuitaset": {
+        "title": "Gala Suit a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4wy84/gala-suit-a",
+        "resistances": "Defense: 320\n Fire: +5\n Water: +5\n Thunder: +5\n Ice: +5\n Dragon: +20",
+        "setBonus": "-",
+        "skills": [
+            "Critical Boost",
+            "Astera Blessing",
+            "Critical Draw",
+            "Maximum Might",
+            "Slinger Capacity",
+            "Divine Blessing"
+        ]
+    },
+    "queenbeetleaset": {
+        "title": "Queen Beetle a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4lmr7/queen-beetle-a",
+        "resistances": "Defense: 210\n Fire: -5\n Water: -5\n Thunder: 0\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Stun Resistance",
+            "Defense Boost",
+            "Health Boost",
+            "Critical Eye",
+            "Marathon Runner"
+        ]
+    },
+    "queenbeetlebset": {
+        "title": "Queen Beetle b set",
+        "url": "https://mhworld.kiranico.com/armorseries/4my84/queen-beetle-b",
+        "resistances": "Defense: 210\n Fire: -5\n Water: -5\n Thunder: 0\n Ice: +10\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Stun Resistance",
+            "Health Boost",
+            "Critical Eye",
+            "Defense Boost",
+            "Marathon Runner"
+        ]
+    },
+    "vaalhazakyset": {
+        "title": "Vaal Hazak y set",
+        "url": "https://mhworld.kiranico.com/armorseries/4jpk4/vaal-hazak-g",
+        "resistances": "Defense: 360\n Fire: -20\n Water: +20\n Thunder: -5\n Ice: +5\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Recovery Up",
+            "Dragon Attack",
+            "Vaal Hazak Vitality",
+            "Peak Performance",
+            "Recovery Speed"
+        ]
+    },
+    "kirinyset": {
+        "title": "Kirin y set",
+        "url": "https://mhworld.kiranico.com/armorseries/72w94/kirin-g",
+        "resistances": "Defense: 360\n Fire: -15\n Water: -10\n Thunder: -10\n Ice: +20\n Dragon: +10",
+        "setBonus": "-",
+        "skills": [
+            "Blight Resistance",
+            "Thunder Attack",
+            "Kirin Favor",
+            "Free Elem/Ammo Up",
+            "Marathon Runner"
+        ]
+    },
+    "teostrayset": {
+        "title": "Teostra y set",
+        "url": "https://mhworld.kiranico.com/armorseries/4v8n4/teostra-g",
+        "resistances": "Defense: 360\n Fire: +15\n Water: -15\n Thunder: -15\n Ice: +5\n Dragon: +5",
+        "setBonus": "-",
+        "skills": [
+            "Critical Eye",
+            "Teostra Technique",
+            "Latent Power",
+            "Weakness Exploit"
+        ]
+    },
+    "kushalayset": {
+        "title": "Kushala y set",
+        "url": "https://mhworld.kiranico.com/armorseries/4kjy7/kushala-g",
+        "resistances": "Defense: 360\n Fire: 0\n Water: +10\n Thunder: +20\n Ice: -15\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Handicraft",
+            "Kushala Daora Flight",
+            "Ice Attack",
+            "Evade Extender",
+            "Focus",
+            "Evade Window"
+        ]
+    },
+    "nergiganteyset": {
+        "title": "Nergigante y set",
+        "url": "https://mhworld.kiranico.com/armorseries/7qx14/nergigante-g",
+        "resistances": "Defense: 360\n Fire: +5\n Water: +5\n Thunder: +5\n Ice: -15\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Stamina Surge",
+            "Agitator",
+            "Nergigante Hunger",
+            "Maximum Might",
+            "Partbreaker",
+            "Attack Boost"
+        ]
+    },
+    "zorahyset": {
+        "title": "Zorah y set",
+        "url": "https://mhworld.kiranico.com/armorseries/7nwn4/zorah-g",
+        "resistances": "Defense: 360\n Fire: +20\n Water: -15\n Thunder: -10\n Ice: -5\n Dragon: -15",
+        "setBonus": "-",
+        "skills": [
+            "Windproof",
+            "Critical Eye",
+            "Zorah Magdaros Mastery",
+            "Tremor Resistance",
+            "Earplugs",
+            "Bombardier",
+            "Blast Attack"
+        ]
+    },
+    "xeno'jiivayset": {
+        "title": "Xeno'jiiva y set",
+        "url": "https://mhworld.kiranico.com/armorseries/408v4/xeno-jiiva-g",
+        "resistances": "Defense: 360\n Fire: -15\n Water: +10\n Thunder: +10\n Ice: +10\n Dragon: -20",
+        "setBonus": "-",
+        "skills": [
+            "Blight Resistance",
+            "Power Prolonger",
+            "Xeno'jiiva Divinity",
+            "Flinch Free",
+            "Special Ammo Boost",
+            "Critical Boost"
+        ]
+    },
+    "azurestarlordaset": {
+        "title": "Azure Starlord a set",
+        "url": "https://mhworld.kiranico.com/armorseries/76pp7/azure-starlord-a",
+        "resistances": "Defense: 280\n Fire: +10\n Water: +10\n Thunder: 0\n Ice: 0\n Dragon: +15",
+        "setBonus": "-",
+        "skills": [
+            "Agitator",
+            "Rathalos Mastery",
+            "Handicraft",
+            "Recovery Up",
+            "Critical Boost"
+        ]
+    },
+    "danteaset": {
+        "title": "Dante a set",
+        "url": "https://mhworld.kiranico.com/armorseries/48mp7/dante-a",
+        "resistances": "Defense: 320\n Fire: +15\n Water: -15\n Thunder: -15\n Ice: +15\n Dragon: +15",
+        "setBonus": "-",
+        "skills": [
+            "Weakness Exploit",
+            "Critical Eye",
+            "Evade Window",
+            "Special Ammo Boost",
+            "Latent Power"
+        ]
+    },
+    "lunastraaset": {
+        "title": "Lunastra a set",
+        "url": "https://mhworld.kiranico.com/armorseries/45x67/lunastra-a",
+        "resistances": "Defense: 350\n Fire: +15\n Water: +5\n Thunder: -15\n Ice: +5\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Evade Extender",
+            "Tool Specialist",
+            "Lunastra Favor",
+            "Peak Performance",
+            "Health Boost",
+            "Wide-Range",
+            "Blast Attack"
+        ]
+    },
+    "lunastrabset": {
+        "title": "Lunastra b set",
+        "url": "https://mhworld.kiranico.com/armorseries/7w587/lunastra-b",
+        "resistances": "Defense: 350\n Fire: +15\n Water: +5\n Thunder: -15\n Ice: +5\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Evade Extender",
+            "Lunastra Favor",
+            "Peak Performance",
+            "Wide-Range",
+            "Tool Specialist",
+            "Health Boost"
+        ]
+    },
+    "sealedeyepatchaset": {
+        "title": "Sealed Eyepatch a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7rp07/sealed-eyepatch-a",
+        "resistances": "Defense: 46\n Fire: +3\n Water: +2\n Thunder: +2\n Ice: 0\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Fire Resistance"
+        ]
+    },
+    "shadowshadesaset": {
+        "title": "Shadow Shades a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4z6p4/shadow-shades-a",
+        "resistances": "Defense: 46\n Fire: +4\n Water: 0\n Thunder: +2\n Ice: +4\n Dragon: 0",
+        "setBonus": "-",
+        "skills": [
+            "Stun Resistance"
+        ]
+    },
+    "kulu-ya-kuheadaset": {
+        "title": "Kulu-Ya-Ku Head a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7xw24/kulu-ya-ku-head-a",
+        "resistances": "Defense: 46\n Fire: +2\n Water: 0\n Thunder: +3\n Ice: +2\n Dragon: +2",
+        "setBonus": "-",
+        "skills": [
+            "Pro Transporter"
+        ]
+    },
+    "wigglerheadaset": {
+        "title": "Wiggler Head a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4p684/wiggler-head-a",
+        "resistances": "Defense: 46\n Fire: 0\n Water: +4\n Thunder: 0\n Ice: 0\n Dragon: +4",
+        "setBonus": "-",
+        "skills": [
+            "Wide-Range"
+        ]
+    },
+    "lunastrayset": {
+        "title": "Lunastra y set",
+        "url": "https://mhworld.kiranico.com/armorseries/4w087/lunastra-g",
+        "resistances": "Defense: 350\n Fire: +15\n Water: +5\n Thunder: -15\n Ice: +5\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Wide-Range",
+            "Peak Performance",
+            "Lunastra Favor",
+            "Earplugs",
+            "Tool Specialist",
+            "Agitator",
+            "Evade Extender",
+            "Evade Window",
+            "Health Boost"
+        ]
+    },
+    "geraltaset": {
+        "title": "Geralt a set",
+        "url": "https://mhworld.kiranico.com/armorseries/4r907/geralt-a",
+        "resistances": "Defense: 350\n Fire: +10\n Water: +5\n Thunder: -5\n Ice: -10\n Dragon: +15",
+        "setBonus": "-",
+        "skills": [
+            "Weakness Exploit",
+            "Recovery Speed",
+            "Health Boost",
+            "Attack Boost",
+            "Marathon Runner",
+            "Bombardier",
+            "Critical Eye"
+        ]
+    },
+    "ciriaset": {
+        "title": "Ciri a set",
+        "url": "https://mhworld.kiranico.com/armorseries/7z0p7/ciri-a",
+        "resistances": "Defense: 350\n Fire: -10\n Water: -5\n Thunder: +5\n Ice: +10\n Dragon: +15",
+        "setBonus": "-",
+        "skills": [
+            "Free Elem/Ammo Up",
+            "Evade Window",
+            "Divine Blessing",
+            "Razor Sharp/Spare Shot",
+            "Evade Extender",
+            "Constitution"
+        ]
+    },
+    "kulvetarothyset": {
+        "title": "Kulve Taroth y set",
+        "url": "https://mhworld.kiranico.com/armorseries/4lyr7/kulve-taroth-g",
+        "resistances": "Defense: 360\n Fire: +20\n Water: -10\n Thunder: -20\n Ice: +15\n Dragon: -10",
+        "setBonus": "-",
+        "skills": [
+            "Power Prolonger",
+            "Stun Resistance",
+            "Handicraft",
+            "Agitator",
+            "Constitution",
+            "Critical Boost",
+            "Weakness Exploit",
+            "Heat Guard"
+        ]
+    }
+}

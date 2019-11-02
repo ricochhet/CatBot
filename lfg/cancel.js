@@ -5,18 +5,16 @@ module.exports = {
   name: 'cancel',
   args: false,
   usage : 'cancel',
-  description : 'Cancels your current lfg post',
+  description : 'Cancels your current session advertisement',
   error(message) {
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
       .setTimestamp();
-
-    return message.channel.send(usageEmbed);
   },
   run(client, message, args) {
-    const lfg = require('../databases/lfg.json');
-
+    const lfg = require('../databases/lfg/lfg.json');
+    
     const userId = message.author.id;
 
     // Checks if the user has already posted or not
@@ -31,19 +29,17 @@ module.exports = {
     }
 
     if (!userFound) {
-      return message.reply('Sorry meowster but you haven\'t posted anything yet!');
+      return message.reply('Sorry meowster but you have no sessions posted right now!');
     }
-
-    // Delete session, rewrite file
+    
     delete lfg[sessionId];
-    const jsonObj = JSON.stringify(lfg, null, 4);
-    fs.writeFile(`${__dirname.replace('lfg', 'databases')}/lfg.json`, jsonObj, 'utf8', function(err) {
-        if (err) {
-            console.log('An error occured while writing JSON Object to file.');
-            return console.log(err);
-        }
+    const jsonObj = JSON.stringify(lfg,null,4)
+    fs.writeFile(`${__dirname.replace('lfg', 'databases')}/lfg/lfg.json`, jsonObj, 'utf8', function (err) {
+      if (err) {
+        console.log('An error occured while writing JSON Object to file.');
+        return console.log(err);
+      }
     });
-
-    message.reply(`Meowster we canceled your previous lfg post: \`${sessionId}\``);
+    message.reply(`Meowster, your previous session advertisement was cancelled! \`${sessionId}\``);
   },
 };

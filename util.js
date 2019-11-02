@@ -5,6 +5,7 @@ const $ = require('cheerio');
 const { RichEmbed } = require('discord.js');
 
 module.exports = {
+  /*
   // Scrapes kiranico, retrieves the item list (name + URLs), stores it in the given collection
   fetchItems: async function(itemList) {
     const url = 'https://mhworld.kiranico.com/items';
@@ -76,7 +77,7 @@ module.exports = {
 
         return callback(itemEmbed);
       });
-    },
+    },*/
 
     // Compares two strings and return their similarity percentage (0-1)
     similarity: function(str1, str2) {

@@ -1,38 +1,34 @@
 const Discord = require('discord.js');
+const fs = require('fs');
 
 module.exports = {
   name: 'lfg',
   args: false,
-  usage : '+lfg <post/find/cancel>\n<args for post/find/cancel>',
+  usage : '+lfg <category> <additional arguments>',
   description : 'Is the parent command for all looking for group commands',
-  caseSensitiveArgs : true,
+  caseSensitiveArgs: true,
   error(message) {
     const data = [];
-    data.push('\n**post Args:**\nplatform: choose between PC, PS4, XBOX\nsessionID: the session id you want to post\ndescription: what you are planning to do in this session\n');
-    data.push('**find Args:**\n No arguments\n');
-    data.push('**cancel Args:**\n No arguments\n');
-    data.push('**subscribe Args:**\n channel name: where CatBot should be posting lfg ads. Optional (default is the channel where the command is run).\n--');
+    data.push('+lfg post <PC, XBOX, PS4> <session id> <description>\n');
+    data.push('+lfg subscribe (<channel name>)\n');
+    data.push('+lfg find\n');
+    data.push('+lfg cancel\n');
+    data.push('Notes: Anything around () is optional');
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
-      .addField('Usage', `${this.usage}\n--`)
-      .addField('Parameters help', data.join('\n'))
+      .addField('Usage', this.usage)
+      .addField('Parameters Help', data.join('\n'))
       .setTimestamp();
-
+    
     return message.channel.send(usageEmbed);
   },
   run(client, message, args) {
-
-    // Get sub command
-    let subcmd = args[1];
-    if (subcmd != undefined) subcmd = subcmd.toLowerCase();
-
-    const cmdFound = client.lfg.find(cmd => cmd.name === subcmd && !cmd.secret);
-
-    if (!cmdFound) return this.error(message);
-
-    // Strip first 2 args (lfg subcmd)
-    args = args.slice(2, args.length);
-
-    cmdFound.run(client, message, args);
+    let subCommand = args[1];
+    const commandFound = client.lfg.find(cmd => cmd.name == subCommand && !cmd.secret);
+    if (subCommand != undefined) subCommand = subCommand.toLowerCase();
+    
+    if(!commandFound) return this.error(message);
+    args = args.slice(1, args.length);
+    commandFound.run(client, message, args);
   },
 };

@@ -5,13 +5,12 @@ module.exports = {
   args: false,
   secret: true,
   run(client, message, args) {
-    if (message.author.id == process.env.OWNER) {
-      const input = args[0];
+    if(message.author.id == process.env.OWNER) {
+      let input = args[0];
 
-      // let guildList = client.guilds.array();
-      const g = client.guilds.get(input);
+      const guildName = client.guilds.get(input);
 
-      const verifLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵  ┻━┻', '┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻'];
+      let verificationLevels = ["None", "Low", "Medium", "(╯°□°）╯︵  ┻━┻", "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"];
 
       const region = {
         'brazil': ':flag_br: Brazil',
@@ -31,23 +30,23 @@ module.exports = {
         'southafrica': ':flag_za:  South Africa',
       };
 
-      if (g == null || g == false) return;
-      // ||#${g.owner.user.discriminator}||
+      if (guildName == null || guildName == false) return;
+      //||#${g.owner.user.discriminator}||
 
-      if (g) {
+      if (guildName) {
         const listEmbed = new Discord.RichEmbed()
           .setColor('#8fde5d')
-          .setAuthor(g.name, g.iconURL)
-          .addField('Name', g.name, true)
-          .addField('ID', '||' + g.id + '||', true)
-          /* .addField("Owner",  `${g.owner.user.username}#${g.owner.user.discriminator}`, true) */
-          .setThumbnail(g.iconURL)
-          .addField('Region', region[g.region], true)
-          .addField('Members', `${g.memberCount}`)
-          .addField('Verification Level', verifLevels[g.verificationLevel], true)
-          .addField('Channels', g.channels.size, true)
-          .addField('Roles', g.roles.size, true)
-          .addField('Creation Date', `${g.createdAt.toUTCString().substr(0, 16)} (${checkDays(g.createdAt)})`, true)
+          .setAuthor(guildName.name, guildName.iconURL)
+          .addField('Name', guildName.name, true)
+          .addField("ID", "||" + guildName.id + "||", true)
+          /*.addField("Owner",  `${g.owner.user.username}#${g.owner.user.discriminator}`, true)*/
+          .setThumbnail(guildName.iconURL)
+          .addField('Region', region[guildName.region], true)
+          .addField('Members', `${guildName.memberCount}`)
+          .addField('Verification Level', verificationLevels[guildName.verificationLevel], true)
+          .addField('Channels', guildName.channels.size, true)
+          .addField('Roles', guildName.roles.size, true)
+          .addField('Creation Date', `${guildName.createdAt.toUTCString().substr(0, 16)} (${checkDays(guildName.createdAt)})`, true)
           .addField('Note: ', 'Do not use the visible information to your advantage in anyway, incl. but not limited to server raiding, etc.')
           .setTimestamp()
           .setFooter('Sinfo Menu');
@@ -59,7 +58,8 @@ module.exports = {
 };
 
 function checkDays(date) {
-  const diff = new Date().getTime() - date.getTime();
-  const days = Math.floor(diff / 86400000);
-  return days + (days == 1 ? ' day' : ' days') + ' ago';
-}
+  let now = new Date();
+  let diff = now.getTime() - date.getTime();
+  let days = Math.floor(diff / 86400000);
+  return days + (days == 1 ? " day" : " days") + " ago";
+};

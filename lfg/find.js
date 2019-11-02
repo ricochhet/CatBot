@@ -14,7 +14,6 @@ module.exports = {
 
     return message.channel.send(usageEmbed);
   },
-
   Chunk(arr, len) {
     const chunks = [];
 
@@ -25,9 +24,8 @@ module.exports = {
 
     return chunks;
   },
-
   async run(client, message, args) {
-    const lfg = require('../databases/lfg.json');
+    const lfg = require('../databases/lfg/lfg.json');
 
     if (Object.keys(lfg).length == 0) {
       return message.reply('Sorry meowster but there are no sessions posted right now!');
@@ -49,8 +47,8 @@ module.exports = {
       tEmbed = new Discord.RichEmbed();
 
       tEmbed
-        .setTitle('Session list')
-        .setDescription('Join up with one of the groups below to find some new friends!');
+        .setTitle('Session List')
+        .setDescription('Find other players to hunt with!');
 
       for (const inner of outer) {
         const sessionID = Object.keys(inner)[0];

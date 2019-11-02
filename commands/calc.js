@@ -1,38 +1,33 @@
 const Discord = require('discord.js');
+const fs = require('fs');
 
 module.exports = {
   name: 'calc',
   args: false,
-  usage : 'calc <dmgtaken/elementalcalc/eraw/rawcalc/affinitycalc>\n<args for dmgtaken/elementalcalc/eraw/rawcalc/affinitycalc>\n',
+  usage : 'calc <category> <additional arguments>',
   description : 'Get Monster Hunter Math calculations',
   error(message) {
     const data = [];
-    data.push('\n**dmgtaken Args:**\n defense: current defense value\n');
-    data.push('**elemental Args:**\ndamage: base damage value\nsharpness (elemental): none, red, orange, yellow, green, blue, white, purple\nmonsterpartmultiplier: multiplier value\n');
-    data.push('**eraw Args:**\ndamage: base damage value\nweapontype: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns\n');
-    data.push('**raw Args:**\ndamage: base damage value\nweapontype: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns\nsharpness (raw): none, red, orange, yellow, green, blue, white, purple\nmonsterpartmultiplier: multiplier value\n');
-    data.push('**affinity Args**\naffinity: base affinity value\ndamage: base damage value\n--');
+    data.push('+calc dmgtaken <defense value>\n');
+    data.push('+calc elemental <damage value> <sharpness: none, red, orange, yellow, green, blue, white, purple> <monster part multiplier value>\n');
+    data.push('+calc eraw <damage value> <bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns>\n');
+    data.push('+calc raw <damage value> <bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns> <sharpness: none, red, orange, yellow, green, blue, white, purple> <monster part multiplier value>\n');
+    data.push('+calc affinity <affinity value> <damage value>\n');
 
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
-      .addField('Usage', `${this.usage}\n--`)
-      .addField('Parameters help', data.join('\n'))
+      .addField('Usage', this.usage)
+      .addField('Parameters Help', data.join('\n'))
       .setTimestamp();
-
+    
     return message.channel.send(usageEmbed);
   },
   run(client, message, args) {
-
-    // Get sub command
-    const subcmd = args[0];
-
-    const cmdFound = client.math.find(cmd => cmd.name === subcmd && cmd.secret === false);
-
-    if (!cmdFound) return this.error(message);
-
-    // Strip out first arg (calc)
+    let subCommand = args[0];
+    const commandFound = client.math.find(cmd => cmd.name === subCommand && !cmd.secret);
+    
+    if(!commandFound) return this.error(message);
     args = args.slice(1, args.length);
-    cmdFound.run(client, message, args);
-
+    commandFound.run(client, message, args);
   },
 };

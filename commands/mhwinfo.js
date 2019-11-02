@@ -1,16 +1,16 @@
 const Discord = require('discord.js');
-const monsterDatabase = require('../databases/monsterinfo.json');
-const endemicDatabase = require('../databases/endemicinfo.json');
+const monsterDatabase = require('../databases/mhw/monsterinfo.json');
+const endemicDatabase = require('../databases/mhw/endemicinfo.json');
 const { similarity } = require('../util.js');
 
 const monsters = new Discord.Collection();
 const endemics = new Discord.Collection();
 
-for (const i of Object.keys(monsterDatabase)) {
+for(const i of Object.keys(monsterDatabase)) {
   monsters.set(monsterDatabase[i].name, monsterDatabase[i].details);
 }
 
-for (const i of Object.keys(endemicDatabase)) {
+for(const i of Object.keys(endemicDatabase)) {
   endemics.set(i, endemicDatabase[i]);
 }
 
@@ -23,7 +23,7 @@ module.exports = {
     let input = args.join('').toLowerCase();
 
     // If input matches the alias of a monster, change input to that monster name
-    for (const [name, monster] of monsters.entries()) {
+    for (let [name, monster] of monsters.entries()) {
       if (monster.aliases && monster.aliases.includes(input)) {
         input = name;
         break;
@@ -52,7 +52,7 @@ module.exports = {
       }
 
       message.channel.send(msg);
-    }
+    } 
     else if (monsters.has(input)) {
       const monster = monsters.get(input);
 
@@ -70,7 +70,7 @@ module.exports = {
         .setFooter('Info Menu');
 
       message.channel.send(monsterEmbed);
-    }
+    } 
     else if (endemics.has(input)) {
       const endemic = endemics.get(input);
 

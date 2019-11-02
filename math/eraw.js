@@ -7,7 +7,7 @@ module.exports = {
   calc: true,
   usage: 'eraw <weapontype> <damage>',
   description: 'Effective raw calculator',
-  run (client, message, args) {
+  error(message) {
     const data = [];
     data.push('weapontype: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns');
     data.push('damage: base damage value');
@@ -17,24 +17,20 @@ module.exports = {
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
       .setTimestamp();
-
-    if (!args[0] || !args[1]) {
-      return message.channel.send(usageEmbed);
-    }
-
-    if (!weaponsRatio.has(args[0])) {
-      return message.channel.send(usageEmbed);
-    }
-
+    
+    return message.channel.send(usageEmbed);
+  },
+  run(client, message, args) {
     const rawBase = weaponsRatio.get(args[0]);
 
     let calculate = args[1] / rawBase;
     let rounded = Math.round(calculate);
 
-    if(Number.isNaN(rounded)) {
-      message.channel.send(usageEmbed);
-    } else {
+    if(Number.isNaN(rounded) || !args[0] || !args[1] || !weaponsRatio.has(args[0])) {
+      this.error(message);
+    } 
+    else {
       message.channel.send("Your effective raw is " + "**" + rounded + "**" + " meowster!");
     }
-  }
-}
+  },
+};

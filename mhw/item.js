@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
-const itemDatabase = require('../databases/iteminfo.json');
+const itemDatabase = require('../databases/mhw/iteminfo.json');
 const { similarity } = require('../util.js');
 
 const items = new Discord.Collection();
 
-for(const i of Object.keys(itemDatabase)) {
+for (const i of Object.keys(itemDatabase)) {
   items.set(i, itemDatabase[i]);
 }
 
@@ -13,8 +13,8 @@ module.exports = {
   args: true,
   usage: 'item <itemname>',
   description: 'Get item info',
-  run (client, message, args) {
-    const input = args.join('').toLowerCase();
+  run(client, message, args) {
+    let input = args.join('').toLowerCase();
 
     if (!items.has(input)) {
       let msg = 'That item doesn\'t seem to exist!';
@@ -32,7 +32,8 @@ module.exports = {
       }
 
       message.channel.send(msg);
-    } else if(items.has(input)) {
+    } 
+    else if (items.has(input)) {
       const item = items.get(input);
 
       const itemEmbed = new Discord.RichEmbed()
@@ -50,5 +51,5 @@ module.exports = {
 
       message.channel.send(itemEmbed);
     }
-  }
-}
+  },
+};

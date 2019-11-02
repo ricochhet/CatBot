@@ -101,7 +101,7 @@
     "name": "dodogama",
     "details": {
         "title": "Dodogama",
-        "aliases": ["goodest boi", "goodest boy", "dodo"],
+        "aliases": ["goodestboi", "goodestboy", "dodo"],
         "url": "https://monsterhunterworld.wiki.fextralife.com/Dodogama",
         "description": "Fanged Wyvern",
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-dodogama_icon.png",
@@ -282,7 +282,7 @@
     {
     "name": "paolumu",
     "details": {
-        "aliases": [""],
+        "aliases": ["paol"],
         "title": "Paolumu",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Paolumu",
         "description": "Flying Wyvern",
@@ -450,7 +450,7 @@
     {
     "name": "xeno'jiiva",
     "details": {
-        "aliases": ["xeno"],
+        "aliases": ["xeno", "xenojiiva"],
         "title": "Xeno'Jiiva",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Xeno'jiiva",
         "description": "Elder Dragon",
@@ -604,7 +604,7 @@
     {
     "name": "glavenus",
     "details": {
-        "aliases": ["swordtail", "tailsword"],
+        "aliases": ["sword"],
         "title": "Glavenus",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Glavenus",
         "description": "Brute Wyvern",
@@ -632,7 +632,7 @@
     {
     "name": "fulguranjanath",
     "details": {
-        "aliases": ["fulguranja"],
+        "aliases": ["fulguranja", "fulgur"],
         "title": "Fulgur Anjanath",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Fulgur+Anjanath",
         "description": "Brute Wyvern",
@@ -660,7 +660,7 @@
     {
     "name": "acidicglavenus",
     "details": {
-        "aliases": ["acidswordtail", "acidictailsword"],
+        "aliases": ["acid", "acidic"],
         "title": "Acidic Glavenus",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Acidic+Glavenus",
         "description": "Brute Wyvern",

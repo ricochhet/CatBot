@@ -7,7 +7,7 @@ module.exports = {
   args: true,
   usage: 'raw <damage> <weapontype> <sharpness> <monsterpartmultiplier>',
   description: 'Raw calculator',
-  run(client, message, args) {
+  error(message) {
     const data = [];
     data.push('damage: base damage value');
     data.push('weapontype: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns');
@@ -19,21 +19,21 @@ module.exports = {
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
       .setTimestamp();
-
-    if (!args[0] || !args[1] || !args[2] || !args[3]) {
-      return message.channel.send(usageEmbed);
-    }
-
+    
+    return message.channel.send(usageEmbed);
+  },
+  run(client, message, args) {
     const rawBase = weaponsRatio.get(args[1]);
     const sharpMult = rawSharpRatio.get(args[2]);
 
     let calculate = (args[0] / rawBase) * sharpMult * args[3];
     let rounded = Math.round(calculate);
 
-    if(Number.isNaN(rounded)) {
-      message.channel.send(usageEmbed);
-    } else {
+    if(Number.isNaN(rounded) || !args[0] || !args[1] || !args[2] || !args[3]) {
+      this.error(message);
+    } 
+    else {
       message.channel.send("Your raw damage is " + "**" + rounded + "**" + " meowster!");
     }
-  }
-}
+  },
+};

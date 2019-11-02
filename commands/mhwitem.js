@@ -1,7 +1,12 @@
 const Discord = require('discord.js');
-const { fetchItem, fetchItems, similarity } = require('../util.js');
+const itemDatabase = require('../databases/mhw/iteminfo.json');
+const { similarity } = require('../util.js');
 
-const itemList = new Discord.Collection();
+const items = new Discord.Collection();
+
+for(const i of Object.keys(itemDatabase)) {
+  items.set(i, itemDatabase[i]);
+}
 
 module.exports = {
   name: 'mhwitem',
@@ -9,14 +14,14 @@ module.exports = {
   usage: 'mhwitem <itemname>',
   description: 'Get item info',
   run(client, message, args) {
-    const input = args.join(' ').toLowerCase();
+    let input = args.join('').toLowerCase();
 
-    if (!itemList.has(input)) {
+    if (!items.has(input)) {
       let msg = 'That item doesn\'t seem to exist!';
 
       const similarItems = new Array();
 
-      for (const key of itemList.keys()) {
+      for (const key of items.keys()) {
         if (similarity(key, input) >= 0.5) {
           similarItems.push(key);
         }
@@ -26,21 +31,25 @@ module.exports = {
         msg += `\nDid you mean: \`${similarItems.join(', ')}\`?`;
       }
 
-      return message.channel.send(msg);
-    }
-    else {
-      const item = itemList.get(input);
+      message.channel.send(msg);
+    } 
+    else if (items.has(input)) {
+      const item = items.get(input);
 
-      fetchItem(item, function(embed) {
-        message.channel.send(embed);
-      });
+      const itemEmbed = new Discord.RichEmbed()
+        .setColor('#8fde5d')
+        .setTitle(item.title)
+        .setURL(item.url)
+        .setThumbnail(item.thumbnail)
+        .setDescription(item.description)
+        .addField('Rarity', item.rarity, true)
+        .addField('Max', item.max, true)
+        .addField('Buy', item.buy, true)
+        .addField('Sell', item.sell, true)
+        .setTimestamp()
+        .setFooter('Info Menu');
+
+      message.channel.send(itemEmbed);
     }
   },
 };
-
-Promise.all([fetchItems(itemList)])
-  .then(function() {
-    console.log('Successfully fetched items!');
-  }).catch(function(err) {
-    console.error('Error fetching items, ', err);
-  });
