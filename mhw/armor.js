@@ -40,7 +40,6 @@ module.exports = {
         .setColor('#8fde5d')
         .setTitle(armor.title)
         .setURL(armor.url)
-        .setThumbnail(armor.thumbnail)
         .addField('Resistances', armor.resistances, true)
         .addField('Skills', armor.skills, true)
         .addField('Set Bonus', armor.setBonus)

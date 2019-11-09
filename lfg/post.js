@@ -4,13 +4,14 @@ const fs = require('fs');
 module.exports = {
   name: 'post',
   args: true,
-  usage : 'post <platform> <sessio(<id> (<descr>)tion>)',
+  usage : 'post <platform> <sessionid> [description]',
   description : 'Posts a session that others can find, they close at 2 hours of time',
+  secret: false,
   error (message) {
     const data = [];
-    data.push('**platform Args:**\n Platform args are multiple choice of PC/XBOX/PS4\n');
-    data.push('**sessionID Args:**\n SessionID must be between 11 and 13 characters in length for pc also SessionID for Console need to be between 14 and 16 characters long\n');
-    data.push('**description Args:**\n Description is only optional but is used for describing what you will be doing in the session and has a limit of 256 characters');
+    data.push('platform: platform args are multiple choice of PC/XBOX/PS4\n');
+    data.push('sessionid: session id must be between 11 and 13 characters in length for PC; session id for console need to be between 14 and 16 characters long\n');
+    data.push('description: description is optional but is used for describing what you will be doing in the session and has a limit of 256 characters\n');
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
@@ -62,7 +63,7 @@ module.exports = {
       tEmbed.addField(
         '\u200B',
         '```\n'
-        + `🔖 SessionID: ${sessionID}\n`
+        + `🔖 Session ID: ${sessionID}\n`
         + `🕹️ Platform: ${content['platform']}\n`
         + `📝 Description: ${desc}\n`
         + '```',
@@ -80,26 +81,26 @@ module.exports = {
   },
   async run(client, message, args) {
 
-    if (args.length == 0) return this.error(message);
-    // load in the current json
-    const lfg = require("../databases/lfg/lfg.json");
+  if (args.length == 0) return this.error(message);
+  // load in the current json
+  const lfg = require("../databases/lfg/lfg.json");
 
-    // Checks if the user has already posted or not
-    let repost = false;
-    for (let group in lfg) {
-      if (repost) break;
-      if (lfg[group]['userID'] == message.author.id) {
-        repost = true;
-        break;
-      }
+  // Checks if the user has already posted or not
+  let repost = false;
+  for (let group in lfg) {
+    if (repost) break;
+    if (lfg[group]['userID'] == message.author.id) {
+      repost = true;
+      break;
     }
+  }
 
-    const response = new Discord.RichEmbed();
+  const response = new Discord.RichEmbed();
 
-    // Breaks up args into differenct sections
-    const sessionObj = {};
-    const platform = args[0].toLowerCase();
-    let sessionID;
+  // Breaks up args into differenct sections
+  const sessionObj = {};
+  const platform = args[0].toLowerCase();
+  let sessionID;
    if (["ps4", "xbox"].includes(platform)) {
       sessionID = args.slice(1, 4).join(" ");
 

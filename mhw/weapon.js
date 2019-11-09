@@ -48,7 +48,7 @@ module.exports = {
         .addField('Affinity', weapon.affinity)
         .addField('Elemental Attack', weapon.elementalattack)
         .addField('Rarity', weapon.rarity)
-        .addField('gemslots', weapon.gemslots)
+        .addField('Gem Slots', weapon.gemslots)
         .addField('Wyvern Type', weapon.wyvernheart)
         .addField('Phials', weapon.phials)
         .addField('Notes', weapon.notes)

@@ -9,12 +9,21 @@ module.exports = {
       .setColor('#8fde5d');
 
     let data = [];
-
+  
+    /*
     // Non-Calc Commands w/ Args
     client.mhw.filter(cmd => cmd.calc != true && cmd.args === true).forEach(cmd => {
       if(!cmd.secret) data.push(`+mhw ${cmd.usage} - ${cmd.description}`);
     });
     helpEmbed.addField('Monster Hunter World', data.join('\n'));
+    */
+    data = [];
+    client.commands.filter(cmd => cmd.calc != true).forEach(cmd => {
+      if(cmd.category === 'monsterHunter') {
+        if (!cmd.secret) data.push(`+${cmd.name} - ${cmd.description}`);
+      }
+    });
+    helpEmbed.addField('Monster Hunter', data.join('\n'));
 
     // Calc Commands
     data = [];
@@ -23,17 +32,21 @@ module.exports = {
     });
     helpEmbed.addField('Monster Hunter Math', data.join('\n'));
     
+    /*
     // LFG Commands
     data = [];
     client.lfg.forEach(cmd => {
       if (!cmd.secret) data.push(`+lfg ${cmd.usage} - ${cmd.description}`);
     });
     helpEmbed.addField('Looking for Group', data.join('\n'));
+    */
 
     // Other Commands w/o Args
     data = [];
     client.commands.filter(cmd => cmd.args != true).forEach(cmd => {
-      if (!cmd.secret) data.push(`+${cmd.name} - ${cmd.description}`);
+      if(!cmd.category) {
+        if (!cmd.secret) data.push(`+${cmd.name} - ${cmd.description}`);
+      }
     });
     helpEmbed.addField('Other', data.join('\n'));
 

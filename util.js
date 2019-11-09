@@ -1,7 +1,7 @@
 // Grouping here utility functions that may be used by multiple commands
-const rp = require('request-promise');
-const request = require('request');
-const $ = require('cheerio');
+//const rp = require('request-promise');
+//const request = require('request');
+//const $ = require('cheerio');
 const { RichEmbed } = require('discord.js');
 
 module.exports = {

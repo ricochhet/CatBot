@@ -8,13 +8,9 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "cheerio": "^0.22.0",
     "dblapi.js": "^2.3.0",
-    "discord-paginationembed": "^1.0.2",
     "discord.js": "^11.5.1",
-    "express": "^4.16.4",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "express": "^4.16.4"
   },
   "engines": {
     "node": "10.x"

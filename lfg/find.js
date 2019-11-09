@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
-const { Embeds } = require('discord-paginationembed');
+const menu = require('../api/djs-pages');
 
 module.exports = {
   name: 'find',
   args: false,
   usage: 'find',
   description: 'Shows all the current sessions posted via CatBot',
+  secret: false,
   error(message) {
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
@@ -62,16 +63,22 @@ module.exports = {
         tEmbed.addField(
           '\u200B',
           '```\n'
-          + `🔖 SessionID: ${sessionID}\n`
+          + `🔖 Session ID: ${sessionID}\n`
           + `🕹️ Platform: ${inner[sessionID]['platform']}\n`
           + `📝 Description: ${desc}\n`
           + '```',
         );
+        
+        tEmbed.setColor('#8fde5d');
       }
 
       embeds.push(tEmbed);
     }
 
+    let reactions = {};
+    new menu(message.channel, message.author.id, embeds, 120000, reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'} );
+    
+    /*
     new Embeds()
       .setArray(embeds)
       .setTimeout(30 * 1000)
@@ -85,6 +92,6 @@ module.exports = {
       .setAuthorizedUsers([message.author.id])
       .setChannel(message.channel)
       .setColor('#8fde5d')
-      .build();
+      .build();*/
   },
 };
