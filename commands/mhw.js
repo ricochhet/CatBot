@@ -13,7 +13,7 @@ module.exports = {
     data.push('+mhw item <item name> - Get item info\n');
     data.push('+mhw list <monsters, ibmonsters, endemic, assigned, optional, special, arena, ibassigned, iboptional, lowrank, hralpha1, hralpha2, hrbeta1, hrbeta2, mralpha1, mrbalpha2, mrbeta1, mrbeta2> - List items of various categories\n');
     data.push('+mhw monster <monster name> - Get monster and endemic life info\n');
-    data.push('+mhw weapons <weapon name> - Get weapon info\n');
+    data.push('+mhw weapon <weapon name> - Get weapon info\n');
     data.push('+mhw weapontree <iron, bone, misc> <bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns, culldrone, mauldrone> - Get weapon tree chart\n');
     data.push('+mhw rollhunt - Hunt a random monster using random equipment\n')
 
