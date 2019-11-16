@@ -13,7 +13,7 @@ module.exports = {
     data.push('+lfg subscribe [channel name] - All user posted sessions will show up in a specified channel\n');
     data.push('+lfg find - Shows all the current sessions posted via CatBot\n');
     data.push('+lfg cancel - Cancels your current session advertisement\n');
-    data.push('Notes: Anything around () is optional');
+    data.push('Notes: Anything inside [] is optional');
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)

@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const auth = require('./auth.json');
 const fs = require('fs');
 
 client.commands = new Discord.Collection();
@@ -11,68 +10,63 @@ client.lfg = new Discord.Collection();
 fs.readdir('./commands/', (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    if (!file.endsWith('.js')) return;
+    if (!file.endsWith(".js")) return;
     const props = require(`./commands/${file}`);
-    const commandName = file.split('.')[0];
+    const commandName = file.split(".")[0];
     client.commands.set(commandName, props);
   });
 });
 
-// push all mhw command in the mhw collection to be used for mhw
-fs.readdir('./mhw/', (err, files) => {
+fs.readdir("./mhw/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    if (!file.endsWith('.js')) return;
+    if (!file.endsWith(".js")) return;
     const props = require(`./mhw/${file}`);
-    const commandName = file.split('.')[0];
+    const commandName = file.split(".")[0];
     client.mhw.set(commandName, props);
   });
 });
 
-// push all math command in the math collection to be used for calc
-fs.readdir('./math/', (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith('.js')) return;
-    const props = require(`./math/${file}`);
-    const commandName = file.split('.')[0];
-    client.math.set(commandName, props);
-  });
-});
-
-// push all lfg command in the math collection to be used for lfg
 fs.readdir('./lfg/', (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    if (!file.endsWith('.js')) return;
+    if (!file.endsWith(".js")) return;
     const props = require(`./lfg/${file}`);
-    const commandName = file.split('.')[0];
+    const commandName = file.split(".")[0];
     client.lfg.set(commandName, props);
+  });
+});
+
+fs.readdir('./math/', (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    const props = require(`./math/${file}`);
+    const commandName = file.split(".")[0];
+    client.math.set(commandName, props);
   });
 });
 
 fs.readdir('./events/', (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    if (!file.endsWith('.js')) return;
+    if (!file.endsWith(".js")) return;
     const event = require(`./events/${file}`);
-    const eventName = file.split('.')[0];
+    const eventName = file.split(".")[0];
     client.on(eventName, event.bind(null, client));
   });
 });
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity('for +help', { type: 'WATCHING' });
-
+	client.user.setActivity('for +help', { type: 'WATCHING' });
+  
   // Check every minute and delete lfg sessions older than 2 hours
   client.setInterval(() => {
-
-    const lfg = require('./databases/lfg.json');
+    const lfg = require('./databases/lfg/lfg.json');
     let rewrite = false;
 
     for (const sessionID in lfg) {
-
       const duration = Date.now() - lfg[sessionID]['time'];
 
       if (duration >= 7200000) {
@@ -81,29 +75,24 @@ client.on('ready', () => {
       }
     }
 
-    // If something was deleted rewrite the file
     if (rewrite) {
       const jsonObj = JSON.stringify(lfg, null, 4);
-      fs.writeFile(`${__dirname}/databases/lfg.json`, jsonObj, 'utf8', function(err) {
+      fs.writeFile(`${__dirname}/databases/lfg/lfg.json`, jsonObj, 'utf8', function(err) {
         if (err) {
           console.log('An error occured while writing JSON Object to File.');
           return console.log(err);
         }
       });
     }
-
   }, 60000);
-
 });
 
 client.on('guildCreate', guild => {
-  console.log('Joined a new guild: ' + guild.name);
-});
+    console.log('Joined a new guild: ' + guild.name);
+})
 
 client.on('guildDelete', guild => {
-  console.log('Left a guild: ' + guild.name);
+    console.log('Left a guild: ' + guild.name);
 });
 
-client.login(auth.token);
-
-/* Main code, this is what is ran on startup */
+client.login(process.env.TOKEN);
