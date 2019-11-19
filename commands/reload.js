@@ -19,6 +19,17 @@ module.exports = {
         const props = require(`../mhw/${secondary}.js`);
         client.mhw.set(secondary, props);
         message.reply(`The command **${secondary}** from **${commandName}** has been reloaded`);
+      }
+      else if(commandName === 'rmhgu') {
+        if (!client.mhgu.has(secondary)) {
+          return message.reply("That command does not exist");
+        }
+
+        delete require.cache[require.resolve(`../mhgu/${secondary}.js`)];
+        client.mhgu.delete(secondary);
+        const props = require(`../mhgu/${secondary}.js`);
+        client.mhgu.set(secondary, props);
+        message.reply(`The command **${secondary}** from **${commandName}** has been reloaded`);
       } 
       else if(commandName === 'rcalc') {
         if (!client.math.has(secondary)) {
