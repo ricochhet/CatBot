@@ -4,6 +4,7 @@ const fs = require('fs');
 
 client.commands = new Discord.Collection();
 client.math = new Discord.Collection();
+client.mhgu = new Discord.Collection();
 client.mhw = new Discord.Collection();
 client.lfg = new Discord.Collection();
 
@@ -14,6 +15,16 @@ fs.readdir('./commands/', (err, files) => {
     const props = require(`./commands/${file}`);
     const commandName = file.split(".")[0];
     client.commands.set(commandName, props);
+  });
+});
+
+fs.readdir("./mhgu/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    const props = require(`./mhgu/${file}`);
+    const commandName = file.split(".")[0];
+    client.mhgu.set(commandName, props);
   });
 });
 
