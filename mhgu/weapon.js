@@ -48,11 +48,20 @@ module.exports = {
         .addField('Defense', weapon.Defence, true)
         .addField('Slots', weapon.Slots, true)
         .addField('EFR', weapon.EFR, true)
-        .addField('Arc Shot', weapon.ArcShot, true)
-        .addField('Coating Available', weapon.Coatingavailable, true)
-        .addField('Boosted Coating', weapon.BoostedCoating, true)
-        .setTimestamp()
-        .setFooter('Info Menu');
+      
+      if(weapon.ArcShot == null || weapon.ArcShot == "" || weapon.Coatingavailable == null || weapon.Coatingavailable == "" || weapon.BoostedCoating == null | weapon.BoostedCoating == "") {
+        weaponEmbed.addField('Sharpness', weapon.Sharpness, true)
+        weaponEmbed.addField('Sharpness +2', weapon.Sharpness2, true)
+        weaponEmbed.addField('Sharpness +1', weapon.Sharpness1, true)
+        weaponEmbed.addField('No Handicraft', weapon.NoHandicraft, true)
+      } else {
+        weaponEmbed.addField('Arc Shot', weapon.ArcShot, true)
+        weaponEmbed.addField('Coating Available', weapon.Coatingavailable, true)
+        weaponEmbed.addField('Boosted Coating', weapon.BoostedCoating, true)
+      }
+      
+      weaponEmbed.setTimestamp()
+      weaponEmbed.setFooter('Info Menu');
 
       message.channel.send(weaponEmbed);
     }

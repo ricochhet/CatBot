@@ -7,6 +7,6 @@ module.exports = {
   description: 'Shows a random cat fact',
   run(client, message, args) {
     const catFactKeys = Object.values(catFactsDatabase);
-    message.channel.send(catFactKeys[Math.floor(Math.random()*catFactKeys.length)]);
+    message.channel.send(catFactKeys[Math.floor(Math.random() * catFactKeys.length)]);
   },
 };

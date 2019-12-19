@@ -28,8 +28,7 @@ module.exports = {
 
     if(Number.isNaN(rounded) || !args[0] || !args[1] || !weaponsRatio.has(args[0])) {
       this.error(message);
-    } 
-    else {
+    } else {
       message.channel.send("Your effective raw is " + "**" + rounded + "**" + " meowster!");
     }
   },

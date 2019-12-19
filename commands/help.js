@@ -9,21 +9,13 @@ module.exports = {
       .setColor('#8fde5d');
 
     let data = [];
-  
-    /*
-    // Non-Calc Commands w/ Args
-    client.mhw.filter(cmd => cmd.calc != true && cmd.args === true).forEach(cmd => {
-      if(!cmd.secret) data.push(`+mhw ${cmd.usage} - ${cmd.description}`);
-    });
-    helpEmbed.addField('Monster Hunter World', data.join('\n'));
-    */
     data = [];
     client.commands.filter(cmd => cmd.calc != true).forEach(cmd => {
-      if(cmd.category === 'monsterHunter') {
+      if(cmd.category === 'header') {
         if (!cmd.secret) data.push(`+${cmd.name} - ${cmd.description}`);
       }
     });
-    helpEmbed.addField('Monster Hunter', data.join('\n'));
+    helpEmbed.addField('Monster Hunter Info', data.join('\n'));
 
     // Calc Commands
     data = [];
@@ -31,15 +23,6 @@ module.exports = {
       if (!cmd.secret) data.push(`+calc ${cmd.usage} - ${cmd.description}`);
     });
     helpEmbed.addField('Monster Hunter Math', data.join('\n'));
-    
-    /*
-    // LFG Commands
-    data = [];
-    client.lfg.forEach(cmd => {
-      if (!cmd.secret) data.push(`+lfg ${cmd.usage} - ${cmd.description}`);
-    });
-    helpEmbed.addField('Looking for Group', data.join('\n'));
-    */
 
     // Other Commands w/o Args
     data = [];
@@ -48,18 +31,19 @@ module.exports = {
         if (!cmd.secret) data.push(`+${cmd.name} - ${cmd.description}`);
       }
     });
-    helpEmbed.addField('Other', data.join('\n'));
+    helpEmbed.addField('General', data.join('\n'));
 
     // Notes
     data = [];
     data.push('Using a command w/o args gets extended help');
     data.push('<arg> - mandatory parameter');
     data.push('[arg] - optional paramater')
-    helpEmbed.addField('Notes', data.join('\n'));
+    helpEmbed.addField('Formatting', data.join('\n'));
 
-    // Experiencing Issues Text
+    // Additional
     helpEmbed.addBlankField()
       .addField('Experiencing Issues? ', '```Contact Ricochet#7498 | Do +support```')
+      .addField('Links', '[Vote](https://top.gg/bot/573958899582107653/vote), [Support](https://discord.gg/srNyk8G), [Invite](https://discordapp.com/oauth2/authorize?client_id=573958899582107653&permissions=339008&scope=bot)')
       .setTimestamp()
       .setFooter('Help Menu', client.user.avatarURL);
 

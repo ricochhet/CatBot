@@ -6,7 +6,6 @@ module.exports = {
   args: true,
   usage : 'post <platform> <sessionid> [description]',
   description : 'Posts a session that others can find, they close at 2 hours of time',
-  secret: false,
   error (message) {
     const data = [];
     data.push('platform: platform args are multiple choice of PC/XBOX/PS4\n');
@@ -153,14 +152,13 @@ module.exports = {
       .setFooter(`Requested by ${message.author.username}#${message.author.discriminator} in ${message.guild.name}`);
 
     if (args.length > 2 & sessionObj['platform'] == 'pc') {
-      response.addField(`**${sessionID}**`, `\`\`\`${sessionObj["description"]}\`\`\``);
+      response.addField(`**${sessionID}**`, `*${sessionObj["description"]}*`);
     } 
     else if (sessionObj['description'].length != null & ['ps4', 'xbox'].includes(platform)) {
-      response.addField(`**${sessionID}**`, `\`\`\`${sessionObj["description"]}\`\
-    }\``);
+      response.addField(`**${sessionID}**`, `*${sessionObj["description"]}*`);
     } 
     else {
-      response.addField(`**${sessionID}**`, `\`\`\`No description provided.\`\`\``);
+      response.addField(`**${sessionID}**`, `*No description provided.*`);
     }
 
     // Finishes up object and pushes it back into the lfg db

@@ -55,17 +55,21 @@ module.exports = {
       const monster = monsters.get(input);
 
       const monsterEmbed = new Discord.RichEmbed()
-        .setColor('#8fde5d')
-        .setTitle(monster.title)
-        .setURL(monster.url)
-        .setDescription(monster.description)
-        .setThumbnail(monster.thumbnail)
-        .addField('Elements', monster.elements, true)
-        .addField('Ailments', monster.ailments, true)
-        .addField('Blights', monster.blights, true)
-        .addField('Locations', monster.locations, true)
-        .setTimestamp()
-        .setFooter('Info Menu');
+      .setColor('#8fde5d')
+      .setTitle(monster.title)
+      
+      if(!monster.url == null || !monster.url == "") {
+        monsterEmbed.setURL(monster.url);
+      }
+      
+      monsterEmbed.setDescription(monster.description)
+      monsterEmbed.setThumbnail(monster.thumbnail)
+      monsterEmbed.addField('Elements', monster.elements, true)
+      monsterEmbed.addField('Ailments', monster.ailments, true)
+      monsterEmbed.addField('Blights', monster.blights, true)
+      monsterEmbed.addField('Locations', monster.locations, true)
+      monsterEmbed.setTimestamp()
+      monsterEmbed.setFooter('Info Menu');
 
       message.channel.send(monsterEmbed);
     } else if(endemics.has(input)) {

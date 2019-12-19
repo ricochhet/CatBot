@@ -25,17 +25,20 @@ module.exports = {
       let discordjsVersion = Discord.version;
 
       let userCount = client.guilds.map(g => g.memberCount).reduce((a, b) => a + b);
+      
+      let memory = process.memoryUsage().heapUsed / 1024 / 1024;
 
       const statusEmbed = new Discord.RichEmbed()
         .setColor('#8fde5d')
         .addField('Servers: ', client.guilds.size, true)
         .addField('Members: ', userCount, true)
-        .addField('Bot Version: ', 'v1.6.24', true)
+        .addField('Bot Version: ', 'v1.7.30', true)
         .addField('Message Latency', messagePingRounded + 'ms', true)
         .addField('API Latency: ', pingRounded + 'ms', true)
         .addField('Uptime: ', uptime, true)
         .addField('NodeJS Version', nodejsVersion, true)
         .addField('DiscordJS Version', discordjsVersion, true)
+        .addField('Memory Usage', `${Math.round(memory * 100) / 100} MB`, true)
         .setTimestamp()
         .setFooter('Status Menu', client.user.avatarURL);
 

@@ -38,14 +38,11 @@ module.exports = {
 
       const itemEmbed = new Discord.RichEmbed()
         .setColor('#8fde5d')
-        .setTitle(item.title)
-        .setURL(item.url)
-        .setThumbnail(item.thumbnail)
+        .setTitle(item.name)
         .setDescription(item.description)
         .addField('Rarity', item.rarity, true)
-        .addField('Max', item.max, true)
-        .addField('Buy', item.buy, true)
-        .addField('Sell', item.sell, true)
+        .addField('Max', item.carryLimit, true)
+        .addField('Sell', item.value, true)
         .setTimestamp()
         .setFooter('Info Menu');
 

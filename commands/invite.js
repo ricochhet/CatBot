@@ -8,7 +8,7 @@ module.exports = {
     const inviteEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
       .setTitle('Invite CatBot to your Server')
-      .setDescription('https://top.gg/bot/573958899582107653')
+      .setDescription('[Invite](https://discordapp.com/oauth2/authorize?client_id=573958899582107653&permissions=339008&scope=bot)')
       .addField('About: ', 'CatBot is dedicated to providing Monster Hunter World information so you can always be prepared for your hunts ahead.')
       .setTimestamp()
       .setFooter('Invite Link Request', client.user.avatarURL);

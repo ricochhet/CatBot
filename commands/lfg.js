@@ -23,12 +23,11 @@ module.exports = {
     return message.channel.send(usageEmbed);
   },
   run(client, message, args) {
-    let subCommand = args[1];
-    const commandFound = client.lfg.find(cmd => cmd.name === subCommand && cmd.secret === false);
-    if (subCommand != undefined) subCommand = subCommand.toLowerCase();
+    let subCommand = args[0];
+    const commandFound = client.lfg.find(cmd => cmd.name === subCommand && !cmd.secret);
     
     if(!commandFound) return this.error(message);
-    args = args.slice(2, args.length);
+    args = args.slice(1, args.length);
     commandFound.run(client, message, args);
   },
 };

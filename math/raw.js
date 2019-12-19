@@ -31,8 +31,7 @@ module.exports = {
 
     if(Number.isNaN(rounded) || !args[0] || !args[1] || !args[2] || !args[3]) {
       this.error(message);
-    } 
-    else {
+    } else {
       message.channel.send("Your raw damage is " + "**" + rounded + "**" + " meowster!");
     }
   },

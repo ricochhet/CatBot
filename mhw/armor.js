@@ -38,7 +38,7 @@ module.exports = {
 
       const armorEmbed = new Discord.RichEmbed()
         .setColor('#8fde5d')
-        .setTitle(armor.title)
+        .setTitle(armor.name)
         .setURL(armor.url)
         .addField('Resistances', armor.resistances, true)
         .addField('Skills', armor.skills, true)

@@ -6,7 +6,6 @@ module.exports = {
   args: false,
   usage : 'subscribe [channel name]',
   description : 'All user posted sessions will show up in a specified channel',
-  secret: false,
   error(message) {
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')

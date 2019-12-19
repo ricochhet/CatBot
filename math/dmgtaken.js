@@ -24,8 +24,7 @@ module.exports = {
 
     if(Number.isNaN(calculate) || !args[0]) {
       this.error(message);
-    } 
-    else {
+    } else {
       message.channel.send("Your damage taken is " + "**" + rounded + "%**" + " meowster!");
     }
   },

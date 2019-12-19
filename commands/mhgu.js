@@ -6,7 +6,7 @@ module.exports = {
   args: false,
   usage: '+mhgu <category> <additional arguments>',
   description: 'Gets help for all `+mhgu` sub-commands',
-  category: 'monsterHunter',
+  category: 'header',
   error(message){
     const data = [];
     data.push('+mhgu monster <monster name> - Get monster info\n');
