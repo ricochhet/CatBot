@@ -4,8 +4,8 @@ module.exports = {
   name: 'affinity',
   args: true,
   calc: true,
-  usage: 'affinity <affinity> <damage>',
-  description: 'Affinity calculator',
+  usage: 'affinity [affinity] [damage]',
+  description: 'Calculate for affinity',
   error(message) {
     const data = [];
     data.push('affinity: base affinity value');

@@ -11,8 +11,8 @@ for (const i of Object.keys(weaponDatabase)) {
 module.exports = {
   name: 'weapon',
   args: true,
-  usage: 'weapon <weaponname>',
-  description: 'Get weapon info',
+  usage: 'weapon [weapon name]',
+  description: 'Get info for a specific weapon',
   run(client, message, args) {
     let input = args.join('').toLowerCase();
 

@@ -5,7 +5,7 @@ module.exports = {
   name: 'subscribe',
   args: false,
   usage : 'subscribe [channel name]',
-  description : 'All user posted sessions will show up in a specified channel',
+  description : 'All user posted sessions will be sent to the subscribed Discord channel',
   error(message) {
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')

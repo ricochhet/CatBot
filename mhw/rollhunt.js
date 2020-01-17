@@ -14,7 +14,7 @@ module.exports = {
   name: 'rollhunt',
   args: true,
   usage: 'rollhunt',
-  description: 'Hunt a random monster using random equipment',
+  description: 'Get a random roll of what monster you should hunt with which gear',
   run(client, message, args) {
     let input = args.join('').toLowerCase();
     
@@ -24,7 +24,7 @@ module.exports = {
 
     const monster = mhMonsterKeys[Math.floor(Math.random() * mhMonsterKeys.length)].details.title;
     const weapon = mhWeaponKeys[Math.floor(Math.random() * mhWeaponKeys.length)].title;
-    const armor = mhArmorKeys[Math.floor(Math.random() * mhArmorKeys.length)].title;
+    const armor = mhArmorKeys[Math.floor(Math.random() * mhArmorKeys.length)].name;
     
     message.channel.send("Fight " + "**" + monster + "**" + " with a " + "**" + weapon + "**" + " using " + "**" + armor + "**");
   },

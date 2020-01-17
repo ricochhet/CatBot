@@ -11,8 +11,8 @@ for (const i of Object.keys(itemDatabase)) {
 module.exports = {
   name: 'item',
   args: true,
-  usage: 'item <itemname>',
-  description: 'Get item info',
+  usage: 'item [item name]',
+  description: 'Get info for a specific item',
   run(client, message, args) {
     let input = args.join('').toLowerCase();
 
@@ -21,9 +21,15 @@ module.exports = {
 
       const similarItems = new Array();
 
-      for (const key of items.keys()) {
+      /*for (const key of items.keys()) {
         if (similarity(key, input) >= 0.5){
           similarItems.push(key);
+        }
+      }*/
+      
+      for (let [key, value] of items.entries()) {
+        if (similarity(key, input) >= 0.5) {
+            similarItems.push(value['name']);
         }
       }
 

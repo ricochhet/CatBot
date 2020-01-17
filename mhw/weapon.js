@@ -11,8 +11,8 @@ for (const i of Object.keys(weaponDatabase)) {
 module.exports = {
   name: 'weapon',
   args: true,
-  usage: 'weapon <weaponname>',
-  description: 'Get weapon info',
+  usage: 'weapon [weapon name]',
+  description: 'Get info for a specific weapon',
   run(client, message, args) {
     let input = args.join('').toLowerCase();
 
@@ -21,9 +21,15 @@ module.exports = {
 
       const similarItems = new Array();
 
-      for (const key of weapons.keys()) {
+      /*for (const key of weapons.keys()) {
         if (similarity(key, input) >= 0.5) {
           similarItems.push(key);
+        }
+      }*/
+      
+      for (let [key, value] of weapons.entries()) {
+        if (similarity(key, input) >= 0.5) {
+            similarItems.push(value['title']);
         }
       }
 
@@ -41,16 +47,16 @@ module.exports = {
         .setTitle(weapon.title)
         .setURL(weapon.url)
         .setThumbnail(weapon.thumbnail)
-        .addField('Type', weapon.type)
-        .addField('Attack', weapon.attack)
-        .addField('Defense', weapon.defense)
-        .addField('Sharpness', weapon.sharpness)
-        .addField('Affinity', weapon.affinity)
-        .addField('Elemental Attack', weapon.elementalattack)
-        .addField('Rarity', weapon.rarity)
-        .addField('Gem Slots', weapon.gemslots)
-        .addField('Wyvern Type', weapon.wyvernheart)
-        .addField('Phials', weapon.phials)
+        .addField('Type', weapon.type, true)
+        .addField('Attack', weapon.attack, true)
+        .addField('Defense', weapon.defense, true)
+        .addField('Sharpness', weapon.sharpness, true)
+        .addField('Affinity', weapon.affinity, true)
+        .addField('Elemental Attack', weapon.elementalattack, true)
+        .addField('Rarity', weapon.rarity, true)
+        .addField('Gem Slots', weapon.gemslots, true)
+        .addField('Wyvern Type', weapon.wyvernheart, true)
+        .addField('Phials', weapon.phials, true)
         .addField('Notes', weapon.notes)
         .setTimestamp()
         .setFooter('Info Menu');

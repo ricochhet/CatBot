@@ -114,7 +114,7 @@
     {
     "name": "greatgirros",
     "details": {
-        "aliases": ["ggirros"],
+        "aliases": ["ggirros", "girros"],
         "title": "Great Girros",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Great+Girros",
         "description": "Fanged Wyvern",
@@ -170,7 +170,7 @@
     {
     "name": "kulu-ya-ku",
     "details": {
-        "aliases": ["rockbird"],
+        "aliases": ["kulu"],
         "title": "Kulu-Ya-Ku",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Kulu-Ya-Ku",
         "description": "Bird Wyvern",
@@ -296,7 +296,7 @@
     {
     "name": "pukei-pukei",
     "details": {
-        "aliases": ["pukei"],
+        "aliases": ["pukei", "pukeipukei"],
         "title": "Pukei-Pukei",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Pukei-Pukei",
         "description": "Bird Wyvern",
@@ -352,7 +352,7 @@
     {
     "name": "rathian",
     "details": {
-        "aliases": ["greenrath"],
+        "aliases": ["rath"],
         "title": "Rathian",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Rathian",
         "description": "Flying Wyvern",
@@ -366,7 +366,7 @@
     {
     "name": "pinkrathian",
     "details": {
-        "aliases": ["prath"],
+        "aliases": ["prath", "prathian", "pink"],
         "title": "Pink Rathian",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Pink+Rathian",
         "description": "Flying Wyvern",
@@ -408,7 +408,7 @@
     {
     "name": "tzitzi-ya-ku",
     "details": {
-        "aliases": ["tzitzi"],
+        "aliases": ["tzitzi", "tzi"],
         "title": "Tzitzi-Ya-Ku",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Tzitzi-Ya-Ku",
         "description": "Bird Wyvern",
@@ -480,7 +480,7 @@
     "details": {
         "aliases": ["alesh", "ancient"],
         "title": "Ancient Leshen",
-        "url": "https://monsterhunterworld.wiki.fextralife.com/Great+Girros",
+        "url": "https://monsterhunterworld.wiki.fextralife.com/Ancient+Leshen",
         "description": "Relict",
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/ancient_leshen_icon.png",
         "elements": "Fire ⭐⭐⭐\nWater :x:\nThunder ⭐⭐\nIce ⭐\nDragon ⭐⭐",
@@ -576,7 +576,7 @@
     {
     "name": "shriekinglegiana",
     "details": {
-        "aliases": ["shrieking", "shriekinglegi"],
+        "aliases": ["shrieking", "shriekinglegi", "shriek"],
         "title": "Shrieking Legiana",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Shrieking+Legiana",
         "description": "Flying Wyvern",
@@ -618,7 +618,7 @@
     {
     "name": "brachydios",
     "details": {
-        "aliases": ["brachy"],
+        "aliases": ["brachy", "brach"],
         "title": "Brachydios",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Brachydios",
         "description": "Brute Wyvern",
@@ -688,7 +688,7 @@
     {
     "name": "vipertobi-kadachi",
     "details": {
-        "aliases": ["vipertobi", "viperkadachi"],
+        "aliases": ["vipertobi", "viperkadachi", "vipertobikadachi"],
         "title": "Viper Tobi-Kadachi",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Viper+Tobi-Kadachi",
         "description": "Fanged Wyvern",
@@ -702,7 +702,7 @@
     {
     "name": "coralpukei-pukei",
     "details": {
-        "aliases": ["coralpukei"],
+        "aliases": ["coralpukei", "coral", "coralpukeipukei"],
         "title": "Coral Pukei-Pukei",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Coral+Pukei-Pukei",
         "description": "Bird Wyvern",
@@ -800,7 +800,7 @@
     {
     "name": "seethingbazelgeuse",
     "details": {
-        "aliases": ["angrybagel", "angrybazel", "seethingbagel", "seethingbazel"],
+        "aliases": ["angrybagel", "angrybazel", "seethingbagel", "seethingbazel", "seething"],
         "title": "Seething Bazlegeuse",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Seething+Bazelgeuse",
         "description": "Flying Wyvern",
@@ -828,7 +828,7 @@
     {
     "name": "goldrathian",
     "details": {
-        "aliases": ["grath", "goldian"],
+        "aliases": ["grath", "goldian", "grathian"],
         "title": "Gold Rathian",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Gold+Rathian",
         "description": "Flying Wyvern",
@@ -842,7 +842,7 @@
     {
     "name": "silverrathalos",
     "details": {
-        "aliases": ["silverlos"],
+        "aliases": ["silverlos", "silver"],
         "title": "Silver Rathalos",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Silver+Rathalos",
         "description": "Flying Wyvern",
@@ -898,7 +898,7 @@
     {
     "name": "stygianzinogre",
     "details": {
-        "aliases": ["stygian", "redzin"],
+        "aliases": ["stygian", "redzin", "styg"],
         "title": "Stygian Zinogre",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Stygian+Zinogre",
         "description": "Fanged Wyvern",

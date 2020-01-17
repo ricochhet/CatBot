@@ -11,8 +11,8 @@ for (const i of Object.keys(monsterDatabase)) {
 module.exports = {
   name: 'monster',
   args: true,
-  usage: 'monster <monstername>',
-  description: 'Get monster info',
+  usage: 'monster [monster name]',
+  description: 'Get info for a specific monster',
   run(client, message, args) {
     let input = args.join('').toLowerCase();
 
@@ -33,6 +33,19 @@ module.exports = {
       for (const key of monsters.keys()) {
         if (similarity(key, input) >= 0.5) {
           similarItems.push(key);
+          
+          if(similarity(key, input) >= 0.70) {
+            //input = similarItems[0];
+            if(similarItems.filter(i => i.startsWith(input.charAt(0)))[0]) {
+              input = 
+                similarItems.filter(i => i.startsWith(input.charAt(0)))[0];
+              return message.channel.send(`\nDid you mean: \`${similarItems.join(', ')}\`?`, getMonster(input));
+            } else if(similarItems.filter(i => i.charAt(1) == input.charAt(0))[0]) {   
+              input = 
+                similarItems.filter(i => i.charAt(1) == input.charAt(0))[0];
+              return message.channel.send(`\nDid you mean: \`${similarItems.join(', ')}\`?`, getMonster(input));
+            }
+          }
         }
       }
 
@@ -42,6 +55,7 @@ module.exports = {
 
       message.channel.send(msg);
     } else if(monsters.has(input)) {
+      /*
       const monster = monsters.get(input);
 
       const monsterEmbed = new Discord.RichEmbed()
@@ -61,9 +75,34 @@ module.exports = {
         .addField('Meat', monster.Meat, true)
         .addField('Key', '* > S > A > B > C > D > F Blank is ineffective. F is mostly ineffective. + = Auras reduced by one stage of severity while poisoned.\nI = Must break a wing to knock down. + = Roars can cause damage. * = Can inflict additional blights depending on location\nR = Only when enraged. N = Only when not enraged. ^ = Not with Seltas riding')
         .setTimestamp()
-        .setFooter('Info Menu');
+        .setFooter('Info Menu');*/
 
-      message.channel.send(monsterEmbed);
+      message.channel.send(getMonster(input));
     }
   },
 };
+
+function getMonster(input) {
+  const monster = monsters.get(input);
+
+  const monsterEmbed = new Discord.RichEmbed()
+    .setColor('#8fde5d')
+    .setTitle(monster.name)
+    .addField('Elements', `Fire: ${monster.FIRE}\nWater: ${monster.WATER}\nIce: ${monster.ICE}\nThunder: ${monster.THUNDER}\nDragon: ${monster.DRAGON}\nPoison: ${monster.POISON}\nSleep: ${monster.SLEEP}\nPara: ${monster.PARA}\nBlast: ${monster.BLAST}`, true)
+    .addField('Mount', monster.MOUNT, true)
+    .addField('Roar', monster.Roar, true)
+    .addField('Wind', monster.Wind, true)
+    .addField('Tremor', monster.Tremor, true)
+    .addField('Status', monster.Status, true)
+    .addField('Blights', monster.Blights, true)
+    .addField('Shock Trap', monster.ShockTrap, true)
+    .addField('Pitfall Trap', monster.PitfallTrap, true)
+    .addField('Flash Bomb', monster.FlashBomb, true)
+    .addField('Sonic Bomb', monster.SonicBomb, true)
+    .addField('Meat', monster.Meat, true)
+    .addField('Key', '* > S > A > B > C > D > F Blank is ineffective. F is mostly ineffective. + = Auras reduced by one stage of severity while poisoned.\nI = Must break a wing to knock down. + = Roars can cause damage. * = Can inflict additional blights depending on location\nR = Only when enraged. N = Only when not enraged. ^ = Not with Seltas riding')
+    .setTimestamp()
+    .setFooter('Info Menu');
+  
+  return monsterEmbed;
+}

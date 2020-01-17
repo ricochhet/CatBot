@@ -11,7 +11,7 @@ module.exports = {
       .setDescription('[Discord](https://discord.gg/srNyk8G)')
       .addField('About: ', 'Support Server for CatBot')
       .setTimestamp()
-      .setFooter('Invite Link Request', client.user.avatarURL);
+      .setFooter('Support Link Request', client.user.avatarURL);
 
     message.channel.send(inviteEmbed);
   },

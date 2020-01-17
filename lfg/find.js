@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
-const menu = require('../lib/djs-pages');
+const menu = require('../lib/pages');
 
 module.exports = {
   name: 'find',
   args: false,
   usage: 'find',
-  description: 'Shows all the current sessions posted via CatBot',
+  description: 'Show a menu listing all of the current active user sessions',
   error(message) {
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')

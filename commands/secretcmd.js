@@ -2,9 +2,10 @@ const Discord = require('discord.js');
 const menu = require('../lib/pages');
 
 module.exports = {
-  name: 'help',
+  name: 'secretcmd',
   args: false,
   description: 'List all commands and their information',
+  secret: true,
   run(client, message, args) {
     const helpEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d');
@@ -50,7 +51,6 @@ module.exports = {
       .setFooter('Help | Issues: Contact Ricochet#7498 | Do +support', client.user.avatarURL);
     
     /*
-    
     const mhwData = [];
     mhwData.push('`+mhw armor [armor name]` - Get info for a specific armor set\n');
     mhwData.push('`+mhw item [item name]` - Get info for a specific item\n');
@@ -60,7 +60,7 @@ module.exports = {
 
     const mhwEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
-      .addField('Usage', this.usage)
+      .addField('Usage', '+mhw [command] [command arguments]')
       .addField('Parameters Help', mhwData.join('\n'))
       .setTimestamp()
       .setFooter('MHW Help');
@@ -71,7 +71,7 @@ module.exports = {
 
     const mhguEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
-      .addField('Usage', this.usage)
+      .addField('Usage', '+mhgu [command] [command arguments]')
       .addField('Parameters Help', mhguData.join('\n'))
       .setTimestamp()
       .setFooter('MHGU Help');
@@ -85,7 +85,7 @@ module.exports = {
 
     const calcEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
-      .addField('Usage', this.usage)
+      .addField('Usage', '+calc [category] [additional arguments]')
       .addField('Parameters Help', calcData.join('\n'))
       .setTimestamp()
       .setFooter('Calc Help');
@@ -99,7 +99,7 @@ module.exports = {
     const lfgEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
-      .addField('Parameters Help', lfgData.join('\n'))
+      .addField('Parameters Help', '+lfg [command] [command arguments]')
       .setTimestamp()
       .setFooter('LFG Help');
       
@@ -108,11 +108,19 @@ module.exports = {
     embeds.push(mhwEmbed);
     embeds.push(mhguEmbed);
     embeds.push(calcEmbed);
-    embeds.push(lfgEmbed);
+    embeds.push(lfgEmbed);*/
     
+    let embeds = [helpEmbed];
+    
+    client.commands.filter(cmd => cmd.calc != true).forEach(cmd => {
+      if(cmd.category) {
+        if (!cmd.secret) embeds.push(cmd.error(message));
+      }
+    });
+    
+    let reactions = {};
     new menu(message.channel, message.author.id, embeds, 120000, reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'} );
-    */
 
-    message.channel.send(helpEmbed);
+    //message.channel.send(helpEmbed);
   },
 };

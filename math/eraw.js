@@ -5,8 +5,8 @@ module.exports = {
   name: 'eraw',
   args: true,
   calc: true,
-  usage: 'eraw <weapontype> <damage>',
-  description: 'Effective raw calculator',
+  usage: 'eraw [weapon type] [damage]',
+  description: 'Calculate for effective raw',
   error(message) {
     const data = [];
     data.push('weapontype: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns');

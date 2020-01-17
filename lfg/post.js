@@ -5,7 +5,7 @@ module.exports = {
   name: 'post',
   args: true,
   usage : 'post <platform> <sessionid> [description]',
-  description : 'Posts a session that others can find, they close at 2 hours of time',
+  description : 'Posts an active session to CatBots LFG command',
   error (message) {
     const data = [];
     data.push('platform: platform args are multiple choice of PC/XBOX/PS4\n');

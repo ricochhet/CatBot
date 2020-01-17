@@ -4,8 +4,8 @@ module.exports = {
   name: 'dmgtaken',
   args: false,
   calc : true,
-  usage: 'dmgtaken <defense>',
-  description: 'Damage taken calculator',
+  usage: 'dmgtaken [defense]',
+  description: 'Calculate for damage taken',
   error(message) {
     const data = [];
     data.push('defense: base defense value');

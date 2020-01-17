@@ -17,8 +17,8 @@ for (const i of Object.keys(endemicDatabase)) {
 module.exports = {
   name: 'monster',
   args: true,
-  usage: 'monster <monstername>',
-  description: 'Get monster and endemic life info',
+  usage: 'monster [monster name]',
+  description: 'Get info for a specific monster',
   run(client, message, args) {
     let input = args.join('').toLowerCase();
 
@@ -34,9 +34,15 @@ module.exports = {
 
       const similarItems = new Array();
 
-      for (const key of monsters.keys()) {
+      /*for (const key of monsters.keys()) {
         if (similarity(key, input) >= 0.5) {
           similarItems.push(key);
+        }
+      }*/
+      
+      for (let [key, value] of monsters.entries()) {
+        if (similarity(key, input) >= 0.5) {
+            similarItems.push(value['title']);
         }
       }
 

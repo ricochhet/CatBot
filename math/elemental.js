@@ -5,8 +5,8 @@ module.exports = {
   name: 'elemental',
   args: true,
   calc: true,
-  usage: 'elemental <damage> <sharpness> <monsterpartmultiplier>',
-  description: 'Elemental calculator',
+  usage: 'elemental [damage] [sharpness] [monster part multiplier]',
+  description: 'Calculate for elemental',
   error(message) {
     const data = [];
     data.push('damage: base damage value');

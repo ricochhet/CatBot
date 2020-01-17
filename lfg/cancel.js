@@ -5,7 +5,7 @@ module.exports = {
   name: 'cancel',
   args: false,
   usage : 'cancel',
-  description : 'Cancels your current session advertisement',
+  description : 'Cancel your current active session',
   error(message) {
     const usageEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')

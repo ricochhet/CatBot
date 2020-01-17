@@ -5,8 +5,8 @@ module.exports = {
   name: 'raw',
   calc: true,
   args: true,
-  usage: 'raw <damage> <weapontype> <sharpness> <monsterpartmultiplier>',
-  description: 'Raw calculator',
+  usage: 'raw [damage] [weapon type] [sharpness] [monster part multiplier]',
+  description: 'Calculate for raw',
   error(message) {
     const data = [];
     data.push('damage: base damage value');
