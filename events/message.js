@@ -2,19 +2,19 @@ const Discord = require('discord.js');
 
 module.exports = (client, message) => {
   // Prefix
-  const prefix = "+";
+  const prefix = '+';
 
   // Ignore message if not prefix
   if (message.content.indexOf(prefix) !== 0) return;
-  
+
     // Ignore Bots
   if (message.author.bot) return;
-  
+
   // Ignores message if bot cannot send messages
   if (!message.guild) return;
   if (!message.member.guild.me.hasPermission('SEND_MESSAGES')) return;
   if (!message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES')) return;
-  
+
   // Standard argument and command definitions
   const args = message.content.slice(prefix.length).trim().toLowerCase().split(/ +/g);
   const rawArgs = message.content.slice(prefix.length).trim().split(/ +/g);
@@ -39,10 +39,10 @@ module.exports = (client, message) => {
     return;
   }
 
-  if (command.caseSensitiveArgs){
+  if (command.caseSensitiveArgs) {
     rawArgs.shift();
     return command.run(client, message, rawArgs);
   }
-  
+
   command.run(client, message, args);
 };

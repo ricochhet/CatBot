@@ -1,6 +1,33 @@
-const { RichEmbed } = require('discord.js');
-
 module.exports = {
+  // adapted from https://github.com/saanuregh/discord.js-pagination/blob/master/index.js 
+  paginationEmbed: async function(msg, pages, emojiList = ['⏪', '⏩'], timeout = 120000) {
+    if (!msg && !msg.channel) throw new Error('Channel is inaccessible.');
+    if (!pages) throw new Error('Pages are not given.');
+    if (emojiList.length !== 2) throw new Error('Need two emojis.');
+    let page = 0;
+    const curPage = await msg.channel.send(pages[page].setFooter(`Page ${page + 1} / ${pages.length}`));
+    for (const emoji of emojiList) await curPage.react(emoji);
+    const reactionCollector = curPage.createReactionCollector(
+      (reaction, user) => emojiList.includes(reaction.emoji.name) && !user.bot,
+      { time: timeout }
+    );
+    reactionCollector.on('collect', reaction => {      
+      switch (reaction.emoji.name) {
+        case emojiList[0]:
+          page = page > 0 ? --page : pages.length - 1;
+          break;
+        case emojiList[1]:
+          page = page + 1 < pages.length ? ++page : 0;
+          break;
+        default:
+          break;
+      }
+      curPage.edit(pages[page].setFooter(`Page ${page + 1} / ${pages.length}`, msg.client.user.avatarURL));
+    });
+    reactionCollector.on('end', () => curPage.reactions.clear());
+    return curPage;
+  },
+
     // Compares two strings and return their similarity percentage (0-1)
     similarity: function(str1, str2) {
       let longer = str1;
@@ -36,7 +63,7 @@ module.exports = {
 };
 
 // Computes Levenshtein distance between two strings
-function editDistance (str1, str2) {
+function editDistance(str1, str2) {
   str1 = str1.toLowerCase();
   str2 = str2.toLowerCase();
 

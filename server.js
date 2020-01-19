@@ -11,29 +11,29 @@ client.lfg = new Discord.Collection();
 fs.readdir('./commands/', (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    if (!file.endsWith(".js")) return;
+    if (!file.endsWith('.js')) return;
     const props = require(`./commands/${file}`);
-    const commandName = file.split(".")[0];
+    const commandName = file.split('.')[0];
     client.commands.set(commandName, props);
   });
 });
 
-fs.readdir("./mhgu/", (err, files) => {
+fs.readdir('./mhgu/', (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    if (!file.endsWith(".js")) return;
+    if (!file.endsWith('.js')) return;
     const props = require(`./mhgu/${file}`);
-    const commandName = file.split(".")[0];
+    const commandName = file.split('.')[0];
     client.mhgu.set(commandName, props);
   });
 });
 
-fs.readdir("./mhw/", (err, files) => {
+fs.readdir('./mhw/', (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    if (!file.endsWith(".js")) return;
+    if (!file.endsWith('.js')) return;
     const props = require(`./mhw/${file}`);
-    const commandName = file.split(".")[0];
+    const commandName = file.split('.')[0];
     client.mhw.set(commandName, props);
   });
 });
@@ -41,9 +41,9 @@ fs.readdir("./mhw/", (err, files) => {
 fs.readdir('./lfg/', (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    if (!file.endsWith(".js")) return;
+    if (!file.endsWith('.js')) return;
     const props = require(`./lfg/${file}`);
-    const commandName = file.split(".")[0];
+    const commandName = file.split('.')[0];
     client.lfg.set(commandName, props);
   });
 });
@@ -51,9 +51,9 @@ fs.readdir('./lfg/', (err, files) => {
 fs.readdir('./math/', (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    if (!file.endsWith(".js")) return;
+    if (!file.endsWith('.js')) return;
     const props = require(`./math/${file}`);
-    const commandName = file.split(".")[0];
+    const commandName = file.split('.')[0];
     client.math.set(commandName, props);
   });
 });
@@ -61,9 +61,9 @@ fs.readdir('./math/', (err, files) => {
 fs.readdir('./events/', (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    if (!file.endsWith(".js")) return;
+    if (!file.endsWith('.js')) return;
     const event = require(`./events/${file}`);
-    const eventName = file.split(".")[0];
+    const eventName = file.split('.')[0];
     client.on(eventName, event.bind(null, client));
   });
 });
@@ -71,7 +71,7 @@ fs.readdir('./events/', (err, files) => {
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setActivity('for +help', { type: 'WATCHING' });
-  
+
   // Check every minute and delete lfg sessions older than 2 hours
   client.setInterval(() => {
     const lfg = require('./databases/lfg/lfg.json');
@@ -100,7 +100,7 @@ client.on('ready', () => {
 
 client.on('guildCreate', guild => {
     console.log('Joined a new guild: ' + guild.name);
-})
+});
 
 client.on('guildDelete', guild => {
     console.log('Left a guild: ' + guild.name);
