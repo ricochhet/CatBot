@@ -33,6 +33,65 @@ module.exports = {
       ['red', 0.5], ['orange', 0.75], ['yellow', 1.00], ['green', 1.05],
       ['blue', 1.20], ['white', 1.32], ['purple', 1.39], ['none', 1.00]
     ]),
+
+  reactions(message,similarArray,embedTemplate){
+
+    const author = message.author.id
+
+    similarArray.sort( function(a,b){
+      return b[1] - a[1]
+    } )
+
+    msg = new RichEmbed()
+    .setColor( '#8fde5d' )
+    .setAuthor( "Did you mean?" )
+
+
+    var counter = 0
+    for (item of similarArray){
+
+      if (counter >= 8) { break }
+
+      msg.addField(`${counter + 1} : ${item[0]}`, "\n\u200B")
+
+      counter++
+
+    }
+
+    message.channel.send( msg ).then( async (message) => {
+
+      emojis = ['1⃣','2⃣','3⃣','4⃣','5⃣','6⃣','7⃣','8⃣'].slice(0,counter)
+
+      for (emoji of emojis){
+
+        await message.react(emoji)
+
+      }
+
+      const filter = (reaction, user) => {
+        return emojis.includes(reaction.emoji.name) && user.id === author;
+      };
+
+      message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+      .then(async (collected) => {
+          const reaction = collected.first();
+
+          name = similarArray[ emojis.indexOf( reaction.emoji.name )][0].split(' ').join('').toLowerCase()
+
+          const embed = embedTemplate( name )
+          await message.clearReactions()
+          message.edit(embed)
+
+      })
+      .catch(async (collected) => {
+          console.log(collected);
+          await message.clearReactions()
+          await message.react('❌')
+      });
+
+    } );
+
+  }
 };
 
 // Computes Levenshtein distance between two strings
