@@ -95,7 +95,7 @@ module.exports = {
 
       })
       .catch(async (collected) => {
-          // grabs all unknown errors
+          // grabs all unknown errors also occures when user doesnt react with anything for over set time
           await message.clearReactions()
           await message.react('❌')
       });
