@@ -36,30 +36,35 @@ module.exports = {
 
   reactions(message,similarArray,embedTemplate){
 
+    // save the message author for later so we can use to listen for there reaction input
     const author = message.author.id
 
+    // sort array from highest to lowest similarity value
     similarArray.sort( function(a,b){
       return b[1] - a[1]
     } )
 
+    // start to did you mean create embed
     msg = new RichEmbed()
     .setColor( '#8fde5d' )
     .setAuthor( "Did you mean?" )
 
 
+    // counts the amount of entitys in embed for later use
     var counter = 0
     for (item of similarArray){
 
       if (counter >= 8) { break }
 
       msg.addField(`${counter + 1} : ${item[0]}`, "\n\u200B")
-
       counter++
 
     }
 
     message.channel.send( msg ).then( async (message) => {
 
+
+      // limit the reaction emojis to the number of entitys on embed
       emojis = ['1⃣','2⃣','3⃣','4⃣','5⃣','6⃣','7⃣','8⃣'].slice(0,counter)
 
       for (emoji of emojis){
@@ -68,23 +73,29 @@ module.exports = {
 
       }
 
+      // create a filter so it only listen to number emojis and message author
       const filter = (reaction, user) => {
         return emojis.includes(reaction.emoji.name) && user.id === author;
       };
 
+
+      // create reaction collection listener
       message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
       .then(async (collected) => {
+
           const reaction = collected.first();
 
+          // if reacted grab selected entity and convert it to key format
           name = similarArray[ emojis.indexOf( reaction.emoji.name )][0].split(' ').join('').toLowerCase()
 
+          // then pass through the Embed Template and clear all reaction
           const embed = embedTemplate( name )
           await message.clearReactions()
           message.edit(embed)
 
       })
       .catch(async (collected) => {
-          console.log(collected);
+          // grabs all unknown errors
           await message.clearReactions()
           await message.react('❌')
       });
