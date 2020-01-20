@@ -59,8 +59,8 @@ module.exports = {
           return 1.0;
       }
       return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
-    }
-
+    },
+    
     // Weapons multiplier
     weaponsRatio: new Map([
       ['hammer', 5.2], ['gs', 4.8], ['hh', 4.2], ['cb', 3.6],
