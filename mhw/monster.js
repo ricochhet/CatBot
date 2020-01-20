@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const monsterDatabase = require('../databases/mhw/monsterinfo.json');
 const endemicDatabase = require('../databases/mhw/endemicinfo.json');
-const { similarity,reactions } = require('../util.js');
+const { getSimlarArray,reactions } = require('../util.js');
 
 const monsters = new Discord.Collection();
 const endemics = new Discord.Collection();
@@ -70,21 +70,19 @@ module.exports = {
     if (!monsters.has(input) && !endemics.has(input)) {
       let msg = 'That monster/endemic life doesn\'t seem to exist!';
 
-      const similarItems = new Array();
+      let similarItems = getSimlarArray(monsters,{
+        'input' : input,
+        'threshold' : 0.5,
+        'key' : 'title',
+        'pushSim' : true
+      })
 
-      for (let [key, value] of monsters.entries()) {
-        sim = similarity(key, input)
-        if (sim >= 0.5) {
-            similarItems.push([value['title'],sim]);
-        }
-      }
-
-      for (const key of endemics.keys()) {
-        sim = similarity(key, input)
-        if (sim >= 0.5) {
-          similarItems.push([key,sim]);
-        }
-      }
+      similarItems = getSimlarArray(endemics,{
+        'input' : input,
+        'threshold' : 0.5,
+        'pushSim' : true,
+        'similarArray' : similarItems
+      })
 
       if (similarItems.length) {
         return reactions(message,similarItems,this.monsterEmbed)

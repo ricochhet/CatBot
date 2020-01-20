@@ -1,8 +1,53 @@
 const { RichEmbed } = require('discord.js');
 
+// Computes Levenshtein distance between two strings
+function editDistance (str1, str2) {
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+
+  const costs = new Array();
+  for (let i = 0; i <= str1.length; i++) {
+    let lastValue = i;
+    for (let j = 0; j <= str2.length; j++) {
+      if (i == 0) {
+        costs[j] = j;
+      }
+      else if (j > 0) {
+        let newValue = costs[j - 1];
+        if (str1.charAt(i - 1) != str2.charAt(j - 1)) {
+          newValue = Math.min(Math.min(newValue, lastValue),
+          costs[j]) + 1;
+        }
+        costs[j - 1] = lastValue;
+        lastValue = newValue;
+      }
+    }
+    if (i > 0) {
+      costs[str2.length] = lastValue;
+    }
+  }
+  return costs[str2.length];
+}
+
+// Compares two strings and return their similarity percentage (0-1)
+function similarity(str1, str2) {
+  let longer = str1;
+  let shorter = str2;
+  if (str1.length < str2.length) {
+      longer = str2;
+      shorter = str1;
+  }
+  const longerLength = longer.length;
+  if (longerLength == 0) {
+      return 1.0;
+  }
+  return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
+}
+
 module.exports = {
-    // Compares two strings and return their similarity percentage (0-1)
-    similarity: function(str1, str2) {
+
+    // until instance varible can be used and not to break mhgu branch ill leave two similarity function in this file (hopefully can remove when fixed) - Yofou
+    similarity(str1, str2) {
       let longer = str1;
       let shorter = str2;
       if (str1.length < str2.length) {
@@ -14,7 +59,7 @@ module.exports = {
           return 1.0;
       }
       return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
-    },
+    }
 
     // Weapons multiplier
     weaponsRatio: new Map([
@@ -34,7 +79,7 @@ module.exports = {
       ['blue', 1.20], ['white', 1.32], ['purple', 1.39], ['none', 1.00]
     ]),
 
-  reactions(message,similarArray,embedTemplate){
+    reactions(message,similarArray,embedTemplate){
 
     // save the message author for later so we can use to listen for there reaction input
     const author = message.author.id
@@ -102,34 +147,37 @@ module.exports = {
 
     } );
 
-  }
-};
+  },
 
-// Computes Levenshtein distance between two strings
-function editDistance (str1, str2) {
-  str1 = str1.toLowerCase();
-  str2 = str2.toLowerCase();
+    getSimlarArray(collection,options){
 
-  const costs = new Array();
-  for (let i = 0; i <= str1.length; i++) {
-    let lastValue = i;
-    for (let j = 0; j <= str2.length; j++) {
-      if (i == 0) {
-        costs[j] = j;
-      }
-      else if (j > 0) {
-        let newValue = costs[j - 1];
-        if (str1.charAt(i - 1) != str2.charAt(j - 1)) {
-          newValue = Math.min(Math.min(newValue, lastValue),
-          costs[j]) + 1;
+      let simlarArray;
+
+      if ('similarArray' in options) {simlarArray = options['similarArray']}
+      else {simlarArray = new Array()};
+
+      for (let [key, value] of collection.entries()) {
+        sim = similarity(key, options['input'])
+        if (sim >= options['threshold']) {
+          if (options['pushSim']) {
+            if (options['key']){
+              simlarArray.push([value[options['key']],sim])
+            } else{
+              simlarArray.push([value[key],sim])
+            }
+
+          } else {
+            if (options['key']){
+              simlarArray.push(value[options['key']])
+            } else{
+              simlarArray.push(value[key])
+            }
+          };
         }
-        costs[j - 1] = lastValue;
-        lastValue = newValue;
       }
+
+
+      return simlarArray
     }
-    if (i > 0) {
-      costs[str2.length] = lastValue;
-    }
-  }
-  return costs[str2.length];
-}
+
+};

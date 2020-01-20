@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const decorationDatabase = require('../databases/mhw/decorations.json');
-const { similarity,reactions } = require('../util.js');
+const { getSimlarArray,reactions } = require('../util.js');
 
 const decorations = new Discord.Collection();
 
@@ -33,14 +33,12 @@ module.exports = {
     if (!decorations.has(input)) {
       let msg = 'That decoration doesn\'t seem to exist!';
 
-      const similarItems = new Array();
-
-      for (let [key, value] of decorations.entries()) {
-        sim = similarity(key, input)
-        if (sim >= 0.5) {
-            similarItems.push([value['name'],sim]);
-        }
-      }
+      const similarItems = getSimlarArray(decorations,{
+        'input' : input,
+        'threshold' : 0.5,
+        'key' : 'name',
+        'pushSim' : true
+      })
 
       if (similarItems.length) {
         return reactions(message,similarItems,this.decorationEmbed)

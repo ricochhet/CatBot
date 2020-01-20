@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const itemDatabase = require('../databases/mhw/iteminfo.json');
-const { similarity, reactions } = require('../util.js');
+const { getSimlarArray, reactions } = require('../util.js');
 
 const items = new Discord.Collection();
 
@@ -36,14 +36,12 @@ module.exports = {
     if (!items.has(input)) {
       let msg = 'That item doesn\'t seem to exist!';
 
-      const similarItems = new Array();
-
-      for (let [key, value] of items.entries()) {
-        let sim = similarity(key, input)
-        if (sim >= 0.5) {
-            similarItems.push([ value['name'],sim ]);
-        }
-      }
+      const similarItems = getSimlarArray(items,{
+        'input' : input,
+        'threshold' : 0.5,
+        'key' : 'name',
+        'pushSim' : true
+      })
 
       if (similarItems.length) {
 

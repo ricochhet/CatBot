@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const armorDatabase = require('../databases/mhw/armorinfo.json');
-const { similarity,reactions } = require('../util.js');
+const { getSimlarArray,reactions } = require('../util.js');
 
 const armors = new Discord.Collection();
 
@@ -34,14 +34,12 @@ module.exports = {
     if (!armors.has(input)) {
       let msg = 'That armor doesn\'t seem to exist!';
 
-      const similarItems = new Array();
-
-      for (let [key, value] of armors.entries()) {
-        sim = similarity(key, input)
-        if (sim >= 0.5) {
-            similarItems.push([value['name'],sim]);
-        }
-      }
+      const similarItems = getSimlarArray(armors,{
+        'input' : input,
+        'threshold' : 0.5,
+        'key' : 'name',
+        'pushSim' : true
+      })
 
       if (similarItems.length) {
         return reactions(message,similarItems,this.armorEmbed)
