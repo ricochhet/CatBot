@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const skillDatabase = require('../databases/mhw/skills.json');
-const { getSimlarArray,reactions } = require('../util.js');
+const { getSimilarArray, reactions } = require('../util.js');
 
 const skills = new Discord.Collection();
 
@@ -13,8 +13,7 @@ module.exports = {
   args: true,
   usage: 'skill [skill name]',
   description: 'Get info for a specific skill',
-  skillEmbed(name){
-
+  skillEmbed(name) {
     const skill = skills.get(name);
 
     const embed = new Discord.RichEmbed()
@@ -25,30 +24,29 @@ module.exports = {
       .setTimestamp()
       .setFooter('Info Menu');
 
-    return embed
-
+    return embed;
   },
   run(client, message, args) {
     let input = args.join('').toLowerCase();
 
     if (!skills.has(input)) {
-      let msg = 'That decoration doesn\'t seem to exist!';
+      let msg = 'That skill doesn\'t seem to exist!';
 
-      const similarItems = getSimlarArray(skills,{
+      const similarItems = getSimilarArray(skills, {
         'input' : input,
         'threshold' : 0.5,
         'key' : 'name',
         'pushSim' : true
-      })
+      });
 
       if (similarItems.length) {
-        return reactions(message,similarItems,this.skillEmbed)
+        return reactions(message, similarItems, this.skillEmbed);
       }
 
       message.channel.send(msg);
-    }
+    } 
     else if (skills.has(input)) {
-      const embed = this.skillEmbed(input)
+      const embed = this.skillEmbed(input);
       message.channel.send(embed);
     }
   },

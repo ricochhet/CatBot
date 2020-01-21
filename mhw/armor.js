@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
-const armorDatabase = require('../databases/mhw/armorinfo.json');
-const { getSimlarArray,reactions } = require('../util.js');
+const armorDatabase = require('../databases/mhw/armors.json');
+const { getSimilarArray, reactions } = require('../util.js');
 
 const armors = new Discord.Collection();
 
@@ -13,7 +13,7 @@ module.exports = {
   args: true,
   usage: 'armor [armor name]',
   description: 'Get info for a specific armor set',
-  armorEmbed(name){
+  armorEmbed(name) {
     const armor = armors.get(name);
 
     const embed = new Discord.RichEmbed()
@@ -25,8 +25,8 @@ module.exports = {
       .addField('Set Bonus', armor.setBonus)
       .setTimestamp()
       .setFooter('Info Menu');
-
-    return embed
+ 
+    return embed;
   },
   run(client, message, args) {
     let input = args.join('').toLowerCase();
@@ -34,22 +34,22 @@ module.exports = {
     if (!armors.has(input)) {
       let msg = 'That armor doesn\'t seem to exist!';
 
-      const similarItems = getSimlarArray(armors,{
+      const similarItems = getSimilarArray(armors, {
         'input' : input,
         'threshold' : 0.5,
         'key' : 'name',
         'pushSim' : true
-      })
+      });
 
       if (similarItems.length) {
-        return reactions(message,similarItems,this.armorEmbed)
+        return reactions(message, similarItems, this.armorEmbed);
       }
 
       message.channel.send(msg);
-    }
+    } 
     else if (armors.has(input)) {
-      const armorEmbed = this.armorEmbed(input)
-      message.channel.send(armorEmbed);
+      const embed = this.armorEmbed(input);
+      message.channel.send(embed);
     }
   },
 };

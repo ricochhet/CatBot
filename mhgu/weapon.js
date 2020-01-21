@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
-const weaponDatabase = require('../databases/mhgu/weaponinfo.json');
-const { similarity } = require('../util.js');
+const weaponDatabase = require('../databases/mhgu/weapons.json');
+const { getSimilarArray, reactions } = require('../util.js');
 
 const weapons = new Discord.Collection();
 
@@ -13,57 +13,60 @@ module.exports = {
   args: true,
   usage: 'weapon [weapon name]',
   description: 'Get info for a specific weapon',
+  weaponEmbed(name) {
+    const weapon = weapons.get(name);
+
+    const embed = new Discord.RichEmbed()
+      .setColor('#8fde5d')
+      .setTitle(weapon.name)
+      .addField('Type', weapon.type)
+      .addField('Raw', weapon.Raw, true)
+      .addField('Element/Status', weapon.ElementStatus, true)
+      .addField('Elemental Damage', weapon.ElementDmg, true)
+      .addField('Status Damage', weapon.StatusDmg, true)
+      .addField('Affinity', weapon.Affinity, true)
+      .addField('Defense', weapon.Defence, true)
+      .addField('Slots', weapon.Slots, true)
+      .addField('EFR', weapon.EFR, true)
+
+    if(weapon.ArcShot == null || weapon.ArcShot == "" || weapon.Coatingavailable == null || weapon.Coatingavailable == "" || weapon.BoostedCoating == null | weapon.BoostedCoating == "") {
+      embed.addField('Sharpness', weapon.Sharpness, true)
+      embed.addField('Sharpness +2', weapon.Sharpness2, true)
+      embed.addField('Sharpness +1', weapon.Sharpness1, true)
+      embed.addField('No Handicraft', weapon.NoHandicraft, true)
+    } else {
+      embed.addField('Arc Shot', weapon.ArcShot, true)
+      embed.addField('Coating Available', weapon.Coatingavailable, true)
+      embed.addField('Boosted Coating', weapon.BoostedCoating, true)
+    }
+
+    embed.setTimestamp()
+    embed.setFooter('Info Menu');
+    
+    return embed;
+  },
   run(client, message, args) {
     let input = args.join('').toLowerCase();
 
     if (!weapons.has(input)) {
       let msg = 'That weapon doesn\'t seem to exist!';
 
-      const similarItems = new Array();
-
-      for (const key of weapons.keys()) {
-        if (similarity(key, input) >= 0.5) {
-          similarItems.push(key);
-        }
-      }
+      const similarItems = getSimilarArray(weapons, {
+        'input' : input,
+        'threshold' : 0.5,
+        'key' : 'title',
+        'pushSim' : true
+      });
 
       if (similarItems.length) {
-        msg += `\nDid you mean: \`${similarItems.join(', ')}\`?`;
+        return reactions(message, similarItems, this.weaponEmbed);
       }
 
       message.channel.send(msg);
     } 
     else if (weapons.has(input)) {
-      const weapon = weapons.get(input);
-
-      const weaponEmbed = new Discord.RichEmbed()
-        .setColor('#8fde5d')
-        .setTitle(weapon.name)
-        .addField('Type', weapon.type)
-        .addField('Raw', weapon.Raw, true)
-        .addField('Element/Status', weapon.ElementStatus, true)
-        .addField('Elemental Damage', weapon.ElementDmg, true)
-        .addField('Status Damage', weapon.StatusDmg, true)
-        .addField('Affinity', weapon.Affinity, true)
-        .addField('Defense', weapon.Defence, true)
-        .addField('Slots', weapon.Slots, true)
-        .addField('EFR', weapon.EFR, true)
-      
-      if(weapon.ArcShot == null || weapon.ArcShot == "" || weapon.Coatingavailable == null || weapon.Coatingavailable == "" || weapon.BoostedCoating == null | weapon.BoostedCoating == "") {
-        weaponEmbed.addField('Sharpness', weapon.Sharpness, true)
-        weaponEmbed.addField('Sharpness +2', weapon.Sharpness2, true)
-        weaponEmbed.addField('Sharpness +1', weapon.Sharpness1, true)
-        weaponEmbed.addField('No Handicraft', weapon.NoHandicraft, true)
-      } else {
-        weaponEmbed.addField('Arc Shot', weapon.ArcShot, true)
-        weaponEmbed.addField('Coating Available', weapon.Coatingavailable, true)
-        weaponEmbed.addField('Boosted Coating', weapon.BoostedCoating, true)
-      }
-      
-      weaponEmbed.setTimestamp()
-      weaponEmbed.setFooter('Info Menu');
-
-      message.channel.send(weaponEmbed);
+      const embed = this.weaponEmbed(input);
+      message.channel.send(embed);
     }
   },
 };

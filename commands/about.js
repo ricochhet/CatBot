@@ -9,8 +9,8 @@ module.exports = {
       .setColor('#8fde5d')
       .addField('Author: ', 'Ricochet#7498', true)
       .addField('Contributors', 'Chad#0389\nYofou#0420', true)
-      .addField('Version: ', 'v1.10.0', true)
-      .addField('Changelog: ', 'v1.10.0 | Added `+mhw deco ...`, `+mhw skill ...` command(s)')
+      .addField('Version: ', 'v1.11.0', true)
+      .addField('Changelog: ', 'v1.11.0 | Help Pages + Better Similarity')
       .addField('Feedback / Requests: ', 'Do `+support` to go to the support server.')
       .setTimestamp()
       .setFooter('About Menu', client.user.avatarURL);

@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const decorationDatabase = require('../databases/mhw/decorations.json');
-const { getSimlarArray,reactions } = require('../util.js');
+const { getSimilarArray, reactions } = require('../util.js');
 
 const decorations = new Discord.Collection();
 
@@ -13,7 +13,7 @@ module.exports = {
   args: true,
   usage: 'deco [deco name]',
   description: 'Get info for a specific decoration',
-  decorationEmbed(name){
+  decorationEmbed(name) {
     const decoration = decorations.get(name);
 
     const embed = new Discord.RichEmbed()
@@ -24,8 +24,8 @@ module.exports = {
       .addField('Slot Level', decoration.slot, true)
       .setTimestamp()
       .setFooter('Info Menu');
-
-    return embed
+    
+    return embed;
   },
   run(client, message, args) {
     let input = args.join('').toLowerCase();
@@ -33,21 +33,21 @@ module.exports = {
     if (!decorations.has(input)) {
       let msg = 'That decoration doesn\'t seem to exist!';
 
-      const similarItems = getSimlarArray(decorations,{
+      const similarItems = getSimilarArray(decorations, {
         'input' : input,
         'threshold' : 0.5,
         'key' : 'name',
         'pushSim' : true
-      })
+      });
 
       if (similarItems.length) {
-        return reactions(message,similarItems,this.decorationEmbed)
+        return reactions(message, similarItems, this.decorationEmbed);
       }
 
       message.channel.send(msg);
-    }
+    } 
     else if (decorations.has(input)) {
-      const embed = this.decorationEmbed(input)
+      const embed = this.decorationEmbed(input);
       message.channel.send(embed);
     }
   },

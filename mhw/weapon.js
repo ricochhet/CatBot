@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
-const weaponDatabase = require('../databases/mhw/weaponinfo.json');
-const { getSimlarArray,reactions } = require('../util.js');
+const weaponDatabase = require('../databases/mhw/weapons.json');
+const { getSimilarArray, reactions } = require('../util.js');
 
 const weapons = new Discord.Collection();
 
@@ -13,7 +13,7 @@ module.exports = {
   args: true,
   usage: 'weapon [weapon name]',
   description: 'Get info for a specific weapon',
-  weaponEmbed(name){
+  weaponEmbed(name) {
     const weapon = weapons.get(name);
 
     const embed = new Discord.RichEmbed()
@@ -35,7 +35,7 @@ module.exports = {
       .setTimestamp()
       .setFooter('Info Menu');
 
-    return embed
+    return embed;
   },
   run(client, message, args) {
     let input = args.join('').toLowerCase();
@@ -43,21 +43,21 @@ module.exports = {
     if (!weapons.has(input)) {
       let msg = 'That weapon doesn\'t seem to exist!';
 
-      const similarItems = getSimlarArray(weapons,{
+      const similarItems = getSimilarArray(weapons, {
         'input' : input,
         'threshold' : 0.5,
         'key' : 'title',
         'pushSim' : true
-      })
+      });
 
       if (similarItems.length) {
-        return reactions(message,similarItems,this.weaponEmbed)
+        return reactions(message, similarItems, this.weaponEmbed);
       }
 
       message.channel.send(msg);
-    }
+    } 
     else if (weapons.has(input)) {
-      const embed = weaponEmbed(input)
+      const embed = this.weaponEmbed(input);
       message.channel.send(embed);
     }
   },

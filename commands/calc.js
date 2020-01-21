@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
+const fs = require('fs');
 
 module.exports = {
   name: 'calc',
   args: false,
   usage : '+calc [category] [additional arguments]',
-  description : 'Calc commands (MHW)',
+  description : 'Math/Calculation (MHWI)',
   category: true,
-  error() {
+  error(message) {
     const data = [];
     data.push('`+calc dmgtaken [defense]` - Calculate for damage taken\n');
     data.push('`+calc elemental [damage] [sharpness: none, red, orange, yellow, green, blue, white, purple] [monster part multiplier value]` - Calculate for elemental\n');
@@ -20,14 +21,14 @@ module.exports = {
       .addField('Parameters Help', data.join('\n'))
       .setTimestamp()
       .setFooter('Calc Help');
-
+    
     return usageEmbed;
   },
   run(client, message, args) {
     const subCommand = args[0];
     const commandFound = client.math.find(cmd => cmd.name === subCommand && !cmd.secret);
-
-    if(!commandFound) return message.channel.send(this.error());
+    
+    if(!commandFound) return message.channel.send(this.error(message));
     args = args.slice(1, args.length);
     commandFound.run(client, message, args);
   },

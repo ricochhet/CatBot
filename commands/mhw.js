@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
+const { similarity } = require('../util.js');
 
 module.exports = {
   name: 'mhw',
   args: false,
   usage: '+mhw [command] [command arguments]',
-  description: 'Monster Hunter World & Iceborne',
+  description: 'MHW - Monster Hunter World: Iceborne',
   category: true,
-  error() {
+  error(message){
     const data = [];
     data.push('`+mhw armor [armor name]` - Get info for a specific armor set\n');
     data.push('`+mhw deco [deco name]` - Get info for a specific decoration\n');
@@ -22,14 +23,14 @@ module.exports = {
       .addField('Parameters Help', data.join('\n'))
       .setTimestamp()
       .setFooter('MHW Help');
-
+    
     return usageEmbed;
   },
   run(client, message, args) {
     const subCommand = args[0];
     const commandFound = client.mhw.find(cmd => cmd.name === subCommand && !cmd.secret);
-
-    if(!commandFound) return message.channel.send(this.error());
+    
+    if(!commandFound) return message.channel.send(this.error(message));
     args = args.slice(1, args.length);
     commandFound.run(client, message, args);
   },

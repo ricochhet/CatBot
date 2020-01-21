@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const menu = require('../lib/pages');
+const menu = require('../util');
 
 module.exports = {
   name: 'find',
@@ -75,6 +75,6 @@ module.exports = {
     }
 
     let reactions = {};
-    new menu(message.channel, message.author.id, embeds, 120000, reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'} );
+    new menu.Pages(message.channel, message.author.id, embeds, 120000, reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'} );
   },
 };

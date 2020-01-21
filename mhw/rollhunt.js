@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
-const monsterDatabase = require('../databases/mhw/monsterinfo.json');
-const weaponDatabase = require('../databases/mhw/weaponinfo.json');
-const armorDatabase = require('../databases/mhw/armorinfo.json');
+const monsterDatabase = require('../databases/mhw/monsters.json');
+const weaponDatabase = require('../databases/mhw/weapons.json');
+const armorDatabase = require('../databases/mhw/armors.json');
 const { similarity } = require('../util.js');
 
 const armors = new Discord.Collection();
