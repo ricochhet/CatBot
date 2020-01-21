@@ -1,118 +1,69 @@
 const Discord = require('discord.js');
-const menu = require('../lib/pages');
+const { paginationEmbed } = require('../util.js');
+// const menu = require('../lib/pages');
 
 module.exports = {
   name: 'help',
   args: false,
   description: 'List all commands and their information',
   run(client, message, args) {
-    const helpEmbed = new Discord.RichEmbed()
+
+    const mainHelp = new Discord.RichEmbed()
       .setColor('#8fde5d');
 
-    let data = [];
-    data = [];
+    let content = [];
+
+    content = [];
     client.commands.filter(cmd => cmd.calc != true).forEach(cmd => {
       if(cmd.category) {
-        if (!cmd.secret) data.push(`+${cmd.name} - ${cmd.description}`);
+        if (!cmd.secret) content.push(`+${cmd.name} - ${cmd.description}`);
       }
     });
-    helpEmbed.addField('Main / General', data.join('\n'));
+    mainHelp.addField('Main commands (see other pages for more info)', content.join('\n'));
 
-    /*
-    // Calc Commands
-    data = [];
-    client.math.forEach(cmd => {
-      if (!cmd.secret) data.push(`+calc ${cmd.usage} - ${cmd.description}`);
-    });
-    helpEmbed.addField('Monster Hunter Math', data.join('\n'));*/
-
-    // Other Commands w/o Args
-    data = [];
+    // All Commands w/o Args
+    content = [];
     client.commands.filter(cmd => cmd.args != true).forEach(cmd => {
       if(!cmd.category) {
-        if (!cmd.secret) data.push(`+${cmd.name} - ${cmd.description}`);
+        if (!cmd.secret) content.push(`+${cmd.name} - ${cmd.description}`);
       }
     });
-    helpEmbed.addField('General', data.join('\n'));
+    mainHelp.addField('Other', content.join('\n'));
 
-    // Notes
-    data = [];
-    data.push('Using a command w/o parameters gets extended help')
-    data.push('[parameter] - Mandatory parameter');
-    data.push('(parameter) - Optional paramater')
-    helpEmbed.addField('Formatting', data.join('\n'));
+    // Notes about syntax
+    content = [];
+    content.push(':bulb: *Using a command w/o parameters will display extended help*');
+    content.push('[parameter] - mandatory parameter');
+    content.push('(parameter) - optional paramater');
+    mainHelp.addField('Syntax for help', content.join('\n'));
 
-    // Additional
-    helpEmbed.addBlankField()
+    // Support info
+    mainHelp.addBlankField()
       .addField('Experiencing Issues? ', '```Contact Ricochet#7498 | Do +support```')
       .addField('Links', '[Vote](https://top.gg/bot/573958899582107653/vote) [Support](https://discord.gg/srNyk8G) [Invite](https://discordapp.com/oauth2/authorize?client_id=573958899582107653&permissions=339008&scope=bot)')
-      .setTimestamp()
-      .setFooter('Help | Issues: Contact Ricochet#7498 | Do +support', client.user.avatarURL);
-    
-    /*
-    
-    const mhwData = [];
-    mhwData.push('`+mhw armor [armor name]` - Get info for a specific armor set\n');
-    mhwData.push('`+mhw item [item name]` - Get info for a specific item\n');
-    mhwData.push('`+mhw monster [monster name]` - Get info for a specific monster\n');
-    mhwData.push('`+mhw weapon [weapon name]` - Get info for a specific weapon\n');
-    mhwData.push('`+mhw rollhunt` - Get a random roll of what monster you should hunt with which gear\n')
+      .setTimestamp();
 
-    const mhwEmbed = new Discord.RichEmbed()
-      .setColor('#8fde5d')
-      .addField('Usage', this.usage)
-      .addField('Parameters Help', mhwData.join('\n'))
-      .setTimestamp()
-      .setFooter('MHW Help');
-    
-    const mhguData = [];
-    mhguData.push('`+mhgu monster [monster name]` - Get info for a specific monster\n');
-    mhguData.push('`+mhgu weapon [weapon name]` - Get info for a specific weapon\n');
+    const pages = [mainHelp];
 
-    const mhguEmbed = new Discord.RichEmbed()
-      .setColor('#8fde5d')
-      .addField('Usage', this.usage)
-      .addField('Parameters Help', mhguData.join('\n'))
-      .setTimestamp()
-      .setFooter('MHGU Help');
-      
-    const calcData = [];
-    calcData.push('`+calc dmgtaken [defense]` - Calculate for damage taken\n');
-    calcData.push('`+calc elemental [damage] [sharpness: none, red, orange, yellow, green, blue, white, purple] [monster part multiplier value]` - Calculate for elemental\n');
-    calcData.push('`+calc eraw [damage] [bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns]` - Calculate for effective raw\n');
-    calcData.push('`+calc raw [damage] [bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns] [sharpness: none, red, orange, yellow, green, blue, white, purple] [monster part multiplier value]` - Calculate for raw\n');
-    calcData.push('`+calc affinity [affinity] [damage]` - Calculate for affinity\n');
-
-    const calcEmbed = new Discord.RichEmbed()
-      .setColor('#8fde5d')
-      .addField('Usage', this.usage)
-      .addField('Parameters Help', calcData.join('\n'))
-      .setTimestamp()
-      .setFooter('Calc Help');
-      
-    const lfgData = [];
-    lfgData.push('`+lfg post [PC, XBOX, PS4] [session] [description]` - Posts an active session to CatBots LFG command\n');
-    lfgData.push('`+lfg subscribe (channel name)` - All user posted sessions will be sent to the subscribed Discord channel\n');
-    lfgData.push('`+lfg find` - Show a menu listing all of the current active user sessions\n');
-    lfgData.push('`+lfg cancel` - Cancel your current active session\n');
-    
-    const lfgEmbed = new Discord.RichEmbed()
-      .setColor('#8fde5d')
-      .addField('Usage', this.usage)
-      .addField('Parameters Help', lfgData.join('\n'))
-      .setTimestamp()
-      .setFooter('LFG Help');
-      
-    const embeds = [];
-    embeds.push(helpEmbed);
-    embeds.push(mhwEmbed);
-    embeds.push(mhguEmbed);
-    embeds.push(calcEmbed);
-    embeds.push(lfgEmbed);
-    
-    new menu(message.channel, message.author.id, embeds, 120000, reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'} );
+    /* this is more practical (gets all category cmds) if we dont care about the order of pages
+    client.commands.filter(cmd => cmd.calc != true).forEach(cmd => {
+      if(!cmd.secret && cmd.category) {
+        // Use command error/usage for other pages' content
+        pages.push(cmd.error());
+      }
+    });
     */
 
-    message.channel.send(helpEmbed);
+    // Arbitrary ordering of the help pages
+    pages.push(client.commands.get('mhw').error());
+    pages.push(client.commands.get('lfg').error());
+    pages.push(client.commands.get('calc').error());
+    pages.push(client.commands.get('mhgu').error());
+
+    paginationEmbed(message, pages);
+
+    // new menu(message.channel, message.author.id, embeds, 120000, reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'} );
+
+    // message.channel.send(helpEmbed);
   },
 };
