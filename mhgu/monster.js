@@ -46,7 +46,7 @@ module.exports = {
       let similarItems = getSimilarArray(monsters, {
         'input' : input,
         'threshold' : 0.5,
-        'key' : 'title',
+        'key' : 'name',
         'pushSim' : true
       });
 
