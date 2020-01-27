@@ -1767,8 +1767,8 @@
       "Airborne"
     ]
   },
-  "dragonkingalpha": {
-    "name": "Dragonking Alpha",
+  "dragonkingeyepatchalpha": {
+    "name": "Dragonking Eyepatch Alpha",
     "setBonus": "-",
     "resistances": "Defense: 70\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
     "skills": [
@@ -1864,8 +1864,14 @@
   "queenbeetle": {
     "name": "Queen Beetle",
     "setBonus": "-",
-    "resistances": "Defense: 0\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
-    "skills": []
+    "resistances": "Defense: 110\n Fire: -5\n Water: -5\n Thunder: 10\n Ice: 0\n Dragon: 10",
+    "skills": [
+      "Stun Resistance",
+      "Health Boost",
+      "Critical Eye",
+      "Defense Boost",
+      "Marathon Runner"
+    ]
   },
   "blossomalpha": {
     "name": "Blossom Alpha",
@@ -4445,6 +4451,42 @@
       "Coalescence",
       "Constitution",
       "Health Boost"
+    ]
+  },
+  "dragonsealearringsalpha": {
+    "name": "Dragonseal Earrings Alpha",
+    "setBonus": "-",
+    "resistances": "Defense: 60\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+    "skills": [
+      "Elderseal Boost"
+    ]
+  },
+  "origin": {
+    "name": "Origin",
+    "setBonus": "-",
+    "resistances": "Defense: 30\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+    "skills": [
+      "Forager's Luck"
+    ]
+  },
+  "pulverizingfeather": {
+    "name": "Pulverizing Feather",
+    "setBonus": "-",
+    "resistances": "Defense: 32\n Fire: 0\n Water: 0\n Thunder: 0\n Ice: 0\n Dragon: 0",
+    "skills": [
+      "Bombardier"
+    ]
+  },
+  "butterflym": {
+    "name": "Butterfly M",
+    "setBonus": "-",
+    "resistances": "Defense: 110\n Fire: -5\n Water: -5\n Thunder: 10\n Ice: 0\n Dragon: 10",
+    "skills": [
+      "Stun Resistance",
+      "Health Boost",
+      "Critical Eye",
+      "Defense Boost",
+      "Marathon Runner"
     ]
   }
 }
