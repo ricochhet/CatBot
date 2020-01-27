@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
+const auth = require('../auth.json');
 
 module.exports = {
   name: 'reload',
   args: false,
   secret: true,
   run(client, message, args) {
-    if (message.author.id == process.env.OWNER) {
+    if (message.author.id == auth.OWNER) {
       if (!args || args.length < 1) return message.reply("Must provide a command name to reload.");
       let commandName = args[0];
       let secondary = args[1];

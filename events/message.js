@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const auth = require('../auth.json');
 
 module.exports = (client, message) => {
   // Prefix
@@ -25,7 +26,7 @@ module.exports = (client, message) => {
   if (!command) return;
 
   // Ignores Secret Commands if Not Owner
-  if (command.secret && message.author.id != process.env.OWNER) return;
+  if (command.secret && message.author.id != auth.OWNER) return;
 
   if (command.args && !args.length) {
     if (command.usage) {

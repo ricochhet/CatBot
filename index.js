@@ -1,6 +1,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const DBL = require("dblapi.js");
+const auth = require('./auth.json');
+
+const dbl = new DBL(auth.DBLTOKEN, client);
 const fs = require('fs');
+const http = require('http');
 
 client.commands = new Discord.Collection();
 client.math = new Discord.Collection();
@@ -18,7 +23,7 @@ fs.readdir('./commands/', (err, files) => {
   });
 });
 
-fs.readdir('./mhgu/', (err, files) => {
+fs.readdir("./mhgu/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
     if (!file.endsWith('.js')) return;
@@ -28,7 +33,7 @@ fs.readdir('./mhgu/', (err, files) => {
   });
 });
 
-fs.readdir('./mhw/', (err, files) => {
+fs.readdir("./mhw/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
     if (!file.endsWith('.js')) return;
@@ -68,10 +73,18 @@ fs.readdir('./events/', (err, files) => {
   });
 });
 
+dbl.on('posted', () => {
+  console.log('Server count posted!');
+});
+
+dbl.on('error', e => {
+ console.log(`Oops! ${e}`);
+});
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setActivity('for +help', { type: 'WATCHING' });
-
+  
   // Check every minute and delete lfg sessions older than 2 hours
   client.setInterval(() => {
     const lfg = require('./databases/lfg/lfg.json');
@@ -96,6 +109,10 @@ client.on('ready', () => {
       });
     }
   }, 60000);
+  
+  setInterval(() => {
+        dbl.postStats(client.guilds.size);
+  }, 1800000);
 });
 
 client.on('guildCreate', guild => {
@@ -106,4 +123,4 @@ client.on('guildDelete', guild => {
     console.log('Left a guild: ' + guild.name);
 });
 
-client.login(process.env.TOKEN);
+client.login(auth.TOKEN);

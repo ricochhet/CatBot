@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
+const auth = require('../auth.json');
 
 module.exports = {
   name: 'status',
   args: false,
   secret: true,
   run(client, message, args) {
-    if (message.author.id == process.env.OWNER) {
+    if (message.author.id == auth.OWNER) {
       let totalSeconds = (client.uptime / 1000);
       let days = Math.floor(totalSeconds / 86400);
       let hours = Math.floor(totalSeconds / 3600);
