@@ -7,7 +7,7 @@ module.exports = {
   run(client, message, args) {
     const aboutEmbed = new Discord.RichEmbed()
       .setColor('#8fde5d')
-      .addField('Author: ', 'Ricochet#7498', true)
+      .addField('Author: ', 'Ricochet#0069', true)
       .addField('Contributors', 'Chad#0389\nYofou#0420', true)
       .addField('Version: ', 'v1.12.0', true)
       .addField('Changelog: ', 'v1.12.0 | Updated databases + better VPS hosting.')

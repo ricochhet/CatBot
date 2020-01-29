@@ -38,10 +38,10 @@ module.exports = {
 
     // Support information
     helpEmbed.addBlankField()
-      .addField('Experiencing Issues? ', '```Contact Ricochet#7498 | Do +support```')
+      .addField('Experiencing Issues? ', '```Contact Ricochet#0069 | Do +support```')
       .addField('Links', '[Vote](https://top.gg/bot/573958899582107653/vote) [Support](https://discord.gg/srNyk8G) [Invite](https://discordapp.com/oauth2/authorize?client_id=573958899582107653&permissions=339008&scope=bot)')
       .setTimestamp()
-      .setFooter('Help | Issues: Contact Ricochet#7498 | Do +support', client.user.avatarURL);
+      .setFooter('Help | Issues: Contact Ricochet#0069 | Do +support', client.user.avatarURL);
     
     let embeds = [helpEmbed];
     
