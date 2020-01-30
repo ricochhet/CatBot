@@ -43,31 +43,41 @@ class Bot extends Client {
     return new Collection
   }
 
-  setupCommand(dir,collection){
+  setupCommand(dir){
+    let collectionName = dir.split('/')[1]
+    this[collectionName] = new Collection();
     fs.readdir(dir, (err, files) => {
       if (err) return console.error(err);
       files.forEach(file => {
         if (!file.endsWith(".js")) return;
         const props = require(`${dir}${file}`);
         const commandName = file.split(".")[0];
-        collection.set(commandName, new props());
+        this[collectionName].set(commandName, new props());
       });
     });
   }
 
-  buildDB(collection,json){
+  setupDB(collection,jsonDir){
+    let json = require( jsonDir )
     for (const i of Object.keys(json)) {
       collection.set(i, json[i]);
     }
   }
 
-  buildCommands() {
-    this.setupCommand('./commands/',this.commands)
-    this.setupCommand('./mhw/',this.mhw)
-    this.setupCommand('./math/',this.math)
-    this.setupCommand('./mhgu/',this.mhgu)
-    this.setupCommand('./lfg/',this.lfg)
+  buildCommands(dirs) {
+
+    dirs.forEach((dir) => {
+      this.setupCommand(dir)
+    });
+
     this.on('message',this.listenForCommands)
+  }
+
+  buildDBs(dbCollection){
+    Object.entries(dbCollection).forEach(([collectionName,dbDir]) => {
+        this[collectionName] = new Collection();
+        this.setupDB(this[collectionName],dbDir)
+    });
   }
 
   listenForCommands(message){
