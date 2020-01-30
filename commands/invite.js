@@ -1,11 +1,17 @@
-const Discord = require('discord.js');
+const Command = require('../utils/baseCommand.js');
 
-module.exports = {
-  name: 'invite',
-  args: false,
-  description: 'Invite CatBot to your Server',
+class Invite extends Command {
+  constructor() {
+    super(
+      'invite',
+      'invte',
+      'Invite CatBot to your Server',
+      {args : false}
+    )
+  }
+
   run(client, message, args) {
-    const inviteEmbed = new Discord.RichEmbed()
+    const inviteEmbed = this.RichEmbed()
       .setColor('#8fde5d')
       .setTitle('Invite CatBot to your Server')
       .setDescription('[Invite](https://discordapp.com/oauth2/authorize?client_id=573958899582107653&permissions=339008&scope=bot)')
@@ -14,5 +20,7 @@ module.exports = {
       .setFooter('Invite Link Request', client.user.avatarURL);
 
     message.channel.send(inviteEmbed);
-  },
-};
+  }
+}
+
+module.exports = Invite

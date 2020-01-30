@@ -1,31 +1,37 @@
-const Discord = require('discord.js');
+const Command = require('../utils/baseCommand.js')
 
-module.exports = {
-  name: 'dmgtaken',
-  args: false,
-  calc : true,
-  usage: 'dmgtaken [defense]',
-  description: 'Calculate for damage taken',
-  error(message) {
+class Dmgtaken extends Command {
+  constructor() {
+    super(
+      'dmgtaken',
+      'dmgtaken [defense]',
+      'Calculate for damage taken'
+    )
+  }
+
+  usageEmbed() {
     const data = [];
     data.push('defense: base defense value');
 
-    const usageEmbed = new Discord.RichEmbed()
+    const embed = this.RichEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
       .setTimestamp();
-    
-    return message.channel.send(usageEmbed);
-  },
+
+    return embed
+  }
+
   run(client, message, args) {
     let calculate = (80 / (Number(args[0]) + 80)) * 100;
     let rounded = Math.round(calculate);
 
     if(Number.isNaN(calculate) || !args[0]) {
-      this.error(message);
+      message.channel.send(this.usageEmbed())
     } else {
       message.channel.send("Your damage taken is " + "**" + rounded + "%**" + " meowster!");
     }
-  },
-};
+  }
+}
+
+module.exports = Dmgtaken

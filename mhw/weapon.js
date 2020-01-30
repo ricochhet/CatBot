@@ -1,22 +1,18 @@
-const Discord = require('discord.js');
-const weaponDatabase = require('../databases/mhw/weapons.json');
-const { getSimilarArray, reactions } = require('../util.js');
+const Command = require( '../utils/baseCommand.js' )
 
-const weapons = new Discord.Collection();
+class Weapon extends Command {
+  constructor() {
+    super(
+      'weapon',
+      'weapon [weapon name]',
+      'Get info for a specific weapon'
+    )
+  }
 
-for (const i of Object.keys(weaponDatabase)) {
-  weapons.set(i, weaponDatabase[i]);
-}
+  weaponEmbed(client,name,rawEmbed) {
+    const weapon = client.weapons.get(name);
 
-module.exports = {
-  name: 'weapon',
-  args: true,
-  usage: 'weapon [weapon name]',
-  description: 'Get info for a specific weapon',
-  weaponEmbed(name) {
-    const weapon = weapons.get(name);
-
-    const embed = new Discord.RichEmbed()
+    const embed = rawEmbed
       .setColor('#8fde5d')
       .setTitle(weapon.title)
       .setURL(weapon.url)
@@ -36,14 +32,15 @@ module.exports = {
       .setFooter('Info Menu');
 
     return embed;
-  },
+  }
+
   run(client, message, args) {
     let input = args.join('').toLowerCase();
 
-    if (!weapons.has(input)) {
+    if (!client.weapons.has(input)) {
       let msg = 'That weapon doesn\'t seem to exist!';
 
-      const similarItems = getSimilarArray(weapons, {
+      const similarItems = this.getSimilarArray(client.weapons, {
         'input' : input,
         'threshold' : 0.5,
         'key' : 'title',
@@ -51,14 +48,18 @@ module.exports = {
       });
 
       if (similarItems.length) {
-        return reactions(message, similarItems, this.weaponEmbed);
+        return this.reactions(message, similarItems, this.weaponEmbed);
       }
 
       message.channel.send(msg);
-    } 
-    else if (weapons.has(input)) {
-      const embed = this.weaponEmbed(input);
+    }
+    else if (client.weapons.has(input)) {
+      const embed = this.weaponEmbed(client,input,this.RichEmbed());
       message.channel.send(embed);
     }
-  },
-};
+  }
+
+}
+
+
+module.exports = Weapon

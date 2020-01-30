@@ -1,19 +1,15 @@
-const Discord = require('discord.js');
-const menu = require('../util');
+const Command = require('../utils/baseCommand.js')
 
-module.exports = {
-  name: 'find',
-  args: false,
-  usage: 'find',
-  description: 'Show a menu listing all of the current active user sessions',
-  error(message) {
-    const usageEmbed = new Discord.RichEmbed()
-      .setColor('#8fde5d')
-      .addField('Usage', this.usage)
-      .setTimestamp();
+class Find extends Command {
+  constructor() {
+    super(
+      'find',
+      'find',
+      'Show a menu listing all of the current active user sessions',
+      {args : false}
+    )
+  }
 
-    return message.channel.send(usageEmbed);
-  },
   Chunk(arr, len) {
     const chunks = [];
 
@@ -23,9 +19,10 @@ module.exports = {
     }
 
     return chunks;
-  },
+  }
+
   async run(client, message, args) {
-    const lfg = require('../databases/lfg/lfg.json');
+    const lfg = require('../utils/databases/lfg/lfg.json');
 
     if (Object.keys(lfg).length == 0) {
       return message.reply('Sorry meowster but there are no sessions posted right now!');
@@ -44,7 +41,7 @@ module.exports = {
     let tEmbed;
 
     for (const outer of tChunks) {
-      tEmbed = new Discord.RichEmbed();
+      tEmbed = this.RichEmbed()
 
       tEmbed
         .setTitle('Session List')
@@ -67,7 +64,7 @@ module.exports = {
           + `📝 Description: ${desc}\n`
           + '```',
         );
-        
+
         tEmbed.setColor('#8fde5d');
       }
 
@@ -75,6 +72,8 @@ module.exports = {
     }
 
     let reactions = {};
-    new menu.Pages(message.channel, message.author.id, embeds, 120000, reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'} );
-  },
-};
+    this.menu(message.channel, message.author.id, embeds, 120000, reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'} );
+  }
+}
+
+module.exports = Find

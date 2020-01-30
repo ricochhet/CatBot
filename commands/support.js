@@ -1,11 +1,17 @@
-const Discord = require('discord.js');
+const Command = require('../utils/baseCommand.js')
 
-module.exports = {
-  name: 'support',
-  args: false,
-  description: 'Support server for CatBot',
+class Support extends Command {
+  constructor() {
+    super(
+      'support',
+      'support',
+      'Support server for CatBot',
+      {args : false}
+    )
+  }
+
   run (client, message, args) {
-    const inviteEmbed = new Discord.RichEmbed()
+    const inviteEmbed = this.RichEmbed()
       .setColor('#8fde5d')
       .setTitle('CatBot Support Server')
       .setDescription('[Discord](https://discord.gg/srNyk8G)')
@@ -14,5 +20,7 @@ module.exports = {
       .setFooter('Support Link Request', client.user.avatarURL);
 
     message.channel.send(inviteEmbed);
-  },
-};
+  }
+}
+
+module.exports = Support

@@ -1,126 +1,74 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const DBL = require("dblapi.js");
-const auth = require('./auth.json');
+const Bot = require( './bot.js' );
+const weaponDatabase = require('./utils/databases/mhw/weapons.json');
+const skillDatabase = require('./utils/databases/mhw/skills.json');
+const itemDatabase = require('./utils/databases/mhw/items.json');
+const decorationDatabase = require('./utils/databases/mhw/decorations.json');
+const armorDatabase = require('./utils/databases/mhw/armors.json');
+const monsterDatabase = require('./utils/databases/mhw/monsters.json');
+const monsterGUDatabase = require('./utils/databases/mhgu/monsters.json');
+const weaponGuDatabase = require('./utils/databases/mhgu/weapons.json');
 
-const dbl = new DBL(auth.DBLTOKEN, client);
-const fs = require('fs');
-const http = require('http');
+client = new Bot('+')
 
-client.commands = new Discord.Collection();
-client.math = new Discord.Collection();
-client.mhgu = new Discord.Collection();
-client.mhw = new Discord.Collection();
-client.lfg = new Discord.Collection();
+client.commands = client.buildCollection();
+client.mhw = client.buildCollection();
+client.mhgu = client.buildCollection();
+client.math = client.buildCollection();
+client.lfg = client.buildCollection();
 
-fs.readdir('./commands/', (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith('.js')) return;
-    const props = require(`./commands/${file}`);
-    const commandName = file.split('.')[0];
-    client.commands.set(commandName, props);
-  });
-});
+// load commands
+client.buildCommands()
 
-fs.readdir("./mhgu/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith('.js')) return;
-    const props = require(`./mhgu/${file}`);
-    const commandName = file.split('.')[0];
-    client.mhgu.set(commandName, props);
-  });
-});
+// load MHW DB's
+client.weapons = client.buildCollection();
+client.buildDB(client.weapons,weaponDatabase)
+client.skills = client.buildCollection();
+client.buildDB(client.skills,skillDatabase)
+client.items = client.buildCollection();
+client.buildDB(client.items,itemDatabase)
+client.decorations = client.buildCollection();
+client.buildDB(client.decorations,decorationDatabase)
+client.armors = client.buildCollection();
+client.buildDB(client.armors,armorDatabase)
 
-fs.readdir("./mhw/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith('.js')) return;
-    const props = require(`./mhw/${file}`);
-    const commandName = file.split('.')[0];
-    client.mhw.set(commandName, props);
-  });
-});
+// load MHGU DB's
+client.mhguMonsters = client.buildCollection();
+client.buildDB(client.mhguMonsters,monsterGUDatabase)
+client.mhguWeapons = client.buildCollection();
+client.buildDB(client.mhguWeapons,weaponGuDatabase)
 
-fs.readdir('./lfg/', (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith('.js')) return;
-    const props = require(`./lfg/${file}`);
-    const commandName = file.split('.')[0];
-    client.lfg.set(commandName, props);
-  });
-});
 
-fs.readdir('./math/', (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith('.js')) return;
-    const props = require(`./math/${file}`);
-    const commandName = file.split('.')[0];
-    client.math.set(commandName, props);
-  });
-});
+// mhw monster collection has a custom collection algorithm
+client.monsters = client.buildCollection();
 
-fs.readdir('./events/', (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith('.js')) return;
-    const event = require(`./events/${file}`);
-    const eventName = file.split('.')[0];
-    client.on(eventName, event.bind(null, client));
-  });
-});
+for (const i of Object.keys(monsterDatabase)) {
+  client.monsters.set(monsterDatabase[i].name, monsterDatabase[i].details);
+}
 
-dbl.on('posted', () => {
-  console.log('Server count posted!');
-});
+// Check every minute and delete lfg sessions older than 2 hours
+client.setInterval(() => {
+  const lfg = require('./utils/databases/lfg/lfg.json');
+  let rewrite = false;
 
-dbl.on('error', e => {
- console.log(`Oops! ${e}`);
-});
+  for (const sessionID in lfg) {
+    const duration = Date.now() - lfg[sessionID]['time'];
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-	client.user.setActivity('for +help', { type: 'WATCHING' });
-  
-  // Check every minute and delete lfg sessions older than 2 hours
-  client.setInterval(() => {
-    const lfg = require('./databases/lfg/lfg.json');
-    let rewrite = false;
+    if (duration >= 7200000) {
+      delete lfg[sessionID];
+      rewrite = true;
+    }
+  }
 
-    for (const sessionID in lfg) {
-      const duration = Date.now() - lfg[sessionID]['time'];
-
-      if (duration >= 7200000) {
-        delete lfg[sessionID];
-        rewrite = true;
+  if (rewrite) {
+    const jsonObj = JSON.stringify(lfg, null, 4);
+    fs.writeFile(`utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function(err) {
+      if (err) {
+        console.log('An error occured while writing JSON Object to File.');
+        return console.log(err);
       }
-    }
+    });
+  }
+}, 60000);
 
-    if (rewrite) {
-      const jsonObj = JSON.stringify(lfg, null, 4);
-      fs.writeFile(`${__dirname}/databases/lfg/lfg.json`, jsonObj, 'utf8', function(err) {
-        if (err) {
-          console.log('An error occured while writing JSON Object to File.');
-          return console.log(err);
-        }
-      });
-    }
-  }, 60000);
-  
-  setInterval(() => {
-        dbl.postStats(client.guilds.size);
-  }, 1800000);
-});
 
-client.on('guildCreate', guild => {
-    console.log('Joined a new guild: ' + guild.name);
-});
-
-client.on('guildDelete', guild => {
-    console.log('Left a guild: ' + guild.name);
-});
-
-client.login(auth.TOKEN);
+client.login( "NjM1OTg4MDUyMDQ0Njc3MTYw.XiY-sQ.oakUDyVWfYStI6zzE9ScnYShA9E" )

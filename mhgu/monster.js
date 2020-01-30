@@ -1,22 +1,18 @@
-const Discord = require('discord.js');
-const monsterDatabase = require('../databases/mhgu/monsters.json');
-const { getSimilarArray, reactions } = require('../util.js');
+const Command = require('../utils/baseCommand.js')
 
-const monsters = new Discord.Collection();
+class Monster extends Command {
+  constructor() {
+    super(
+      'monster',
+      'monster [monster name]',
+      'Get info for a specific monster'
+    )
+  }
 
-for (const i of Object.keys(monsterDatabase)) {
-  monsters.set(i, monsterDatabase[i]);
-}
+  monsterEmbed(client,name,rawEmbed) {
+    const monster = client.mhguMonsters.get(name);
 
-module.exports = {
-  name: 'monster',
-  args: true,
-  usage: 'monster [monster name]',
-  description: 'Get info for a specific monster',
-  monsterEmbed(name) {
-    const monster = monsters.get(name);
-
-    const embed = new Discord.RichEmbed()
+    const embed = rawEmbed
       .setColor('#8fde5d')
       .setTitle(monster.name)
       .addField('Elements', `Fire: ${monster.FIRE}\nWater: ${monster.WATER}\nIce: ${monster.ICE}\nThunder: ${monster.THUNDER}\nDragon: ${monster.DRAGON}\nPoison: ${monster.POISON}\nSleep: ${monster.SLEEP}\nPara: ${monster.PARA}\nBlast: ${monster.BLAST}`, true)
@@ -36,14 +32,15 @@ module.exports = {
       .setFooter('Info Menu');
 
     return embed;
-  },
+  }
+
   run(client, message, args) {
     let input = args.join('').toLowerCase();
 
-    if (!monsters.has(input)) {
+    if (!client.mhguMonsters.has(input)) {
       let msg = 'That monster doesn\'t seem to exist!';
 
-      let similarItems = getSimilarArray(monsters, {
+      let similarItems = this.getSimilarArray(client.mhguMonsters, {
         'input' : input,
         'threshold' : 0.5,
         'key' : 'name',
@@ -51,14 +48,16 @@ module.exports = {
       });
 
       if (similarItems.length) {
-        return reactions(message, similarItems, this.monsterEmbed);
+        return this.reactions(message, similarItems, this.monsterEmbed);
       }
 
       message.channel.send(msg);
-    } 
-    else if(monsters.has(input)) {
-      const embed = this.monsterEmbed(input);
+    }
+    else if(client.mhguMonsters.has(input)) {
+      const embed = this.monsterEmbed(client,input,this.RichEmbed());
       message.channel.send(embed);
     }
-  },
-};
+  }
+}
+
+module.exports = Monster

@@ -1,12 +1,20 @@
-const Discord = require('discord.js');
-const catFactsDatabase = require('../databases/other/catfacts.json');
+const Command = require('../utils/baseCommand.js')
+const catFactsDatabase = require('../utils/databases/other/catfacts.json');
 
-module.exports = {
-  name: 'catfact',
-  args: false,
-  description: 'Shows a random cat fact',
+class Catfacts extends Command{
+  constructor() {
+    super(
+      'catfact',
+      'catfact',
+      'Shows a random cat fact',
+      {args : false}
+    )
+  }
+
   run(client, message, args) {
     const catFactKeys = Object.values(catFactsDatabase);
     message.channel.send(catFactKeys[Math.floor(Math.random() * catFactKeys.length)]);
-  },
-};
+  }
+}
+
+module.exports = Catfacts

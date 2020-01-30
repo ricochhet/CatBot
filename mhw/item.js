@@ -1,40 +1,39 @@
-const Discord = require('discord.js');
-const itemDatabase = require('../databases/mhw/items.json');
-const { getSimilarArray, reactions } = require('../util.js');
+const Command = require('../utils/baseCommand.js');
 
-const items = new Discord.Collection();
+class Item extends Command {
+  constructor() {
 
-for (const i of Object.keys(itemDatabase)) {
-  items.set(i, itemDatabase[i]);
-}
+    super(
+      'item',
+      'item [item name]',
+      'Get info for a specific item'
+    )
 
-module.exports = {
-  name: 'item',
-  args: true,
-  usage: 'item [item name]',
-  description: 'Get info for a specific item',
-  itemEmbed(name) {
-    const item = items.get(name);
+  }
 
-    const embed = new Discord.RichEmbed()
-      .setColor('#8fde5d')
-      .setTitle(item.name)
-      .setDescription(item.description)
-      .addField('Rarity', item.rarity, true)
-      .addField('Max', item.carryLimit, true)
-      .addField('Sell', item.value, true)
-      .setTimestamp()
-      .setFooter('Info Menu');
+  itemEmbed(client,name,rawEmbed) {
+   const item = client.items.get(name);
 
-    return embed;
-  },
+   const embed = rawEmbed
+     .setColor('#8fde5d')
+     .setTitle(item.name)
+     .setDescription(item.description)
+     .addField('Rarity', item.rarity, true)
+     .addField('Max', item.carryLimit, true)
+     .addField('Sell', item.value, true)
+     .setTimestamp()
+     .setFooter('Info Menu');
+
+   return embed;
+ }
+
   run(client, message, args) {
     let input = args.join('').toLowerCase();
 
-    if (!items.has(input)) {
+    if (!client.items.has(input)) {
       let msg = 'That item doesn\'t seem to exist!';
 
-      const similarItems = getSimilarArray(items, {
+      const similarItems = this.getSimilarArray(client.items, {
         'input' : input,
         'threshold' : 0.5,
         'key' : 'name',
@@ -42,14 +41,16 @@ module.exports = {
       });
 
       if (similarItems.length) {
-        return reactions(message, similarItems, this.itemEmbed);
+        return this.reactions(message, similarItems, this.itemEmbed);
       }
 
       message.channel.send(msg);
-    }  
-    else if (items.has(input)) {
+    }
+    else if (client.items.has(input)) {
       const embed = this.itemEmbed(input);
       message.channel.send(embed);
     }
-  },
-};
+  }
+}
+
+module.exports = Item

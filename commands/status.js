@@ -1,12 +1,16 @@
-const Discord = require('discord.js');
-const auth = require('../auth.json');
+const Command = require('../utils/baseCommand.js')
 
-module.exports = {
-  name: 'status',
-  args: false,
-  secret: true,
+class Status extends Command {
+  constructor() {
+    super(
+      'status',
+      'status',
+      'Gives the CatBot status',
+      {args : false}
+    )
+  }
+
   run(client, message, args) {
-    if (message.author.id == auth.OWNER) {
       let totalSeconds = (client.uptime / 1000);
       let days = Math.floor(totalSeconds / 86400);
       let hours = Math.floor(totalSeconds / 3600);
@@ -23,17 +27,17 @@ module.exports = {
       let messagePingRounded = Math.round(messagePing);
 
       let nodejsVersion = process.version;
-      let discordjsVersion = Discord.version;
+      let discordjsVersion = this.version;
 
       let userCount = client.guilds.map(g => g.memberCount).reduce((a, b) => a + b);
-      
+
       let memory = process.memoryUsage().heapUsed / 1024 / 1024;
 
-      const statusEmbed = new Discord.RichEmbed()
+      const statusEmbed = this.RichEmbed()
         .setColor('#8fde5d')
         .addField('Servers: ', client.guilds.size, true)
         .addField('Members: ', userCount, true)
-        .addField('Version: ', 'v1.12.0', true)
+        .addField('Version: ', 'v1.9.0', true)
         .addField('Message Latency', messagePingRounded + 'ms', true)
         .addField('API Latency: ', pingRounded + 'ms', true)
         .addField('Uptime: ', uptime, true)
@@ -47,6 +51,7 @@ module.exports = {
       const guildNames = client.guilds.map(g => g.name + " | " + g.id).join('\n');
 
       console.log(guildNames);
-    }
-  },
-};
+  }
+}
+
+module.exports = Status

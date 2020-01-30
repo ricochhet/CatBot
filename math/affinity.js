@@ -1,32 +1,38 @@
-const Discord = require('discord.js');
+const Command = require('../utils/baseCommand.js')
 
-module.exports = {
-  name: 'affinity',
-  args: true,
-  calc: true,
-  usage: 'affinity [affinity] [damage]',
-  description: 'Calculate for affinity',
-  error(message) {
+class Affinity extends Command {
+  constructor() {
+    super(
+      'affinity',
+      'affinity [affinity] [damage]',
+      'Calculate for affinity'
+    )
+  }
+
+  usageEmbed() {
     const data = [];
     data.push('affinity: base affinity value');
     data.push('damage: base damage value');
 
-    const usageEmbed = new Discord.RichEmbed()
+    const embed = this.RichEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
       .setTimestamp();
-    
-    return message.channel.send(usageEmbed);
-  },
+
+    return embed
+  }
+
   run(client, message, args) {
     let calculate = ((0.25 * (args[0] / 100)) + 1) * args[1];
     let rounded = Math.round(calculate);
 
     if (Number.isNaN(rounded) || !args[0] || !args[1]) {
-      this.error(message);
+      message.channel.send( this.usageEmbed() )
     } else {
       message.channel.send("Your damage + affinity is " + "**" + rounded + "**" + " meowster!");
     }
-  },
-};
+  }
+}
+
+module.exports = Affinity

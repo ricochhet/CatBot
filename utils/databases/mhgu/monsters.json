@@ -1,6 +1,6 @@
 {
     "agnaktor(hl)": {
-        "name": "Agnaktor (hl)",
+        "name": "Agnaktor (hard lava)",
         "FIRE": "C",
         "WATER": "A",
         "ICE": "B",
@@ -23,7 +23,7 @@
         "Meat": "None"
     },
     "agnaktor(snl)": {
-        "name": "Agnaktor (snl)",
+        "name": "Agnaktor (soft or no lava)",
         "FIRE": "F",
         "WATER": "A",
         "ICE": "B",
@@ -68,8 +68,8 @@
         "SonicBomb": "✓N",
         "Meat": "None"
     },
-    "akantor(broken)": {
-        "name": "Akantor (broken)",
+    "akantor(bellybroken)": {
+        "name": "Akantor (belly broken)",
         "FIRE": "F",
         "WATER": "B",
         "ICE": "D",
@@ -160,8 +160,8 @@
         "SonicBomb": "None",
         "Meat": "None"
     },
-    "astalos(c)": {
-        "name": "Astalos (c)",
+    "astalos(charged)": {
+        "name": "Astalos (charged)",
         "FIRE": "C",
         "WATER": "C",
         "ICE": "B",
@@ -345,7 +345,7 @@
         "Meat": "✓"
     },
     "deviljho(en)": {
-        "name": "Deviljho (en)",
+        "name": "Deviljho (enraged)",
         "FIRE": "C",
         "WATER": "C",
         "ICE": "D",
@@ -391,7 +391,7 @@
         "Meat": "✓"
     },
     "savagedeviljho(en)": {
-        "name": "Savage Deviljho (en)",
+        "name": "Savage Deviljho (enraged)",
         "FIRE": "B",
         "WATER": "B",
         "ICE": "B",
@@ -828,7 +828,7 @@
         "Meat": "None"
     },
     "mizutsune(en)": {
-        "name": "Mizutsune (en)",
+        "name": "Mizutsune (enraged)",
         "FIRE": "C",
         "WATER": "None",
         "ICE": "D",
@@ -1218,8 +1218,8 @@
         "SonicBomb": "None",
         "Meat": "None"
     },
-    "seltasqueen(broken)": {
-        "name": "Seltas Queen (broken)",
+    "seltasqueen(brokenlegs)": {
+        "name": "Seltas Queen (broken legs)",
         "FIRE": "B",
         "WATER": "None",
         "ICE": "C",
@@ -1587,7 +1587,7 @@
         "Meat": "None"
     },
     "zamtrios(ia)": {
-        "name": "Zamtrios (ia)",
+        "name": "Zamtrios (ice armor)",
         "FIRE": "A",
         "WATER": "None",
         "ICE": "None",
@@ -1633,7 +1633,7 @@
         "Meat": "None"
     },
     "zinogre(c)": {
-        "name": "Zinogre (c)",
+        "name": "Zinogre (charged)",
         "FIRE": "C",
         "WATER": "C",
         "ICE": "B",
@@ -1679,7 +1679,7 @@
         "Meat": "None"
     },
     "thunderlordzinogre(c)": {
-        "name": "Thunderlord Zinogre (c)",
+        "name": "Thunderlord Zinogre (charged)",
         "FIRE": "C",
         "WATER": "C",
         "ICE": "B",
@@ -1702,7 +1702,7 @@
         "Meat": "None"
     },
     "alatreon(re)": {
-        "name": "Alatreon (re)",
+        "name": "Alatreon (red energy)",
         "FIRE": "None",
         "WATER": "C",
         "ICE": "B",
@@ -1725,7 +1725,7 @@
         "Meat": "None"
     },
     "alatreon(be)": {
-        "name": "Alatreon (be)",
+        "name": "Alatreon (blue energy)",
         "FIRE": "B",
         "WATER": "C",
         "ICE": "None",
@@ -1794,7 +1794,7 @@
         "Meat": "None"
     },
     "chameleos(i)": {
-        "name": "Chameleos (i)",
+        "name": "Chameleos (invisible)",
         "FIRE": "S",
         "WATER": "None",
         "ICE": "F",
@@ -1863,7 +1863,7 @@
         "Meat": "None"
     },
     "kushaladaora(dw)": {
-        "name": "Kushala Daora (dw)",
+        "name": "Kushala Daora (dark wind)",
         "FIRE": "D",
         "WATER": "F",
         "ICE": "None",
@@ -1955,7 +1955,7 @@
         "Meat": "None"
     },
     "teostra(en)": {
-        "name": "Teostra (en)",
+        "name": "Teostra (enraged)",
         "FIRE": "None",
         "WATER": "C",
         "ICE": "C",

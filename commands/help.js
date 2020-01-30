@@ -1,56 +1,65 @@
-const Discord = require('discord.js');
-const menu = require('../util');
+const Command = require('../utils/baseCommand.js');
 
-module.exports = {
-  name: 'help',
-  args: false,
-  description: 'List all commands and their information',
-  run(client, message, args) {
-    const helpEmbed = new Discord.RichEmbed()
+class Help extends Command {
+  constructor() {
+    super(
+      'help',
+      '+help',
+      'List all commands and their information',
+      {'args' : false}
+    )
+  }
+
+  run(client,message,args){
+
+    const helpEmbed = this.RichEmbed()
       .setColor('#8fde5d');
 
-    let content = [];
-    content = [];
-    
-    // Main commands
+    let data = [];
+    data = [];
     client.commands.filter(cmd => cmd.calc != true).forEach(cmd => {
       if(cmd.category) {
-        if (!cmd.secret) content.push(`+${cmd.name} - ${cmd.description}`);
+        if (!cmd.secret) data.push(`+${cmd.name} - ${cmd.description}`);
       }
     });
-    helpEmbed.addField('Main / General', content.join('\n'));
+    helpEmbed.addField('Main / General', data.join('\n'));
 
-    // All Commands w/o Args
-    content = [];
+    // Other Commands w/o Args
+    data = [];
     client.commands.filter(cmd => cmd.args != true).forEach(cmd => {
       if(!cmd.category) {
-        if (!cmd.secret) content.push(`+${cmd.name} - ${cmd.description}`);
+        if (!cmd.secret) data.push(`+${cmd.name} - ${cmd.description}`);
       }
     });
-    helpEmbed.addField('General', content.join('\n'));
+    helpEmbed.addField('General', data.join('\n'));
 
-    // Notes about syntax
-    content = [];
-    content.push(':bulb: *Using a command w/o parameters will display extended help*')
-    content.push('[parameter] - Mandatory parameter');
-    content.push('(parameter) - Optional paramater')
-    helpEmbed.addField('Syntax', content.join('\n'));
+    // Notes
+    data = [];
+    data.push('Using a command w/o parameters gets extended help')
+    data.push('[parameter] - Mandatory parameter');
+    data.push('(parameter) - Optional paramater')
+    helpEmbed.addField('Formatting', data.join('\n'));
 
-    // Support information
+    // Additional
     helpEmbed.addBlankField()
-      .addField('Experiencing Issues? ', '```Contact Ricochet#0069 | Do +support```')
+      .addField('Experiencing Issues? ', '```Contact Ricochet#7498 | Do +support```')
       .addField('Links', '[Vote](https://top.gg/bot/573958899582107653/vote) [Support](https://discord.gg/srNyk8G) [Invite](https://discordapp.com/oauth2/authorize?client_id=573958899582107653&permissions=339008&scope=bot)')
       .setTimestamp()
-      .setFooter('Help | Issues: Contact Ricochet#0069 | Do +support', client.user.avatarURL);
-    
+      .setFooter('Help | Issues: Contact Ricochet#7498 | Do +support', client.user.avatarURL);
+
     let embeds = [helpEmbed];
-    
-    embeds.push(client.commands.get('mhw').error());
-    embeds.push(client.commands.get('lfg').error());
-    embeds.push(client.commands.get('calc').error());
-    embeds.push(client.commands.get('mhgu').error());
-    
+
+    client.commands.filter(cmd => cmd.calc != true).forEach(cmd => {
+      if(cmd.category) {
+        if (!cmd.secret) embeds.push(cmd.usageEmbed(message));
+      }
+    });
+
     let reactions = {};
-    new menu.Pages(message.channel, message.author.id, embeds, 120000, reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'} );
-  },
-};
+    this.menu(message.channel, message.author.id, embeds, 120000, reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'} );
+
+  }
+
+}
+
+module.exports = Help

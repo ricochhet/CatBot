@@ -1,24 +1,29 @@
-const Discord = require('discord.js');
-const fs = require('fs');
+const Command = require('../utils/baseCommand.js')
+const fs = require('fs')
 
-module.exports = {
-  name: 'post',
-  args: true,
-  usage : 'post <platform> <sessionid> [description]',
-  description : 'Posts an active session to CatBots LFG command',
-  error (message) {
+class Post extends Command {
+  constructor() {
+    super(
+      'post',
+      'post <platform> <sessionid> [description]',
+      'Posts an active session to CatBots LFG command'
+    )
+  }
+
+  usageEmbed() {
     const data = [];
     data.push('platform: platform args are multiple choice of PC/XBOX/PS4\n');
     data.push('sessionid: session id must be between 11 and 13 characters in length for PC; session id for console need to be between 14 and 16 characters long\n');
     data.push('description: description is optional but is used for describing what you will be doing in the session and has a limit of 256 characters\n');
-    const usageEmbed = new Discord.RichEmbed()
+    const embed = this.RichEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
       .setTimestamp();
 
-    return message.channel.send(usageEmbed);
-  },
+    return embed;
+  }
+
   remove(lfg, message) {
     // Checks if the user has already posted or not
     let sessionID;
@@ -33,7 +38,7 @@ module.exports = {
     delete lfg[sessionID];
 
     const jsonObj = JSON.stringify(lfg, null, 4)
-    fs.writeFile(`${__dirname.replace('lfg', 'databases')}/lfg/lfg.json`, jsonObj, 'utf8', function(err) {
+    fs.writeFile(`./utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function(err) {
       if (err) {
         console.log('An error occured while writing JSON Object to File.');
         return console.log(err);
@@ -41,9 +46,10 @@ module.exports = {
     });
 
     message.channel.send(`Meowster, the session \`${sessionID}\` was replaced`);
-  },
+  }
+
   sendSub(client, sessionID, content) {
-    const sub = require('../databases/lfg/subscribe.json');
+    const sub = require('../utils/databases/lfg/subscribe.json');
 
     let desc;
     if (content['description'] == null || content['description'].length == 0) {
@@ -52,7 +58,7 @@ module.exports = {
       desc = content['description'];
     }
 
-    let tEmbed = new Discord.RichEmbed();
+    let tEmbed = this.RichEmbed();
 
     tEmbed
       .setTitle('Session List')
@@ -72,17 +78,18 @@ module.exports = {
     const post = tEmbed._apiTransform();
 
     for (const channelID of sub['subscribe']) {
-        client.rest.makeRequest('post', Discord.Constants.Endpoints.Channel(channelID).messages, true, {
+        client.rest.makeRequest('post', client.Constants.Endpoints.Channel(channelID).messages, true, {
           content: '',
           embed: post,
       });
     }
-  },
+  }
+
   async run(client, message, args) {
 
-  if (args.length == 0) return this.error(message);
+  if (args.length == 0) return message.channel.send( this.usageEmbed() );
   // load in the current json
-  const lfg = require("../databases/lfg/lfg.json");
+  const lfg = require("../utils/databases/lfg/lfg.json");
 
   // Checks if the user has already posted or not
   let repost = false;
@@ -94,7 +101,7 @@ module.exports = {
     }
   }
 
-  const response = new Discord.RichEmbed();
+  const response = this.RichEmbed();
 
   // Breaks up args into differenct sections
   const sessionObj = {};
@@ -103,19 +110,19 @@ module.exports = {
    if (["ps4", "xbox"].includes(platform)) {
       sessionID = args.slice(1, 4).join(" ");
 
-      if (sessionID.length == 0) return this.error(message);
-      if (sessionID.length < 14 || sessionID.length > 16) return this.error(message);
-      
-    } 
+      if (sessionID.length == 0) return message.channel.send( this.usageEmbed() );
+      if (sessionID.length < 14 || sessionID.length > 16) return message.channel.send( this.usageEmbed() );
+
+    }
     else if (platform == 'pc') {
       sessionID = args[1];
 
-      if (sessionID == undefined) return this.error(message);
-      if (sessionID.length < 11 || sessionID.length > 13) return this.error(message);
-      
-    } 
+      if (sessionID == undefined) return message.channel.send( this.usageEmbed() );
+      if (sessionID.length < 11 || sessionID.length > 13) return message.channel.send( this.usageEmbed() );
+
+    }
     else {
-      return this.error(message);
+      return message.channel.send( this.usageEmbed() );
     }
 
     // Checks if the sessionID has already been posted
@@ -130,17 +137,17 @@ module.exports = {
     if (args.length > 2) {
      if (['ps4', 'xbox'].includes(platform)) {
         sessionObj['description'] = args.slice(4, args.length).join(' ');
-      } 
+      }
       else {
         sessionObj['description'] = args.slice(2, args.length).join(' ');
       }
 
-      if (sessionObj['description'].length > 256) return this.error(message);
-    } 
+      if (sessionObj['description'].length > 256) return message.channel.send( this.usageEmbed() );
+    }
     else {
       sessionObj['description'] = 'No description provided.';
     }
-    
+
     sessionObj['userID'] = message.author.id;
     sessionObj['platform'] = platform;
     sessionObj['time'] = Date.now();
@@ -153,10 +160,10 @@ module.exports = {
 
     if (args.length > 2 & sessionObj['platform'] == 'pc') {
       response.addField(`**${sessionID}**`, `*${sessionObj["description"]}*`);
-    } 
+    }
     else if (sessionObj['description'].length != null & ['ps4', 'xbox'].includes(platform)) {
       response.addField(`**${sessionID}**`, `*${sessionObj["description"]}*`);
-    } 
+    }
     else {
       response.addField(`**${sessionID}**`, `*No description provided.*`);
     }
@@ -164,7 +171,7 @@ module.exports = {
     // Finishes up object and pushes it back into the lfg db
     lfg[`${sessionID}`] = sessionObj;
     const jsonObj = JSON.stringify(lfg, null, 4)
-    fs.writeFile(`${__dirname.replace('lfg', 'databases')}/lfg/lfg.json`, jsonObj, 'utf8', function(err) {
+    fs.writeFile(`./utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function(err) {
       if (err) {
         console.log('An error occured while writing JSON Object to File.');
         return console.log(err);
@@ -175,5 +182,7 @@ module.exports = {
 
     // Sends to all channel that are set to sub board
     this.sendSub(client, sessionID, sessionObj);
-  },
-};
+  }
+}
+
+module.exports = Post

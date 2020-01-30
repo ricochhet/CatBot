@@ -1,22 +1,18 @@
-const Discord = require('discord.js');
-const armorDatabase = require('../databases/mhw/armors.json');
-const { getSimilarArray, reactions } = require('../util.js');
+const Command = require('../utils/baseCommand.js');
 
-const armors = new Discord.Collection();
+class Armor extends Command {
+  constructor() {
+    super(
+      'armor',
+      'armor [armor name]',
+      'Get info for a specific armor set'
+    )
+  }
 
-for (const i of Object.keys(armorDatabase)) {
-  armors.set(i, armorDatabase[i]);
-}
+  armorEmbed(client,name,rawEmbed) {
+    const armor = client.armors.get(name);
 
-module.exports = {
-  name: 'armor',
-  args: true,
-  usage: 'armor [armor name]',
-  description: 'Get info for a specific armor set',
-  armorEmbed(name) {
-    const armor = armors.get(name);
-
-    const embed = new Discord.RichEmbed()
+    const embed = rawEmbed
       .setColor('#8fde5d')
       .setTitle(armor.name)
       .setURL(armor.url)
@@ -25,16 +21,17 @@ module.exports = {
       .addField('Set Bonus', armor.setBonus)
       .setTimestamp()
       .setFooter('Info Menu');
- 
+
     return embed;
-  },
+  }
+
   run(client, message, args) {
     let input = args.join('').toLowerCase();
 
-    if (!armors.has(input)) {
+    if (!client.armors.has(input)) {
       let msg = 'That armor doesn\'t seem to exist!';
 
-      const similarItems = getSimilarArray(armors, {
+      const similarItems = this.getSimilarArray(client.armors, {
         'input' : input,
         'threshold' : 0.5,
         'key' : 'name',
@@ -42,14 +39,16 @@ module.exports = {
       });
 
       if (similarItems.length) {
-        return reactions(message, similarItems, this.armorEmbed);
+        return this.reactions(message, similarItems, this.armorEmbed);
       }
 
       message.channel.send(msg);
-    } 
-    else if (armors.has(input)) {
-      const embed = this.armorEmbed(input);
+    }
+    else if (client.armors.has(input)) {
+      const embed = this.armorEmbed(client,input,this.RichEmbed());
       message.channel.send(embed);
     }
-  },
-};
+  }
+}
+
+module.exports = Armor

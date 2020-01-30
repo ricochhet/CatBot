@@ -1,13 +1,27 @@
-const Discord = require('discord.js');
-const { similarity } = require('../util.js');
+const Command = require( '../utils/baseCommand.js' )
 
-module.exports = {
-  name: 'mhw',
-  args: false,
-  usage: '+mhw [command] [command arguments]',
-  description: 'MHW - Monster Hunter World: Iceborne',
-  category: true,
-  error(message){
+class Mhw extends Command {
+  constructor() {
+    super(
+      'mhw',
+      '+mhw',
+      'MHW - Monster Hunter World: Iceborne',
+      {category: true}
+    )
+  }
+
+  run(client,message,args) {
+
+    const subCommand = args[0];
+    const commandFound = client.mhw.find(cmd => cmd.name === subCommand && !cmd.secret);
+
+    if(!commandFound) return message.channel.send(this.usageEmbed());
+    args = args.slice(1, args.length);
+    commandFound.run(client, message, args)
+
+  }
+
+  usageEmbed() {
     const data = [];
     data.push('`+mhw armor [armor name]` - Get info for a specific armor set\n');
     data.push('`+mhw deco [deco name]` - Get info for a specific decoration\n');
@@ -17,21 +31,16 @@ module.exports = {
     data.push('`+mhw skill [skill name]` - Get info for a specific skill\n');
     data.push('`+mhw rollhunt` - Get a random roll of what monster you should hunt with which gear\n');
 
-    const usageEmbed = new Discord.RichEmbed()
+    const usageEmbed = this.RichEmbed()
       .setColor('#8fde5d')
       .addField(this.description, this.usage)
       .addField('Parameters Help', data.join('\n'))
       .setTimestamp()
       .setFooter('MHW Help');
-    
+
     return usageEmbed;
-  },
-  run(client, message, args) {
-    const subCommand = args[0];
-    const commandFound = client.mhw.find(cmd => cmd.name === subCommand && !cmd.secret);
-    
-    if(!commandFound) return message.channel.send(this.error(message));
-    args = args.slice(1, args.length);
-    commandFound.run(client, message, args);
-  },
-};
+  }
+
+}
+
+module.exports = Mhw

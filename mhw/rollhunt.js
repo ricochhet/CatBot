@@ -1,23 +1,22 @@
-const Discord = require('discord.js');
-const monsterDatabase = require('../databases/mhw/monsters.json');
-const weaponDatabase = require('../databases/mhw/weapons.json');
-const armorDatabase = require('../databases/mhw/armors.json');
-const { similarity } = require('../util.js');
+const Command = require( '../utils/baseCommand.js' )
 
-const armors = new Discord.Collection();
+const monsterDatabase = require('../utils/databases/mhw/monsters.json');
+const weaponDatabase = require('../utils/databases/mhw/weapons.json');
+const armorDatabase = require('../utils/databases/mhw/armors.json');
 
-for (const i of Object.keys(armorDatabase)) {
-  armors.set(i, armorDatabase[i]);
-}
+class RollHunt extends Command {
+  constructor() {
+    super(
+      'rollhunt',
+      'rollhunt',
+      'Get a random roll of what monster you should hunt with which gear'
+    )
+  }
 
-module.exports = {
-  name: 'rollhunt',
-  args: true,
-  usage: 'rollhunt',
-  description: 'Get a random roll of what monster you should hunt with which gear',
-  run(client, message, args) {
+  run(client,message,args) {
+
     let input = args.join('').toLowerCase();
-    
+
     const mhMonsterKeys = Object.values(monsterDatabase);
     const mhWeaponKeys = Object.values(weaponDatabase);
     const mhArmorKeys = Object.values(armorDatabase);
@@ -25,7 +24,9 @@ module.exports = {
     const monster = mhMonsterKeys[Math.floor(Math.random() * mhMonsterKeys.length)].details.title;
     const weapon = mhWeaponKeys[Math.floor(Math.random() * mhWeaponKeys.length)].title;
     const armor = mhArmorKeys[Math.floor(Math.random() * mhArmorKeys.length)].name;
-    
+
     message.channel.send("Fight " + "**" + monster + "**" + " with a " + "**" + weapon + "**" + " using " + "**" + armor + "**");
-  },
-};
+  }
+}
+
+module.exports = RollHunt
