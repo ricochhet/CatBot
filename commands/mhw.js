@@ -10,17 +10,6 @@ class Mhw extends Command {
     )
   }
 
-  run(client,message,args) {
-
-    const subCommand = args[0];
-    const commandFound = client.mhw.find(cmd => cmd.name === subCommand && !cmd.secret);
-
-    if(!commandFound) return message.channel.send(this.usageEmbed());
-    args = args.slice(1, args.length);
-    commandFound.run(client, message, args)
-
-  }
-
   usageEmbed() {
     const data = [];
     data.push('`+mhw armor [armor name]` - Get info for a specific armor set\n');

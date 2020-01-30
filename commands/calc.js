@@ -6,7 +6,10 @@ class Calc extends Command {
       'calc',
       '+calc [category] [additional arguments]',
       'Math/Calculation (MHWI)',
-      {category: true}
+      {
+        category: true,
+        subTree: 'math'
+      }
     )
   }
 
@@ -27,16 +30,6 @@ class Calc extends Command {
 
     return usageEmbed;
   }
-
-  run(client, message, args) {
-    const subCommand = args[0];
-    const commandFound = client.math.find(cmd => cmd.name === subCommand && !cmd.secret);
-
-    if(!commandFound) return message.channel.send(this.usageEmbed());
-    args = args.slice(1, args.length);
-    commandFound.run(client, message, args);
-  }
-
 }
 
 module.exports = Calc
