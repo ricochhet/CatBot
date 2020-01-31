@@ -47,7 +47,7 @@ class Item extends Command {
       message.channel.send(msg);
     }
     else if (client.items.has(input)) {
-      const embed = this.itemEmbed(input);
+      const embed = this.itemEmbed(client,input,this.RichEmbed());
       message.channel.send(embed);
     }
   }

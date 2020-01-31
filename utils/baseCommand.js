@@ -35,9 +35,9 @@ class Command {
   }
 
   run(client, message, args){
+
     const subCommand = args[0];
     const commandFound = client[this.subTree].find(cmd => cmd.name === subCommand && !cmd.secret);
-
     if(!commandFound) return message.channel.send(this.usageEmbed());
     args = args.slice(1, args.length);
     commandFound.run(client, message, args);
