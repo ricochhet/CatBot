@@ -64,18 +64,21 @@ class Command {
     return embed
   }
 
-  similarity(str1, str2) {
-    let longer = str1;
-    let shorter = str2;
-    if (str1.length < str2.length) {
-        longer = str2;
-        shorter = str1;
+  similarity(string1,string2){
+
+    let biStr1 = bigrams(string1);
+    let biStr2 = bigrams(string2);
+
+    let counter = 0;
+    let index = 0;
+    while ( index < (biStr1.length - 1) || index < (biStr2.length - 1) ) {
+
+      if (biStr1[index] == biStr2[index]) counter++
+      index++
+
     }
-    const longerLength = longer.length;
-    if (longerLength == 0) {
-        return 1.0;
-    }
-    return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
+
+    return ( ( 2 * counter ) / ( biStr1.length + biStr2.length ) )
   }
 
   getSimilarArray(collection, options) {
@@ -150,7 +153,6 @@ class Command {
                   message.edit(embed);
               })
               .catch(async (collected) => {
-                  console.log(collected);
                   await message.clearReactions();
                   await message.react('❌');
               });
@@ -206,33 +208,8 @@ class Pages {
   }
 }
 
-// Computes Levenshtein distance between two strings
-function editDistance(str1, str2) {
-  str1 = str1.toLowerCase();
-  str2 = str2.toLowerCase();
-
-  const costs = new Array();
-  for (let i = 0; i <= str1.length; i++) {
-    let lastValue = i;
-    for (let j = 0; j <= str2.length; j++) {
-      if (i == 0) {
-        costs[j] = j;
-      }
-      else if (j > 0) {
-        let newValue = costs[j - 1];
-        if (str1.charAt(i - 1) != str2.charAt(j - 1)) {
-          newValue = Math.min(Math.min(newValue, lastValue),
-          costs[j]) + 1;
-        }
-        costs[j - 1] = lastValue;
-        lastValue = newValue;
-      }
-    }
-    if (i > 0) {
-      costs[str2.length] = lastValue;
-    }
-  }
-  return costs[str2.length];
+function bigrams(string){
+  return string.match(/.{1,2}/g)
 }
 
 module.exports = Command
