@@ -16,12 +16,19 @@ class About extends Command {
   }
 
   run(client,message,args) {
+
+    const rico = client.users.find(user => user.id == '381239423645515776')
+    const yofou = client.users.find(user => user.id == '264781399737892865')
+    const chad = client.users.find(user => user.id == '123633666550136832')
+
+    console.log(yofou)
+
     const aboutEmbed = this.RichEmbed()
       .setColor('#8fde5d')
-      .addField('Author: ', 'Ricochet#7498', true)
-      .addField('Contributors', 'Chad#0389\nYofou#0420', true)
-      .addField('Version: ', 'v1.10.0', true)
-      .addField('Changelog: ', 'v1.10.0 | Added `+mhw deco ...`, `+mhw skill ...` command(s)')
+      .addField('Author: ', `${rico.tag}`, true)
+      .addField('Contributors', `${chad.tag}\n${yofou.tag}`, true)
+      .addField('Version: ', 'v1.12.0', true)
+      .addField('Changelog: ', 'v1.12.0 | Updated databases + better VPS hosting.')
       .addField('Feedback / Requests: ', 'Do `+support` to go to the support server.')
       .setTimestamp()
       .setFooter('About Menu', client.user.avatarURL);
