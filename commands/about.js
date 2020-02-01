@@ -21,8 +21,6 @@ class About extends Command {
     const yofou = client.users.find(user => user.id == '264781399737892865')
     const chad = client.users.find(user => user.id == '123633666550136832')
 
-    console.log(yofou)
-
     const aboutEmbed = this.RichEmbed()
       .setColor('#8fde5d')
       .addField('Author: ', `${rico.tag}`, true)
