@@ -31,7 +31,7 @@ class Skill extends Command {
 
       const similarItems = this.getSimilarArray(client.skills, {
         'input' : input,
-        'threshold' : 0.5,
+        'threshold' : 0.65,
         'key' : 'name',
         'pushSim' : true
       });
@@ -42,7 +42,7 @@ class Skill extends Command {
 
       message.channel.send(msg);
     }
-    else if (skills.has(input)) {
+    else if (client.skills.has(input)) {
       const embed = this.skillEmbed(client,input,this.RichEmbed());
       message.channel.send(embed);
     }

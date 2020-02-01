@@ -1,4 +1,5 @@
 const { RichEmbed,TextChannel,version } = require('discord.js')
+const jaro = require('talisman/metrics/distance/jaro-winkler')
 
 class Command {
   constructor(name,usage,description,options = {args : true,secret : false,category: false,subTree : null}) {
@@ -65,20 +66,7 @@ class Command {
   }
 
   similarity(string1,string2){
-
-    let biStr1 = bigrams(string1);
-    let biStr2 = bigrams(string2);
-
-    let counter = 0;
-    let index = 0;
-    while ( index < (biStr1.length - 1) || index < (biStr2.length - 1) ) {
-
-      if (biStr1[index] == biStr2[index]) counter++
-      index++
-
-    }
-
-    return ( ( 2 * counter ) / ( biStr1.length + biStr2.length ) )
+    return jaro(string1,string2)
   }
 
   getSimilarArray(collection, options) {
@@ -208,8 +196,5 @@ class Pages {
   }
 }
 
-function bigrams(string){
-  return string.match(/.{1,2}/g)
-}
 
 module.exports = Command

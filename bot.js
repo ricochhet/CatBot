@@ -101,6 +101,7 @@ class Bot extends Client {
     if (!message.guild) return;
     if (!message.member.guild.me.hasPermission('SEND_MESSAGES')) return;
     if (!message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES')) return;
+    if (message.content[0] != this.prefix) return;
 
     // Standard argument and command definitions
     const args = message.content.slice(this.prefix.length).trim().toLowerCase().split(/ +/g);
@@ -110,7 +111,6 @@ class Bot extends Client {
     const command = this.commands.get(cmdName);
 
     if (!command) return;
-
 
     // Ignores Secret Commands if Not Owner
     if ( command.secret && message.author.id != this.auth.get('OWNER') ) return;

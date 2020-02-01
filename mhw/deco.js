@@ -24,17 +24,35 @@ class Deco extends Command {
     return embed;
   }
 
+  findDecoBySkill(input){
+    let arr = [];
+    for (let [name, deco] of client.decorations.entries()) {
+      for (let skill of deco.skills){
+        let skillname = skill.split('-')[0].toLowerCase().split(' ').join('')
+        let sim = this.similarity(input,skillname)
+        if (sim > 0.8 && !arr.includes(skillname) && input.length > 0) {
+          arr.push([deco.name,sim])
+        }
+      }
+    }
+
+    return arr
+  }
+
   run(client, message, args) {
     let input = args.join('').toLowerCase();
 
     if (!client.decorations.has(input)) {
       let msg = 'That decoration doesn\'t seem to exist!';
 
-      const similarItems = this.getSimilarArray(client.decorations, {
+      let skillNameDeco = this.findDecoBySkill(input);
+
+      let similarItems = this.getSimilarArray(client.decorations, {
         'input' : input,
-        'threshold' : 0.5,
+        'threshold' : 0.8,
         'key' : 'name',
-        'pushSim' : true
+        'pushSim' : true,
+        'similarArray' : skillNameDeco
       });
 
       if (similarItems.length) {

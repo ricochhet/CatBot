@@ -47,7 +47,7 @@ class Monster extends Command {
 
       let similarItems = this.getSimilarArray(client.monsters, {
         'input' : input,
-        'threshold' : 0.5,
+        'threshold' : 0.8,
         'key' : 'title',
         'pushSim' : true
       });

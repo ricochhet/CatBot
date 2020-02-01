@@ -42,7 +42,7 @@ class Weapon extends Command {
 
       const similarItems = this.getSimilarArray(client.weapons, {
         'input' : input,
-        'threshold' : 0.5,
+        'threshold' : 0.8,
         'key' : 'title',
         'pushSim' : true
       });
