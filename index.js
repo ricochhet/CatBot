@@ -23,7 +23,8 @@ client.buildDBs(
     'decorations' : './utils/databases/mhw/decorations.json',
     'armors' : './utils/databases/mhw/armors.json',
     'mhguMonsters' : './utils/databases/mhgu/monsters.json',
-    'mhguWeapons' : './utils/databases/mhgu/weapons.json'
+    'mhguWeapons' : './utils/databases/mhgu/weapons.json',
+    'auth' : './utils/auth.json'
   }
 )
 
@@ -58,5 +59,4 @@ client.setInterval(() => {
   }
 }, 60000);
 
-
-client.login( "NjM1OTg4MDUyMDQ0Njc3MTYw.XiY-sQ.oakUDyVWfYStI6zzE9ScnYShA9E" )
+client.login( client.auth.get('TOKEN') )

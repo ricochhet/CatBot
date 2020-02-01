@@ -113,7 +113,7 @@ class Bot extends Client {
 
 
     // Ignores Secret Commands if Not Owner
-    if (command.secret && message.author.id != process.env.OWNER) return;
+    if ( command.secret && message.author.id != this.auth.get('OWNER') ) return;
 
     if (command.args && !args.length) {
       if (command.usage) {

@@ -6,7 +6,10 @@ class Status extends Command {
       'status',
       'status',
       'Gives the CatBot status',
-      {args : false}
+      {
+        args : false,
+        secret : true
+      }
     )
   }
 
