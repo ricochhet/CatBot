@@ -13,7 +13,7 @@ class Mhw extends Command {
   usageEmbed() {
     const data = [];
     data.push('`+mhw armor [armor name]` - Get info for a specific armor set\n');
-    data.push('`+mhw deco [deco name]` - Get info for a specific decoration\n');
+    data.push('`+mhw deco [deco/skill name]` - Get info for a specific decoration\n');
     data.push('`+mhw item [item name]` - Get info for a specific item\n');
     data.push('`+mhw monster [monster name]` - Get info for a specific monster\n');
     data.push('`+mhw weapon [weapon name]` - Get info for a specific weapon\n');

@@ -1,5 +1,4 @@
 const { RichEmbed,TextChannel,version } = require('discord.js')
-const jaro = require('talisman/metrics/distance/jaro-winkler')
 
 class Command {
   constructor(name,usage,description,options = {args : true,secret : false,category: false,subTree : null}) {
@@ -65,8 +64,50 @@ class Command {
     return embed
   }
 
-  similarity(string1,string2){
-    return jaro(string1,string2)
+  // Code from https://github.com/dgendill/Javascript-String-Comparison-Algorithms/blob/master/string-compare.js
+  similarity(str1,str2){
+
+    var str1Length = str1.length;
+    var str2Length = str2.length;
+
+    var range = Math.floor(Math.max(str1Length,str2Length)/2) - 1;
+    var m = 0;
+    var t = 0;
+    var l = 0;
+    var isLSet = false;
+    var lastMatchJ = 0;
+    for(var i = 0;i<str1Length;i++){
+        var c1 = str1[i];
+        for(var j =i;j<str2Length;j++){
+            if(Math.abs(i-j) > range)
+                continue;
+            var c2 = str2[j];
+            if(c1==c2) {
+                m++; //characters is the same and within range
+                if (i != j) {
+                    if (lastMatchJ > j)
+                        t += 2;
+                }
+                else {
+                    if (!isLSet && l < 4) {
+                        l++;
+                    }
+                }
+                lastMatchJ = j;
+                break;
+            }else {
+                if(i==j)
+                    isLSet =true;
+            }
+        }
+    }
+    t =  0.5*t;
+    m = Math.min(m,str1Length,str2Length);
+    var dj = 0;
+    if(m>0)
+        dj = (m/str1Length + m/str2Length + (m-t)/m)/3;
+
+    return dj + (l*0.1*(1-dj));
   }
 
   getSimilarArray(collection, options) {

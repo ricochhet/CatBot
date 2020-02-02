@@ -40,13 +40,13 @@ class Status extends Command {
         .setColor('#8fde5d')
         .addField('Servers: ', client.guilds.size, true)
         .addField('Members: ', userCount, true)
-        .addField('Version: ', 'v1.12.0', true)
+        .addField('Version: ', 'v1.13.0', true)
         .addField('Message Latency', messagePingRounded + 'ms', true)
         .addField('API Latency: ', pingRounded + 'ms', true)
         .addField('Uptime: ', uptime, true)
         .addField('NodeJS Version', nodejsVersion, true)
         .addField('DiscordJS Version', discordjsVersion, true)
-        .addField('Memory Usage', `${Math.round(memory * 100) / 100} MB`, true)
+        .addField('Memory Usage', `${memory.toFixed(2)} MB`, true)
         .setTimestamp()
         .setFooter('Status Menu', client.user.avatarURL);
 

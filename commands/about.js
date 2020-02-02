@@ -25,8 +25,8 @@ class About extends Command {
       .setColor('#8fde5d')
       .addField('Author: ', `${rico.tag}`, true)
       .addField('Contributors', `${chad.tag}\n${yofou.tag}`, true)
-      .addField('Version: ', 'v1.12.0', true)
-      .addField('Changelog: ', 'v1.12.0 | Updated databases + better VPS hosting.')
+      .addField('Version: ', 'v1.13.0', true)
+      .addField('Changelog: ', 'v1.13.0 | More Advanced Search results + Can now search by skill name in `+mhw deco`')
       .addField('Feedback / Requests: ', 'Do `+support` to go to the support server.')
       .setTimestamp()
       .setFooter('About Menu', client.user.avatarURL);
