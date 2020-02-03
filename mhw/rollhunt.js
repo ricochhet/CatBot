@@ -5,7 +5,7 @@ const weaponDatabase = require('../utils/databases/mhw/weapons.json');
 const armorDatabase = require('../utils/databases/mhw/armors.json');
 
 class RollHunt extends Command {
-  constructor() {
+  constructor(prefix) {
     super(
       'rollhunt',
       'rollhunt',

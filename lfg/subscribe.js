@@ -2,7 +2,7 @@ const Command = require('../utils/baseCommand.js')
 const fs = require('fs')
 
 class Subscribe extends Command {
-  constructor() {
+  constructor(prefix) {
     super(
       'subscribe',
       'subscribe [channel name]',

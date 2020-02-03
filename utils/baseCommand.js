@@ -1,14 +1,15 @@
 const { RichEmbed,TextChannel,version } = require('discord.js')
 
 class Command {
-  constructor(name,usage,description,options = {args : true,secret : false,category: false,subTree : null}) {
+  constructor(name,usage,description,options = {args : true,secret : false,category: false,subTree : null,prefix : ''}) {
     this.name = name
-    this.usage = usage
+    this.usage = `${options['prefix']}${usage}`
     this.description = description
     this.args = options['args']
     this.secret = options['secret']
     this.category = options['category']
     this.subTree = options['subTree']
+    this.prefix = options['prefix']
     this.version = version
 
     // Weapons multiplier
@@ -58,7 +59,7 @@ class Command {
     const embed = this.RichEmbed()
     .setColor('#8fde5d')
     .addField('Usage: ', this.usage, true)
-    .addField('Descrption: ', this.description, true)
+    .addField('Description: ', this.description, true)
     .setTimestamp();
 
     return embed

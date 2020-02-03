@@ -1,14 +1,15 @@
 const Command = require('../utils/baseCommand.js')
 
 class Status extends Command {
-  constructor() {
+  constructor(prefix) {
     super(
       'status',
       'status',
       'Gives the CatBot status',
       {
         args : false,
-        secret : true
+        secret : true,
+        prefix : prefix
       }
     )
   }

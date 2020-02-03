@@ -1,7 +1,7 @@
 const Command = require('../utils/baseCommand.js')
 
 class Affinity extends Command {
-  constructor() {
+  constructor(prefix) {
     super(
       'affinity',
       'affinity [affinity] [damage]',

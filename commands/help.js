@@ -1,17 +1,20 @@
 const Command = require('../utils/baseCommand.js');
 
 class Help extends Command {
-  constructor() {
+  constructor(prefix) {
     super(
       'help',
-      '+help',
+      'help',
       'List all commands and their information',
-      {'args' : false}
+      {
+        args : false,
+        prefix : prefix
+      }
     )
   }
 
   run(client,message,args){
-
+    const rico = client.users.find(user => user.id == '381239423645515776')
     const helpEmbed = this.RichEmbed()
       .setColor('#8fde5d');
 
@@ -19,7 +22,7 @@ class Help extends Command {
     data = [];
     client.commands.filter(cmd => cmd.calc != true).forEach(cmd => {
       if(cmd.category) {
-        if (!cmd.secret) data.push(`+${cmd.name} - ${cmd.description}`);
+        if (!cmd.secret) data.push(`${this.prefix}${cmd.name} - ${cmd.description}`);
       }
     });
     helpEmbed.addField('Main / General', data.join('\n'));
@@ -28,7 +31,7 @@ class Help extends Command {
     data = [];
     client.commands.filter(cmd => cmd.args != true).forEach(cmd => {
       if(!cmd.category) {
-        if (!cmd.secret) data.push(`+${cmd.name} - ${cmd.description}`);
+        if (!cmd.secret) data.push(`${this.prefix}${cmd.name} - ${cmd.description}`);
       }
     });
     helpEmbed.addField('General', data.join('\n'));
@@ -42,10 +45,10 @@ class Help extends Command {
 
     // Additional
     helpEmbed.addBlankField()
-      .addField('Experiencing Issues? ', '```Contact Ricochet#7498 | Do +support```')
+      .addField('Experiencing Issues? ', `\`\`\`Contact ${rico.tag} | Do ${this.prefix}support\`\`\``)
       .addField('Links', '[Vote](https://top.gg/bot/573958899582107653/vote) [Support](https://discord.gg/srNyk8G) [Invite](https://discordapp.com/oauth2/authorize?client_id=573958899582107653&permissions=339008&scope=bot)')
       .setTimestamp()
-      .setFooter('Help | Issues: Contact Ricochet#7498 | Do +support', client.user.avatarURL);
+      .setFooter(`Help | Issues: Contact ${rico.tag} | Do ${this.prefix}support`, client.user.avatarURL);
 
     let embeds = [helpEmbed];
 

@@ -1,7 +1,7 @@
 const Command = require('../utils/baseCommand.js')
 
 class Elemental extends Command {
-  constructor() {
+  constructor(prefix) {
     super(
       'elemental',
       'elemental [damage] [sharpness] [monster part multiplier]',

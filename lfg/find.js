@@ -1,7 +1,7 @@
 const Command = require('../utils/baseCommand.js')
 
 class Find extends Command {
-  constructor() {
+  constructor(prefix) {
     super(
       'find',
       'find',

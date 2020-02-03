@@ -2,14 +2,17 @@ const Command = require('../utils/baseCommand.js')
 
 class About extends Command {
 
-  constructor(){
+  constructor(prefix){
 
     super(
 
       'about',
-      '+about',
+      'about',
       'Shows extra information about the bot',
-      {'args' : false}
+      {
+        args : false,
+        prefix : prefix
+      }
 
     )
 

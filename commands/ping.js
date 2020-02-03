@@ -2,12 +2,13 @@ const Command = require('../utils/baseCommand.js')
 
 class Ping extends Command {
 
-  constructor(){
+  constructor(prefix){
 
     super(
       "ping",
-      "+ping",
-      "Too check if the bot is online"
+      "ping",
+      "Too check if the bot is online",
+      {prefix : prefix}
     )
 
   }

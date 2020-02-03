@@ -1,7 +1,7 @@
 const Command = require('../utils/baseCommand.js');
 
 class Skill extends Command {
-  constructor() {
+  constructor(prefix) {
     super(
       'skill',
       'skill [skill name]',

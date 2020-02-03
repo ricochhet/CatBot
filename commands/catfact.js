@@ -2,12 +2,15 @@ const Command = require('../utils/baseCommand.js')
 const catFactsDatabase = require('../utils/databases/other/catfacts.json');
 
 class Catfacts extends Command{
-  constructor() {
+  constructor(prefix) {
     super(
       'catfact',
       'catfact',
       'Shows a random cat fact',
-      {args : false}
+      {
+        args : false,
+        prefix : prefix     
+      }
     )
   }
 

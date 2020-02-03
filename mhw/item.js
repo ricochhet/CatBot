@@ -1,7 +1,7 @@
 const Command = require('../utils/baseCommand.js');
 
 class Item extends Command {
-  constructor() {
+  constructor(prefix) {
 
     super(
       'item',

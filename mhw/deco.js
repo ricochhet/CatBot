@@ -1,7 +1,7 @@
 const Command = require('../utils/baseCommand.js');
 
 class Deco extends Command {
-  constructor() {
+  constructor(prefix) {
     super(
       'deco',
       'deco [deco name]',

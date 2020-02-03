@@ -1,7 +1,7 @@
 const Command = require('../utils/baseCommand.js')
 
 class Eraw extends Command {
-  constructor() {
+  constructor(prefix) {
     super(
       'eraw',
       'eraw [weapon type] [damage]',

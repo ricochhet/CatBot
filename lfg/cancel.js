@@ -2,7 +2,7 @@ const Command = require('../utils/baseCommand.js')
 const fs = require('fs')
 
 class Cancel extends Command {
-  constructor() {
+  constructor(prefix) {
     super(
       'cancel',
       'cancel',

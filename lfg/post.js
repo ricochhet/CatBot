@@ -2,7 +2,7 @@ const Command = require('../utils/baseCommand.js')
 const fs = require('fs')
 
 class Post extends Command {
-  constructor() {
+  constructor(prefix) {
     super(
       'post',
       'post <platform> <sessionid> [description]',

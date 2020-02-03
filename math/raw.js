@@ -1,7 +1,7 @@
 const Command = require('../utils/baseCommand.js')
 
 class Raw extends Command {
-  constructor() {
+  constructor(prefix) {
     super(
       'raw',
       'raw [damage] [weapon type] [sharpness] [monster part multiplier]',

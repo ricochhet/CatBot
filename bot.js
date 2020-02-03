@@ -64,7 +64,7 @@ class Bot extends Client {
         if (!file.endsWith(".js")) return;
         const props = require(`${dir}${file}`);
         const commandName = file.split(".")[0];
-        this[collectionName].set(commandName, new props());
+        this[collectionName].set(commandName, new props(this.prefix));
       });
     });
   }
