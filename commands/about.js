@@ -29,8 +29,8 @@ class About extends Command {
       .addField('Author: ', `${rico.tag}`, true)
       .addField('Contributors', `${chad.tag}\n${yofou.tag}`, true)
       .addField('Version: ', 'v1.13.0', true)
-      .addField('Changelog: ', 'v1.13.0 | More Advanced Search results + Can now search by skill name in `+mhw deco`')
-      .addField('Feedback / Requests: ', 'Do `+support` to go to the support server.')
+      .addField('Changelog: ', `v1.13.0 | Better search results + Can now search by skill name in \`${this.prefix}mhw deco\``)
+      .addField('Feedback / Requests: ', `Do \`${this.prefix}support\` to go to the support server.`)
       .setTimestamp()
       .setFooter('About Menu', client.user.avatarURL);
 
