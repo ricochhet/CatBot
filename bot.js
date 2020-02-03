@@ -47,7 +47,7 @@ class Bot extends Client {
 
     this.on('ready', ()=> {
       console.log(`Logged in as ${client.user.tag}!`);
-      this.user.setActivity('for +help', { type: 'WATCHING' });
+      this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
     })
   }
 
