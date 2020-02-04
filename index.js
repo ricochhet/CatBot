@@ -2,7 +2,6 @@ const Bot = require('./bot.js');
 const monsterDatabase = require('./utils/databases/mhw/monsters.json');
 
 client = new Bot('+');
-const dbl = client.dblSetup(client.auth.get('DBLTOKEN'));
 
 // load commands
 client.buildCommands(['./commands/', './lfg/', './math/', './mhgu/', './mhw/']);
@@ -18,6 +17,8 @@ client.buildDBs({
   mhguWeapons: './utils/databases/mhgu/weapons.json',
   auth: './utils/auth.json'
 });
+
+const dbl = client.dblSetup(client.auth.get('DBLTOKEN'));
 
 // mhw monster collection has a custom collection algorithm
 client.monsters = client.buildCollection();

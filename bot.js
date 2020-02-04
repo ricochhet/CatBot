@@ -54,7 +54,7 @@ class Bot extends Client {
   }
 
   dblSetup(token) {
-    return new DBL(token, client);
+    return new DBL(token, this);
   }
 
   setupCommand(dir) {

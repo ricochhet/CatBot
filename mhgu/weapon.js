@@ -54,7 +54,7 @@ class Weapon extends Command {
 
       const similarItems = this.getSimilarArray(client.mhguWeapons, {
         input: input,
-        threshold: 0.5,
+        threshold: 0.8,
         key: 'name',
         pushSim: true
       });

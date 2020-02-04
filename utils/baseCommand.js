@@ -222,6 +222,7 @@ class Command {
           message.edit(embed);
         })
         .catch(async collected => {
+          console.log( collected )
           await message.clearReactions();
           await message.react('❌');
         });
