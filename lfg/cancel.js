@@ -1,14 +1,11 @@
-const Command = require('../utils/baseCommand.js')
-const fs = require('fs')
+const Command = require('../utils/baseCommand.js');
+const fs = require('fs');
 
 class Cancel extends Command {
   constructor(prefix) {
-    super(
-      'cancel',
-      'cancel',
-      'Cancel your current active session',
-      {args : false}
-    )
+    super('cancel', 'cancel', 'Cancel your current active session', {
+      args: false
+    });
   }
 
   run(client, message, args) {
@@ -28,19 +25,25 @@ class Cancel extends Command {
     }
 
     if (!userFound) {
-      return message.reply('Sorry meowster but you have no sessions posted right now!');
+      return message.reply(
+        'Sorry meowster but you have no sessions posted right now!'
+      );
     }
 
     delete lfg[sessionId];
-    const jsonObj = JSON.stringify(lfg,null,4)
-    fs.writeFile(`./utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function (err) {
+    const jsonObj = JSON.stringify(lfg, null, 4);
+    fs.writeFile(`./utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function(
+      err
+    ) {
       if (err) {
         console.log('An error occured while writing JSON Object to file.');
         return console.log(err);
       }
     });
-    message.reply(`Meowster, your previous session advertisement was cancelled! \`${sessionId}\``);
+    message.reply(
+      `Meowster, your previous session advertisement was cancelled! \`${sessionId}\``
+    );
   }
 }
 
-module.exports = Cancel
+module.exports = Cancel;

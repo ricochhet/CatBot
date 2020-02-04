@@ -2,42 +2,36 @@ const Command = require('../utils/baseCommand.js');
 
 class Item extends Command {
   constructor(prefix) {
-
-    super(
-      'item',
-      'item [item name]',
-      'Get info for a specific item'
-    )
-
+    super('item', 'item [item name]', 'Get info for a specific item');
   }
 
-  itemEmbed(client,name,rawEmbed) {
-   const item = client.items.get(name);
+  itemEmbed(client, name, rawEmbed) {
+    const item = client.items.get(name);
 
-   const embed = rawEmbed
-     .setColor('#8fde5d')
-     .setTitle(item.name)
-     .setDescription(item.description)
-     .addField('Rarity', item.rarity, true)
-     .addField('Max', item.carryLimit, true)
-     .addField('Sell', item.value, true)
-     .setTimestamp()
-     .setFooter('Info Menu');
+    const embed = rawEmbed
+      .setColor('#8fde5d')
+      .setTitle(item.name)
+      .setDescription(item.description)
+      .addField('Rarity', item.rarity, true)
+      .addField('Max', item.carryLimit, true)
+      .addField('Sell', item.value, true)
+      .setTimestamp()
+      .setFooter('Info Menu');
 
-   return embed;
- }
+    return embed;
+  }
 
   run(client, message, args) {
     let input = args.join('').toLowerCase();
 
     if (!client.items.has(input)) {
-      let msg = 'That item doesn\'t seem to exist!';
+      let msg = "That item doesn't seem to exist!";
 
       const similarItems = this.getSimilarArray(client.items, {
-        'input' : input,
-        'threshold' : 0.8,
-        'key' : 'name',
-        'pushSim' : true
+        input: input,
+        threshold: 0.8,
+        key: 'name',
+        pushSim: true
       });
 
       if (similarItems.length) {
@@ -45,12 +39,11 @@ class Item extends Command {
       }
 
       message.channel.send(msg);
-    }
-    else if (client.items.has(input)) {
-      const embed = this.itemEmbed(client,input,this.RichEmbed());
+    } else if (client.items.has(input)) {
+      const embed = this.itemEmbed(client, input, this.RichEmbed());
       message.channel.send(embed);
     }
   }
 }
 
-module.exports = Item
+module.exports = Item;

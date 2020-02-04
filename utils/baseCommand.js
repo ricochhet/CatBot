@@ -1,194 +1,232 @@
-const { RichEmbed,TextChannel,version } = require('discord.js')
+const { RichEmbed, TextChannel, version } = require('discord.js');
 
 class Command {
-  constructor(name,usage,description,options = {args : true,secret : false,category: false,subTree : null,prefix : ''}) {
-    this.name = name
-    this.usage = `${options['prefix']}${usage}`
-    this.description = description
-    this.args = options['args']
-    this.secret = options['secret']
-    this.category = options['category']
-    this.subTree = options['subTree']
-    this.prefix = options['prefix']
-    this.version = version
+  constructor(
+    name,
+    usage,
+    description,
+    options = {
+      args: true,
+      secret: false,
+      category: false,
+      subTree: null,
+      prefix: ''
+    }
+  ) {
+    this.name = name;
+    this.usage = `${options['prefix']}${usage}`;
+    this.description = description;
+    this.args = options['args'];
+    this.secret = options['secret'];
+    this.category = options['category'];
+    this.subTree = options['subTree'];
+    this.prefix = options['prefix'];
+    this.version = version;
 
     // Weapons multiplier
     this.weaponsRatio = new Map([
-        ['hammer', 5.2], ['gs', 4.8], ['hh', 4.2], ['cb', 3.6],
-        ['sa', 3.5], ['ls', 3.3], ['ig', 3.1], ['lance', 2.3],
-        ['gl', 2.3], ['hbg', 1.5], ['sns', 1.4], ['db', 1.4],
-        ['lbg', 1.3], ['bow', 1.2]
+      ['hammer', 5.2],
+      ['gs', 4.8],
+      ['hh', 4.2],
+      ['cb', 3.6],
+      ['sa', 3.5],
+      ['ls', 3.3],
+      ['ig', 3.1],
+      ['lance', 2.3],
+      ['gl', 2.3],
+      ['hbg', 1.5],
+      ['sns', 1.4],
+      ['db', 1.4],
+      ['lbg', 1.3],
+      ['bow', 1.2]
     ]);
     this.rawSharpRatio = new Map([
-        ['red', 0.5], ['orange', 0.75], ['yellow', 1.00], ['green', 1.05],
-        ['blue', 1.20], ['white', 1.32], ['purple', 1.39], ['none', 1.00]
+      ['red', 0.5],
+      ['orange', 0.75],
+      ['yellow', 1.0],
+      ['green', 1.05],
+      ['blue', 1.2],
+      ['white', 1.32],
+      ['purple', 1.39],
+      ['none', 1.0]
     ]);
     this.elemSharpRatio = new Map([
-        ['red', 0.5], ['orange', 0.75], ['yellow', 1.00], ['green', 1.05],
-        ['blue', 1.20], ['white', 1.32], ['purple', 1.39], ['none', 1.00]
+      ['red', 0.5],
+      ['orange', 0.75],
+      ['yellow', 1.0],
+      ['green', 1.05],
+      ['blue', 1.2],
+      ['white', 1.32],
+      ['purple', 1.39],
+      ['none', 1.0]
     ]);
 
-    if (!this.category && this.subTree != null){
-      console.log(`Warning Non-Catagory Command (${this.name}) has set a subTree`)
-    } else if (this.category && this.subTree == null){
-      this.subTree = this.name
+    if (!this.category && this.subTree != null) {
+      console.log(
+        `Warning Non-Catagory Command (${this.name}) has set a subTree`
+      );
+    } else if (this.category && this.subTree == null) {
+      this.subTree = this.name;
     }
   }
 
-  run(client, message, args){
-
+  run(client, message, args) {
     const subCommand = args[0];
-    const commandFound = client[this.subTree].find(cmd => cmd.name === subCommand && !cmd.secret);
-    if(!commandFound) return message.channel.send(this.usageEmbed());
+    const commandFound = client[this.subTree].find(
+      cmd => cmd.name === subCommand && !cmd.secret
+    );
+    if (!commandFound) return message.channel.send(this.usageEmbed());
     args = args.slice(1, args.length);
     commandFound.run(client, message, args);
   }
 
-  RichEmbed(){
-    return new RichEmbed()
+  RichEmbed() {
+    return new RichEmbed();
   }
 
-  menu(channel = new TextChannel(), uid, pages = [], time = 120000, reactions = {first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'}){
-
-    return new Pages(channel,uid,pages,time,reactions)
-
+  menu(
+    channel = new TextChannel(),
+    uid,
+    pages = [],
+    time = 120000,
+    reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹' }
+  ) {
+    return new Pages(channel, uid, pages, time, reactions);
   }
 
-  usageEmbed(){
-
+  usageEmbed() {
     const embed = this.RichEmbed()
-    .setColor('#8fde5d')
-    .addField('Usage: ', this.usage, true)
-    .addField('Description: ', this.description, true)
-    .setTimestamp();
+      .setColor('#8fde5d')
+      .addField('Usage: ', this.usage, true)
+      .addField('Description: ', this.description, true)
+      .setTimestamp();
 
-    return embed
+    return embed;
   }
 
   // Code from https://github.com/dgendill/Javascript-String-Comparison-Algorithms/blob/master/string-compare.js
-  similarity(str1,str2){
-
+  similarity(str1, str2) {
     var str1Length = str1.length;
     var str2Length = str2.length;
 
-    var range = Math.floor(Math.max(str1Length,str2Length)/2) - 1;
+    var range = Math.floor(Math.max(str1Length, str2Length) / 2) - 1;
     var m = 0;
     var t = 0;
     var l = 0;
     var isLSet = false;
     var lastMatchJ = 0;
-    for(var i = 0;i<str1Length;i++){
-        var c1 = str1[i];
-        for(var j =i;j<str2Length;j++){
-            if(Math.abs(i-j) > range)
-                continue;
-            var c2 = str2[j];
-            if(c1==c2) {
-                m++; //characters is the same and within range
-                if (i != j) {
-                    if (lastMatchJ > j)
-                        t += 2;
-                }
-                else {
-                    if (!isLSet && l < 4) {
-                        l++;
-                    }
-                }
-                lastMatchJ = j;
-                break;
-            }else {
-                if(i==j)
-                    isLSet =true;
+    for (var i = 0; i < str1Length; i++) {
+      var c1 = str1[i];
+      for (var j = i; j < str2Length; j++) {
+        if (Math.abs(i - j) > range) continue;
+        var c2 = str2[j];
+        if (c1 == c2) {
+          m++; //characters is the same and within range
+          if (i != j) {
+            if (lastMatchJ > j) t += 2;
+          } else {
+            if (!isLSet && l < 4) {
+              l++;
             }
+          }
+          lastMatchJ = j;
+          break;
+        } else {
+          if (i == j) isLSet = true;
         }
+      }
     }
-    t =  0.5*t;
-    m = Math.min(m,str1Length,str2Length);
+    t = 0.5 * t;
+    m = Math.min(m, str1Length, str2Length);
     var dj = 0;
-    if(m>0)
-        dj = (m/str1Length + m/str2Length + (m-t)/m)/3;
+    if (m > 0) dj = (m / str1Length + m / str2Length + (m - t) / m) / 3;
 
-    return dj + (l*0.1*(1-dj));
+    return dj + l * 0.1 * (1 - dj);
   }
 
   getSimilarArray(collection, options) {
     let similarArray;
 
     if ('similarArray' in options) {
-        similarArray = options['similarArray'];
+      similarArray = options['similarArray'];
     } else {
-        similarArray = new Array()
-    };
+      similarArray = new Array();
+    }
 
     for (let [key, value] of collection.entries()) {
-        let sim = this.similarity(key, options['input']);
-        if (sim >= options['threshold']) {
-            if (options['pushSim']) {
-                if (options['key']) {
-                    similarArray.push([value[options['key']], sim]);
-                } else {
-                    similarArray.push([value[key], sim]);
-                }
-
-            } else {
-                if (options['key']) {
-                    similarArray.push(value[options['key']]);
-                } else {
-                    similarArray.push(value[key]);
-                }
-            };
+      let sim = this.similarity(key, options['input']);
+      if (sim >= options['threshold']) {
+        if (options['pushSim']) {
+          if (options['key']) {
+            similarArray.push([value[options['key']], sim]);
+          } else {
+            similarArray.push([value[key], sim]);
+          }
+        } else {
+          if (options['key']) {
+            similarArray.push(value[options['key']]);
+          } else {
+            similarArray.push(value[key]);
+          }
         }
+      }
     }
 
     return similarArray;
-}
-
-  reactions(message, similarArray, embedTemplate) {
-      const author = message.author.id;
-
-      similarArray.sort(function (a, b) {
-          return b[1] - a[1];
-      });
-
-      let msg = this.RichEmbed()
-          .setColor('#8fde5d')
-          .setAuthor("Did you mean?");
-
-      let counter = 0;
-      for (let item of similarArray) {
-          if (counter >= 8) {
-              break;
-          }
-
-          msg.addField(`${counter + 1} : ${item[0]}`, "\n\u200B");
-          counter++;
-      }
-
-      message.channel.send(msg).then(async (message) => {
-          let emojis = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣'].slice(0, counter)
-          for (let emoji of emojis) {
-              await message.react(emoji);
-          }
-
-          const filter = (reaction, user) => {
-              return emojis.includes(reaction.emoji.name) && user.id === author;
-          };
-
-          message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
-              .then(async (collected) => {
-                  const reaction = collected.first();
-                  let name = similarArray[emojis.indexOf(reaction.emoji.name)][0].split(' ').join('').toLowerCase();
-                  const embed = embedTemplate(message.client,name,this.RichEmbed());
-                  await message.clearReactions();
-                  message.edit(embed);
-              })
-              .catch(async (collected) => {
-                  await message.clearReactions();
-                  await message.react('❌');
-              });
-      });
   }
 
+  reactions(message, similarArray, embedTemplate) {
+    const author = message.author.id;
+
+    similarArray.sort(function(a, b) {
+      return b[1] - a[1];
+    });
+
+    let msg = this.RichEmbed()
+      .setColor('#8fde5d')
+      .setAuthor('Did you mean?');
+
+    let counter = 0;
+    for (let item of similarArray) {
+      if (counter >= 8) {
+        break;
+      }
+
+      msg.addField(`${counter + 1} : ${item[0]}`, '\n\u200B');
+      counter++;
+    }
+
+    message.channel.send(msg).then(async message => {
+      let emojis = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣'].slice(
+        0,
+        counter
+      );
+      for (let emoji of emojis) {
+        await message.react(emoji);
+      }
+
+      const filter = (reaction, user) => {
+        return emojis.includes(reaction.emoji.name) && user.id === author;
+      };
+
+      message
+        .awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+        .then(async collected => {
+          const reaction = collected.first();
+          let name = similarArray[emojis.indexOf(reaction.emoji.name)][0]
+            .split(' ')
+            .join('')
+            .toLowerCase();
+          const embed = embedTemplate(message.client, name, this.RichEmbed());
+          await message.clearReactions();
+          message.edit(embed);
+        })
+        .catch(async collected => {
+          await message.clearReactions();
+          await message.react('❌');
+        });
+    });
+  }
 }
 
 class Pages {

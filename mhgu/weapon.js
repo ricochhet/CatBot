@@ -1,42 +1,46 @@
-const Command = require('../utils/baseCommand.js')
+const Command = require('../utils/baseCommand.js');
 
 class Weapon extends Command {
   constructor(prefix) {
-    super(
-      'weapon',
-      'weapon [weapon name]',
-      'Get info for a specific weapon'
-    )
+    super('weapon', 'weapon [weapon name]', 'Get info for a specific weapon');
   }
 
-  weaponEmbed(client,name,rawEmbed) {
+  weaponEmbed(client, name, rawEmbed) {
     const weapon = client.mhguWeapons.get(name);
 
     const embed = rawEmbed
       .setColor('#8fde5d')
       .setTitle(weapon.name)
       .addField('Type', weapon.type)
-      .addField('Raw', weapon.Raw, true)
-      .addField('Element/Status', weapon.ElementStatus, true)
-      .addField('Elemental Damage', weapon.ElementDmg, true)
-      .addField('Status Damage', weapon.StatusDmg, true)
-      .addField('Affinity', weapon.Affinity, true)
-      .addField('Defense', weapon.Defence, true)
-      .addField('Slots', weapon.Slots, true)
-      .addField('EFR', weapon.EFR, true)
+      .addField('Raw', weapon.Raw, true);
 
-    if(weapon.ArcShot == null || weapon.ArcShot == "" || weapon.Coatingavailable == null || weapon.Coatingavailable == "" || weapon.BoostedCoating == null | weapon.BoostedCoating == "") {
-      embed.addField('Sharpness', weapon.Sharpness, true)
-      embed.addField('Sharpness +2', weapon.Sharpness2, true)
-      embed.addField('Sharpness +1', weapon.Sharpness1, true)
-      embed.addField('No Handicraft', weapon.NoHandicraft, true)
-    } else {
-      embed.addField('Arc Shot', weapon.ArcShot, true)
-      embed.addField('Coating Available', weapon.Coatingavailable, true)
-      embed.addField('Boosted Coating', weapon.BoostedCoating, true)
-    }
+    if (weapon.ElementStatus)
+      embed.addField('Element/Status', weapon.ElementStatus, true);
+    if (weapon.ElementDmg)
+      embed.addField('Elemental Damage', weapon.ElementDmg, true);
+    if (weapon.StatusDmg)
+      embed.addField('Status Damage', weapon.StatusDmg, true);
 
-    embed.setTimestamp()
+    if (weapon.Affinity) embed.addField('Affinity', weapon.Affinity, true);
+    if (weapon.Defence) embed.addField('Defense', weapon.Defence, true);
+    if (weapon.Slots) embed.addField('Slots', weapon.Slots, true);
+    if (weapon.EFR) embed.addField('EFR', weapon.EFR, true);
+
+    if (weapon.Sharpness) embed.addField('Sharpness', weapon.Sharpness, true);
+    if (weapon.Sharpness2)
+      embed.addField('Sharpness +2', weapon.Sharpness2, true);
+    if (weapon.Sharpness1)
+      embed.addField('Sharpness +1', weapon.Sharpness1, true);
+    if (weapon.NoHandicraft)
+      embed.addField('No Handicraft', weapon.NoHandicraft, true);
+
+    if (weapon.ArcShot) embed.addField('Arc Shot', weapon.ArcShot, true);
+    if (weapon.Coatingavailable)
+      embed.addField('Coating Available', weapon.Coatingavailable, true);
+    if (weapon.BoostedCoating)
+      embed.addField('Boosted Coating', weapon.BoostedCoating, true);
+
+    embed.setTimestamp();
     embed.setFooter('Info Menu');
 
     return embed;
@@ -46,13 +50,13 @@ class Weapon extends Command {
     let input = args.join('').toLowerCase();
 
     if (!client.mhguWeapons.has(input)) {
-      let msg = 'That weapon doesn\'t seem to exist!';
+      let msg = "That weapon doesn't seem to exist!";
 
       const similarItems = this.getSimilarArray(client.mhguWeapons, {
-        'input' : input,
-        'threshold' : 0.5,
-        'key' : 'name',
-        'pushSim' : true
+        input: input,
+        threshold: 0.5,
+        key: 'name',
+        pushSim: true
       });
 
       if (similarItems.length) {
@@ -60,12 +64,11 @@ class Weapon extends Command {
       }
 
       message.channel.send(msg);
-    }
-    else if (client.mhguWeapons.has(input)) {
-      const embed = this.weaponEmbed(client,input,this.RichEmbed());
+    } else if (client.mhguWeapons.has(input)) {
+      const embed = this.weaponEmbed(client, input, this.RichEmbed());
       message.channel.send(embed);
     }
   }
 }
 
-module.exports = Weapon
+module.exports = Weapon;

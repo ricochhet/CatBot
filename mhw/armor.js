@@ -2,14 +2,10 @@ const Command = require('../utils/baseCommand.js');
 
 class Armor extends Command {
   constructor(prefix) {
-    super(
-      'armor',
-      'armor [armor name]',
-      'Get info for a specific armor set'
-    )
+    super('armor', 'armor [armor name]', 'Get info for a specific armor set');
   }
 
-  armorEmbed(client,name,rawEmbed) {
+  armorEmbed(client, name, rawEmbed) {
     const armor = client.armors.get(name);
 
     const embed = rawEmbed
@@ -29,13 +25,13 @@ class Armor extends Command {
     let input = args.join('').toLowerCase();
 
     if (!client.armors.has(input)) {
-      let msg = 'That armor doesn\'t seem to exist!';
+      let msg = "That armor doesn't seem to exist!";
 
       const similarItems = this.getSimilarArray(client.armors, {
-        'input' : input,
-        'threshold' : 0.8,
-        'key' : 'name',
-        'pushSim' : true
+        input: input,
+        threshold: 0.8,
+        key: 'name',
+        pushSim: true
       });
 
       if (similarItems.length) {
@@ -43,12 +39,11 @@ class Armor extends Command {
       }
 
       message.channel.send(msg);
-    }
-    else if (client.armors.has(input)) {
-      const embed = this.armorEmbed(client,input,this.RichEmbed());
+    } else if (client.armors.has(input)) {
+      const embed = this.armorEmbed(client, input, this.RichEmbed());
       message.channel.send(embed);
     }
   }
 }
 
-module.exports = Armor
+module.exports = Armor;

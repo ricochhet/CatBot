@@ -1,4 +1,4 @@
-const Command = require('../utils/baseCommand.js')
+const Command = require('../utils/baseCommand.js');
 
 class Find extends Command {
   constructor(prefix) {
@@ -6,8 +6,8 @@ class Find extends Command {
       'find',
       'find',
       'Show a menu listing all of the current active user sessions',
-      {args : false}
-    )
+      { args: false }
+    );
   }
 
   Chunk(arr, len) {
@@ -15,7 +15,7 @@ class Find extends Command {
 
     let i = 0;
     while (i < arr.length) {
-      chunks.push(arr.slice(i, i += len));
+      chunks.push(arr.slice(i, (i += len)));
     }
 
     return chunks;
@@ -25,7 +25,9 @@ class Find extends Command {
     const lfg = require('../utils/databases/lfg/lfg.json');
 
     if (Object.keys(lfg).length == 0) {
-      return message.reply('Sorry meowster but there are no sessions posted right now!');
+      return message.reply(
+        'Sorry meowster but there are no sessions posted right now!'
+      );
     }
 
     const posts = [];
@@ -41,7 +43,7 @@ class Find extends Command {
     let tEmbed;
 
     for (const outer of tChunks) {
-      tEmbed = this.RichEmbed()
+      tEmbed = this.RichEmbed();
 
       tEmbed
         .setTitle('Session List')
@@ -58,11 +60,11 @@ class Find extends Command {
 
         tEmbed.addField(
           '\u200B',
-          '```\n'
-          + `🔖 Session ID: ${sessionID}\n`
-          + `🕹️ Platform: ${inner[sessionID]['platform']}\n`
-          + `📝 Description: ${desc}\n`
-          + '```',
+          '```\n' +
+            `🔖 Session ID: ${sessionID}\n` +
+            `🕹️ Platform: ${inner[sessionID]['platform']}\n` +
+            `📝 Description: ${desc}\n` +
+            '```'
         );
 
         tEmbed.setColor('#8fde5d');
@@ -72,8 +74,14 @@ class Find extends Command {
     }
 
     let reactions = {};
-    this.menu(message.channel, message.author.id, embeds, 120000, reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'} );
+    this.menu(
+      message.channel,
+      message.author.id,
+      embeds,
+      120000,
+      (reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹' })
+    );
   }
 }
 
-module.exports = Find
+module.exports = Find;

@@ -1,32 +1,23 @@
-const Bot = require( './bot.js' );
+const Bot = require('./bot.js');
 const monsterDatabase = require('./utils/databases/mhw/monsters.json');
 
-client = new Bot('+')
+client = new Bot('+');
+const dbl = client.dblSetup(client.auth.get('DBLTOKEN'));
 
 // load commands
-client.buildCommands(
-  [
-    './commands/',
-    './lfg/',
-    './math/',
-    './mhgu/',
-    './mhw/'
-  ]
-)
+client.buildCommands(['./commands/', './lfg/', './math/', './mhgu/', './mhw/']);
 
 // load Bot databases
-client.buildDBs(
-  {
-    'weapons' : './utils/databases/mhw/weapons.json',
-    'skills' : './utils/databases/mhw/skills.json',
-    'items' : './utils/databases/mhw/items.json',
-    'decorations' : './utils/databases/mhw/decorations.json',
-    'armors' : './utils/databases/mhw/armors.json',
-    'mhguMonsters' : './utils/databases/mhgu/monsters.json',
-    'mhguWeapons' : './utils/databases/mhgu/weapons.json',
-    'auth' : './utils/auth.json'
-  }
-)
+client.buildDBs({
+  weapons: './utils/databases/mhw/weapons.json',
+  skills: './utils/databases/mhw/skills.json',
+  items: './utils/databases/mhw/items.json',
+  decorations: './utils/databases/mhw/decorations.json',
+  armors: './utils/databases/mhw/armors.json',
+  mhguMonsters: './utils/databases/mhgu/monsters.json',
+  mhguWeapons: './utils/databases/mhgu/weapons.json',
+  auth: './utils/auth.json'
+});
 
 // mhw monster collection has a custom collection algorithm
 client.monsters = client.buildCollection();
@@ -50,7 +41,9 @@ client.setInterval(() => {
 
   if (rewrite) {
     const jsonObj = JSON.stringify(lfg, null, 4);
-    fs.writeFile(`utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function(err) {
+    fs.writeFile(`utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function(
+      err
+    ) {
       if (err) {
         console.log('An error occured while writing JSON Object to File.');
         return console.log(err);
@@ -59,4 +52,8 @@ client.setInterval(() => {
   }
 }, 60000);
 
-client.login( client.auth.get('TOKEN') )
+client.setInterval(() => {
+  dbl.postStats(client.guilds.size);
+}, 1800000);
+
+client.login(client.auth.get('TOKEN'));

@@ -1,4 +1,4 @@
-const Command = require('../utils/baseCommand.js')
+const Command = require('../utils/baseCommand.js');
 
 class Mhgu extends Command {
   constructor(prefix) {
@@ -7,16 +7,20 @@ class Mhgu extends Command {
       'mhgu [command] [command arguments]',
       'MHGU - Monster Hunter Generations Ultimate',
       {
-        category : true,
-        prefix : prefix
+        category: true,
+        prefix: prefix
       }
-    )
+    );
   }
 
-  usageEmbed(){
+  usageEmbed() {
     const data = [];
-    data.push(`\`${this.prefix}mhgu monster [monster name]\` - Get info for a specific monster\n`);
-    data.push(`\`${this.prefix}mhgu weapon [weapon name]\` - Get info for a specific weapon\n`);
+    data.push(
+      `\`${this.prefix}mhgu monster [monster name]\` - Get info for a specific monster\n`
+    );
+    data.push(
+      `\`${this.prefix}mhgu weapon [weapon name]\` - Get info for a specific weapon\n`
+    );
 
     const embed = this.RichEmbed()
       .setColor('#8fde5d')
@@ -29,4 +33,4 @@ class Mhgu extends Command {
   }
 }
 
-module.exports = Mhgu
+module.exports = Mhgu;

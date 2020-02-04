@@ -1,4 +1,4 @@
-const Command = require('../utils/baseCommand.js')
+const Command = require('../utils/baseCommand.js');
 
 class Calc extends Command {
   constructor(prefix) {
@@ -9,18 +9,28 @@ class Calc extends Command {
       {
         category: true,
         subTree: 'math',
-        prefix : prefix
+        prefix: prefix
       }
-    )
+    );
   }
 
   usageEmbed() {
     const data = [];
-    data.push(`\`${this.prefix}calc dmgtaken [defense]\` - Calculate for damage taken\n`);
-    data.push(`\`${this.prefix}calc elemental [damage] [sharpness: none, red, orange, yellow, green, blue, white, purple] [monster part multiplier value]\` - Calculate for elemental\n`);
-    data.push(`\`${this.prefix}calc raw [damage] [bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns] [sharpness: none, red, orange, yellow, green, blue, white, purple] [monster part multiplier value]\` - Calculate for raw\n`);
-    data.push(`\`${this.prefix}calc eraw [damage] [bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns]\` - Calculate for effective raw\n`);
-    data.push(`\`${this.prefix}calc affinity [affinity] [damage]\` - Calculate for affinity\n`);
+    data.push(
+      `\`${this.prefix}calc dmgtaken [defense]\` - Calculate for damage taken\n`
+    );
+    data.push(
+      `\`${this.prefix}calc elemental [damage] [sharpness: none, red, orange, yellow, green, blue, white, purple] [monster part multiplier value]\` - Calculate for elemental\n`
+    );
+    data.push(
+      `\`${this.prefix}calc raw [damage] [bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns] [sharpness: none, red, orange, yellow, green, blue, white, purple] [monster part multiplier value]\` - Calculate for raw\n`
+    );
+    data.push(
+      `\`${this.prefix}calc eraw [damage] [bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns]\` - Calculate for effective raw\n`
+    );
+    data.push(
+      `\`${this.prefix}calc affinity [affinity] [damage]\` - Calculate for affinity\n`
+    );
 
     const usageEmbed = this.RichEmbed()
       .setColor('#8fde5d')
@@ -33,4 +43,4 @@ class Calc extends Command {
   }
 }
 
-module.exports = Calc
+module.exports = Calc;

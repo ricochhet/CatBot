@@ -2,14 +2,10 @@ const Command = require('../utils/baseCommand.js');
 
 class Skill extends Command {
   constructor(prefix) {
-    super(
-      'skill',
-      'skill [skill name]',
-      'Get info for a specific skill'
-    )
+    super('skill', 'skill [skill name]', 'Get info for a specific skill');
   }
 
-  skillEmbed(client,name,rawEmbed) {
+  skillEmbed(client, name, rawEmbed) {
     const skill = client.skills.get(name);
 
     const embed = rawEmbed
@@ -27,13 +23,13 @@ class Skill extends Command {
     let input = args.join('').toLowerCase();
 
     if (!client.skills.has(input)) {
-      let msg = 'That skill doesn\'t seem to exist!';
+      let msg = "That skill doesn't seem to exist!";
 
       const similarItems = this.getSimilarArray(client.skills, {
-        'input' : input,
-        'threshold' : 0.65,
-        'key' : 'name',
-        'pushSim' : true
+        input: input,
+        threshold: 0.65,
+        key: 'name',
+        pushSim: true
       });
 
       if (similarItems.length) {
@@ -41,12 +37,11 @@ class Skill extends Command {
       }
 
       message.channel.send(msg);
-    }
-    else if (client.skills.has(input)) {
-      const embed = this.skillEmbed(client,input,this.RichEmbed());
+    } else if (client.skills.has(input)) {
+      const embed = this.skillEmbed(client, input, this.RichEmbed());
       message.channel.send(embed);
     }
   }
 }
 
-module.exports = Skill
+module.exports = Skill;
