@@ -51,7 +51,8 @@ class Monster extends Command {
         input: input,
         threshold: 0.8,
         key: 'title',
-        pushSim: true
+        pushSim: true,
+        reloop : true
       });
 
       if (similarItems.length) {

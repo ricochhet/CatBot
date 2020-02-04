@@ -41,10 +41,10 @@ class Weapon extends Command {
       let msg = 'That weapon doesn\'t seem to exist!';
 
       const similarItems = this.getSimilarArray(client.weapons, {
-        'input' : input,
-        'threshold' : 0.8,
-        'key' : 'title',
-        'pushSim' : true
+        input : input,
+        threshold : 0.8,
+        key : 'title',
+        pushSim : true
       });
 
       if (similarItems.length) {

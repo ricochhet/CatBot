@@ -145,6 +145,32 @@ class Command {
   }
 
   getSimilarArray(collection, options) {
+
+    function getUniqueSim(array){
+      var uniqueArray = [];
+
+      // Loop through array values
+      for(let i=0; i < array.length; i++){
+          if(uniqueArray.map(entity => entity[0]).indexOf(array[i][0]) === -1) {
+              uniqueArray.push(array[i]);
+          }
+      }
+      return uniqueArray;
+    }
+
+    function getUnique(array){
+      var uniqueArray = [];
+
+      // Loop through array values
+      for(let i=0; i < array.length; i++){
+          if(uniqueArray.indexOf(array[i]) === -1) {
+              uniqueArray.push(array[i]);
+          }
+      }
+      return uniqueArray;
+    }
+
+
     let similarArray;
 
     if ('similarArray' in options) {
@@ -159,20 +185,49 @@ class Command {
         if (options['pushSim']) {
           if (options['key']) {
             similarArray.push([value[options['key']], sim]);
+            if (options['reloop']){
+              let newInput = key
+              for (let [key, value] of collection.entries()){
+                let sim = this.similarity(newInput, key);
+                if (sim >= options['threshold']) similarArray.push([value[options['key']], this.similarity(options['input'],newInput)]);
+              }
+            }
           } else {
             similarArray.push([value[key], sim]);
+            if (options['reloop']){
+              let newInput = key
+              for (let [key, value] of collection.entries()){
+                let sim = this.similarity(newInput, key);
+                if (sim >= options['threshold']) similarArray.push([value[key], this.similarity(options['input'],newInput)]);
+              }
+            }
           }
         } else {
           if (options['key']) {
             similarArray.push(value[options['key']]);
+            if (options['reloop']){
+              let newInput = key
+              for (let [key, value] of collection.entries()){
+                let sim = this.similarity(newInput, key);
+                if (sim >= options['threshold']) similarArray.push(value[options['key']]);
+              }
+            }
           } else {
             similarArray.push(value[key]);
+            if (options['reloop']){
+              let newInput = key
+              for (let [key, value] of collection.entries()){
+                let sim = this.similarity(newInput, key);
+                if (sim >= options['threshold']) similarArray.push(value[key]);
+              }
+            }
           }
         }
       }
     }
 
-    return similarArray;
+    if (options['pushSim']) return getUniqueSim(similarArray)
+    return getUnique(similarArray)
   }
 
   reactions(message, similarArray, embedTemplate) {
