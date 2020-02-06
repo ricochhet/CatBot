@@ -19,7 +19,7 @@ class Events extends Command {
   async run (client, message, args) {
 
     // This makes sure that discord-paginationembed can work
-    if (!channel.memberPermissions(message.guild.client.user).has("MANAGE_MESSAGES", true)) return message.reply(`Sorry meowster but I can't send messages in ${channel.name}`);``
+    if (!message.channel.memberPermissions(message.guild.client.user).has("MANAGE_MESSAGES", true)) return message.reply(`Sorry meowster but I can't send messages in ${message.channel.name}`);``
 
     let events = []
 
@@ -41,11 +41,9 @@ class Events extends Command {
         for (let outer of tChunks) {
             // Start to init the embed we gonna use
             tEmbed = this.RichEmbed()
-
-            tEmbed
-                .setTitle("Monster Hunter World Events")
-                .setDescription("Shows all the current active mhw events")
-
+            .setTitle("Monster Hunter World Events")
+            .setDescription("Shows all the current active mhw events")
+            .setColor('#8fde5d');
             // Setup the rest of the embed here
             for (let inner of outer) {
 
@@ -68,7 +66,6 @@ class Events extends Command {
           // Adds to a 1D normal array of embeds for discord-paginationembed to iterate though
           embeds.push(tEmbed)
     }
-  })
 
     let reactions = {};
     this.menu(
@@ -78,6 +75,8 @@ class Events extends Command {
       120000,
       (reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹' })
     );
+  })
+
   }
 }
 
