@@ -31,6 +31,9 @@ class Mhw extends Command {
     data.push(
       `\`${this.prefix}mhw rollhunt\` - Get a random roll of what monster you should hunt with which gear\n`
     );
+    data.push(
+      `\`${this.prefix}mhw events\` - Gets all current mhw events info\n`
+    );
 
     const usageEmbed = this.RichEmbed()
       .setColor('#8fde5d')
