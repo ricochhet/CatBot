@@ -26,7 +26,7 @@ class Calc extends Command {
       `\`${this.prefix}calc raw [damage] [bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns] [sharpness: none, red, orange, yellow, green, blue, white, purple] [monster part multiplier value]\` - Calculate for raw\n`
     );
     data.push(
-      `\`${this.prefix}calc eraw [damage] [bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns]\` - Calculate for effective raw\n`
+      `\`${this.prefix}calc eraw [bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns] [damage]\` - Calculate for effective raw\n`
     );
     data.push(
       `\`${this.prefix}calc affinity [affinity] [damage]\` - Calculate for affinity\n`

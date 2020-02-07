@@ -14,7 +14,7 @@ class Help extends Command {
 
     let data = [];
     data = [];
-    client.main
+    client.commands
       .filter(cmd => cmd.calc != true)
       .forEach(cmd => {
         if (cmd.category) {
@@ -26,7 +26,7 @@ class Help extends Command {
 
     // Other Commands w/o Args
     data = [];
-    client.main
+    client.commands
       .filter(cmd => cmd.args != true)
       .forEach(cmd => {
         if (!cmd.category) {
@@ -62,7 +62,7 @@ class Help extends Command {
 
     let embeds = [helpEmbed];
 
-    client.main
+    client.commands
       .filter(cmd => cmd.calc != true)
       .forEach(cmd => {
         if (cmd.category) {

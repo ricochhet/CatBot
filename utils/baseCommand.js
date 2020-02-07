@@ -40,26 +40,19 @@ class Command {
       ['lbg', 1.3],
       ['bow', 1.2]
     ]);
-    this.rawSharpRatio = new Map([
-      ['red', 0.5],
-      ['orange', 0.75],
-      ['yellow', 1.0],
-      ['green', 1.05],
-      ['blue', 1.2],
-      ['white', 1.32],
-      ['purple', 1.39],
-      ['none', 1.0]
-    ]);
-    this.elemSharpRatio = new Map([
-      ['red', 0.5],
-      ['orange', 0.75],
-      ['yellow', 1.0],
-      ['green', 1.05],
-      ['blue', 1.2],
-      ['white', 1.32],
-      ['purple', 1.39],
-      ['none', 1.0]
-    ]);
+
+    for (let varName of ['rawSharpRatio','elemSharpRatio']){
+      this[varName] = new Map([
+        ['red', 0.5],
+        ['orange', 0.75],
+        ['yellow', 1.0],
+        ['green', 1.05],
+        ['blue', 1.2],
+        ['white', 1.32],
+        ['purple', 1.39],
+        ['none', 1.0]
+      ]);
+    }
 
     if (!this.category && this.subTree != null) {
       console.log(
