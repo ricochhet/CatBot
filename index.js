@@ -1,10 +1,11 @@
 const Bot = require('./bot.js');
 const monsterDatabase = require('./utils/databases/mhw/monsters.json');
+const fs = require('fs');
 
 client = new Bot('+');
 
 // load commands
-client.buildCommands(['./commands/', './lfg/', './math/', './mhgu/', './mhw/']);
+client.buildCommands(['./commands/main/', './commands/lfg/', './commands/math/', './commands/mhgu/', './commands/mhw/']);
 
 // load Bot databases
 client.buildDBs({
@@ -33,8 +34,8 @@ client.setInterval(() => {
 
   for (const sessionID in lfg) {
     const duration = Date.now() - lfg[sessionID]['time'];
-
-    if (duration >= 7200000) {
+//7200000
+    if (duration >= 600) {
       delete lfg[sessionID];
       rewrite = true;
     }

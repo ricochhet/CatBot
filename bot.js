@@ -58,7 +58,7 @@ class Bot extends Client {
   }
 
   setupCommand(dir) {
-    let collectionName = dir.split('/')[1];
+    let collectionName = dir.split('/')[2];
     this[collectionName] = new Collection();
     fs.readdir(dir, (err, files) => {
       if (err) return console.error(err);
@@ -116,7 +116,7 @@ class Bot extends Client {
       .split(/ +/g);
     const cmdName = args.shift().toLowerCase();
 
-    const command = this.commands.get(cmdName);
+    const command = this.main.get(cmdName);
 
     if (!command) return;
 
