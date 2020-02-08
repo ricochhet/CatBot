@@ -1,20 +1,48 @@
 class Pages {
-  constructor(channel = new TextChannel(), uid, pages = [], time = 120000, reactions = {first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'}) {
+
+  constructor(
+    channel = new TextChannel(), 
+    uid, 
+    pages = [],
+    time = 120000,
+    reactions = {first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'},
+    pageFooter = false
+  ) 
+  {
     this.channel = channel;
     this.pages = pages;
     this.time = time;
     this.reactions = reactions;
     this.page = 1;
+
+    if (pages.length && pageFooter) {
+      this.displayPageNumbers();
+    }
+
     channel.send(pages[0]).then(msg => {
         this.msg = msg;
         this.addReactions();
         this.createCollector(uid);
     });
   }
+
+  displayPageNumbers() {
+    const total = this.pages.length;
+    let current; 
+    for (let i = 0; i < total; i++) {      
+      current = this.pages[i];
+      current.setFooter(
+          `Page ${i + 1} / ${total}`,
+          this.channel.client.user.avatarURL
+      );
+    }
+  }
+
   select(pg = 1) {
     this.page = pg;
     this.msg.edit(this.pages[pg-1]);
   }
+
   createCollector(uid) {
     const collector = this.msg.createReactionCollector((r, u) => u.id == uid, {time: this.time});
     this.collector = collector;
@@ -36,6 +64,7 @@ class Pages {
         this.msg.clearReactions();
     });
   }
+
   async addReactions() {
     if(this.reactions.first) await this.msg.react(this.reactions.first);
     if(this.reactions.back)  await this.msg.react(this.reactions.back);
@@ -43,6 +72,7 @@ class Pages {
     if(this.reactions.last)  await this.msg.react(this.reactions.last);
     if(this.reactions.stop)  await this.msg.react(this.reactions.stop);
   }
+
 }
 
 module.exports = Pages
