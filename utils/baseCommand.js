@@ -96,8 +96,8 @@ class Command {
   usageEmbed() {
     const embed = this.RichEmbed()
       .setColor('#8fde5d')
-      .addField('Usage: ', this.usage, true)
-      .addField('Description: ', this.description, true)
+      .addField('Usage: ', this.usage)
+      .addField('Description: ', this.description)
       .setTimestamp();
 
     return embed;
