@@ -5,7 +5,7 @@ class Armor extends Command {
     super('armor', 'armor [armor name]', 'Get info for a specific armor set');
   }
 
-  armorEmbed(client, name, rawEmbed) {
+  armorEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const armor = client.armors.get(name);
 
     const embed = rawEmbed
@@ -27,12 +27,14 @@ class Armor extends Command {
     if (!client.armors.has(input)) {
       let msg = "That armor doesn't seem to exist!";
 
-      const similarItems = this.getSimilarArray(client.armors, {
+      const options = {
         input: input,
         threshold: 0.8,
-        key: 'name',
-        pushSim: true
-      });
+        innerKey: 'name',
+        includeScore: true
+      }
+
+      let similarItems = this.findAllMatching(client.armors,options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.armorEmbed);
@@ -40,7 +42,7 @@ class Armor extends Command {
 
       message.channel.send(msg);
     } else if (client.armors.has(input)) {
-      const embed = this.armorEmbed(client, input, this.RichEmbed());
+      const embed = this.armorEmbed(client, input);
       message.channel.send(embed);
     }
   }

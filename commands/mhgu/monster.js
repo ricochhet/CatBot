@@ -47,12 +47,14 @@ class Monster extends Command {
     if (!client.mhguMonsters.has(input)) {
       let msg = "That monster doesn't seem to exist!";
 
-      let similarItems = this.getSimilarArray(client.mhguMonsters, {
+      const options = {
         input: input,
         threshold: 0.8,
-        key: 'name',
-        pushSim: true
-      });
+        innerKey: 'name',
+        includeScore: true
+      }
+
+      let similarItems = this.findAllMatching(client.mhguMonsters,options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.monsterEmbed);

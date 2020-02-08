@@ -9,7 +9,7 @@ class Weapon extends Command {
     )
   }
 
-  weaponEmbed(client,name,rawEmbed) {
+  weaponEmbed(client,name,rawEmbed = this.RichEmbed()) {
     const weapon = client.weapons.get(name);
 
     const embed = rawEmbed
@@ -40,12 +40,14 @@ class Weapon extends Command {
     if (!client.weapons.has(input)) {
       let msg = 'That weapon doesn\'t seem to exist!';
 
-      const similarItems = this.getSimilarArray(client.weapons, {
+      const options = {
         input : input,
         threshold : 0.8,
-        key : 'title',
-        pushSim : true
-      });
+        innerKey : 'title',
+        includeScore : true
+      }
+
+      let similarItems = this.findAllMatching(client.weapons,options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.weaponEmbed);
@@ -54,7 +56,7 @@ class Weapon extends Command {
       message.channel.send(msg);
     }
     else if (client.weapons.has(input)) {
-      const embed = this.weaponEmbed(client,input,this.RichEmbed());
+      const embed = this.weaponEmbed(client,input);
       message.channel.send(embed);
     }
   }

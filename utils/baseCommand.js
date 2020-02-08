@@ -1,4 +1,6 @@
 const { RichEmbed, TextChannel, version } = require('discord.js');
+const Pages = require('./pagers.js')
+const similarity = require('./similarity.js')
 
 class Command {
   constructor(
@@ -22,6 +24,9 @@ class Command {
     this.subTree = options['subTree'];
     this.prefix = options['prefix'];
     this.version = version;
+
+    this.score = similarity.score
+    this.findAllMatching = similarity.findAllMatching
 
     // Weapons multiplier
     this.weaponsRatio = new Map([
@@ -56,7 +61,7 @@ class Command {
 
     if (!this.category && this.subTree != null) {
       console.log(
-        `Warning Non-Catagory Command (${this.name}) has set a subTree`
+        `Warning Non-Category Command (${this.name}) has set a subTree`
       );
     } else if (this.category && this.subTree == null) {
       this.subTree = this.name;
@@ -95,132 +100,6 @@ class Command {
       .setTimestamp();
 
     return embed;
-  }
-
-  // Code from https://github.com/dgendill/Javascript-String-Comparison-Algorithms/blob/master/string-compare.js
-  similarity(str1, str2) {
-    var str1Length = str1.length;
-    var str2Length = str2.length;
-
-    var range = Math.floor(Math.max(str1Length, str2Length) / 2) - 1;
-    var m = 0;
-    var t = 0;
-    var l = 0;
-    var isLSet = false;
-    var lastMatchJ = 0;
-    for (var i = 0; i < str1Length; i++) {
-      var c1 = str1[i];
-      for (var j = i; j < str2Length; j++) {
-        if (Math.abs(i - j) > range) continue;
-        var c2 = str2[j];
-        if (c1 == c2) {
-          m++; //characters is the same and within range
-          if (i != j) {
-            if (lastMatchJ > j) t += 2;
-          } else {
-            if (!isLSet && l < 4) {
-              l++;
-            }
-          }
-          lastMatchJ = j;
-          break;
-        } else {
-          if (i == j) isLSet = true;
-        }
-      }
-    }
-    t = 0.5 * t;
-    m = Math.min(m, str1Length, str2Length);
-    var dj = 0;
-    if (m > 0) dj = (m / str1Length + m / str2Length + (m - t) / m) / 3;
-
-    return dj + l * 0.1 * (1 - dj);
-  }
-
-  getSimilarArray(collection, options) {
-
-    function getUniqueSim(array){
-      var uniqueArray = [];
-
-      // Loop through array values
-      for(let i=0; i < array.length; i++){
-          if(uniqueArray.map(entity => entity[0]).indexOf(array[i][0]) === -1) {
-              uniqueArray.push(array[i]);
-          }
-      }
-      return uniqueArray;
-    }
-
-    function getUnique(array){
-      var uniqueArray = [];
-
-      // Loop through array values
-      for(let i=0; i < array.length; i++){
-          if(uniqueArray.indexOf(array[i]) === -1) {
-              uniqueArray.push(array[i]);
-          }
-      }
-      return uniqueArray;
-    }
-
-
-    let similarArray;
-
-    if ('similarArray' in options) {
-      similarArray = options['similarArray'];
-    } else {
-      similarArray = new Array();
-    }
-
-    for (let [key, value] of collection.entries()) {
-      let sim = this.similarity(key, options['input']);
-      if (sim >= options['threshold']) {
-        if (options['pushSim']) {
-          if (options['key']) {
-            similarArray.push([value[options['key']], sim]);
-            if (options['reloop']){
-              let newInput = key
-              for (let [key, value] of collection.entries()){
-                let sim = this.similarity(newInput, key);
-                if (sim >= options['threshold']) similarArray.push([value[options['key']], this.similarity(options['input'],newInput)]);
-              }
-            }
-          } else {
-            similarArray.push([value[key], sim]);
-            if (options['reloop']){
-              let newInput = key
-              for (let [key, value] of collection.entries()){
-                let sim = this.similarity(newInput, key);
-                if (sim >= options['threshold']) similarArray.push([value[key], this.similarity(options['input'],newInput)]);
-              }
-            }
-          }
-        } else {
-          if (options['key']) {
-            similarArray.push(value[options['key']]);
-            if (options['reloop']){
-              let newInput = key
-              for (let [key, value] of collection.entries()){
-                let sim = this.similarity(newInput, key);
-                if (sim >= options['threshold']) similarArray.push(value[options['key']]);
-              }
-            }
-          } else {
-            similarArray.push(value[key]);
-            if (options['reloop']){
-              let newInput = key
-              for (let [key, value] of collection.entries()){
-                let sim = this.similarity(newInput, key);
-                if (sim >= options['threshold']) similarArray.push(value[key]);
-              }
-            }
-          }
-        }
-      }
-    }
-
-    if (options['pushSim']) return getUniqueSim(similarArray)
-    return getUnique(similarArray)
   }
 
   reactions(message, similarArray, embedTemplate) {
@@ -275,53 +154,6 @@ class Command {
           await message.react('❌');
         });
     });
-  }
-}
-
-class Pages {
-  constructor(channel = new TextChannel(), uid, pages = [], time = 120000, reactions = {first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹'}) {
-    this.channel = channel;
-    this.pages = pages;
-    this.time = time;
-    this.reactions = reactions;
-    this.page = 1;
-    channel.send(pages[0]).then(msg => {
-        this.msg = msg;
-        this.addReactions();
-        this.createCollector(uid);
-    });
-  }
-  select(pg = 1) {
-    this.page = pg;
-    this.msg.edit(this.pages[pg-1]);
-  }
-  createCollector(uid) {
-    const collector = this.msg.createReactionCollector((r, u) => u.id == uid, {time: this.time});
-    this.collector = collector;
-    collector.on('collect', r => {
-      if(r.emoji.name == this.reactions.first) {
-        if(this.page != 1) this.select(1);
-      } else if(r.emoji.name == this.reactions.back) {
-        if(this.page != 1) this.select(this.page - 1);
-      } else if(r.emoji.name == this.reactions.next) {
-        if(this.page != this.pages.length) this.select(this.page + 1);
-      } else if(r.emoji.name == this.reactions.last) {
-        if(this.page != this.pages.length) this.select(this.pages.length);
-      } else if(r.emoji.name == this.reactions.stop) {
-        collector.stop();
-      }
-      r.remove(uid);
-    });
-    collector.on('end', () => {
-        this.msg.clearReactions();
-    });
-  }
-  async addReactions() {
-    if(this.reactions.first) await this.msg.react(this.reactions.first);
-    if(this.reactions.back)  await this.msg.react(this.reactions.back);
-    if(this.reactions.next)  await this.msg.react(this.reactions.next);
-    if(this.reactions.last)  await this.msg.react(this.reactions.last);
-    if(this.reactions.stop)  await this.msg.react(this.reactions.stop);
   }
 }
 

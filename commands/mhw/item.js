@@ -5,7 +5,7 @@ class Item extends Command {
     super('item', 'item [item name]', 'Get info for a specific item');
   }
 
-  itemEmbed(client, name, rawEmbed) {
+  itemEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const item = client.items.get(name);
 
     const embed = rawEmbed
@@ -27,12 +27,14 @@ class Item extends Command {
     if (!client.items.has(input)) {
       let msg = "That item doesn't seem to exist!";
 
-      const similarItems = this.getSimilarArray(client.items, {
+      const options = {
         input: input,
         threshold: 0.8,
-        key: 'name',
-        pushSim: true
-      });
+        innerKey: 'name',
+        includeScore: true
+      }
+
+      let similarItems = this.findAllMatching(client.items, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.itemEmbed);
@@ -40,7 +42,7 @@ class Item extends Command {
 
       message.channel.send(msg);
     } else if (client.items.has(input)) {
-      const embed = this.itemEmbed(client, input, this.RichEmbed());
+      const embed = this.itemEmbed(client, input);
       message.channel.send(embed);
     }
   }

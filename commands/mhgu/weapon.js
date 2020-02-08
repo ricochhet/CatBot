@@ -52,12 +52,14 @@ class Weapon extends Command {
     if (!client.mhguWeapons.has(input)) {
       let msg = "That weapon doesn't seem to exist!";
 
-      const similarItems = this.getSimilarArray(client.mhguWeapons, {
+      const options = {
         input: input,
         threshold: 0.8,
-        key: 'name',
-        pushSim: true
-      });
+        innerKey: 'name',
+        includeScore: true
+      }
+
+      const similarItems = this.findAllMatching(client.mhguWeapons,options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.weaponEmbed);

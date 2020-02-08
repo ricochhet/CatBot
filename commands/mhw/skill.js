@@ -5,7 +5,7 @@ class Skill extends Command {
     super('skill', 'skill [skill name]', 'Get info for a specific skill');
   }
 
-  skillEmbed(client, name, rawEmbed) {
+  skillEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const skill = client.skills.get(name);
 
     const embed = rawEmbed
@@ -25,12 +25,14 @@ class Skill extends Command {
     if (!client.skills.has(input)) {
       let msg = "That skill doesn't seem to exist!";
 
-      const similarItems = this.getSimilarArray(client.skills, {
+      const options = {
         input: input,
-        threshold: 0.65,
-        key: 'name',
-        pushSim: true
-      });
+        threshold: 0.8,
+        innerKey: 'name',
+        includeScore: true
+      }
+
+      let similarItems = this.findAllMatching(client.skills, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.skillEmbed);
@@ -38,7 +40,7 @@ class Skill extends Command {
 
       message.channel.send(msg);
     } else if (client.skills.has(input)) {
-      const embed = this.skillEmbed(client, input, this.RichEmbed());
+      const embed = this.skillEmbed(client, input);
       message.channel.send(embed);
     }
   }
