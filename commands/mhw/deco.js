@@ -1,11 +1,12 @@
 const Command = require('../../utils/baseCommand.js');
+const similarity = require('../../utils/similarity.js')
 
 class Deco extends Command {
   constructor(prefix) {
     super('deco', 'deco [deco name]', 'Get info for a specific decoration');
   }
 
-  decorationEmbed(client, name, rawEmbed) {
+  decorationEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const decoration = client.decorations.get(name);
 
     const embed = rawEmbed
@@ -20,7 +21,7 @@ class Deco extends Command {
     return embed;
   }
 
-  findDecoBySkill(input) {
+  findDecosBySkill(input) {
     let arr = [];
     for (let [name, deco] of client.decorations.entries()) {
       for (let skill of deco.skills) {
@@ -29,8 +30,9 @@ class Deco extends Command {
           .toLowerCase()
           .split(' ')
           .join('');
-        let sim = this.similarity(input, skillname);
-        if (sim > 0.8 && !arr.includes(skillname) && input.length > 0) {
+
+        let sim = similarity.score(input, skillname);
+        if (sim > 0.8) {
           arr.push([deco.name, sim]);
         }
       }
@@ -45,23 +47,28 @@ class Deco extends Command {
     if (!client.decorations.has(input)) {
       let msg = "That decoration doesn't seem to exist!";
 
-      let skillNameDeco = this.findDecoBySkill(input);
+      if (!input) return message.channel.send(msg);
 
-      let similarItems = this.getSimilarArray(client.decorations, {
+      let decosMatchingSkill = this.findDecosBySkill(input);
+
+      const options = {
         input: input,
         threshold: 0.8,
-        key: 'name',
-        pushSim: true,
-        similarArray: skillNameDeco
-      });
+        innerKey: 'name',
+        includeScore: true,
+        initial: decosMatchingSkill
+      };      
+
+      let similarItems = similarity.findAllMatching(client.decorations, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.decorationEmbed);
       }
 
       message.channel.send(msg);
+
     } else if (client.decorations.has(input)) {
-      const embed = this.decorationEmbed(client, input, this.RichEmbed());
+      const embed = this.decorationEmbed(client, input);
       message.channel.send(embed);
     }
   }

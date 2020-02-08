@@ -1,4 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
+const similarity = require('../../utils/similarity.js')
 
 class Monster extends Command {
   constructor(prefix) {
@@ -9,7 +10,7 @@ class Monster extends Command {
     );
   }
 
-  monsterEmbed(client, name, rawEmbed) {
+  monsterEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const monster = client.monsters.get(name);
 
     const embed = rawEmbed.setColor('#8fde5d').setTitle(monster.title);
@@ -47,13 +48,17 @@ class Monster extends Command {
     if (!client.monsters.has(input)) {
       let msg = "That monster doesn't seem to exist!";
 
-      let similarItems = this.getSimilarArray(client.monsters, {
+      if (!input) return message.channel.send(msg);
+
+      const options = {
         input: input,
         threshold: 0.8,
-        key: 'title',
-        pushSim: true,
+        innerKey: 'title',
+        includeScore: true,
         reloop : true
-      });
+      };
+      
+      let similarItems = similarity.findAllMatching(client.monsters, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.monsterEmbed);
@@ -61,7 +66,7 @@ class Monster extends Command {
 
       message.channel.send(msg);
     } else if (client.monsters.has(input)) {
-      const embed = this.monsterEmbed(client, input, this.RichEmbed());
+      const embed = this.monsterEmbed(client, input);
       message.channel.send(embed);
     }
   }
