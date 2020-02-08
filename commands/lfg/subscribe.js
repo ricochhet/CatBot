@@ -6,7 +6,8 @@ class Subscribe extends Command {
     super(
       'subscribe',
       'subscribe [channel name]',
-      'All user posted sessions will be sent to the subscribed Discord channel'
+      'All user posted sessions will be sent to the subscribed Discord channel',
+      {args : false}
     );
   }
 

@@ -9,7 +9,8 @@ class RollHunt extends Command {
     super(
       'rollhunt',
       'rollhunt',
-      'Get a random roll of what monster you should hunt with which gear'
+      'Get a random roll of what monster you should hunt with which gear',
+      {args:false}
     );
   }
 

@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 
 class Events extends Command {
   constructor() {
-    super('events','events','Get all current events info')
+    super('events','events','Get all current events info',{args : false})
   }
 
   Chunk(arr, len) {
