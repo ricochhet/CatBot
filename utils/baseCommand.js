@@ -88,9 +88,10 @@ class Command {
     uid,
     pages = [],
     time = 120000,
-    reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹' }
+    reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹' },
+    pageFooter = false
   ) {
-    return new Pages(channel, uid, pages, time, reactions);
+    return new Pages(channel, uid, pages, time, reactions, pageFooter);
   }
 
   usageEmbed() {
