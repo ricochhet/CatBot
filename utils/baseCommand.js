@@ -2,19 +2,22 @@ const { RichEmbed, TextChannel, version } = require('discord.js');
 const Pages = require('./pagers.js')
 const similarity = require('./similarity.js')
 
+const _ops = {
+  args: true,
+  secret: false,
+  category: false,
+  subTree: null,
+  prefix: ''
+}
+
 class Command {
   constructor(
     name,
     usage,
     description,
-    options = {
-      args: true,
-      secret: false,
-      category: false,
-      subTree: null,
-      prefix: ''
-    }
+    options = _ops
   ) {
+    options = {..._ops,...options}
     this.name = name;
     this.usage = `${options['prefix']}${usage}`;
     this.description = description;
@@ -95,11 +98,32 @@ class Command {
   }
 
   usageEmbed() {
-    const embed = this.RichEmbed()
-      .setColor('#8fde5d')
-      .addField('Usage: ', this.usage)
-      .addField('Description: ', this.description)
-      .setTimestamp();
+
+    let embed;
+    if (this.category){
+
+      // Get all commands in sub command
+      const data = [];
+
+      client[this.subTree].tap((cmd) => {
+        data.push(
+          `\`${this.prefix}${this.name} ${cmd.usage}\` - ${cmd.description}`
+        )
+      })
+
+      embed = this.RichEmbed()
+        .setColor('#8fde5d')
+        .addField(this.description, this.usage)
+        .addField('Parameters Help', data.join('\n\n'))
+        .setTimestamp()
+        .setFooter(`${this.name.toUpperCase()} Help`);
+    } else {
+      embed = this.RichEmbed()
+        .setColor('#8fde5d')
+        .addField('Usage: ', this.usage)
+        .addField('Description: ', this.description)
+        .setTimestamp();
+    }
 
     return embed;
   }

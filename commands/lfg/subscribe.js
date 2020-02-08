@@ -5,7 +5,7 @@ class Subscribe extends Command {
   constructor(prefix) {
     super(
       'subscribe',
-      'subscribe [channel name]',
+      'subscribe (channel name)',
       'All user posted sessions will be sent to the subscribed Discord channel',
       {args : false}
     );

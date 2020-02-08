@@ -39,6 +39,7 @@ api = {
 
 class Bot extends Client {
   constructor(prefix, options = api) {
+    options = {...api,...options}
     super(options);
     this.prefix = prefix;
     this.Constants = Constants;

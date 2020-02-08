@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 
 class Events extends Command {
   constructor() {
-    super('events','events','Get all current events info',{args : false})
+    super('events','events','Get all current events info',{args : true})
   }
 
   Chunk(arr, len) {
@@ -73,7 +73,8 @@ class Events extends Command {
       message.author.id,
       embeds,
       120000,
-      (reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹' })
+      (reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹' }),
+      true  // override embed footers (with page number)
     );
   })
 

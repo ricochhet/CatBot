@@ -5,7 +5,7 @@ class Elemental extends Command {
     super(
       'elemental',
       'elemental [damage] [sharpness] [monster part multiplier]',
-      'Calculate for elemental`'
+      'Calculate for elemental'
     );
   }
 

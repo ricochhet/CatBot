@@ -2,7 +2,7 @@ const Command = require('../../utils/baseCommand.js');
 
 class Invite extends Command {
   constructor(prefix) {
-    super('invite', 'invte', 'Invite CatBot to your Server', {
+    super('invite', 'invite', 'Invite CatBot to your Server', {
       args: false,
       prefix: prefix
     });

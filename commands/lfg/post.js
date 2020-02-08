@@ -5,7 +5,7 @@ class Post extends Command {
   constructor(prefix) {
     super(
       'post',
-      'post <platform> <sessionid> [description]',
+      'post [platform] [sessionid] (description)',
       'Posts an active session to CatBots LFG command'
     );
   }
