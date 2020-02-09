@@ -38,7 +38,7 @@ class Help extends Command {
 
     // Notes
     data = [];
-    data.push('Using a command w/o parameters gets extended help');
+    data.push(':bulb: Using a command w/o parameters gets extended help');
     data.push('[parameter] - Mandatory parameter');
     data.push('(parameter) - Optional paramater');
     helpEmbed.addField('Formatting', data.join('\n'));
