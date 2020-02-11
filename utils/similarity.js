@@ -144,4 +144,4 @@ function findSimilarElements(collection, options) {
 }
 
 exports.score = similarityScore;
-exports.findAllMatching = findSimilarElements
+exports.findAllMatching = findSimilarElements;
