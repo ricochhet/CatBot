@@ -8,25 +8,25 @@ class List extends Command {
   }
 
   run(client, message, args) {
-    
     const monsterNames = client.monsters.map(monster => monster.title);
     monsterNames.sort();
-    
-    let monsterPerPage = 10;
+
+    let monsterPerPage = 20;
     const total = monsterNames.length;
     let embeds = [];
 
     const makePage = names => {
       if (!names.length) return;
-      let page = this.RichEmbed().setColor('#8fde5d')
-                  .addField("Monsters list", names.join('\n'))
-                  .setTimestamp();
+      let page = this.RichEmbed()
+        .setColor('#8fde5d')
+        .addField('Monsters list', names.join('\n'))
+        .setTimestamp();
 
       embeds.push(page);
-    }
-    
-    let data = [];    
-    
+    };
+
+    let data = [];
+
     for (let i = 0; i < total; i++) {
       if (i % monsterPerPage === 0) {
         // add new page and reset data (go next)
@@ -41,7 +41,7 @@ class List extends Command {
     if (data.length) {
       makePage(data);
     }
-    
+
     const reactions = {
       first: '⏪',
       back: '◀',
@@ -52,13 +52,14 @@ class List extends Command {
     const displayPageNumbers = true;
 
     this.menu(
+      message,
       message.channel,
       message.author.id,
       embeds,
       120000,
       reactions,
       displayPageNumbers
-    )    
+    );
   }
 }
 

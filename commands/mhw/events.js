@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 class Events extends Command {
   constructor() {
-    super('events', 'events', 'Get all current events info', { args: true });
+    super('events', 'events', 'Get all current events info', { args: false });
   }
 
   Chunk(arr, len) {
@@ -19,17 +19,6 @@ class Events extends Command {
   }
 
   async run(client, message, args) {
-    // This makes sure that discord-paginationembed can work
-    if (
-      !message.channel
-        .memberPermissions(message.guild.client.user)
-        .has('MANAGE_MESSAGES', true)
-    )
-      return message.reply(
-        `Sorry meowster but I can't send messages in ${message.channel.name}`
-      );
-    ``;
-
     let events = [];
 
     // Get all of the info from mhw api and casts it too a json format
@@ -41,7 +30,7 @@ class Events extends Command {
         });
 
         // Chuncks create a 2D array that lets us control how many events we want on one embed
-        let tChunks = this.Chunk(events, 1);
+        let tChunks = this.Chunk(events, 2);
         let embeds = [],
           tEmbed;
 
@@ -49,9 +38,10 @@ class Events extends Command {
         for (let outer of tChunks) {
           // Start to init the embed we gonna use
           tEmbed = this.RichEmbed()
-            .setTitle('Monster Hunter World Events')
-            .setDescription('Shows all the current active mhw events')
-            .setColor('#8fde5d');
+            .setTitle('Monster Hunter World Events');
+
+          tEmbed.setDescription('Shows all the current active mhw events');
+          tEmbed.setColor('#8fde5d');
           // Setup the rest of the embed here
           for (let inner of outer) {
             // Makes sure that requirements doesnt display as null
@@ -77,6 +67,7 @@ class Events extends Command {
 
         let reactions = {};
         this.menu(
+          message,
           message.channel,
           message.author.id,
           embeds,

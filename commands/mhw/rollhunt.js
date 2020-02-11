@@ -14,35 +14,36 @@ class RollHunt extends Command {
     );
   }
 
-  run(client, message, args) {
-    let input = args.join('').toLowerCase();
-
+  rollEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const mhMonsterKeys = Object.values(monsterDatabase);
     const mhWeaponKeys = Object.values(weaponDatabase);
     const mhArmorKeys = Object.values(armorDatabase);
 
     const monster =
-      mhMonsterKeys[Math.floor(Math.random() * mhMonsterKeys.length)].details
-        .title;
+      mhMonsterKeys[Math.floor(Math.random() * mhMonsterKeys.length)];
     const weapon =
-      mhWeaponKeys[Math.floor(Math.random() * mhWeaponKeys.length)].title;
+      mhWeaponKeys[Math.floor(Math.random() * mhWeaponKeys.length)];
     const armor =
       mhArmorKeys[Math.floor(Math.random() * mhArmorKeys.length)].name;
 
-    message.channel.send(
-      'Fight ' +
-        '**' +
-        monster +
-        '**' +
-        ' with a ' +
-        '**' +
-        weapon +
-        '**' +
-        ' using ' +
-        '**' +
-        armor +
-        '**'
-    );
+    const embed = rawEmbed
+      .setColor('#8fde5d')
+      .setTitle('Roll a Hunt')
+      .setThumbnail(monster.details.thumbnail)
+      .addField('Monster', monster.details.title)
+      .addField('Armor', armor)
+      .addField('Weapon', `${weapon.type}: ${weapon.title}`)
+      .setTimestamp()
+      .setFooter('Roll Menu');
+
+    return embed;
+  }
+
+  run(client, message, args) {
+    let input = args.join('').toLowerCase();
+
+    const embed = this.rollEmbed(client, input);
+    message.channel.send(embed);
   }
 }
 

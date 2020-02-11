@@ -1,5 +1,6 @@
 class Pages {
   constructor(
+    message,
     channel = new TextChannel(),
     uid,
     pages = [],
@@ -7,6 +8,7 @@ class Pages {
     reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹' },
     pageFooter = false
   ) {
+    this.message = message;
     this.channel = channel;
     this.pages = pages;
     this.time = time;
@@ -17,8 +19,20 @@ class Pages {
       this.displayPageNumbers();
     }
 
+    let missingPermissions = false;
+    if (
+      !message.member.guild.me.hasPermission('MANAGE_MESSAGES') ||
+      !message.member.guild.me.hasPermission('ADD_REACTIONS')
+    ) {
+      let checkPermissions = `💡 *The bot doesn't have* **MANAGE_MESSAGES** *or* **ADD_REACTIONS** *permission!*`;
+      missingPermissions = true;
+      pages[0].setDescription(checkPermissions);
+    }
+
     channel.send(pages[0]).then(msg => {
       this.msg = msg;
+
+      if (missingPermissions) return;
       this.addReactions();
       this.createCollector(uid);
     });

@@ -20,7 +20,7 @@ class About extends Command {
       .addField('Version: ', 'v1.13.0', true)
       .addField(
         'Changelog: ',
-        `v1.13.0 | Better search results + Can now search by skill name in \`${this.prefix}mhw deco\``
+        `v2.13.0 | Updated bot to use ES6, added a bucket load of new features.`
       )
       .addField(
         'Feedback / Requests: ',

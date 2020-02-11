@@ -18,7 +18,7 @@ class Monster extends Command {
       embed.setURL(monster.url);
     }
 
-    embed.setDescription(monster.description);
+    embed.setDescription(`${monster.description}\n\n${monster.info}`);
     embed.setThumbnail(monster.thumbnail);
     embed.addField('Elements', monster.elements, true);
     embed.addField('Ailments', monster.ailments, true);
