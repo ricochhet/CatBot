@@ -7,21 +7,58 @@ class List extends Command {
     });
   }
 
-  listEmbed(client, name, rawEmbed = this.RichEmbed()) {
-    const embed = rawEmbed
-      .setColor('#8fde5d')
-      .addField('Monster List', client.monsterList.get('monsters'))
-      .setTimestamp()
-      .setFooter('Info Menu');
-
-    return embed;
-  }
-
   run(client, message, args) {
-    let input = args.join('').toLowerCase();
+    
+    const monsterNames = client.monsters.map(monster => monster.title);
+    monsterNames.sort();
+    
+    let monsterPerPage = 10;
+    const total = monsterNames.length;
+    let embeds = [];
 
-    const embed = this.listEmbed(client, input);
-    message.channel.send(embed);
+    const makePage = names => {
+      if (!names.length) return;
+      let page = this.RichEmbed().setColor('#8fde5d')
+                  .addField("Monsters list", names.join('\n'))
+                  .setTimestamp();
+
+      embeds.push(page);
+    }
+    
+    let data = [];    
+    
+    for (let i = 0; i < total; i++) {
+      if (i % monsterPerPage === 0) {
+        // add new page and reset data (go next)
+        makePage(data);
+        data = [];
+      }
+
+      data.push(monsterNames[i]);
+    }
+
+    // fill up last page if needed (loop ended before hitting multiple of monsterPerPage)
+    if (data.length) {
+      makePage(data);
+    }
+    
+    const reactions = {
+      first: '⏪',
+      back: '◀',
+      next: '▶',
+      last: '⏩',
+      stop: '⏹'
+    };
+    const displayPageNumbers = true;
+
+    this.menu(
+      message.channel,
+      message.author.id,
+      embeds,
+      120000,
+      reactions,
+      displayPageNumbers
+    )    
   }
 }
 

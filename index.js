@@ -20,7 +20,6 @@ client.buildDBs({
   items: './utils/databases/mhw/items.json',
   decorations: './utils/databases/mhw/decorations.json',
   armors: './utils/databases/mhw/armors.json',
-  monsterList: './utils/databases/mhw/monsterList.json',
   mhguMonsters: './utils/databases/mhgu/monsters.json',
   mhguWeapons: './utils/databases/mhgu/weapons.json',
   auth: './utils/auth.json'
