@@ -131,7 +131,9 @@ class Command {
 
     let msg = this.RichEmbed()
       .setColor('#8fde5d')
-      .setAuthor('Did you mean?');
+      .setAuthor('Did you mean?')
+      .setTimestamp()
+      .setFooter('Did you mean?');
 
     let counter = 0;
     for (let item of similarArray) {
@@ -143,7 +145,22 @@ class Command {
       counter++;
     }
 
+    let missingPermissions = false;
+    if (
+      !message.member.guild.me.hasPermission('MANAGE_MESSAGES') ||
+      !message.member.guild.me.hasPermission('ADD_REACTIONS')
+    ) {
+      let checkPermissions = `💡 *The bot doesn't have* **MANAGE_MESSAGES** *or* **ADD_REACTIONS** *permission!*`;
+      missingPermissions = true;
+      msg.setDescription(checkPermissions);
+      msg.setFooter(
+        'Permission Issue: The bot needs MANAGE_MESSAGES & ADD_REACTIONS to work properly'
+      );
+    }
+
     message.channel.send(msg).then(async message => {
+      if (missingPermissions) return;
+
       let emojis = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣'].slice(
         0,
         counter

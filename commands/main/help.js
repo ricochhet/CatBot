@@ -70,6 +70,16 @@ class Help extends Command {
         }
       });
 
+    let missingPermissions = false;
+    if (
+      !message.member.guild.me.hasPermission('MANAGE_MESSAGES') ||
+      !message.member.guild.me.hasPermission('ADD_REACTIONS')
+    ) {
+      let checkPermissions = `💡 *The bot doesn't have* **MANAGE_MESSAGES** *or* **ADD_REACTIONS** *permission!*`;
+      missingPermissions = true;
+      helpEmbed.setDescription(checkPermissions);
+    }
+
     let reactions = {};
     this.menu(
       message.channel,
