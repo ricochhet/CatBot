@@ -32,9 +32,9 @@ class Armor extends Command {
         threshold: 0.8,
         innerKey: 'name',
         includeScore: true
-      }
+      };
 
-      let similarItems = this.findAllMatching(client.armors,options);
+      let similarItems = this.findAllMatching(client.armors, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.armorEmbed);

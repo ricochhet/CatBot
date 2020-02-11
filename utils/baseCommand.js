@@ -1,6 +1,6 @@
 const { RichEmbed, TextChannel, version } = require('discord.js');
-const Pages = require('./pagers.js')
-const similarity = require('./similarity.js')
+const Pages = require('./pagers.js');
+const similarity = require('./similarity.js');
 
 const _ops = {
   args: true,
@@ -8,16 +8,11 @@ const _ops = {
   category: false,
   subTree: null,
   prefix: ''
-}
+};
 
 class Command {
-  constructor(
-    name,
-    usage,
-    description,
-    options = _ops
-  ) {
-    options = {..._ops,...options}
+  constructor(name, usage, description, options = _ops) {
+    options = { ..._ops, ...options };
     this.name = name;
     this.usage = `${options['prefix']}${usage}`;
     this.description = description;
@@ -28,8 +23,8 @@ class Command {
     this.prefix = options['prefix'];
     this.version = version;
 
-    this.score = similarity.score
-    this.findAllMatching = similarity.findAllMatching
+    this.score = similarity.score;
+    this.findAllMatching = similarity.findAllMatching;
 
     // Weapons multiplier
     this.weaponsRatio = new Map([
@@ -49,7 +44,7 @@ class Command {
       ['bow', 1.2]
     ]);
 
-    for (let varName of ['rawSharpRatio','elemSharpRatio']){
+    for (let varName of ['rawSharpRatio', 'elemSharpRatio']) {
       this[varName] = new Map([
         ['red', 0.5],
         ['orange', 0.75],
@@ -78,7 +73,8 @@ class Command {
       cmd => cmd.name === subCommand && !cmd.secret
     );
     if (!commandFound) return message.channel.send(this.usageEmbed());
-    if (commandFound.args && args.length == 0) return message.channel.send(commandFound.usageEmbed());
+    if (commandFound.args && args.length == 0)
+      return message.channel.send(commandFound.usageEmbed());
     commandFound.run(client, message, args);
   }
 
@@ -98,18 +94,16 @@ class Command {
   }
 
   usageEmbed() {
-
     let embed;
-    if (this.category){
-
+    if (this.category) {
       // Get all commands in sub command
       const data = [];
 
-      client[this.subTree].tap((cmd) => {
+      client[this.subTree].tap(cmd => {
         data.push(
           `\`${this.prefix}${this.name} ${cmd.usage}\` - ${cmd.description}`
-        )
-      })
+        );
+      });
 
       embed = this.RichEmbed()
         .setColor('#8fde5d')
@@ -175,7 +169,7 @@ class Command {
           message.edit(embed);
         })
         .catch(async collected => {
-          console.log( collected )
+          console.log(collected);
           await message.clearReactions();
           await message.react('❌');
         });

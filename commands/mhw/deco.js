@@ -52,10 +52,10 @@ class Deco extends Command {
         threshold: 0.8,
         innerKey: 'name',
         includeScore: true,
-        initial : decosMatchingSkill
-      }
+        initial: decosMatchingSkill
+      };
 
-      let similarItems = this.findAllMatching(client.decorations,options);
+      let similarItems = this.findAllMatching(client.decorations, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.decorationEmbed);

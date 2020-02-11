@@ -39,7 +39,7 @@ api = {
 
 class Bot extends Client {
   constructor(prefix, options = api) {
-    options = {...api,...options}
+    options = { ...api, ...options };
     super(options);
     this.prefix = prefix;
     this.Constants = Constants;
@@ -60,9 +60,9 @@ class Bot extends Client {
 
   setupCommand(dir) {
     let collectionName;
-    if (typeof(dir) == 'object'){
-      collectionName = dir[0]
-      dir = dir[1]
+    if (typeof dir == 'object') {
+      collectionName = dir[0];
+      dir = dir[1];
     } else {
       collectionName = dir.split('/')[2];
     }

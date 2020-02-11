@@ -76,8 +76,14 @@ class Help extends Command {
       message.author.id,
       embeds,
       120000,
-      (reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹' }),
-      true  // override embed footers (with page number)
+      (reactions = {
+        first: '⏪',
+        back: '◀',
+        next: '▶',
+        last: '⏩',
+        stop: '⏹'
+      }),
+      true // override embed footers (with page number)
     );
   }
 }

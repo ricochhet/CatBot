@@ -2,14 +2,10 @@ const Command = require('../../utils/baseCommand.js');
 
 class Weapon extends Command {
   constructor(prefix) {
-    super(
-      'weapon',
-      'weapon [weapon name]',
-      'Get info for a specific weapon'
-    )
+    super('weapon', 'weapon [weapon name]', 'Get info for a specific weapon');
   }
 
-  weaponEmbed(client,name,rawEmbed = this.RichEmbed()) {
+  weaponEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const weapon = client.weapons.get(name);
 
     const embed = rawEmbed
@@ -38,30 +34,27 @@ class Weapon extends Command {
     let input = args.join('').toLowerCase();
 
     if (!client.weapons.has(input)) {
-      let msg = 'That weapon doesn\'t seem to exist!';
+      let msg = "That weapon doesn't seem to exist!";
 
       const options = {
-        input : input,
-        threshold : 0.8,
-        innerKey : 'title',
-        includeScore : true
-      }
+        input: input,
+        threshold: 0.8,
+        innerKey: 'title',
+        includeScore: true
+      };
 
-      let similarItems = this.findAllMatching(client.weapons,options);
+      let similarItems = this.findAllMatching(client.weapons, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.weaponEmbed);
       }
 
       message.channel.send(msg);
-    }
-    else if (client.weapons.has(input)) {
-      const embed = this.weaponEmbed(client,input);
+    } else if (client.weapons.has(input)) {
+      const embed = this.weaponEmbed(client, input);
       message.channel.send(embed);
     }
   }
-
 }
 
-
-module.exports = Weapon
+module.exports = Weapon;

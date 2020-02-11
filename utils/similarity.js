@@ -11,20 +11,20 @@ function similarityScore(str1, str2) {
  * Code from https://github.com/dgendill/Javascript-String-Comparison-Algorithms/blob/master/string-compare.js
  */
 function jaroScore(str1, str2) {
-    var str1Length = str1.length;
-    var str2Length = str2.length;
+    let str1Length = str1.length;
+    let str2Length = str2.length;
 
-    var range = Math.floor(Math.max(str1Length, str2Length) / 2) - 1;
-    var m = 0;
-    var t = 0;
-    var l = 0;
-    var isLSet = false;
-    var lastMatchJ = 0;
-    for (var i = 0; i < str1Length; i++) {
-      var c1 = str1[i];
-      for (var j = i; j < str2Length; j++) {
+    let range = Math.floor(Math.max(str1Length, str2Length) / 2) - 1;
+    let m = 0;
+    let t = 0;
+    let l = 0;
+    let isLSet = false;
+    let lastMatchJ = 0;
+    for (let i = 0; i < str1Length; i++) {
+      let c1 = str1[i];
+      for (let j = i; j < str2Length; j++) {
         if (Math.abs(i - j) > range) continue;
-        var c2 = str2[j];
+        let c2 = str2[j];
         if (c1 == c2) {
           m++; //characters is the same and within range
           if (i != j) {
@@ -43,7 +43,7 @@ function jaroScore(str1, str2) {
     }
     t = 0.5 * t;
     m = Math.min(m, str1Length, str2Length);
-    var dj = 0;
+    let dj = 0;
     if (m > 0) dj = (m / str1Length + m / str2Length + (m - t) / m) / 3;
 
     return dj + l * 0.1 * (1 - dj);

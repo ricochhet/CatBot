@@ -5,7 +5,13 @@ const fs = require('fs');
 client = new Bot('+');
 
 // load commands
-client.buildCommands([['commands','./commands/main/'], './commands/lfg/', './commands/math/', './commands/mhgu/', './commands/mhw/']);
+client.buildCommands([
+  ['commands', './commands/main/'],
+  './commands/lfg/',
+  './commands/math/',
+  './commands/mhgu/',
+  './commands/mhw/'
+]);
 
 // load Bot databases
 client.buildDBs({
@@ -34,7 +40,7 @@ client.setInterval(() => {
 
   for (const sessionID in lfg) {
     const duration = Date.now() - lfg[sessionID]['time'];
-    
+
     if (duration >= 7200000) {
       delete lfg[sessionID];
       rewrite = true;

@@ -52,10 +52,10 @@ class Monster extends Command {
         threshold: 0.8,
         innerKey: 'title',
         includeScore: true,
-        reloop : true
-      }
+        reloop: true
+      };
 
-      let similarItems = this.findAllMatching(client.monsters,options);
+      let similarItems = this.findAllMatching(client.monsters, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.monsterEmbed);

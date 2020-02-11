@@ -57,9 +57,9 @@ class Weapon extends Command {
         threshold: 0.8,
         innerKey: 'name',
         includeScore: true
-      }
+      };
 
-      const similarItems = this.findAllMatching(client.mhguWeapons,options);
+      const similarItems = this.findAllMatching(client.mhguWeapons, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.weaponEmbed);

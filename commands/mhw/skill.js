@@ -30,7 +30,7 @@ class Skill extends Command {
         threshold: 0.8,
         innerKey: 'name',
         includeScore: true
-      }
+      };
 
       let similarItems = this.findAllMatching(client.skills, options);
 

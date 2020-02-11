@@ -7,7 +7,7 @@ class Subscribe extends Command {
       'subscribe',
       'subscribe (channel name)',
       'All user posted sessions will be sent to the subscribed Discord channel',
-      {args : false}
+      { args: false }
     );
   }
 

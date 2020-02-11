@@ -32,7 +32,7 @@ class Item extends Command {
         threshold: 0.8,
         innerKey: 'name',
         includeScore: true
-      }
+      };
 
       let similarItems = this.findAllMatching(client.items, options);
 
