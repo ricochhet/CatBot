@@ -24,7 +24,22 @@ class Raw extends Command {
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
-      .setTimestamp();
+      .setTimestamp()
+      .setFooter(`${this.name.toUpperCase()} Help`);
+
+    return embed;
+  }
+
+  rawEmbed(amount) {
+    const embed = this.RichEmbed()
+      .setColor('#8fde5d')
+      .addField(
+        'Formula ',
+        `(Damage x Weapon Bloat) x Sharpness Multiplier x Monster Part Multiplier*`
+      )
+      .addField('Answer', `**${amount}**`)
+      .setTimestamp()
+      .setFooter(`${this.name.toUpperCase()} Menu`);
 
     return embed;
   }
@@ -39,9 +54,7 @@ class Raw extends Command {
     if (Number.isNaN(rounded) || !args[0] || !args[1] || !args[2] || !args[3]) {
       message.channel.send(this.usageEmbed());
     } else {
-      message.channel.send(
-        'Your raw damage is ' + '**' + rounded + '**' + ' meowster!'
-      );
+      message.channel.send(this.rawEmbed(rounded));
     }
   }
 }

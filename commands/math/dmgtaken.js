@@ -13,7 +13,19 @@ class Dmgtaken extends Command {
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
-      .setTimestamp();
+      .setTimestamp()
+      .setFooter(`${this.name.toUpperCase()} Help`);
+
+    return embed;
+  }
+
+  dmgTakenEmbed(amount) {
+    const embed = this.RichEmbed()
+      .setColor('#8fde5d')
+      .addField('Formula ', `*(80 / Defense + 80) x 100*`)
+      .addField('Answer', `**${amount}**`)
+      .setTimestamp()
+      .setFooter(`${this.name.toUpperCase()} Menu`);
 
     return embed;
   }
@@ -25,9 +37,7 @@ class Dmgtaken extends Command {
     if (Number.isNaN(calculate) || !args[0]) {
       message.channel.send(this.usageEmbed());
     } else {
-      message.channel.send(
-        'Your damage taken is ' + '**' + rounded + '%**' + ' meowster!'
-      );
+      message.channel.send(this.dmgTakenEmbed(rounded));
     }
   }
 }

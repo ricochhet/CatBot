@@ -18,7 +18,10 @@ class About extends Command {
       .addField('Author: ', `${rico.tag}`, true)
       .addField('Contributors', `${chad.tag}\n${yofou.tag}`, true)
       .addField('Version: ', `v${client.config.get('VERSION')}`, true)
-      .addField('Changelog: ', `Do \`${this.prefix}changelog\` to see the latest version changes.`)
+      .addField(
+        'Changelog: ',
+        `Do \`${this.prefix}changelog\` to see the latest version changes.`
+      )
       .addField(
         'Feedback / Requests: ',
         `Do \`${this.prefix}support\` to go to the support server.`

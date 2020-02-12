@@ -102,7 +102,7 @@ class Command {
 
       client[this.subTree].tap(cmd => {
         data.push(
-          `\`${this.prefix}${this.name} ${cmd.usage}\` - ${cmd.description}`
+          `**${this.prefix}${this.name} ${cmd.usage}** - ${cmd.description}`
         );
       });
 

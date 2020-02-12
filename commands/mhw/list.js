@@ -51,13 +51,7 @@ class List extends Command {
     };
     const displayPageNumbers = true;
 
-    this.menu(
-      message,
-      embeds,
-      120000,
-      reactions,
-      displayPageNumbers
-    );
+    this.menu(message, embeds, 120000, reactions, displayPageNumbers);
   }
 }
 

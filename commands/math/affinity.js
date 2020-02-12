@@ -14,7 +14,19 @@ class Affinity extends Command {
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
-      .setTimestamp();
+      .setTimestamp()
+      .setFooter(`${this.name.toUpperCase()} Help`);
+
+    return embed;
+  }
+
+  affinityEmbed(amount) {
+    const embed = this.RichEmbed()
+      .setColor('#8fde5d')
+      .addField('Formula ', `*(0.25 x (Affinity / 100) + 1) x Damage*`)
+      .addField('Answer', `**${amount}**`)
+      .setTimestamp()
+      .setFooter(`${this.name.toUpperCase()} Menu`);
 
     return embed;
   }
@@ -26,9 +38,7 @@ class Affinity extends Command {
     if (Number.isNaN(rounded) || !args[0] || !args[1]) {
       message.channel.send(this.usageEmbed());
     } else {
-      message.channel.send(
-        'Your damage + affinity is ' + '**' + rounded + '**' + ' meowster!'
-      );
+      message.channel.send(this.affinityEmbed(rounded));
     }
   }
 }

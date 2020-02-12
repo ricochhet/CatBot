@@ -16,7 +16,19 @@ class Eraw extends Command {
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
-      .setTimestamp();
+      .setTimestamp()
+      .setFooter(`${this.name.toUpperCase()} Help`);
+
+    return embed;
+  }
+
+  erawEmbed(amount) {
+    const embed = this.RichEmbed()
+      .setColor('#8fde5d')
+      .addField('Formula ', `*Weapon Bloat Multiplier x Damage*`)
+      .addField('Answer', `**${amount}**`)
+      .setTimestamp()
+      .setFooter(`${this.name.toUpperCase()} Menu`);
 
     return embed;
   }
@@ -35,9 +47,7 @@ class Eraw extends Command {
     ) {
       message.channel.send(this.usageEmbed());
     } else {
-      message.channel.send(
-        'Your effective raw is ' + '**' + rounded + '**' + ' meowster!'
-      );
+      message.channel.send(this.erawEmbed(rounded));
     }
   }
 }

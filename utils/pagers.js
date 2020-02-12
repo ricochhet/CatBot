@@ -53,9 +53,12 @@ class Pages {
   }
 
   createCollector(uid) {
-    const collector = this.msg.createReactionCollector((r, u) => u.id == this.message.author.id, {
-      time: this.time
-    });
+    const collector = this.msg.createReactionCollector(
+      (r, u) => u.id == this.message.author.id,
+      {
+        time: this.time
+      }
+    );
     this.collector = collector;
     collector.on('collect', r => {
       if (r.emoji.name == this.reactions.first) {
