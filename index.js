@@ -22,10 +22,10 @@ client.buildDBs({
   armors: './utils/databases/mhw/armors.json',
   mhguMonsters: './utils/databases/mhgu/monsters.json',
   mhguWeapons: './utils/databases/mhgu/weapons.json',
-  auth: './utils/auth.json'
+  config: './utils/config.json'
 });
 
-const dbl = client.dblSetup(client.auth.get('DBLTOKEN'));
+const dbl = client.dblSetup(client.config.get('DBLTOKEN'));
 
 // mhw monster collection has a custom collection algorithm
 client.monsters = client.buildCollection();
@@ -64,4 +64,4 @@ client.setInterval(() => {
   dbl.postStats(client.guilds.size);
 }, 1800000);
 
-client.login(client.auth.get('TOKEN'));
+client.login(client.config.get('TOKEN'));

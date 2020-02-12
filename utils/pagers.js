@@ -1,15 +1,12 @@
 class Pages {
   constructor(
     message,
-    channel = new TextChannel(),
-    uid,
     pages = [],
     time = 120000,
     reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹' },
     pageFooter = false
   ) {
     this.message = message;
-    this.channel = channel;
     this.pages = pages;
     this.time = time;
     this.reactions = reactions;
@@ -29,12 +26,12 @@ class Pages {
       pages[0].setDescription(checkPermissions);
     }
 
-    channel.send(pages[0]).then(msg => {
+    message.channel.send(pages[0]).then(msg => {
       this.msg = msg;
 
       if (missingPermissions) return;
       this.addReactions();
-      this.createCollector(uid);
+      this.createCollector(message.author.id);
     });
   }
 
@@ -45,7 +42,7 @@ class Pages {
       current = this.pages[i];
       current.setFooter(
         `Page ${i + 1} / ${total}`,
-        this.channel.client.user.avatarURL
+        this.message.channel.client.user.avatarURL
       );
     }
   }
@@ -56,7 +53,7 @@ class Pages {
   }
 
   createCollector(uid) {
-    const collector = this.msg.createReactionCollector((r, u) => u.id == uid, {
+    const collector = this.msg.createReactionCollector((r, u) => u.id == this.message.author.id, {
       time: this.time
     });
     this.collector = collector;
@@ -72,7 +69,7 @@ class Pages {
       } else if (r.emoji.name == this.reactions.stop) {
         collector.stop();
       }
-      r.remove(uid);
+      r.remove(this.message.author.id);
     });
     collector.on('end', () => {
       this.msg.clearReactions();

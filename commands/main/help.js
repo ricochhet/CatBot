@@ -73,8 +73,6 @@ class Help extends Command {
     let reactions = {};
     this.menu(
       message,
-      message.channel,
-      message.author.id,
       embeds,
       120000,
       (reactions = {

@@ -28,7 +28,7 @@ class RollHunt extends Command {
 
     const embed = rawEmbed
       .setColor('#8fde5d')
-      .setTitle('Roll a Hunt')
+      .setTitle('Roll Hunt')
       .setThumbnail(monster.details.thumbnail)
       .addField('Monster', monster.details.title)
       .addField('Armor', armor)

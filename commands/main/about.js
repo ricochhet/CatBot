@@ -17,11 +17,8 @@ class About extends Command {
       .setColor('#8fde5d')
       .addField('Author: ', `${rico.tag}`, true)
       .addField('Contributors', `${chad.tag}\n${yofou.tag}`, true)
-      .addField('Version: ', 'v1.13.0', true)
-      .addField(
-        'Changelog: ',
-        `v2.13.0 | Updated bot to use ES6, added a bucket load of new features.`
-      )
+      .addField('Version: ', `v${client.config.get('VERSION')}`, true)
+      .addField('Changelog: ', `Do \`${this.prefix}changelog\` to see the latest version changes.`)
       .addField(
         'Feedback / Requests: ',
         `Do \`${this.prefix}support\` to go to the support server.`
