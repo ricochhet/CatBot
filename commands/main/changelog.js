@@ -20,6 +20,8 @@ class About extends Command {
         📄 \`+mhw monster\` now includes status & hitzone values!
         ⛔ The bot will notify you of what permissions it needs instead of not working properly!
         🧠 You can now search for decorations by the skill name!
+        📖 \`+calc\` commands now look much cleaner!
+        🆘 Sub-help menus are easier on the eyes, and easier to read!
         🆕 Use \`+mhw list\` to get a list of monsters!
         🆕 Use \`+mhw events\` to get a list of events!
         🆕 Use \`+changelog\` to check out all of the new features!
