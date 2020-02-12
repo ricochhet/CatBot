@@ -17,6 +17,7 @@ class About extends Command {
         🤖 Now uses ES6; features can be pushed out faster!
         🔍 Similarity algorithm improved, now you can find what you want much quicker!
         🎲 \`+mhw rollhunt\` is now much cleaner and easier to understand, also shows weapon type along with name!
+        📄 \`+mhw monster\` now includes status & hitzone values!
         ⛔ The bot will notify you of what permissions it needs instead of not working properly!
         🧠 You can now search for decorations by the skill name!
         🆕 Use \`+mhw list\` to get a list of monsters!
