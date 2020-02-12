@@ -35,7 +35,7 @@ class Raw extends Command {
       .setColor('#8fde5d')
       .addField(
         'Formula ',
-        `(Damage x Weapon Bloat) x Sharpness Multiplier x Monster Part Multiplier*`
+        `*(Damage x Weapon Bloat) x Sharpness Multiplier x Monster Part Multiplier*`
       )
       .addField('Answer', `**${amount}**`)
       .setTimestamp()
