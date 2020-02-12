@@ -2,7 +2,7 @@ const { Client, Collection, Constants } = require('discord.js');
 const DBL = require('dblapi.js');
 const fs = require('fs');
 
-api = {
+apiDefault = {
   apiRequestMethod: 'sequential',
   shardId: 0,
   shardCount: 0,
@@ -38,8 +38,9 @@ api = {
 };
 
 class Bot extends Client {
-  constructor(prefix, options = api) {
-    options = { ...api, ...options };
+  constructor(prefix, customOptions) {
+    // Merge options (custom will override default if given)
+    const options = { ...apiDefault, ...customOptions };
     super(options);
     this.prefix = prefix;
     this.Constants = Constants;

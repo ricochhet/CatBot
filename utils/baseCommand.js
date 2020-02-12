@@ -2,7 +2,7 @@ const { RichEmbed, TextChannel, version } = require('discord.js');
 const Pages = require('./pagers.js');
 const similarity = require('./similarity.js');
 
-const _ops = {
+const defaultOptions = {
   args: true,
   secret: false,
   category: false,
@@ -11,8 +11,9 @@ const _ops = {
 };
 
 class Command {
-  constructor(name, usage, description, options = _ops) {
-    options = { ..._ops, ...options };
+  constructor(name, usage, description, customOptions) {
+    // Merge options (custom will override default if given)
+    const options = { ...defaultOptions, ...customOptions };
     this.name = name;
     this.usage = `${options['prefix']}${usage}`;
     this.description = description;

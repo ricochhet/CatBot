@@ -45,7 +45,7 @@ class Monster extends Command {
     }
 
     if (!client.monsters.has(input)) {
-      let msg = "That monster doesn't seem to exist!";
+      let msg = "That monster doesn't seem to exist! Check out `mhw list` for the full list.";
 
       const options = {
         input: input,
