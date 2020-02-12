@@ -22,7 +22,7 @@ class Dmgtaken extends Command {
   dmgTakenEmbed(amount) {
     const embed = this.RichEmbed()
       .setColor('#8fde5d')
-      .addField('Formula ', `*(80 / Defense + 80) x 100*`)
+      .addField('Formula ', `*(80 / (Defense + 80)) x 100*`)
       .addField('Answer', `**${amount}**`)
       .setTimestamp()
       .setFooter(`${this.name.toUpperCase()} Menu`);
