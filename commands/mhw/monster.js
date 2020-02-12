@@ -20,6 +20,10 @@ class Monster extends Command {
 
     embed.setDescription(`${monster.description}\n\n${monster.info}`);
     embed.setThumbnail(monster.thumbnail);
+    embed.addField(
+      `Slash: **${monster.hzv.slash}** Blunt: **${monster.hzv.blunt}** Shot: **${monster.hzv.shot}**`,
+      `🔥 **${monster.hzv.fire}** 💧 **${monster.hzv.water}** ⚡ **${monster.hzv.thunder}** ❄ **${monster.hzv.ice}** 🐉 **${monster.hzv.dragon}**`
+    );
     embed.addField('Elements', monster.elements, true);
     embed.addField('Ailments', monster.ailments, true);
     embed.addField('Blights', monster.blights, true);
