@@ -178,7 +178,7 @@
     "name": "dodogama",
     "details": {
         "title": "Dodogama",
-        "aliases": ["goodestboi", "goodestboy", "dodo"],
+        "aliases": ["dodo"],
         "url": "https://monsterhunterworld.wiki.fextralife.com/Dodogama",
         "description": "Fanged Wyvern",
         "thumbnail": "https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gthumbnails/mhw-dodogama_icon.png",
@@ -252,7 +252,7 @@
     {
     "name": "jyuratodus",
     "details": {
-        "aliases": ["mudfish", "jyura"],
+        "aliases": ["jyura"],
         "title": "Jyuratodus",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Jyuratodus",
         "description": "Piscine Wyvern",
@@ -277,7 +277,7 @@
     {
     "name": "kirin",
     "details": {
-        "aliases": ["pony", "horse", "lightningpony", "lightninghorse"],
+        "aliases": [""],
         "title": "Kirin",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Kirin",
         "description": "Elder Dragon",
@@ -702,7 +702,7 @@
     {
     "name": "tobi-kadachi",
     "details": {
-        "aliases": ["tobi", "kadachi"],
+        "aliases": ["tobikadachi"],
         "title": "Tobi-Kadachi",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Tobi-Kadachi",
         "description": "Fanged Wyvern",
@@ -852,7 +852,7 @@
     {
     "name": "ancientleshen",
     "details": {
-        "aliases": ["alesh", "ancient"],
+        "aliases": ["AL", "ancient"],
         "title": "Ancient Leshen",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Ancient+Leshen",
         "description": "Relict",
@@ -877,7 +877,7 @@
     {
     "name": "leshen",
     "details": {
-        "aliases": ["lesh"],
+        "aliases": [""],
         "title": "Leshen",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Leshen",
         "description": "Relict",
@@ -1227,7 +1227,7 @@
     {
     "name": "vipertobi-kadachi",
     "details": {
-        "aliases": ["vipertobi", "viperkadachi", "vipertobikadachi"],
+        "aliases": ["vipertobi", "viperkadachi", "vipertobikadachi", "viper"],
         "title": "Viper Tobi-Kadachi",
         "url": "https://monsterhunterworld.wiki.fextralife.com/Viper+Tobi-Kadachi",
         "description": "Fanged Wyvern",

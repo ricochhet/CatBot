@@ -108,7 +108,7 @@ class Command {
 
       embed = this.RichEmbed()
         .setColor('#8fde5d')
-        .addField(this.description, this.usage)
+        .addField(this.description, `**${this.usage}**`)
         .addField('Parameters Help', data.join('\n\n'))
         .setTimestamp()
         .setFooter(`${this.name.toUpperCase()} Help`);

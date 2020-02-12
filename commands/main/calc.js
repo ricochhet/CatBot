@@ -4,7 +4,7 @@ class Calc extends Command {
   constructor(prefix) {
     super(
       'calc',
-      'calc [category] [additional arguments]',
+      'calc [command] [command arguments]',
       'Math/Calculation (MHWI)',
       {
         category: true,
