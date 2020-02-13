@@ -1,14 +1,20 @@
 const Command = require('../../utils/baseCommand.js');
 
-class Affinity extends Command {
+class Trueraw extends Command {
   constructor(prefix) {
-    super('affinity', 'affinity [affinity] [damage]', 'Calculate for affinity');
+    super(
+      'trueraw',
+      'trueraw [weapon type] [attack]',
+      'True attack value (removed bloat modifier)'
+    );
   }
 
   usageEmbed() {
     const data = [];
-    data.push('affinity: base affinity value');
-    data.push('damage: base damage value');
+    data.push(
+      'weapon type: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns'
+    );
+    data.push('attack: in-game attack value');
 
     const embed = this.RichEmbed()
       .setColor('#8fde5d')
@@ -20,10 +26,10 @@ class Affinity extends Command {
     return embed;
   }
 
-  affinityEmbed(amount) {
+  truerawEmbed(amount) {
     const embed = this.RichEmbed()
       .setColor('#8fde5d')
-      .addField('Formula ', `*(0.25 x (Affinity / 100) + 1) x Damage*`)
+      .addField('Formula ', `*Attack / Bloat Modifier*`)
       .addField('Answer', `**${amount}**`)
       .setTimestamp()
       .setFooter(`${this.name.toUpperCase()} Menu`);
@@ -32,15 +38,20 @@ class Affinity extends Command {
   }
 
   run(client, message, args) {
-    let calculate = (0.25 * (args[0] / 100) + 1) * args[1];
+    let calculate = args[1] / this.weaponsRatio.get(args[0]);
     let rounded = Math.round(calculate);
 
-    if (Number.isNaN(rounded) || !args[0] || !args[1]) {
+    if (
+      Number.isNaN(rounded) ||
+      !args[0] ||
+      !args[1] ||
+      !this.weaponsRatio.has(args[0])
+    ) {
       message.channel.send(this.usageEmbed());
     } else {
-      message.channel.send(this.affinityEmbed(rounded));
+      message.channel.send(this.truerawEmbed(rounded));
     }
   }
 }
 
-module.exports = Affinity;
+module.exports = Trueraw;

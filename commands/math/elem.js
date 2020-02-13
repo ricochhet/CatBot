@@ -1,24 +1,20 @@
 const Command = require('../../utils/baseCommand.js');
 
-class Eraw extends Command {
+class Elem extends Command {
   constructor(prefix) {
     super(
-      'eraw',
-      'eraw [sharpness] [true raw] [critical boost level] (monster hitzone)',
-      'Effective raw attack (average damage over time)'
+      'elem',
+      'elem [sharpness] [true elem] (monster hitzone)',
+      'Effective elemental attack (average damage over time)'
     );
   }
 
   usageEmbed() {
     const data = [];
     data.push(
-      'weapon type: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns'
-    );
-    data.push(
       'sharpness: none, red, orange, yellow, green, blue, white, purple'
     );
-    data.push('true raw: true raw damage value');
-    data.push('critical boost level: current level of critical boost used');
+    data.push('true elem: true elem damage value');
     data.push('monster hitzone: monster part hitzone value');
 
     const embed = this.RichEmbed()
@@ -31,12 +27,12 @@ class Eraw extends Command {
     return embed;
   }
 
-  erawEmbed(amount) {
+  elemEmbed(amount) {
     const embed = this.RichEmbed()
       .setColor('#8fde5d')
       .addField(
         'Formula ',
-        `*True Attack x Monster Hitzone x Sharpness Modifier x Crit Boost*`
+        `*True Attack x Monster Hitzone x Sharpness Modifier*`
       )
       .addField('Answer', `**${amount}**`)
       .setTimestamp()
@@ -46,30 +42,24 @@ class Eraw extends Command {
   }
 
   run(client, message, args) {
-    let monsterHitzone = args[3];
+    let monsterHitzone = args[2];
     if (monsterHitzone == undefined || Number.isNaN(monsterHitzone)) {
       monsterHitzone = 1;
     }
-    let calculate =
-      args[1] *
-      monsterHitzone *
-      this.rawSharpRatio.get(args[0]) *
-      this.critBoostLvl.get(args[2]);
+    let calculate = args[1] * monsterHitzone * this.elemSharpRatio.get(args[0]);
     let rounded = Math.round(calculate);
 
     if (
       Number.isNaN(rounded) ||
       !args[0] ||
       !args[1] ||
-      !args[2] ||
-      !this.rawSharpRatio.has(args[0]) ||
-      !this.critBoostLvl.has(args[2])
+      !this.elemSharpRatio.has(args[0])
     ) {
       message.channel.send(this.usageEmbed());
     } else {
-      message.channel.send(this.erawEmbed(rounded));
+      message.channel.send(this.elemEmbed(rounded));
     }
   }
 }
 
-module.exports = Eraw;
+module.exports = Elem;

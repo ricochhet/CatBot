@@ -1,17 +1,17 @@
 const Command = require('../../utils/baseCommand.js');
 
-class Dmgtaken extends Command {
+class Trueelem extends Command {
   constructor(prefix) {
     super(
-      'dmgtaken',
-      'dmgtaken [defense]',
-      'Percentage of damage taken based on defense'
+      'trueelem',
+      'trueelem [attack]',
+      'True elemental value (removed bloat modifier)'
     );
   }
 
   usageEmbed() {
     const data = [];
-    data.push('defense: base defense value');
+    data.push('attack: in-game attack value');
 
     const embed = this.RichEmbed()
       .setColor('#8fde5d')
@@ -23,10 +23,10 @@ class Dmgtaken extends Command {
     return embed;
   }
 
-  dmgTakenEmbed(amount) {
+  trueelemEmbed(amount) {
     const embed = this.RichEmbed()
       .setColor('#8fde5d')
-      .addField('Formula ', `*(80 / (Defense + 80)) x 100*`)
+      .addField('Formula ', `*Elemental / 10*`)
       .addField('Answer', `**${amount}**`)
       .setTimestamp()
       .setFooter(`${this.name.toUpperCase()} Menu`);
@@ -35,15 +35,15 @@ class Dmgtaken extends Command {
   }
 
   run(client, message, args) {
-    let calculate = (80 / (Number(args[0]) + 80)) * 100;
+    let calculate = args[0] / 10;
     let rounded = Math.round(calculate);
 
-    if (Number.isNaN(calculate) || !args[0]) {
+    if (Number.isNaN(rounded) || !args[0]) {
       message.channel.send(this.usageEmbed());
     } else {
-      message.channel.send(this.dmgTakenEmbed(rounded));
+      message.channel.send(this.trueelemEmbed(rounded));
     }
   }
 }
 
-module.exports = Dmgtaken;
+module.exports = Trueelem;
