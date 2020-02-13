@@ -111,7 +111,7 @@ class Bot extends Client {
     if (!message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES'))
       return;
 
-    if (message.content.startsWith('<@!636005706188718100>'))
+    if (message.content.startsWith(`<@!${message.member.guild.me.id}>`))
       return message.channel.send(
         `The bots prefix is \`${this.prefix}\`, use \`${this.prefix}help\` to get started!`
       );
