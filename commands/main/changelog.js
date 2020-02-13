@@ -22,6 +22,8 @@ class About extends Command {
         🧠 You can now search for decorations by the skill name!
         📖 \`+calc\` commands now look much cleaner!
         🆘 Sub-help menus are easier on the eyes, and easier to read!
+        🆘 Mentioning the bot now tells you how to get started!
+        ➗ Monster part multiplier is now an optional argument for calculation commands!
         🆕 Use \`+mhw list\` to get a list of monsters!
         🆕 Use \`+mhw events\` to get a list of events!
         🆕 Use \`+changelog\` to check out all of the new features!

@@ -4,7 +4,7 @@ class Raw extends Command {
   constructor(prefix) {
     super(
       'raw',
-      'raw [damage] [weapon type] [sharpness] [monster part multiplier]',
+      'raw [damage] [weapon type] [sharpness] (monster part multiplier)',
       'Calculate for raw'
     );
   }
@@ -47,11 +47,16 @@ class Raw extends Command {
   run(client, message, args) {
     const rawBase = this.weaponsRatio.get(args[1]);
     const sharpMult = this.rawSharpRatio.get(args[2]);
+    let partMult = args[3];
 
-    let calculate = (args[0] / rawBase) * sharpMult * args[3];
+    if (Number.isNaN(args[3]) || args[3] == null) {
+      partMult = 1;
+    }
+
+    let calculate = (args[0] / rawBase) * sharpMult * partMult;
     let rounded = Math.round(calculate);
 
-    if (Number.isNaN(rounded) || !args[0] || !args[1] || !args[2] || !args[3]) {
+    if (Number.isNaN(rounded) || !args[0] || !args[1] || !args[2]) {
       message.channel.send(this.usageEmbed());
     } else {
       message.channel.send(this.rawEmbed(rounded));
