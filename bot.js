@@ -113,7 +113,7 @@ class Bot extends Client {
 
     if (message.content.startsWith(`<@!${message.member.guild.me.id}>`))
       return message.channel.send(
-        `The bots prefix is \`${this.prefix}\`, use \`${this.prefix}help\` to get started!`
+        `Use \`${this.prefix}help\` to get started!`
       );
     if (message.content[0] != this.prefix) return;
 
