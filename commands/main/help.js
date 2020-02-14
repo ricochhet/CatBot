@@ -9,7 +9,7 @@ class Help extends Command {
   }
 
   run(client, message, args) {
-    const rico = client.users.find(user => user.id == '381239423645515776');
+    const rico = client.users.find(user => user.id === client.config.get('RICO_ID'));
     const helpEmbed = this.RichEmbed().setColor('#8fde5d');
 
     let data = [];

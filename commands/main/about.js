@@ -9,9 +9,9 @@ class About extends Command {
   }
 
   run(client, message, args) {
-    const rico = client.users.find(user => user.id == '381239423645515776');
-    const yofou = client.users.find(user => user.id == '264781399737892865');
-    const chad = client.users.find(user => user.id == '123633666550136832');
+    const rico = client.users.find(user => user.id === client.config.get('RICO_ID'));
+    const yofou = client.users.find(user => user.id === client.config.get('YOFOU_ID'));
+    const chad = client.users.find(user => user.id === client.config.get('CHAD_ID'));
 
     const aboutEmbed = this.RichEmbed()
       .setColor('#8fde5d')
