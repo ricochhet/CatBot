@@ -1,4 +1,8 @@
 const Command = require('../../utils/baseCommand.js');
+const { Canvas } = require('canvas-constructor');
+const { loadImage } = require('canvas');
+const { Attachment } = require('discord.js'); // This is to send the image via discord.
+const hzvDB = require('../../utils/databases/mhw/hzv.json');
 
 class Monster extends Command {
   constructor(prefix) {
@@ -9,8 +13,84 @@ class Monster extends Command {
     );
   }
 
-  monsterEmbed(client, name, rawEmbed = this.RichEmbed()) {
+  async monsterEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const monster = client.monsters.get(name);
+
+    async function hitzoneValues(monsterName) {
+      let monster = hzvDB[monsterName.toLowerCase().replace(' ', '')];
+
+      let monsterKeys = Object.keys(monster);
+      monsterKeys.shift();
+      let canvasHeight = monsterKeys.length * 30;
+
+      let maxMonsterTextSize = 0;
+      for (let key in monster) {
+        new Canvas()
+          .setTextFont('30px Tahoma')
+          .measureText(key, (size, inst) => {
+            if (size.width > maxMonsterTextSize)
+              maxMonsterTextSize = size.width;
+          });
+      }
+
+      let hzvImage = new Canvas(maxMonsterTextSize + 680, 180 + canvasHeight)
+        .setColor('#FFFFFF')
+        .setTextFont('30px Tahoma')
+        .setTextAlign('center')
+        .addResponsiveText('Hitzone Values', (maxMonsterTextSize + 680) / 2, 20)
+        .setTextAlign('start');
+      let y = 0;
+      let x = maxMonsterTextSize;
+
+      for (let iconName of [
+        'sever',
+        'blunt',
+        'ranged',
+        'fire',
+        'water',
+        'thunder',
+        'ice',
+        'dragon',
+        'stun',
+        'stamina'
+      ]) {
+        try {
+          let pic = await loadImage(
+            `${__dirname.replace(
+              'commands',
+              'utils\\databases'
+            )}\\element\\${iconName.toLowerCase()}.png`
+          );
+          hzvImage.addImage(pic, x + 15, 23, 50, 50);
+          x += 60;
+        } catch (e) {
+          console.log(e);
+        }
+      }
+
+      // Calculate max text width and place all monster parts vertically
+      for (let key in monster) {
+        if (key == 'name') continue;
+        hzvImage.addResponsiveText(key, 0, y + 100);
+        y += 35;
+      }
+
+      y = 0;
+      for (let key in monster) {
+        if (key == 'name') continue;
+        let value = monster[key];
+
+        x = maxMonsterTextSize;
+        for (let hitzone in value) {
+          let hzv = value[hitzone];
+          hzvImage.addResponsiveText(hzv, x + 20, y + 100);
+          x += 60;
+        }
+        y += 35;
+      }
+
+      return new Attachment(hzvImage.toBuffer(), 'hzv.png');
+    }
 
     const embed = rawEmbed.setColor('#8fde5d').setTitle(monster.title);
 
@@ -24,6 +104,12 @@ class Monster extends Command {
       `Slash: **${monster.hzv.slash}** Blunt: **${monster.hzv.blunt}** Shot: **${monster.hzv.shot}**`,
       `🔥 **${monster.hzv.fire}** 💧 **${monster.hzv.water}** ⚡ **${monster.hzv.thunder}** ❄ **${monster.hzv.ice}** 🐉 **${monster.hzv.dragon}**`
     );
+    embed.attachFile(
+      await hitzoneValues(name).catch(e =>
+        console.log(`Failed to load ${monster.title} hitzone value image`)
+      )
+    );
+    embed.setImage('attachment://hzv.png');
     embed.addField('Elements', monster.elements, true);
     embed.addField('Ailments', monster.ailments, true);
     embed.addField('Blights', monster.blights, true);
@@ -34,7 +120,7 @@ class Monster extends Command {
     return embed;
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
     for (let [name, monster] of client.monsters.entries()) {
@@ -67,7 +153,7 @@ class Monster extends Command {
 
       message.channel.send(msg);
     } else if (client.monsters.has(input)) {
-      const embed = this.monsterEmbed(client, input);
+      const embed = await this.monsterEmbed(client, input);
       message.channel.send(embed);
     }
   }

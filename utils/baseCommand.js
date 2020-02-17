@@ -1,6 +1,7 @@
 const { RichEmbed, TextChannel, version } = require('discord.js');
 const Pages = require('./pagers.js');
 const similarity = require('./similarity.js');
+const { Attachment } = require('discord.js'); // This is to send the image via discord.
 
 const defaultOptions = {
   args: true,
@@ -139,7 +140,7 @@ class Command {
     return embed;
   }
 
-  reactions(message, similarArray, embedTemplate) {
+  reactions(message, similarArray, embedTemplate, attachment = false) {
     const author = message.author.id;
 
     similarArray.sort(function(a, b) {
@@ -152,12 +153,12 @@ class Command {
       .setTimestamp()
       .setFooter('Did you mean?');
 
+    let imgFiles = [];
     let counter = 0;
     for (let item of similarArray) {
       if (counter >= 8) {
         break;
       }
-
       msg.addField(`${counter + 1} : ${item[0]}`, '\n\u200B');
       counter++;
     }
@@ -175,7 +176,7 @@ class Command {
       );
     }
 
-    message.channel.send(msg).then(async message => {
+    message.channel.send({ embed: msg, files: null }).then(async message => {
       if (missingPermissions) return;
 
       let emojis = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣'].slice(
@@ -198,9 +199,14 @@ class Command {
             .split(' ')
             .join('')
             .toLowerCase();
-          const embed = embedTemplate(message.client, name, this.RichEmbed());
-          await message.clearReactions();
-          message.edit(embed);
+          const embed = await embedTemplate(
+            message.client,
+            name,
+            this.RichEmbed()
+          );
+          let channel = message.channel;
+          await message.delete();
+          await channel.send(embed);
         })
         .catch(async collected => {
           console.log(collected);
