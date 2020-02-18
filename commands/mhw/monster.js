@@ -16,13 +16,17 @@ class Monster extends Command {
   async monsterEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const monster = client.monsters.get(name);
 
+    // All bois this ones gonna be a messy one :)
     async function hitzoneValues(monsterName) {
+      // first things first we find the monster in the json
       let monster = hzvDB[monsterName.toLowerCase().replace(' ', '')];
 
+      // We then store the said monster parts in an array for canvas height calcution
       let monsterKeys = Object.keys(monster);
-      monsterKeys.shift();
+      monsterKeys.shift(); // we remove the first element because its the name of the monster
       let canvasHeight = monsterKeys.length * 30;
 
+      // Here we find the max monster part text size in pixels for canvas base
       let maxMonsterTextSize = 0;
       for (let key in monster) {
         new Canvas()
@@ -33,17 +37,26 @@ class Monster extends Command {
           });
       }
 
-      let hzvImage = new Canvas(maxMonsterTextSize + 680, 180 + canvasHeight)
+      // 20 * 16 comes from the gap size of each hzv which is 20
+      // 64 * 16 comes from the max text width (px) of the hzv (1000 text width is 64px)
+      // 16 comes from 16 different type of hzv of each part
+      const canvasBase = maxMonsterTextSize + 64 * 16 + 20 * 16;
+      let hzvImage = new Canvas(canvasBase, 180 + canvasHeight)
         .setColor('#FFFFFF')
         .setTextFont('30px Tahoma')
         .setTextAlign('center')
-        .addResponsiveText('Hitzone Values', (maxMonsterTextSize + 680) / 2, 20)
+        .addResponsiveText('Hitzone Values', canvasBase / 2, 22.5)
         .setTextAlign('start');
-      let y = 0;
+
+      // Set base y downwards by 100px.
+      // Set base x right too what ever the max monster part text size was set.
+      let y = 100;
       let x = maxMonsterTextSize;
 
+      // places the hit zone icons horizontally
       for (let iconName of [
-        'sever',
+        'ke',
+        'slash',
         'blunt',
         'ranged',
         'fire',
@@ -52,7 +65,12 @@ class Monster extends Command {
         'ice',
         'dragon',
         'stun',
-        'stamina'
+        'flinch',
+        'trip',
+        'timer',
+        'wound',
+        'sever',
+        'notes'
       ]) {
         try {
           let pic = await loadImage(
@@ -62,20 +80,21 @@ class Monster extends Command {
             )}\\element\\${iconName.toLowerCase()}.png`
           );
           hzvImage.addImage(pic, x + 15, 23, 50, 50);
-          x += 60;
+          x += 64 + 12;
         } catch (e) {
           console.log(e);
         }
       }
 
-      // Calculate max text width and place all monster parts vertically
+      // Places all the monster parts vertically
       for (let key in monster) {
         if (key == 'name') continue;
-        hzvImage.addResponsiveText(key, 0, y + 100);
+        hzvImage.addResponsiveText(key, 0, y);
         y += 35;
       }
 
-      y = 0;
+      y = 100;
+      // Sets The Hitzone Values in a grid like format
       for (let key in monster) {
         if (key == 'name') continue;
         let value = monster[key];
@@ -83,12 +102,24 @@ class Monster extends Command {
         x = maxMonsterTextSize;
         for (let hitzone in value) {
           let hzv = value[hitzone];
-          hzvImage.addResponsiveText(hzv, x + 20, y + 100);
-          x += 60;
+
+          if (hitzone == 'ke') {
+            if (hzv == 1) {
+              hzvImage.setColor('#FF3232');
+            } else if (hzv == 3) {
+              hzvImage.setColor('#ffa500');
+            } else if (hzv == 4) {
+              hzvImage.setColor('#78AB46');
+            }
+          }
+
+          hzvImage.addResponsiveText(hzv, x + 20, y).setColor('#FFFFFF');
+          x += 64 + 12;
         }
         y += 35;
       }
 
+      // Creates a discord attachment object and place the image content inside
       return new Attachment(hzvImage.toBuffer(), 'hzv.png');
     }
 
