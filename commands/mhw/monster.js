@@ -152,24 +152,25 @@ class Monster extends Command {
       embed.setURL(monster.url);
     }
 
-    embed.setDescription(`${monster.description}\n\n${monster.info}`);
-    embed.setThumbnail(monster.thumbnail);
-    embed.addField(
-      `Slash: **${monster.hzv.slash}** Blunt: **${monster.hzv.blunt}** Shot: **${monster.hzv.shot}**`,
-      `🔥 **${monster.hzv.fire}** 💧 **${monster.hzv.water}** ⚡ **${monster.hzv.thunder}** ❄ **${monster.hzv.ice}** 🐉 **${monster.hzv.dragon}**`
-    );
-    embed.attachFile(
-      await hzvImageGen(name).catch(e =>
-        console.log(`Failed to load ${monster.title} hitzone value image`)
+    embed
+      .setDescription(`${monster.description}\n\n${monster.info}`)
+      .setThumbnail(monster.thumbnail)
+      .addField(
+        `Slash: **${monster.hzv.slash}** Blunt: **${monster.hzv.blunt}** Shot: **${monster.hzv.shot}**`,
+        `🔥 **${monster.hzv.fire}** 💧 **${monster.hzv.water}** ⚡ **${monster.hzv.thunder}** ❄ **${monster.hzv.ice}** 🐉 **${monster.hzv.dragon}**`
       )
-    );
-    embed.setImage('attachment://hzv.png');
-    embed.addField('Elements', monster.elements, true);
-    embed.addField('Ailments', monster.ailments, true);
-    embed.addField('Blights', monster.blights, true);
-    embed.addField('Locations', monster.locations, true);
-    embed.setTimestamp();
-    embed.setFooter('Info Menu');
+      .attachFile(
+        await hzvImageGen(name).catch(e =>
+          console.log(`Failed to load ${monster.title} hitzone value image`)
+        )
+      )
+      .setImage('attachment://hzv.png')
+      .addField('Elements', monster.elements, true)
+      .addField('Ailments', monster.ailments, true)
+      .addField('Blights', monster.blights, true)
+      .addField('Locations', monster.locations, true)
+      .setTimestamp()
+      .setFooter('Info Menu');
 
     return embed;
   }
