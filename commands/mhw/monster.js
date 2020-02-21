@@ -39,7 +39,7 @@ class Monster extends Command {
       // remove the first element because its the name of the monster
       parts.shift();
 
-      const canvasHeight = parts.length * CANVAS_PART_HEIGHT;
+      const canvasHeight = parts.length * (CANVAS_PART_HEIGHT + 5 / 2);
 
       // Figure out space needed (in pixels) for monster part names
       // by creating dummy canvas for each part and checking the width
