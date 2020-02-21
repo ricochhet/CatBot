@@ -65,9 +65,9 @@ class Monster extends Command {
         .addResponsiveText('Hitzone Values', canvasWidth / 2, 22.5) // center title, 22.5 == y offset
         .setTextAlign('start');
 
-      // Set base y downwards by 100px (height for table title + header/icons)
+      // Set base y downwards by 100px (height for table title + header/icons) and then another 20px for a gap
       // Set base x right to whatever the max monster part text size was.
-      let y = 100;
+      let y = 120;
       let x = maxPartWidth;
 
       // places the hit zone icons horizontally
@@ -96,7 +96,7 @@ class Monster extends Command {
               'utils\\databases'
             )}\\element\\${iconName.toLowerCase()}.png`
           );
-          hzvImage.addImage(pic, x + 15, 23, ICON_SIZE_PX, ICON_SIZE_PX);
+          hzvImage.addImage(pic, x + 15, 33, ICON_SIZE_PX, ICON_SIZE_PX);
 
           // advance x to next icon position
           x += COLUMN_WIDTH + 12;
@@ -113,7 +113,7 @@ class Monster extends Command {
         y += CANVAS_PART_HEIGHT + 5; // 5 for gap
       }
 
-      y = 100;
+      y = 120;
       // Sets The Hitzone Values in a grid like format
       for (let key in monsterHzvInfo) {
         if (key == 'name') continue;
