@@ -4,7 +4,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Poison Resistance: Reduces the number of times you take poison damage. LV1"
+      "Poison Resistance - Reduces the number of times you take poison damage. LV1"
     ]
   },
   "geologyjewel1": {
@@ -12,7 +12,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Geologist: Allows you to gather one extra time from bonepiles. LV1"
+      "Geologist - Allows you to gather one extra time from bonepiles. LV1"
     ]
   },
   "heavyartilleryjewel1": {
@@ -20,7 +20,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Heavy Artillery: Firepower +50% LV1"
+      "Heavy Artillery - Firepower +50% LV1"
     ]
   },
   "hungerlessjewel1": {
@@ -28,7 +28,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Hunger Resistance: Extends the time until your stamina cap decreases by 50%. LV1"
+      "Hunger Resistance - Extends the time until your stamina cap decreases by 50%. LV1"
     ]
   },
   "satiatedjewel1": {
@@ -36,7 +36,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Free Meal: Activates 25% of the time. LV1"
+      "Free Meal - Activates 25% of the time. LV1"
     ]
   },
   "protectionjewel1": {
@@ -44,7 +44,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "meowsterjewel1": {
@@ -52,7 +52,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Palico Rally: Increases Palico attack power and defense by 5%. LV1"
+      "Palico Rally - Increases Palico attack power and defense by 5%. LV1"
     ]
   },
   "botanyjewel1": {
@@ -60,7 +60,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Botanist: One extra consumable herb item per gather. LV1"
+      "Botanist - One extra consumable herb item per gather. LV1"
     ]
   },
   "tiptoejewel1": {
@@ -68,7 +68,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Stealth: Makes it slightly easier for monsters to lose sight of you. LV1"
+      "Stealth - Makes it slightly easier for monsters to lose sight of you. LV1"
     ]
   },
   "flightjewel2": {
@@ -76,7 +76,7 @@
     "rarity": 5,
     "slot": 2,
     "skills": [
-      "Airborne: Jumping attack power +30% LV1"
+      "Airborne - Jumping attack power +30% LV1"
     ]
   },
   "smokejewel1": {
@@ -84,7 +84,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Survival Expert: Interactables restore an additional 50 health. LV1"
+      "Survival Expert - Interactables restore an additional 50 health. LV1"
     ]
   },
   "mirewalkerjewel1": {
@@ -92,7 +92,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Aquatic/Polar Mobility: Prevents lowered movement speed. LV1"
+      "Aquatic/Polar Mobility - Prevents lowered movement speed. LV1"
     ]
   },
   "specimenjewel1": {
@@ -100,7 +100,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Entomologist: Increases the chances of a corpse being left behind. LV1"
+      "Entomologist - Increases the chances of a corpse being left behind. LV1"
     ]
   },
   "miasmajewel1": {
@@ -108,7 +108,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Effluvia Resistance: Reduces effluvial buildup. LV1"
+      "Effluvia Resistance - Reduces effluvial buildup. LV1"
     ]
   },
   "scentjewel1": {
@@ -116,7 +116,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Scenthound: Increases gauge fill rate by 50%. LV1"
+      "Scenthound - Increases gauge fill rate by 50%. LV1"
     ]
   },
   "intimidatorjewel1": {
@@ -124,7 +124,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Intimidator: Discourages monsters from engaging you even if you've been spotted. LV1"
+      "Intimidator - Discourages monsters from engaging you even if you've been spotted. LV1"
     ]
   },
   "crisisjewel1": {
@@ -132,7 +132,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Resuscitate: While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1"
+      "Resuscitate - While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1"
     ]
   },
   "antiparajewel1": {
@@ -140,7 +140,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Paralysis Resistance: Reduces the duration of paralysis by 30%. LV1"
+      "Paralysis Resistance - Reduces the duration of paralysis by 30%. LV1"
     ]
   },
   "fortitudejewel1": {
@@ -148,7 +148,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Fortify: Increases attack by 10% and defense by 15% with each use. LV1"
+      "Fortify - Increases attack by 10% and defense by 15% with each use. LV1"
     ]
   },
   "waterresjewel1": {
@@ -156,7 +156,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Water Resistance: Water resistance +6 LV1"
+      "Water Resistance - Water resistance +6 LV1"
     ]
   },
   "suturejewel1": {
@@ -164,7 +164,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Bleeding Resistance: Reduces damage while bleeding. LV1"
+      "Bleeding Resistance - Reduces damage while bleeding. LV1"
     ]
   },
   "dragonresjewel1": {
@@ -172,7 +172,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Dragon Resistance: Dragon resistance +6 LV1"
+      "Dragon Resistance - Dragon resistance +6 LV1"
     ]
   },
   "fireresjewel1": {
@@ -180,7 +180,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Fire Resistance: Fire resistance +6 LV1"
+      "Fire Resistance - Fire resistance +6 LV1"
     ]
   },
   "iceresjewel1": {
@@ -188,7 +188,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Ice Resistance: Ice resistance +6 LV1"
+      "Ice Resistance - Ice resistance +6 LV1"
     ]
   },
   "deflockjewel1": {
@@ -196,7 +196,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Iron Skin: Reduces the duration of Defense Down by 50%. LV1"
+      "Iron Skin - Reduces the duration of Defense Down by 50%. LV1"
     ]
   },
   "thunderresjewel1": {
@@ -204,7 +204,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Thunder Resistance: Thunder resistance +6 LV1"
+      "Thunder Resistance - Thunder resistance +6 LV1"
     ]
   },
   "pepjewel1": {
@@ -212,7 +212,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Sleep Resistance: Reduces the duration of sleep by 30%. LV1"
+      "Sleep Resistance - Reduces the duration of sleep by 30%. LV1"
     ]
   },
   "antiblastjewel1": {
@@ -220,7 +220,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Blast Resistance: Delays blastblight and reduces blast damage. LV1"
+      "Blast Resistance - Delays blastblight and reduces blast damage. LV1"
     ]
   },
   "gobblerjewel1": {
@@ -228,7 +228,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Speed Eating: Slightly increases item use speed. LV1"
+      "Speed Eating - Slightly increases item use speed. LV1"
     ]
   },
   "physiquejewel2": {
@@ -236,7 +236,7 @@
     "rarity": 6,
     "slot": 2,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "blazejewel1": {
@@ -244,7 +244,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Fire Attack: Fire attack +30 LV1"
+      "Fire Attack - Fire attack +30 LV1"
     ]
   },
   "evasionjewel2": {
@@ -252,7 +252,7 @@
     "rarity": 6,
     "slot": 2,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "jumpingjewel2": {
@@ -260,7 +260,7 @@
     "rarity": 6,
     "slot": 2,
     "skills": [
-      "Evade Extender: Slightly extends evasion distance. LV1"
+      "Evade Extender - Slightly extends evasion distance. LV1"
     ]
   },
   "sheathjewel1": {
@@ -268,7 +268,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Quick Sheath: Slightly increases sheathing speed. LV1"
+      "Quick Sheath - Slightly increases sheathing speed. LV1"
     ]
   },
   "friendshipjewel1": {
@@ -276,7 +276,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Wide-Range: Items affect nearby allies with 33% of their efficacy. LV1"
+      "Wide-Range - Items affect nearby allies with 33% of their efficacy. LV1"
     ]
   },
   "enduringjewel1": {
@@ -284,7 +284,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Item Prolonger: Item effect duration +10% LV1"
+      "Item Prolonger - Item effect duration +10% LV1"
     ]
   },
   "medicinejewel1": {
@@ -292,7 +292,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Recovery Up: Recovery +10% LV1"
+      "Recovery Up - Recovery +10% LV1"
     ]
   },
   "grinderjewel1": {
@@ -300,7 +300,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Speed Sharpening: Removes one cycle from the sharpening process. LV1"
+      "Speed Sharpening - Removes one cycle from the sharpening process. LV1"
     ]
   },
   "steadfastjewel1": {
@@ -308,7 +308,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Stun Resistance: Reduces the duration of stun by 60%. LV1"
+      "Stun Resistance - Reduces the duration of stun by 60%. LV1"
     ]
   },
   "bomberjewel1": {
@@ -316,7 +316,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Bombardier: Explosive power +10% LV1"
+      "Bombardier - Explosive power +10% LV1"
     ]
   },
   "recoveryjewel1": {
@@ -324,7 +324,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Recovery Speed: Doubles the speed at which you heal recoverable damage. LV1"
+      "Recovery Speed - Doubles the speed at which you heal recoverable damage. LV1"
     ]
   },
   "sliderjewel2": {
@@ -332,7 +332,7 @@
     "rarity": 6,
     "slot": 2,
     "skills": [
-      "Affinity Sliding: +30% Affinity for 15 seconds after sliding. LV1"
+      "Affinity Sliding - +30% Affinity for 15 seconds after sliding. LV1"
     ]
   },
   "defensejewel1": {
@@ -340,7 +340,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Defense Boost: Defense +5 LV1"
+      "Defense Boost - Defense +5 LV1"
     ]
   },
   "stonethrowerjewel1": {
@@ -348,7 +348,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Slinger Capacity: Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
+      "Slinger Capacity - Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
     ]
   },
   "footingjewel2": {
@@ -356,7 +356,7 @@
     "rarity": 6,
     "slot": 2,
     "skills": [
-      "Tremor Resistance: Nullifies minor ground tremors. LV1"
+      "Tremor Resistance - Nullifies minor ground tremors. LV1"
     ]
   },
   "bracejewel3": {
@@ -364,7 +364,7 @@
     "rarity": 6,
     "slot": 3,
     "skills": [
-      "Flinch Free: Prevents knockbacks. LV1"
+      "Flinch Free - Prevents knockbacks. LV1"
     ]
   },
   "windresistjewel2": {
@@ -372,7 +372,7 @@
     "rarity": 6,
     "slot": 2,
     "skills": [
-      "Windproof: Slightly reduces the effects of minor wind pressure. LV1"
+      "Windproof - Slightly reduces the effects of minor wind pressure. LV1"
     ]
   },
   "earplugjewel3": {
@@ -380,7 +380,7 @@
     "rarity": 6,
     "slot": 3,
     "skills": [
-      "Earplugs: Slightly reduces the effects of weak monster roars. LV1"
+      "Earplugs - Slightly reduces the effects of weak monster roars. LV1"
     ]
   },
   "vitalityjewel1": {
@@ -388,7 +388,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Health Boost: Health +15 LV1"
+      "Health Boost - Health +15 LV1"
     ]
   },
   "resistorjewel1": {
@@ -396,7 +396,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Blight Resistance: Reduces the duration of all elemental blights by 50%. LV1"
+      "Blight Resistance - Reduces the duration of all elemental blights by 50%. LV1"
     ]
   },
   "sonorousjewel1": {
@@ -404,7 +404,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Horn Maestro: Extends melody effect duration and increases health recovery. LV1"
+      "Horn Maestro - Extends melody effect duration and increases health recovery. LV1"
     ]
   },
   "kojewel2": {
@@ -412,7 +412,7 @@
     "rarity": 6,
     "slot": 2,
     "skills": [
-      "Slugger: Stun power +20% LV1"
+      "Slugger - Stun power +20% LV1"
     ]
   },
   "streamjewel1": {
@@ -420,7 +420,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Water Attack: Water attack +30 LV1"
+      "Water Attack - Water attack +30 LV1"
     ]
   },
   "frostjewel1": {
@@ -428,7 +428,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Ice Attack: Ice attack +30 LV1"
+      "Ice Attack - Ice attack +30 LV1"
     ]
   },
   "boltjewel1": {
@@ -436,7 +436,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Thunder Attack: Thunder attack +30 LV1"
+      "Thunder Attack - Thunder attack +30 LV1"
     ]
   },
   "dragonjewel1": {
@@ -444,7 +444,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Dragon Attack: Dragon attack +30 LV1"
+      "Dragon Attack - Dragon attack +30 LV1"
     ]
   },
   "venomjewel1": {
@@ -452,7 +452,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Poison Attack: Poison buildup +5% Bonus: +10 LV1"
+      "Poison Attack - Poison buildup +5% Bonus: +10 LV1"
     ]
   },
   "poisoncoatjewel3": {
@@ -460,7 +460,7 @@
     "rarity": 6,
     "slot": 3,
     "skills": [
-      "Poison Functionality: Lets you use poison coating. LV1"
+      "Poison Functionality - Lets you use poison coating. LV1"
     ]
   },
   "expertjewel1": {
@@ -468,7 +468,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Critical Eye: Affinity +5% LV1"
+      "Critical Eye - Affinity +5% LV1"
     ]
   },
   "tenderizerjewel2": {
@@ -476,7 +476,7 @@
     "rarity": 6,
     "slot": 2,
     "skills": [
-      "Weakness Exploit: Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1"
+      "Weakness Exploit - Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1"
     ]
   },
   "destroyerjewel2": {
@@ -484,7 +484,7 @@
     "rarity": 6,
     "slot": 2,
     "skills": [
-      "Partbreaker: Part damage +10% LV1"
+      "Partbreaker - Part damage +10% LV1"
     ]
   },
   "elementlessjewel2": {
@@ -492,7 +492,7 @@
     "rarity": 6,
     "slot": 2,
     "skills": [
-      "Non-elemental Boost: Powers up non-elemental weapons you have equipped. LV1"
+      "Non-elemental Boost - Powers up non-elemental weapons you have equipped. LV1"
     ]
   },
   "drainjewel1": {
@@ -500,7 +500,7 @@
     "rarity": 6,
     "slot": 1,
     "skills": [
-      "Stamina Thief: Exhaust power +20% LV1"
+      "Stamina Thief - Exhaust power +20% LV1"
     ]
   },
   "paracoatjewel3": {
@@ -508,7 +508,7 @@
     "rarity": 7,
     "slot": 3,
     "skills": [
-      "Para Functionality: Lets you use paralysis coating. LV1"
+      "Para Functionality - Lets you use paralysis coating. LV1"
     ]
   },
   "sharpjewel2": {
@@ -516,7 +516,7 @@
     "rarity": 7,
     "slot": 2,
     "skills": [
-      "Protective Polish: Weapon sharpness does not decrease for a set time after sharpening. LV1"
+      "Protective Polish - Weapon sharpness does not decrease for a set time after sharpening. LV1"
     ]
   },
   "shieldjewel2": {
@@ -524,7 +524,7 @@
     "rarity": 7,
     "slot": 2,
     "skills": [
-      "Guard Up: Allows you to guard against ordinarily unblockable attacks. LV1"
+      "Guard Up - Allows you to guard against ordinarily unblockable attacks. LV1"
     ]
   },
   "dragonsealjewel3": {
@@ -532,7 +532,7 @@
     "rarity": 7,
     "slot": 3,
     "skills": [
-      "Elderseal Boost: Boosts Elderseal one level. LV1"
+      "Elderseal Boost - Boosts Elderseal one level. LV1"
     ]
   },
   "trueshotjewel1": {
@@ -540,7 +540,7 @@
     "rarity": 7,
     "slot": 1,
     "skills": [
-      "Special Ammo Boost: Increases the power of bowgun special ammo and Dragon Piercer by 10%. LV1"
+      "Special Ammo Boost - Increases the power of bowgun special ammo and Dragon Piercer by 10%. LV1"
     ]
   },
   "enhancerjewel2": {
@@ -548,7 +548,7 @@
     "rarity": 7,
     "slot": 2,
     "skills": [
-      "Power Prolonger: Bonus duration +10% LV1"
+      "Power Prolonger - Bonus duration +10% LV1"
     ]
   },
   "forceshotjewel3": {
@@ -556,7 +556,7 @@
     "rarity": 7,
     "slot": 3,
     "skills": [
-      "Normal Shots: Increases the power of normal ammo and normal arrows. LV1"
+      "Normal Shots - Increases the power of normal ammo and normal arrows. LV1"
     ]
   },
   "furorjewel2": {
@@ -564,7 +564,7 @@
     "rarity": 7,
     "slot": 2,
     "skills": [
-      "Resentment: While active, grants attack +5. LV1"
+      "Resentment - While active, grants attack +5. LV1"
     ]
   },
   "potentialjewel2": {
@@ -572,7 +572,7 @@
     "rarity": 7,
     "slot": 2,
     "skills": [
-      "Heroics: While active, increases defense by 50 points LV1"
+      "Heroics - While active, increases defense by 50 points LV1"
     ]
   },
   "paralyzerjewel1": {
@@ -580,7 +580,7 @@
     "rarity": 7,
     "slot": 1,
     "skills": [
-      "Paralysis Attack: Paralysis buildup +5% Bonus: +10 LV1"
+      "Paralysis Attack - Paralysis buildup +5% Bonus: +10 LV1"
     ]
   },
   "sleepjewel1": {
@@ -588,7 +588,7 @@
     "rarity": 7,
     "slot": 1,
     "skills": [
-      "Sleep Attack: Sleep buildup +5% Bonus: +10 LV1"
+      "Sleep Attack - Sleep buildup +5% Bonus: +10 LV1"
     ]
   },
   "ironwalljewel1": {
@@ -596,7 +596,7 @@
     "rarity": 7,
     "slot": 1,
     "skills": [
-      "Guard: Very slightly decreases the impact of attacks. LV1"
+      "Guard - Very slightly decreases the impact of attacks. LV1"
     ]
   },
   "refreshjewel2": {
@@ -604,7 +604,7 @@
     "rarity": 7,
     "slot": 2,
     "skills": [
-      "Stamina Surge: Stamina recovery speed +10% LV1"
+      "Stamina Surge - Stamina recovery speed +10% LV1"
     ]
   },
   "blastjewel1": {
@@ -612,7 +612,7 @@
     "rarity": 7,
     "slot": 1,
     "skills": [
-      "Blast Attack: Blast buildup +5% Bonus: +10 LV1"
+      "Blast Attack - Blast buildup +5% Bonus: +10 LV1"
     ]
   },
   "sleepcoatjewel3": {
@@ -620,7 +620,7 @@
     "rarity": 7,
     "slot": 3,
     "skills": [
-      "Sleep Functionality: Lets you use sleep coating. LV1"
+      "Sleep Functionality - Lets you use sleep coating. LV1"
     ]
   },
   "blastcoatjewel3": {
@@ -628,7 +628,7 @@
     "rarity": 7,
     "slot": 3,
     "skills": [
-      "Blast Functionality: Lets you use blast coating. LV1"
+      "Blast Functionality - Lets you use blast coating. LV1"
     ]
   },
   "throttlejewel2": {
@@ -636,7 +636,7 @@
     "rarity": 7,
     "slot": 2,
     "skills": [
-      "Latent Power: While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1"
+      "Latent Power - While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1"
     ]
   },
   "challengerjewel2": {
@@ -644,7 +644,7 @@
     "rarity": 7,
     "slot": 2,
     "skills": [
-      "Agitator: While active, grants attack +4 and increases affinity by 5%. LV1"
+      "Agitator - While active, grants attack +4 and increases affinity by 5%. LV1"
     ]
   },
   "attackjewel1": {
@@ -652,7 +652,7 @@
     "rarity": 7,
     "slot": 1,
     "skills": [
-      "Attack Boost: Attack +3 LV1"
+      "Attack Boost - Attack +3 LV1"
     ]
   },
   "flawlessjewel2": {
@@ -660,7 +660,7 @@
     "rarity": 7,
     "slot": 2,
     "skills": [
-      "Peak Performance: While active, grants attack +5. LV1"
+      "Peak Performance - While active, grants attack +5. LV1"
     ]
   },
   "magazinejewel2": {
@@ -668,7 +668,7 @@
     "rarity": 7,
     "slot": 2,
     "skills": [
-      "Capacity Boost: Loading capacity +1 LV1"
+      "Capacity Boost - Loading capacity +1 LV1"
     ]
   },
   "mightyjewel2": {
@@ -676,7 +676,7 @@
     "rarity": 7,
     "slot": 2,
     "skills": [
-      "Maximum Might: While active, increases affinity by 10%. LV1"
+      "Maximum Might - While active, increases affinity by 10%. LV1"
     ]
   },
   "sprinterjewel2": {
@@ -684,7 +684,7 @@
     "rarity": 8,
     "slot": 2,
     "skills": [
-      "Marathon Runner: Reduces continuous stamina depletion by 15%. LV1"
+      "Marathon Runner - Reduces continuous stamina depletion by 15%. LV1"
     ]
   },
   "criticaljewel2": {
@@ -692,7 +692,7 @@
     "rarity": 8,
     "slot": 2,
     "skills": [
-      "Critical Boost: Increases damage dealt by critical hits by 30%. LV1"
+      "Critical Boost - Increases damage dealt by critical hits by 30%. LV1"
     ]
   },
   "artilleryjewel1": {
@@ -700,7 +700,7 @@
     "rarity": 8,
     "slot": 1,
     "skills": [
-      "Artillery: Increases power of each attack by 10% and reduces Wyvern's Fire cooldown by 15%. LV1"
+      "Artillery - Increases power of each attack by 10% and reduces Wyvern's Fire cooldown by 15%. LV1"
     ]
   },
   "fungiformjewel1": {
@@ -708,7 +708,7 @@
     "rarity": 8,
     "slot": 1,
     "skills": [
-      "Mushroomancer: Lets you digest blue mushrooms and toadstools. LV1"
+      "Mushroomancer - Lets you digest blue mushrooms and toadstools. LV1"
     ]
   },
   "releasejewel3": {
@@ -716,7 +716,7 @@
     "rarity": 8,
     "slot": 3,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1"
     ]
   },
   "spreadjewel3": {
@@ -724,7 +724,7 @@
     "rarity": 8,
     "slot": 3,
     "skills": [
-      "Spread/Power Shots: Increases the attack power of spread ammo, power shot arrows, and Thousand Dragons. LV1"
+      "Spread/Power Shots - Increases the attack power of spread ammo, power shot arrows, and Thousand Dragons. LV1"
     ]
   },
   "chargerjewel2": {
@@ -732,7 +732,7 @@
     "rarity": 8,
     "slot": 2,
     "skills": [
-      "Focus: Increases gauge fill rate by 5% and reduces charge times by 5%. LV1"
+      "Focus - Increases gauge fill rate by 5% and reduces charge times by 5%. LV1"
     ]
   },
   "handicraftjewel3": {
@@ -740,7 +740,7 @@
     "rarity": 8,
     "slot": 3,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1"
+      "Handicraft - Weapon sharpness +10 LV1"
     ]
   },
   "mightybowjewel2": {
@@ -748,7 +748,7 @@
     "rarity": 8,
     "slot": 2,
     "skills": [
-      "Bow Charge Plus: Increases max bow charge level by one. LV1"
+      "Bow Charge Plus - Increases max bow charge level by one. LV1"
     ]
   },
   "mind'seyejewel2": {
@@ -756,7 +756,7 @@
     "rarity": 8,
     "slot": 2,
     "skills": [
-      "Mind's Eye/Ballistics: Prevents attacks from being deflected. Also shortens the distance before ammo and arrows reach maximum power. LV1"
+      "Mind's Eye/Ballistics - Prevents attacks from being deflected. Also shortens the distance before ammo and arrows reach maximum power. LV1"
     ]
   },
   "drawjewel2": {
@@ -764,7 +764,7 @@
     "rarity": 8,
     "slot": 2,
     "skills": [
-      "Critical Draw: Draw attack affinity +30% LV1"
+      "Critical Draw - Draw attack affinity +30% LV1"
     ]
   },
   "piercejewel3": {
@@ -772,7 +772,7 @@
     "rarity": 8,
     "slot": 3,
     "skills": [
-      "Piercing Shots: Increases the power of piercing ammo and Dragon Piercer. LV1"
+      "Piercing Shots - Increases the power of piercing ammo and Dragon Piercer. LV1"
     ]
   },
   "maintenancejewel1": {
@@ -780,7 +780,7 @@
     "rarity": 5,
     "slot": 1,
     "skills": [
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "survivaljewel1": {
@@ -788,7 +788,7 @@
     "rarity": 9,
     "slot": 1,
     "skills": [
-      "Survival Expert: Interactables restore an additional 50 health. LV1"
+      "Survival Expert - Interactables restore an additional 50 health. LV1"
     ]
   },
   "guardianjewel2": {
@@ -796,7 +796,7 @@
     "rarity": 10,
     "slot": 2,
     "skills": [
-      "Offensive Guard: While active, increases attack power by 5%. LV1"
+      "Offensive Guard - While active, increases attack power by 5%. LV1"
     ]
   },
   "coolingjewel2": {
@@ -804,7 +804,7 @@
     "rarity": 9,
     "slot": 2,
     "skills": [
-      "Heat Guard: Nullfies heat damage. LV1"
+      "Heat Guard - Nullfies heat damage. LV1"
     ]
   },
   "warmingjewel2": {
@@ -812,7 +812,7 @@
     "rarity": 9,
     "slot": 2,
     "skills": [
-      "Coldproof: Activates skill effect. LV1"
+      "Coldproof - Activates skill effect. LV1"
     ]
   },
   "phoenixjewel3": {
@@ -820,7 +820,7 @@
     "rarity": 11,
     "slot": 3,
     "skills": [
-      "Coalescence: While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
+      "Coalescence - While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
     ]
   },
   "fireresjewel+4": {
@@ -828,7 +828,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Fire Resistance: Fire resistance +12 LV2"
+      "Fire Resistance - Fire resistance +12 LV2"
     ]
   },
   "waterresjewel+4": {
@@ -836,7 +836,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Water Resistance: Water resistance +12 LV2"
+      "Water Resistance - Water resistance +12 LV2"
     ]
   },
   "iceresjewel+4": {
@@ -844,7 +844,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Ice Resistance: Ice resistance +12 LV2"
+      "Ice Resistance - Ice resistance +12 LV2"
     ]
   },
   "thunderresjewel+4": {
@@ -852,7 +852,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Thunder Resistance: Thunder resistance +12 LV2"
+      "Thunder Resistance - Thunder resistance +12 LV2"
     ]
   },
   "dragonresjewel+4": {
@@ -860,7 +860,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Dragon Resistance: Dragon resistance +12 LV2"
+      "Dragon Resistance - Dragon resistance +12 LV2"
     ]
   },
   "blazejewel+4": {
@@ -868,7 +868,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Fire Attack: Fire attack +60 LV2"
+      "Fire Attack - Fire attack +60 LV2"
     ]
   },
   "streamjewel+4": {
@@ -876,7 +876,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Water Attack: Water attack +60 LV2"
+      "Water Attack - Water attack +60 LV2"
     ]
   },
   "frostjewel+4": {
@@ -884,7 +884,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Ice Attack: Ice attack +60 LV2"
+      "Ice Attack - Ice attack +60 LV2"
     ]
   },
   "boltjewel+4": {
@@ -892,7 +892,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Thunder Attack: Thunder attack +60 LV2"
+      "Thunder Attack - Thunder attack +60 LV2"
     ]
   },
   "dragonjewel+4": {
@@ -900,7 +900,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Dragon Attack: Dragon attack +60 LV2"
+      "Dragon Attack - Dragon attack +60 LV2"
     ]
   },
   "venomjewel+4": {
@@ -908,7 +908,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Poison Attack: Poison buildup +10% Bonus: +10 LV2"
+      "Poison Attack - Poison buildup +10% Bonus: +10 LV2"
     ]
   },
   "paralyzerjewel+4": {
@@ -916,7 +916,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Paralysis Attack: Paralysis buildup +10% Bonus: +10 LV2"
+      "Paralysis Attack - Paralysis buildup +10% Bonus: +10 LV2"
     ]
   },
   "sleepjewel+4": {
@@ -924,7 +924,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Sleep Attack: Sleep buildup +10% Bonus: +10 LV2"
+      "Sleep Attack - Sleep buildup +10% Bonus: +10 LV2"
     ]
   },
   "blastjewel+4": {
@@ -932,7 +932,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Blast Attack: Blast buildup +10% Bonus: +10 LV2"
+      "Blast Attack - Blast buildup +10% Bonus: +10 LV2"
     ]
   },
   "hardfireresjewel4": {
@@ -940,7 +940,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Fire Resistance: Fire resistance +20 Defense +10 LV3"
+      "Fire Resistance - Fire resistance +20 Defense +10 LV3"
     ]
   },
   "hardwaterresjewel4": {
@@ -948,7 +948,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Water Resistance: Water resistance +20 Defense +10 LV3"
+      "Water Resistance - Water resistance +20 Defense +10 LV3"
     ]
   },
   "hardiceresjewel4": {
@@ -956,7 +956,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Ice Resistance: Ice resistance +20 Defense +10 LV3"
+      "Ice Resistance - Ice resistance +20 Defense +10 LV3"
     ]
   },
   "hardthunderresjewel4": {
@@ -964,7 +964,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Thunder Resistance: Thunder resistance +20 Defense +10 LV3"
+      "Thunder Resistance - Thunder resistance +20 Defense +10 LV3"
     ]
   },
   "harddragonresjewel4": {
@@ -972,7 +972,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Dragon Resistance: Dragon resistance +20 Defense +10 LV3"
+      "Dragon Resistance - Dragon resistance +20 Defense +10 LV3"
     ]
   },
   "antidotejewel+4": {
@@ -980,7 +980,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Poison Resistance: Greatly reduces the number of times you take poison damage. LV2"
+      "Poison Resistance - Greatly reduces the number of times you take poison damage. LV2"
     ]
   },
   "antiparajewel+4": {
@@ -988,7 +988,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Paralysis Resistance: Reduces the duration of paralysis by 60%. LV2"
+      "Paralysis Resistance - Reduces the duration of paralysis by 60%. LV2"
     ]
   },
   "pepjewel+4": {
@@ -996,7 +996,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Sleep Resistance: Reduces the duration of sleep by 60%. LV2"
+      "Sleep Resistance - Reduces the duration of sleep by 60%. LV2"
     ]
   },
   "steadfastjewel+4": {
@@ -1004,7 +1004,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Stun Resistance: Reduces the duration of stun by 90%. LV2"
+      "Stun Resistance - Reduces the duration of stun by 90%. LV2"
     ]
   },
   "antiblastjewel+4": {
@@ -1012,7 +1012,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Blast Resistance: Greatly delays blastblight and greatly reduces blast damage. LV2"
+      "Blast Resistance - Greatly delays blastblight and greatly reduces blast damage. LV2"
     ]
   },
   "suturejewel+4": {
@@ -1020,7 +1020,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Bleeding Resistance: Greatly reduces damage while bleeding. LV2"
+      "Bleeding Resistance - Greatly reduces damage while bleeding. LV2"
     ]
   },
   "deflockjewel+4": {
@@ -1028,7 +1028,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Iron Skin: Reduces the duration of Defense Down by 75%. LV2"
+      "Iron Skin - Reduces the duration of Defense Down by 75%. LV2"
     ]
   },
   "miasmajewel+4": {
@@ -1036,7 +1036,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Effluvia Resistance: Greatly reduces effluvial buildup. LV2"
+      "Effluvia Resistance - Greatly reduces effluvial buildup. LV2"
     ]
   },
   "hungerlessjewel+4": {
@@ -1044,7 +1044,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Hunger Resistance: Extends the time until your stamina cap decreases by 100%. LV2"
+      "Hunger Resistance - Extends the time until your stamina cap decreases by 100%. LV2"
     ]
   },
   "recoveryjewel+4": {
@@ -1052,7 +1052,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Recovery Speed: Triples the speed at which you heal recoverable damage. LV2"
+      "Recovery Speed - Triples the speed at which you heal recoverable damage. LV2"
     ]
   },
   "tiptoejewel+4": {
@@ -1060,7 +1060,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Stealth: Makes it moderately easier for monsters to lose sight of you. LV2"
+      "Stealth - Makes it moderately easier for monsters to lose sight of you. LV2"
     ]
   },
   "intimidatorjewel+4": {
@@ -1068,7 +1068,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Intimidator: Highly discourages monsters from engaging you even if you've been spotted. LV2"
+      "Intimidator - Highly discourages monsters from engaging you even if you've been spotted. LV2"
     ]
   },
   "meowsterjewel+4": {
@@ -1076,7 +1076,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Palico Rally: Increases Palico attack power and defense by 10%. LV2"
+      "Palico Rally - Increases Palico attack power and defense by 10%. LV2"
     ]
   },
   "hardtiptoejewel4": {
@@ -1084,7 +1084,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Stealth: Makes it much easier for monsters to lose sight of you. LV3"
+      "Stealth - Makes it much easier for monsters to lose sight of you. LV3"
     ]
   },
   "hardintimidatorjewel4": {
@@ -1092,7 +1092,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Intimidator: Prevents monsters from engaging you even if you've been spotted. LV3"
+      "Intimidator - Prevents monsters from engaging you even if you've been spotted. LV3"
     ]
   },
   "hardmeowsterjewel4": {
@@ -1100,7 +1100,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Palico Rally: Increases Palico attack power and defense by 15%. LV3"
+      "Palico Rally - Increases Palico attack power and defense by 15%. LV3"
     ]
   },
   "trueshotjewel+4": {
@@ -1108,7 +1108,7 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Special Ammo Boost: Increases the power of bowgun special ammo and Dragon Piercer by 20%. LV2"
+      "Special Ammo Boost - Increases the power of bowgun special ammo and Dragon Piercer by 20%. LV2"
     ]
   },
   "heavyartilleryjewel+4": {
@@ -1116,7 +1116,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Heavy Artillery: Firepower +100% LV2"
+      "Heavy Artillery - Firepower +100% LV2"
     ]
   },
   "botanyjewel+4": {
@@ -1124,7 +1124,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Botanist: One extra consumable herb, fruit, nut, or seed item per gather. LV2"
+      "Botanist - One extra consumable herb, fruit, nut, or seed item per gather. LV2"
     ]
   },
   "geologyjewel+4": {
@@ -1132,7 +1132,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Geologist: Allows you to gather one extra time from bonepiles and special item gathering points. LV2"
+      "Geologist - Allows you to gather one extra time from bonepiles and special item gathering points. LV2"
     ]
   },
   "survivaljewel+4": {
@@ -1140,7 +1140,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Survival Expert: Interactables restore an additional 80 health. LV2"
+      "Survival Expert - Interactables restore an additional 80 health. LV2"
     ]
   },
   "mirewalkerjewel+4": {
@@ -1148,7 +1148,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Aquatic/Polar Mobility: Increases your evade window and prevents lowered movement speed. LV2"
+      "Aquatic/Polar Mobility - Increases your evade window and prevents lowered movement speed. LV2"
     ]
   },
   "specimenjewel+4": {
@@ -1156,7 +1156,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Entomologist: Greatly increases the chances of a corpse being left behind. LV2"
+      "Entomologist - Greatly increases the chances of a corpse being left behind. LV2"
     ]
   },
   "sonorousjewel+4": {
@@ -1164,7 +1164,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Horn Maestro: Greatly increases the effect duration of hunting horn melodies. LV2"
+      "Horn Maestro - Greatly increases the effect duration of hunting horn melodies. LV2"
     ]
   },
   "hardbotanyjewel+4": {
@@ -1172,7 +1172,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Botanist: One extra consumable herb, fruit, nut, seed, insect or mushroom item per gather. LV4"
+      "Botanist - One extra consumable herb, fruit, nut, seed, insect or mushroom item per gather. LV4"
     ]
   },
   "hardgeologyjewel4": {
@@ -1180,7 +1180,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Geologist: Allows you to gather one extra time from bonepiles, gathering points, and mining outcrops. LV3"
+      "Geologist - Allows you to gather one extra time from bonepiles, gathering points, and mining outcrops. LV3"
     ]
   },
   "hardsurvivaljewel4": {
@@ -1188,7 +1188,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Survival Expert: Interactables restore an additional 100 health. LV3"
+      "Survival Expert - Interactables restore an additional 100 health. LV3"
     ]
   },
   "hardspecimenjewel4": {
@@ -1196,7 +1196,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Entomologist: Makes it so corpses will always be left behind. LV3"
+      "Entomologist - Makes it so corpses will always be left behind. LV3"
     ]
   },
   "enduringjewel+4": {
@@ -1204,7 +1204,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Item Prolonger: Item effect duration +25% LV2"
+      "Item Prolonger - Item effect duration +25% LV2"
     ]
   },
   "defensejewel+4": {
@@ -1212,7 +1212,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Defense Boost: Defense +10 LV2"
+      "Defense Boost - Defense +10 LV2"
     ]
   },
   "hardenduringjewel4": {
@@ -1220,7 +1220,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Item Prolonger: Item effect duration +50% LV3"
+      "Item Prolonger - Item effect duration +50% LV3"
     ]
   },
   "harddefensejewel4": {
@@ -1228,7 +1228,7 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Defense Boost: Defense +5%\nBonus: +10 LV3"
+      "Defense Boost - Defense +5%\nBonus: +10 LV3"
     ]
   },
   "artilleryjewel+4": {
@@ -1236,7 +1236,7 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Artillery: Increases power of each attack by 20% and reduces Wyvern's Fire cooldown by 30%. LV2"
+      "Artillery - Increases power of each attack by 20% and reduces Wyvern's Fire cooldown by 30%. LV2"
     ]
   },
   "earplugjewel+4": {
@@ -1244,7 +1244,7 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Earplugs: Reduces the effects of weak monster roars. LV2"
+      "Earplugs - Reduces the effects of weak monster roars. LV2"
     ]
   },
   "windresistjewel+4": {
@@ -1252,7 +1252,7 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Windproof: Reduces the effects of minor wind pressure. LV2"
+      "Windproof - Reduces the effects of minor wind pressure. LV2"
     ]
   },
   "attackjewel+4": {
@@ -1260,7 +1260,7 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +6 LV2"
+      "Attack Boost - Attack +6 LV2"
     ]
   },
   "expertjewel+4": {
@@ -1268,7 +1268,7 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +10% LV2"
+      "Critical Eye - Affinity +10% LV2"
     ]
   },
   "handicraftjewel+4": {
@@ -1276,7 +1276,7 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +20 LV2"
+      "Handicraft - Weapon sharpness +20 LV2"
     ]
   },
   "throttlejewel+4": {
@@ -1284,7 +1284,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Latent Power: While active, increases affinity by 20% and reduces stamina depletion by 30%. LV2"
+      "Latent Power - While active, increases affinity by 20% and reduces stamina depletion by 30%. LV2"
     ]
   },
   "challengerjewel+4": {
@@ -1292,7 +1292,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Agitator: While active, grants attack +8 and increases affinity by 5%. LV2"
+      "Agitator - While active, grants attack +8 and increases affinity by 5%. LV2"
     ]
   },
   "potentialjewel+4": {
@@ -1300,7 +1300,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Heroics: While active, increases attack power by 5% and increases defense by 50 points. LV2"
+      "Heroics - While active, increases attack power by 5% and increases defense by 50 points. LV2"
     ]
   },
   "furorjewel+4": {
@@ -1308,7 +1308,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Resentment: While active, grants attack +10. LV2"
+      "Resentment - While active, grants attack +10. LV2"
     ]
   },
   "physiquejewel+4": {
@@ -1316,7 +1316,7 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 20%. LV2"
+      "Constitution - Reduces fixed stamina depletion by 20%. LV2"
     ]
   },
   "evasionjewel+4": {
@@ -1324,7 +1324,7 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Evade Window: Slightly increases invulnerability window. LV2"
+      "Evade Window - Slightly increases invulnerability window. LV2"
     ]
   },
   "ironwalljewel+4": {
@@ -1332,7 +1332,7 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Guard: Slightly decreases the impact of attacks and reduces stamina depletion by 15%. LV2"
+      "Guard - Slightly decreases the impact of attacks and reduces stamina depletion by 15%. LV2"
     ]
   },
   "friendshipjewel+4": {
@@ -1340,7 +1340,7 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Wide-Range: Items affect nearby allies in a wider radius with 33% of their efficacy. LV2"
+      "Wide-Range - Items affect nearby allies in a wider radius with 33% of their efficacy. LV2"
     ]
   },
   "drain/physiquejewel4": {
@@ -1348,8 +1348,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Stamina Thief: Exhaust power +20% LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Stamina Thief - Exhaust power +20% LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "fortitude/physiquejewel4": {
@@ -1357,8 +1357,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Fortify: Increases attack by 10% and defense by 15% with each use. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Fortify - Increases attack by 10% and defense by 15% with each use. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "crisis/physiquejewel4": {
@@ -1366,8 +1366,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Resuscitate: While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Resuscitate - While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "ironwall/physiquejewel4": {
@@ -1375,8 +1375,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Guard: Very slightly decreases the impact of attacks. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Guard - Very slightly decreases the impact of attacks. LV1"
     ]
   },
   "friendship/physiquejewel4": {
@@ -1384,8 +1384,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Wide-Range: Items affect nearby allies with 33% of their efficacy. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Wide-Range - Items affect nearby allies with 33% of their efficacy. LV1"
     ]
   },
   "satiated/physiquejewel4": {
@@ -1393,8 +1393,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Free Meal: Activates 25% of the time. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Free Meal - Activates 25% of the time. LV1"
     ]
   },
   "stonethrower/physiquejewel4": {
@@ -1402,8 +1402,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Slinger Capacity: Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Slinger Capacity - Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
     ]
   },
   "resistor/physiquejewel4": {
@@ -1411,8 +1411,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Blight Resistance: Reduces the duration of all elemental blights by 50%. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Blight Resistance - Reduces the duration of all elemental blights by 50%. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "flight/physiquejewel4": {
@@ -1420,8 +1420,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Airborne: Jumping attack power +30% LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Airborne - Jumping attack power +30% LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "sprinter/physiquejewel4": {
@@ -1429,8 +1429,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Marathon Runner: Reduces continuous stamina depletion by 15%. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Marathon Runner - Reduces continuous stamina depletion by 15%. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "refresh/physiquejewel4": {
@@ -1438,8 +1438,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Stamina Surge: Stamina recovery speed +10% LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Stamina Surge - Stamina recovery speed +10% LV1"
     ]
   },
   "jumping/physiquejewel4": {
@@ -1447,8 +1447,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Evade Extender: Slightly extends evasion distance. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Evade Extender - Slightly extends evasion distance. LV1"
     ]
   },
   "sheath/physiquejewel4": {
@@ -1456,8 +1456,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Quick Sheath: Slightly increases sheathing speed. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Quick Sheath - Slightly increases sheathing speed. LV1"
     ]
   },
   "gobbler/physiquejewel4": {
@@ -1465,8 +1465,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Speed Eating: Slightly increases item use speed. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Speed Eating - Slightly increases item use speed. LV1"
     ]
   },
   "grinder/physiquejewel4": {
@@ -1474,8 +1474,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Speed Sharpening: Removes one cycle from the sharpening process. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Speed Sharpening - Removes one cycle from the sharpening process. LV1"
     ]
   },
   "bomber/physiquejewel4": {
@@ -1483,8 +1483,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Bombardier: Explosive power +10% LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Bombardier - Explosive power +10% LV1"
     ]
   },
   "fungiform/physiquejewel4": {
@@ -1492,8 +1492,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Mushroomancer: Lets you digest blue mushrooms and toadstools. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Mushroomancer - Lets you digest blue mushrooms and toadstools. LV1"
     ]
   },
   "slider/physiquejewel4": {
@@ -1501,8 +1501,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Affinity Sliding: +30% Affinity for 15 seconds after sliding. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Affinity Sliding - +30% Affinity for 15 seconds after sliding. LV1"
     ]
   },
   "guardian/physiquejewel4": {
@@ -1510,8 +1510,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Offensive Guard: While active, increases attack power by 5%. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Offensive Guard - While active, increases attack power by 5%. LV1"
     ]
   },
   "drain/evasionjewel4": {
@@ -1519,8 +1519,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Stamina Thief: Exhaust power +20% LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Stamina Thief - Exhaust power +20% LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "fortitude/evasionjewel4": {
@@ -1528,8 +1528,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Fortify: Increases attack by 10% and defense by 15% with each use. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Fortify - Increases attack by 10% and defense by 15% with each use. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "crisis/evasionjewel4": {
@@ -1537,8 +1537,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Resuscitate: While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Resuscitate - While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "ironwall/evasionjewel4": {
@@ -1546,8 +1546,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Guard: Very slightly decreases the impact of attacks. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Guard - Very slightly decreases the impact of attacks. LV1"
     ]
   },
   "friendship/evasionjewel4": {
@@ -1555,8 +1555,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Wide-Range: Items affect nearby allies with 33% of their efficacy. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Wide-Range - Items affect nearby allies with 33% of their efficacy. LV1"
     ]
   },
   "satiated/evasionjewel4": {
@@ -1564,8 +1564,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Free Meal: Activates 25% of the time. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Free Meal - Activates 25% of the time. LV1"
     ]
   },
   "stonethrower/evasionjewel4": {
@@ -1573,8 +1573,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Slinger Capacity: Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Slinger Capacity - Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
     ]
   },
   "resistor/evasionjewel4": {
@@ -1582,8 +1582,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Blight Resistance: Reduces the duration of all elemental blights by 50%. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Blight Resistance - Reduces the duration of all elemental blights by 50%. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "flight/evasionjewel4": {
@@ -1591,8 +1591,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Airborne: Jumping attack power +30% LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Airborne - Jumping attack power +30% LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "sprinter/evasionjewel4": {
@@ -1600,8 +1600,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Marathon Runner: Reduces continuous stamina depletion by 15%. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Marathon Runner - Reduces continuous stamina depletion by 15%. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "refresh/evasionjewel4": {
@@ -1609,8 +1609,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Stamina Surge: Stamina recovery speed +10% LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Stamina Surge - Stamina recovery speed +10% LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "jumping/evasionjewel4": {
@@ -1618,8 +1618,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Evade Extender: Slightly extends evasion distance. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Evade Extender - Slightly extends evasion distance. LV1"
     ]
   },
   "sheath/evasionjewel4": {
@@ -1627,8 +1627,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Quick Sheath: Slightly increases sheathing speed. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Quick Sheath - Slightly increases sheathing speed. LV1"
     ]
   },
   "gobbler/evasionjewel4": {
@@ -1636,8 +1636,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Speed Eating: Slightly increases item use speed. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Speed Eating - Slightly increases item use speed. LV1"
     ]
   },
   "grinder/evasionjewel4": {
@@ -1645,8 +1645,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Speed Sharpening: Removes one cycle from the sharpening process. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Speed Sharpening - Removes one cycle from the sharpening process. LV1"
     ]
   },
   "bomber/evasionjewel4": {
@@ -1654,8 +1654,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Bombardier: Explosive power +10% LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Bombardier - Explosive power +10% LV1"
     ]
   },
   "fungiform/evasionjewel4": {
@@ -1663,8 +1663,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Mushroomancer: Lets you digest blue mushrooms and toadstools. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Mushroomancer - Lets you digest blue mushrooms and toadstools. LV1"
     ]
   },
   "slider/evasionjewel4": {
@@ -1672,8 +1672,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Affinity Sliding: +30% Affinity for 15 seconds after sliding. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Affinity Sliding - +30% Affinity for 15 seconds after sliding. LV1"
     ]
   },
   "guardian/evasionjewel4": {
@@ -1681,8 +1681,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Offensive Guard: While active, increases attack power by 5%. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Offensive Guard - While active, increases attack power by 5%. LV1"
     ]
   },
   "drain/attackjewel4": {
@@ -1690,8 +1690,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Stamina Thief: Exhaust power +20% LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Stamina Thief - Exhaust power +20% LV1"
     ]
   },
   "fortitude/attackjewel4": {
@@ -1699,8 +1699,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Fortify: Increases attack by 10% and defense by 15% with each use. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Fortify - Increases attack by 10% and defense by 15% with each use. LV1"
     ]
   },
   "crisis/attackjewel4": {
@@ -1708,8 +1708,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Resuscitate: While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Resuscitate - While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1"
     ]
   },
   "ironwall/attackjewel4": {
@@ -1717,8 +1717,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Guard: Very slightly decreases the impact of attacks. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Guard - Very slightly decreases the impact of attacks. LV1"
     ]
   },
   "friendship/attackjewel4": {
@@ -1726,8 +1726,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Wide-Range: Items affect nearby allies with 33% of their efficacy. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Wide-Range - Items affect nearby allies with 33% of their efficacy. LV1"
     ]
   },
   "satiated/attackjewel4": {
@@ -1735,8 +1735,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Free Meal: Activates 25% of the time. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Free Meal - Activates 25% of the time. LV1"
     ]
   },
   "stonethrower/attackjewel4": {
@@ -1744,8 +1744,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Slinger Capacity: Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Slinger Capacity - Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
     ]
   },
   "resistor/attackjewel4": {
@@ -1753,8 +1753,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Blight Resistance: Reduces the duration of all elemental blights by 50%. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Blight Resistance - Reduces the duration of all elemental blights by 50%. LV1"
     ]
   },
   "flight/attackjewel4": {
@@ -1762,8 +1762,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Airborne: Jumping attack power +30% LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Airborne - Jumping attack power +30% LV1"
     ]
   },
   "sprinter/attackjewel4": {
@@ -1771,8 +1771,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Marathon Runner: Reduces continuous stamina depletion by 15%. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Marathon Runner - Reduces continuous stamina depletion by 15%. LV1"
     ]
   },
   "refresh/attackjewel4": {
@@ -1780,8 +1780,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Stamina Surge: Stamina recovery speed +10% LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Stamina Surge - Stamina recovery speed +10% LV1"
     ]
   },
   "jumping/attackjewel4": {
@@ -1789,8 +1789,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Evade Extender: Slightly extends evasion distance. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Evade Extender - Slightly extends evasion distance. LV1"
     ]
   },
   "sheath/attackjewel4": {
@@ -1798,8 +1798,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Quick Sheath: Slightly increases sheathing speed. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Quick Sheath - Slightly increases sheathing speed. LV1"
     ]
   },
   "gobbler/attackjewel4": {
@@ -1807,8 +1807,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Speed Eating: Slightly increases item use speed. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Speed Eating - Slightly increases item use speed. LV1"
     ]
   },
   "grinder/attackjewel4": {
@@ -1816,8 +1816,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Speed Sharpening: Removes one cycle from the sharpening process. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Speed Sharpening - Removes one cycle from the sharpening process. LV1"
     ]
   },
   "bomber/attackjewel4": {
@@ -1825,8 +1825,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Bombardier: Explosive power +10% LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Bombardier - Explosive power +10% LV1"
     ]
   },
   "fungiform/attackjewel4": {
@@ -1834,8 +1834,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Mushroomancer: Lets you digest blue mushrooms and toadstools. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Mushroomancer - Lets you digest blue mushrooms and toadstools. LV1"
     ]
   },
   "slider/attackjewel4": {
@@ -1843,8 +1843,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Affinity Sliding: +30% Affinity for 15 seconds after sliding. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Affinity Sliding - +30% Affinity for 15 seconds after sliding. LV1"
     ]
   },
   "guardian/attackjewel4": {
@@ -1852,8 +1852,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Attack Boost: Attack +3 LV1",
-      "Offensive Guard: While active, increases attack power by 5%. LV1"
+      "Attack Boost - Attack +3 LV1",
+      "Offensive Guard - While active, increases attack power by 5%. LV1"
     ]
   },
   "drain/expertjewel4": {
@@ -1861,8 +1861,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Stamina Thief: Exhaust power +20% LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Stamina Thief - Exhaust power +20% LV1"
     ]
   },
   "fortitude/expertjewel4": {
@@ -1870,8 +1870,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Fortify: Increases attack by 10% and defense by 15% with each use. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Fortify - Increases attack by 10% and defense by 15% with each use. LV1"
     ]
   },
   "crisis/expertjewel4": {
@@ -1879,8 +1879,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Resuscitate: While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Resuscitate - While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1"
     ]
   },
   "ironwall/expertjewel4": {
@@ -1888,8 +1888,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Guard: Very slightly decreases the impact of attacks. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Guard - Very slightly decreases the impact of attacks. LV1"
     ]
   },
   "friendship/expertjewel4": {
@@ -1897,8 +1897,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Wide-Range: Items affect nearby allies with 33% of their efficacy. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Wide-Range - Items affect nearby allies with 33% of their efficacy. LV1"
     ]
   },
   "satiated/expertjewel4": {
@@ -1906,8 +1906,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Free Meal: Activates 25% of the time. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Free Meal - Activates 25% of the time. LV1"
     ]
   },
   "stonethrower/expertjewel4": {
@@ -1915,8 +1915,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Slinger Capacity: Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Slinger Capacity - Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
     ]
   },
   "resistor/expertjewel4": {
@@ -1924,8 +1924,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Blight Resistance: Reduces the duration of all elemental blights by 50%. LV1",
-      "Critical Eye: Affinity +5% LV1"
+      "Blight Resistance - Reduces the duration of all elemental blights by 50%. LV1",
+      "Critical Eye - Affinity +5% LV1"
     ]
   },
   "flight/expertjewel4": {
@@ -1933,8 +1933,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Airborne: Jumping attack power +30% LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Airborne - Jumping attack power +30% LV1"
     ]
   },
   "sprinter/expertjewel4": {
@@ -1942,8 +1942,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Marathon Runner: Reduces continuous stamina depletion by 15%. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Marathon Runner - Reduces continuous stamina depletion by 15%. LV1"
     ]
   },
   "refresh/expertjewel4": {
@@ -1951,8 +1951,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Stamina Surge: Stamina recovery speed +10% LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Stamina Surge - Stamina recovery speed +10% LV1"
     ]
   },
   "jumping/expertjewel4": {
@@ -1960,8 +1960,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Evade Extender: Slightly extends evasion distance. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Evade Extender - Slightly extends evasion distance. LV1"
     ]
   },
   "sheath/expertjewel4": {
@@ -1969,8 +1969,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Quick Sheath: Slightly increases sheathing speed. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Quick Sheath - Slightly increases sheathing speed. LV1"
     ]
   },
   "gobbler/expertjewel4": {
@@ -1978,8 +1978,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Speed Eating: Slightly increases item use speed. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Speed Eating - Slightly increases item use speed. LV1"
     ]
   },
   "grinder/expertjewel4": {
@@ -1987,8 +1987,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Speed Sharpening: Removes one cycle from the sharpening process. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Speed Sharpening - Removes one cycle from the sharpening process. LV1"
     ]
   },
   "bomber/expertjewel4": {
@@ -1996,8 +1996,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Bombardier: Explosive power +10% LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Bombardier - Explosive power +10% LV1"
     ]
   },
   "fungiform/expertjewel4": {
@@ -2005,8 +2005,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Mushroomancer: Lets you digest blue mushrooms and toadstools. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Mushroomancer - Lets you digest blue mushrooms and toadstools. LV1"
     ]
   },
   "slider/expertjewel4": {
@@ -2014,8 +2014,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Affinity Sliding: +30% Affinity for 15 seconds after sliding. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Affinity Sliding - +30% Affinity for 15 seconds after sliding. LV1"
     ]
   },
   "guardian/expertjewel4": {
@@ -2023,8 +2023,8 @@
     "rarity": 9,
     "slot": 4,
     "skills": [
-      "Critical Eye: Affinity +5% LV1",
-      "Offensive Guard: While active, increases attack power by 5%. LV1"
+      "Critical Eye - Affinity +5% LV1",
+      "Offensive Guard - While active, increases attack power by 5%. LV1"
     ]
   },
   "drain/releasejewel4": {
@@ -2032,8 +2032,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Stamina Thief: Exhaust power +20% LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Stamina Thief - Exhaust power +20% LV1"
     ]
   },
   "fortitude/releasejewel4": {
@@ -2041,8 +2041,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Fortify: Increases attack by 10% and defense by 15% with each use. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Fortify - Increases attack by 10% and defense by 15% with each use. LV1"
     ]
   },
   "crisis/releasejewel4": {
@@ -2050,8 +2050,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Resuscitate: While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Resuscitate - While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1"
     ]
   },
   "ironwall/releasejewel4": {
@@ -2059,8 +2059,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Guard: Very slightly decreases the impact of attacks. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Guard - Very slightly decreases the impact of attacks. LV1"
     ]
   },
   "friendship/releasejewel4": {
@@ -2068,8 +2068,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Wide-Range: Items affect nearby allies with 33% of their efficacy. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Wide-Range - Items affect nearby allies with 33% of their efficacy. LV1"
     ]
   },
   "satiated/releasejewel4": {
@@ -2077,8 +2077,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Free Meal: Activates 25% of the time. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Free Meal - Activates 25% of the time. LV1"
     ]
   },
   "stonethrower/releasejewel4": {
@@ -2086,8 +2086,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Slinger Capacity: Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Slinger Capacity - Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
     ]
   },
   "resistor/releasejewel4": {
@@ -2095,8 +2095,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Blight Resistance: Reduces the duration of all elemental blights by 50%. LV1",
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1"
+      "Blight Resistance - Reduces the duration of all elemental blights by 50%. LV1",
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1"
     ]
   },
   "flight/releasejewel4": {
@@ -2104,8 +2104,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Airborne: Jumping attack power +30% LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Airborne - Jumping attack power +30% LV1"
     ]
   },
   "sprinter/releasejewel4": {
@@ -2113,8 +2113,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Marathon Runner: Reduces continuous stamina depletion by 15%. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Marathon Runner - Reduces continuous stamina depletion by 15%. LV1"
     ]
   },
   "refresh/releasejewel4": {
@@ -2122,8 +2122,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Stamina Surge: Stamina recovery speed +10% LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Stamina Surge - Stamina recovery speed +10% LV1"
     ]
   },
   "jumping/releasejewel4": {
@@ -2131,8 +2131,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Evade Extender: Slightly extends evasion distance. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Evade Extender - Slightly extends evasion distance. LV1"
     ]
   },
   "sheath/releasejewel4": {
@@ -2140,8 +2140,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Quick Sheath: Slightly increases sheathing speed. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Quick Sheath - Slightly increases sheathing speed. LV1"
     ]
   },
   "gobbler/releasejewel4": {
@@ -2149,8 +2149,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Speed Eating: Slightly increases item use speed. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Speed Eating - Slightly increases item use speed. LV1"
     ]
   },
   "grinder/releasejewel4": {
@@ -2158,8 +2158,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Speed Sharpening: Removes one cycle from the sharpening process. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Speed Sharpening - Removes one cycle from the sharpening process. LV1"
     ]
   },
   "bomber/releasejewel4": {
@@ -2167,8 +2167,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Bombardier: Explosive power +10% LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Bombardier - Explosive power +10% LV1"
     ]
   },
   "fungiform/releasejewel4": {
@@ -2176,8 +2176,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Mushroomancer: Lets you digest blue mushrooms and toadstools. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Mushroomancer - Lets you digest blue mushrooms and toadstools. LV1"
     ]
   },
   "slider/releasejewel4": {
@@ -2185,8 +2185,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Affinity Sliding: +30% Affinity for 15 seconds after sliding. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Affinity Sliding - +30% Affinity for 15 seconds after sliding. LV1"
     ]
   },
   "guardian/releasejewel4": {
@@ -2194,8 +2194,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Offensive Guard: While active, increases attack power by 5%. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Offensive Guard - While active, increases attack power by 5%. LV1"
     ]
   },
   "drain/handicraftjewel4": {
@@ -2203,8 +2203,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Stamina Thief: Exhaust power +20% LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Stamina Thief - Exhaust power +20% LV1"
     ]
   },
   "fortitude/handicraftjewel4": {
@@ -2212,8 +2212,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Fortify: Increases attack by 10% and defense by 15% with each use. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Fortify - Increases attack by 10% and defense by 15% with each use. LV1"
     ]
   },
   "crisis/handicraftjewel4": {
@@ -2221,8 +2221,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Resuscitate: While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Resuscitate - While active, greatly improves evasion invulnerability time and reduces stamina depletion. LV1"
     ]
   },
   "ironwall/handicraftjewel4": {
@@ -2230,8 +2230,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Guard: Very slightly decreases the impact of attacks. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Guard - Very slightly decreases the impact of attacks. LV1"
     ]
   },
   "friendship/handicraftjewel4": {
@@ -2239,8 +2239,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Wide-Range: Items affect nearby allies with 33% of their efficacy. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Wide-Range - Items affect nearby allies with 33% of their efficacy. LV1"
     ]
   },
   "satiated/handicraftjewel4": {
@@ -2248,8 +2248,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Free Meal: Activates 25% of the time. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Free Meal - Activates 25% of the time. LV1"
     ]
   },
   "stonethrower/handicraftjewel4": {
@@ -2257,8 +2257,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Slinger Capacity: Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Slinger Capacity - Increases the loading capacity for slinger ammo collected from the ground or plants. LV1"
     ]
   },
   "resistor/handicraftjewel4": {
@@ -2266,8 +2266,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Blight Resistance: Reduces the duration of all elemental blights by 50%. LV1",
-      "Handicraft: Weapon sharpness +10 LV1"
+      "Blight Resistance - Reduces the duration of all elemental blights by 50%. LV1",
+      "Handicraft - Weapon sharpness +10 LV1"
     ]
   },
   "flight/handicraftjewel4": {
@@ -2275,8 +2275,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Airborne: Jumping attack power +30% LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Airborne - Jumping attack power +30% LV1"
     ]
   },
   "sprinter/handicraftjewel4": {
@@ -2284,8 +2284,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Marathon Runner: Reduces continuous stamina depletion by 15%. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Marathon Runner - Reduces continuous stamina depletion by 15%. LV1"
     ]
   },
   "refresh/handicraftjewel4": {
@@ -2293,8 +2293,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Stamina Surge: Stamina recovery speed +10% LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Stamina Surge - Stamina recovery speed +10% LV1"
     ]
   },
   "jumping/handicraftjewel4": {
@@ -2302,8 +2302,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Evade Extender: Slightly extends evasion distance. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Evade Extender - Slightly extends evasion distance. LV1"
     ]
   },
   "sheath/handicraftjewel4": {
@@ -2311,8 +2311,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Quick Sheath: Slightly increases sheathing speed. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Quick Sheath - Slightly increases sheathing speed. LV1"
     ]
   },
   "gobbler/handicraftjewel4": {
@@ -2320,8 +2320,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Speed Eating: Slightly increases item use speed. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Speed Eating - Slightly increases item use speed. LV1"
     ]
   },
   "grinder/handicraftjewel4": {
@@ -2329,8 +2329,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Speed Sharpening: Removes one cycle from the sharpening process. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Speed Sharpening - Removes one cycle from the sharpening process. LV1"
     ]
   },
   "bomber/handicraftjewel4": {
@@ -2338,8 +2338,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Bombardier: Explosive power +10% LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Bombardier - Explosive power +10% LV1"
     ]
   },
   "fungiform/handicraftjewel4": {
@@ -2347,8 +2347,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Mushroomancer: Lets you digest blue mushrooms and toadstools. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Mushroomancer - Lets you digest blue mushrooms and toadstools. LV1"
     ]
   },
   "slider/handicraftjewel4": {
@@ -2356,8 +2356,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Affinity Sliding: +30% Affinity for 15 seconds after sliding. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Affinity Sliding - +30% Affinity for 15 seconds after sliding. LV1"
     ]
   },
   "guardian/handicraftjewel4": {
@@ -2365,8 +2365,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Offensive Guard: While active, increases attack power by 5%. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Offensive Guard - While active, increases attack power by 5%. LV1"
     ]
   },
   "footing/protectionjewel4": {
@@ -2374,8 +2374,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Tremor Resistance: Nullifies minor ground tremors. LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Tremor Resistance - Nullifies minor ground tremors. LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "charger/protectionjewel4": {
@@ -2383,8 +2383,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Focus: Increases gauge fill rate by 5% and reduces charge times by 5%. LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Focus - Increases gauge fill rate by 5% and reduces charge times by 5%. LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "enhancer/protectionjewel4": {
@@ -2392,8 +2392,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Power Prolonger: Bonus duration +10% LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Power Prolonger - Bonus duration +10% LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "destroyer/protectionjewel4": {
@@ -2401,8 +2401,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Partbreaker: Part damage +10% LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Partbreaker - Part damage +10% LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "ko/protectionjewel4": {
@@ -2410,8 +2410,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Slugger: Stun power +20% LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Slugger - Stun power +20% LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "potential/protectionjewel4": {
@@ -2419,8 +2419,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Heroics: While active, increases defense by 50 points LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Heroics - While active, increases defense by 50 points LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "windresist/protectionjewel4": {
@@ -2428,8 +2428,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Windproof: Slightly reduces the effects of minor wind pressure. LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Windproof - Slightly reduces the effects of minor wind pressure. LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "draw/protectionjewel4": {
@@ -2437,8 +2437,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Draw: Draw attack affinity +30% LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Critical Draw - Draw attack affinity +30% LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "throttle/protectionjewel4": {
@@ -2446,8 +2446,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Latent Power: While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Latent Power - While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "challenger/protectionjewel4": {
@@ -2455,8 +2455,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Agitator: While active, grants attack +4 and increases affinity by 5%. LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Agitator - While active, grants attack +4 and increases affinity by 5%. LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "flawless/protectionjewel4": {
@@ -2464,8 +2464,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Peak Performance: While active, grants attack +5. LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Peak Performance - While active, grants attack +5. LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "furor/protectionjewel4": {
@@ -2473,8 +2473,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Resentment: While active, grants attack +5. LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Resentment - While active, grants attack +5. LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "mighty/protectionjewel4": {
@@ -2482,8 +2482,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1",
-      "Maximum Might: While active, increases affinity by 10%. LV1"
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1",
+      "Maximum Might - While active, increases affinity by 10%. LV1"
     ]
   },
   "brace/protectionjewel4": {
@@ -2491,8 +2491,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1",
-      "Flinch Free: Prevents knockbacks. LV1"
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1",
+      "Flinch Free - Prevents knockbacks. LV1"
     ]
   },
   "phoenix/protectionjewel4": {
@@ -2500,8 +2500,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1",
-      "Coalescence: While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1",
+      "Coalescence - While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
     ]
   },
   "earplug/protectionjewel4": {
@@ -2509,8 +2509,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Earplugs: Slightly reduces the effects of weak monster roars. LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Earplugs - Slightly reduces the effects of weak monster roars. LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "critical/protectionjewel4": {
@@ -2518,8 +2518,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Critical Boost: Increases damage dealt by critical hits by 30%. LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Critical Boost - Increases damage dealt by critical hits by 30%. LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "tenderizer/protectionjewel4": {
@@ -2527,8 +2527,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Weakness Exploit: Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Weakness Exploit - Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "handicraft/protectionjewel4": {
@@ -2536,8 +2536,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "release/protectionjewel4": {
@@ -2545,8 +2545,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Divine Blessing: While active, reduces damage taken by 15%. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Divine Blessing - While active, reduces damage taken by 15%. LV1"
     ]
   },
   "footing/medicinejewel4": {
@@ -2554,8 +2554,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Tremor Resistance: Nullifies minor ground tremors. LV1",
-      "Recovery Up: Recovery +10% LV1"
+      "Tremor Resistance - Nullifies minor ground tremors. LV1",
+      "Recovery Up - Recovery +10% LV1"
     ]
   },
   "charger/medicinejewel4": {
@@ -2563,8 +2563,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Focus: Increases gauge fill rate by 5% and reduces charge times by 5%. LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Focus - Increases gauge fill rate by 5% and reduces charge times by 5%. LV1"
     ]
   },
   "enhancer/medicinejewel4": {
@@ -2572,8 +2572,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Power Prolonger: Bonus duration +10% LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Power Prolonger - Bonus duration +10% LV1"
     ]
   },
   "destroyer/medicinejewel4": {
@@ -2581,8 +2581,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Partbreaker: Part damage +10% LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Partbreaker - Part damage +10% LV1"
     ]
   },
   "ko/medicinejewel4": {
@@ -2590,8 +2590,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Slugger: Stun power +20% LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Slugger - Stun power +20% LV1"
     ]
   },
   "potential/medicinejewel4": {
@@ -2599,8 +2599,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Heroics: While active, increases defense by 50 points LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Heroics - While active, increases defense by 50 points LV1"
     ]
   },
   "windresist/medicinejewel4": {
@@ -2608,8 +2608,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Windproof: Slightly reduces the effects of minor wind pressure. LV1",
-      "Recovery Up: Recovery +10% LV1"
+      "Windproof - Slightly reduces the effects of minor wind pressure. LV1",
+      "Recovery Up - Recovery +10% LV1"
     ]
   },
   "draw/medicinejewel4": {
@@ -2617,8 +2617,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Critical Draw: Draw attack affinity +30% LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Critical Draw - Draw attack affinity +30% LV1"
     ]
   },
   "throttle/medicinejewel4": {
@@ -2626,8 +2626,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Latent Power: While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Latent Power - While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1"
     ]
   },
   "challenger/medicinejewel4": {
@@ -2635,8 +2635,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Agitator: While active, grants attack +4 and increases affinity by 5%. LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Agitator - While active, grants attack +4 and increases affinity by 5%. LV1"
     ]
   },
   "flawless/medicinejewel4": {
@@ -2644,8 +2644,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Peak Performance: While active, grants attack +5. LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Peak Performance - While active, grants attack +5. LV1"
     ]
   },
   "furor/medicinejewel4": {
@@ -2653,8 +2653,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Resentment: While active, grants attack +5. LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Resentment - While active, grants attack +5. LV1"
     ]
   },
   "mighty/medicinejewel4": {
@@ -2662,8 +2662,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Maximum Might: While active, increases affinity by 10%. LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Maximum Might - While active, increases affinity by 10%. LV1"
     ]
   },
   "brace/medicinejewel4": {
@@ -2671,8 +2671,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Flinch Free: Prevents knockbacks. LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Flinch Free - Prevents knockbacks. LV1"
     ]
   },
   "phoenix/medicinejewel4": {
@@ -2680,8 +2680,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Coalescence: While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Coalescence - While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
     ]
   },
   "earplug/medicinejewel4": {
@@ -2689,8 +2689,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Earplugs: Slightly reduces the effects of weak monster roars. LV1",
-      "Recovery Up: Recovery +10% LV1"
+      "Earplugs - Slightly reduces the effects of weak monster roars. LV1",
+      "Recovery Up - Recovery +10% LV1"
     ]
   },
   "critical/medicinejewel4": {
@@ -2698,8 +2698,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Critical Boost: Increases damage dealt by critical hits by 30%. LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Critical Boost - Increases damage dealt by critical hits by 30%. LV1"
     ]
   },
   "tenderizer/medicinejewel4": {
@@ -2707,8 +2707,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Weakness Exploit: Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Weakness Exploit - Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1"
     ]
   },
   "handicraft/medicinejewel4": {
@@ -2716,8 +2716,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Handicraft: Weapon sharpness +10 LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Handicraft - Weapon sharpness +10 LV1"
     ]
   },
   "release/medicinejewel4": {
@@ -2725,8 +2725,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Recovery Up: Recovery +10% LV1",
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1"
+      "Recovery Up - Recovery +10% LV1",
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1"
     ]
   },
   "footing/vitalityjewel4": {
@@ -2734,8 +2734,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Tremor Resistance: Nullifies minor ground tremors. LV1",
-      "Health Boost: Health +15 LV1"
+      "Tremor Resistance - Nullifies minor ground tremors. LV1",
+      "Health Boost - Health +15 LV1"
     ]
   },
   "charger/vitalityjewel4": {
@@ -2743,8 +2743,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Focus: Increases gauge fill rate by 5% and reduces charge times by 5%. LV1"
+      "Health Boost - Health +15 LV1",
+      "Focus - Increases gauge fill rate by 5% and reduces charge times by 5%. LV1"
     ]
   },
   "enhancer/vitalityjewel4": {
@@ -2752,8 +2752,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Power Prolonger: Bonus duration +10% LV1"
+      "Health Boost - Health +15 LV1",
+      "Power Prolonger - Bonus duration +10% LV1"
     ]
   },
   "destroyer/vitalityjewel4": {
@@ -2761,8 +2761,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Partbreaker: Part damage +10% LV1"
+      "Health Boost - Health +15 LV1",
+      "Partbreaker - Part damage +10% LV1"
     ]
   },
   "ko/vitalityjewel4": {
@@ -2770,8 +2770,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Slugger: Stun power +20% LV1"
+      "Health Boost - Health +15 LV1",
+      "Slugger - Stun power +20% LV1"
     ]
   },
   "potential/vitalityjewel4": {
@@ -2779,8 +2779,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Heroics: While active, increases defense by 50 points LV1"
+      "Health Boost - Health +15 LV1",
+      "Heroics - While active, increases defense by 50 points LV1"
     ]
   },
   "windresist/vitalityjewel4": {
@@ -2788,8 +2788,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Windproof: Slightly reduces the effects of minor wind pressure. LV1",
-      "Health Boost: Health +15 LV1"
+      "Windproof - Slightly reduces the effects of minor wind pressure. LV1",
+      "Health Boost - Health +15 LV1"
     ]
   },
   "draw/vitalityjewel4": {
@@ -2797,8 +2797,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Critical Draw: Draw attack affinity +30% LV1"
+      "Health Boost - Health +15 LV1",
+      "Critical Draw - Draw attack affinity +30% LV1"
     ]
   },
   "throttle/vitalityjewel4": {
@@ -2806,8 +2806,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Latent Power: While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1"
+      "Health Boost - Health +15 LV1",
+      "Latent Power - While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1"
     ]
   },
   "challenger/vitalityjewel4": {
@@ -2815,8 +2815,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Agitator: While active, grants attack +4 and increases affinity by 5%. LV1"
+      "Health Boost - Health +15 LV1",
+      "Agitator - While active, grants attack +4 and increases affinity by 5%. LV1"
     ]
   },
   "flawless/vitalityjewel4": {
@@ -2824,8 +2824,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Peak Performance: While active, grants attack +5. LV1"
+      "Health Boost - Health +15 LV1",
+      "Peak Performance - While active, grants attack +5. LV1"
     ]
   },
   "furor/vitalityjewel4": {
@@ -2833,8 +2833,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Resentment: While active, grants attack +5. LV1"
+      "Health Boost - Health +15 LV1",
+      "Resentment - While active, grants attack +5. LV1"
     ]
   },
   "mighty/vitalityjewel4": {
@@ -2842,8 +2842,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Maximum Might: While active, increases affinity by 10%. LV1"
+      "Health Boost - Health +15 LV1",
+      "Maximum Might - While active, increases affinity by 10%. LV1"
     ]
   },
   "brace/vitalityjewel4": {
@@ -2851,8 +2851,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Flinch Free: Prevents knockbacks. LV1"
+      "Health Boost - Health +15 LV1",
+      "Flinch Free - Prevents knockbacks. LV1"
     ]
   },
   "phoenix/vitalityjewel4": {
@@ -2860,8 +2860,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Coalescence: While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
+      "Health Boost - Health +15 LV1",
+      "Coalescence - While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
     ]
   },
   "earplug/vitalityjewel4": {
@@ -2869,8 +2869,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Earplugs: Slightly reduces the effects of weak monster roars. LV1",
-      "Health Boost: Health +15 LV1"
+      "Earplugs - Slightly reduces the effects of weak monster roars. LV1",
+      "Health Boost - Health +15 LV1"
     ]
   },
   "critical/vitalityjewel4": {
@@ -2878,8 +2878,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Critical Boost: Increases damage dealt by critical hits by 30%. LV1"
+      "Health Boost - Health +15 LV1",
+      "Critical Boost - Increases damage dealt by critical hits by 30%. LV1"
     ]
   },
   "tenderizer/vitalityjewel4": {
@@ -2887,8 +2887,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Weakness Exploit: Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1"
+      "Health Boost - Health +15 LV1",
+      "Weakness Exploit - Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1"
     ]
   },
   "handicraft/vitalityjewel4": {
@@ -2896,8 +2896,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Handicraft: Weapon sharpness +10 LV1"
+      "Health Boost - Health +15 LV1",
+      "Handicraft - Weapon sharpness +10 LV1"
     ]
   },
   "release/vitalityjewel4": {
@@ -2905,8 +2905,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Health Boost: Health +15 LV1",
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1"
+      "Health Boost - Health +15 LV1",
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1"
     ]
   },
   "footing/maintenancejewel4": {
@@ -2914,8 +2914,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Tremor Resistance: Nullifies minor ground tremors. LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Tremor Resistance - Nullifies minor ground tremors. LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "charger/maintenancejewel4": {
@@ -2923,8 +2923,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Focus: Increases gauge fill rate by 5% and reduces charge times by 5%. LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Focus - Increases gauge fill rate by 5% and reduces charge times by 5%. LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "enhancer/maintenancejewel4": {
@@ -2932,8 +2932,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Power Prolonger: Bonus duration +10% LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Power Prolonger - Bonus duration +10% LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "destroyer/maintenancejewel4": {
@@ -2941,8 +2941,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Partbreaker: Part damage +10% LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Partbreaker - Part damage +10% LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "ko/maintenancejewel4": {
@@ -2950,8 +2950,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Slugger: Stun power +20% LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Slugger - Stun power +20% LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "potential/maintenancejewel4": {
@@ -2959,8 +2959,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Heroics: While active, increases defense by 50 points LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Heroics - While active, increases defense by 50 points LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "windresist/maintenancejewel4": {
@@ -2968,8 +2968,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Windproof: Slightly reduces the effects of minor wind pressure. LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Windproof - Slightly reduces the effects of minor wind pressure. LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "draw/maintenancejewel4": {
@@ -2977,8 +2977,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Critical Draw: Draw attack affinity +30% LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Critical Draw - Draw attack affinity +30% LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "throttle/maintenancejewel4": {
@@ -2986,8 +2986,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Latent Power: While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Latent Power - While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "challenger/maintenancejewel4": {
@@ -2995,8 +2995,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Agitator: While active, grants attack +4 and increases affinity by 5%. LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Agitator - While active, grants attack +4 and increases affinity by 5%. LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "flawless/maintenancejewel4": {
@@ -3004,8 +3004,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Peak Performance: While active, grants attack +5. LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Peak Performance - While active, grants attack +5. LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "furor/maintenancejewel4": {
@@ -3013,8 +3013,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Resentment: While active, grants attack +5. LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Resentment - While active, grants attack +5. LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "mighty/maintenancejewel4": {
@@ -3022,8 +3022,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Flinch Free: Prevents knockbacks. LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Flinch Free - Prevents knockbacks. LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "brace/maintenancejewel4": {
@@ -3031,8 +3031,8 @@
     "rarity": 10,
     "slot": 4,
     "skills": [
-      "Flinch Free: Prevents knockbacks. LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Flinch Free - Prevents knockbacks. LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "phoenix/maintenancejewel4": {
@@ -3040,8 +3040,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Tool Specialist: Shortens time until reuse by 10%. LV1",
-      "Coalescence: While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
+      "Tool Specialist - Shortens time until reuse by 10%. LV1",
+      "Coalescence - While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
     ]
   },
   "earplug/maintenancejewel4": {
@@ -3049,8 +3049,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Earplugs: Slightly reduces the effects of weak monster roars. LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Earplugs - Slightly reduces the effects of weak monster roars. LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "critical/maintenancejewel4": {
@@ -3058,8 +3058,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Critical Boost: Increases damage dealt by critical hits by 30%. LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Critical Boost - Increases damage dealt by critical hits by 30%. LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "tenderizer/maintenancejewel4": {
@@ -3067,8 +3067,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Weakness Exploit: Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Weakness Exploit - Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "handicraft/maintenancejewel4": {
@@ -3076,8 +3076,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "release/maintenancejewel4": {
@@ -3085,8 +3085,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Tool Specialist: Shortens time until reuse by 10%. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Tool Specialist - Shortens time until reuse by 10%. LV1"
     ]
   },
   "footing/physiquejewel4": {
@@ -3094,8 +3094,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Tremor Resistance: Nullifies minor ground tremors. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Tremor Resistance - Nullifies minor ground tremors. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "charger/physiquejewel4": {
@@ -3103,8 +3103,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Focus: Increases gauge fill rate by 5% and reduces charge times by 5%. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Focus - Increases gauge fill rate by 5% and reduces charge times by 5%. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "enhancer/physiquejewel4": {
@@ -3112,8 +3112,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Power Prolonger: Bonus duration +10% LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Power Prolonger - Bonus duration +10% LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "destroyer/physiquejewel4": {
@@ -3121,8 +3121,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Partbreaker: Part damage +10% LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Partbreaker - Part damage +10% LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "ko/physiquejewel4": {
@@ -3130,8 +3130,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Slugger: Stun power +20% LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Slugger - Stun power +20% LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "potential/physiquejewel4": {
@@ -3139,8 +3139,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Heroics: While active, increases defense by 50 points LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Heroics - While active, increases defense by 50 points LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "windresist/physiquejewel4": {
@@ -3148,8 +3148,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Windproof: Slightly reduces the effects of minor wind pressure. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Windproof - Slightly reduces the effects of minor wind pressure. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "draw/physiquejewel4": {
@@ -3157,8 +3157,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Critical Draw: Draw attack affinity +30% LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Critical Draw - Draw attack affinity +30% LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "throttle/physiquejewel4": {
@@ -3166,8 +3166,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Latent Power: While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Latent Power - While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "challenger/physiquejewel4": {
@@ -3175,8 +3175,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Agitator: While active, grants attack +4 and increases affinity by 5%. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Agitator - While active, grants attack +4 and increases affinity by 5%. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "flawless/physiquejewel4": {
@@ -3184,8 +3184,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Peak Performance: While active, grants attack +5. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Peak Performance - While active, grants attack +5. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "furor/physiquejewel4": {
@@ -3193,8 +3193,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Resentment: While active, grants attack +5. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Resentment - While active, grants attack +5. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "mighty/physiquejewel4": {
@@ -3202,8 +3202,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Maximum Might: While active, increases affinity by 10%. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Maximum Might - While active, increases affinity by 10%. LV1"
     ]
   },
   "brace/physiquejewel4": {
@@ -3211,8 +3211,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Flinch Free: Prevents knockbacks. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Flinch Free - Prevents knockbacks. LV1"
     ]
   },
   "phoenix/physiquejewel4": {
@@ -3220,8 +3220,8 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1",
-      "Coalescence: While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1",
+      "Coalescence - While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
     ]
   },
   "earplug/physiquejewel4": {
@@ -3229,8 +3229,8 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Earplugs: Slightly reduces the effects of weak monster roars. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Earplugs - Slightly reduces the effects of weak monster roars. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "critical/physiquejewel4": {
@@ -3238,8 +3238,8 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Critical Boost: Increases damage dealt by critical hits by 30%. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Critical Boost - Increases damage dealt by critical hits by 30%. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "tenderizer/physiquejewel4": {
@@ -3247,8 +3247,8 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Weakness Exploit: Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Weakness Exploit - Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "handicraft/physiquejewel4": {
@@ -3256,8 +3256,8 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "release/physiquejewel4": {
@@ -3265,8 +3265,8 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   },
   "footing/evasionjewel4": {
@@ -3274,8 +3274,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Tremor Resistance: Nullifies minor ground tremors. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Tremor Resistance - Nullifies minor ground tremors. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "charger/evasionjewel4": {
@@ -3283,8 +3283,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Focus: Increases gauge fill rate by 5% and reduces charge times by 5%. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Focus - Increases gauge fill rate by 5% and reduces charge times by 5%. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "enhancer/evasionjewel4": {
@@ -3292,8 +3292,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Power Prolonger: Bonus duration +10% LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Power Prolonger - Bonus duration +10% LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "destroyer/evasionjewel4": {
@@ -3301,8 +3301,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Partbreaker: Part damage +10% LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Partbreaker - Part damage +10% LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "ko/evasionjewel4": {
@@ -3310,8 +3310,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Slugger: Stun power +20% LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Slugger - Stun power +20% LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "potential/evasionjewel4": {
@@ -3319,8 +3319,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Heroics: While active, increases defense by 50 points LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Heroics - While active, increases defense by 50 points LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "windresist/evasionjewel4": {
@@ -3328,8 +3328,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Windproof: Slightly reduces the effects of minor wind pressure. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Windproof - Slightly reduces the effects of minor wind pressure. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "draw/evasionjewel4": {
@@ -3337,8 +3337,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Critical Draw: Draw attack affinity +30% LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Critical Draw - Draw attack affinity +30% LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "throttle/evasionjewel4": {
@@ -3346,8 +3346,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Latent Power: While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Latent Power - While active, increases affinity by 10% and reduces stamina depletion by 30%. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "challenger/evasionjewel4": {
@@ -3355,8 +3355,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Agitator: While active, grants attack +4 and increases affinity by 5%. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Agitator - While active, grants attack +4 and increases affinity by 5%. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "flawless/evasionjewel4": {
@@ -3364,8 +3364,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Peak Performance: While active, grants attack +5. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Peak Performance - While active, grants attack +5. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "furor/evasionjewel4": {
@@ -3373,8 +3373,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Resentment: While active, grants attack +5. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Resentment - While active, grants attack +5. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "mighty/evasionjewel4": {
@@ -3382,8 +3382,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Maximum Might: While active, increases affinity by 10%. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Maximum Might - While active, increases affinity by 10%. LV1"
     ]
   },
   "brace/evasionjewel4": {
@@ -3391,8 +3391,8 @@
     "rarity": 11,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Flinch Free: Prevents knockbacks. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Flinch Free - Prevents knockbacks. LV1"
     ]
   },
   "phoenix/evasionjewel4": {
@@ -3400,8 +3400,8 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Evade Window: Very slightly increases invulnerability window. LV1",
-      "Coalescence: While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
+      "Evade Window - Very slightly increases invulnerability window. LV1",
+      "Coalescence - While active, grants attack +12, element attack power +30, and status buildup + 5%. LV1"
     ]
   },
   "earplug/evasionjewel4": {
@@ -3409,8 +3409,8 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Earplugs: Slightly reduces the effects of weak monster roars. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Earplugs - Slightly reduces the effects of weak monster roars. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "critical/evasionjewel4": {
@@ -3418,8 +3418,8 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Critical Boost: Increases damage dealt by critical hits by 30%. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Critical Boost - Increases damage dealt by critical hits by 30%. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "tenderizer/evasionjewel4": {
@@ -3427,8 +3427,8 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Weakness Exploit: Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Weakness Exploit - Attacks that hit weak spots have 10% increased affinity, with an extra 5% on wounded parts. LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "handicraft/evasionjewel4": {
@@ -3436,8 +3436,8 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Handicraft: Weapon sharpness +10 LV1",
-      "Evade Window: Very slightly increases invulnerability window. LV1"
+      "Handicraft - Weapon sharpness +10 LV1",
+      "Evade Window - Very slightly increases invulnerability window. LV1"
     ]
   },
   "release/evasionjewel4": {
@@ -3445,8 +3445,8 @@
     "rarity": 12,
     "slot": 4,
     "skills": [
-      "Free Elem/Ammo Up: Draws out 33% of hidden element and expands clip size for some ammo. LV1",
-      "Constitution: Reduces fixed stamina depletion by 10%. LV1"
+      "Free Elem/Ammo Up - Draws out 33% of hidden element and expands clip size for some ammo. LV1",
+      "Constitution - Reduces fixed stamina depletion by 10%. LV1"
     ]
   }
 }

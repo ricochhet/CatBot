@@ -11,10 +11,11 @@ class Armor extends Command {
     const embed = rawEmbed
       .setColor('#8fde5d')
       .setTitle(armor.name)
-      .setURL(armor.url)
-      .addField('Resistances', armor.resistances, true)
-      .addField('Skills', armor.skills, true)
       .addField('Set Bonus', armor.setBonus)
+      .addField('Resistances', armor.resistances, true)
+      .addField('Defenses', armor.defenses, true)
+      .addField('Skills', armor.skills, true)
+      .addField('Slots', armor.slots)
       .setTimestamp()
       .setFooter('Info Menu');
 

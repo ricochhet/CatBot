@@ -10,20 +10,28 @@ class Weapon extends Command {
 
     const embed = rawEmbed
       .setColor('#8fde5d')
-      .setTitle(weapon.title)
-      .setURL(weapon.url)
-      .setThumbnail(weapon.thumbnail)
+      .setTitle(weapon.name)
       .addField('Type', weapon.type, true)
-      .addField('Attack', weapon.attack, true)
-      .addField('Defense', weapon.defense, true)
-      .addField('Sharpness', weapon.sharpness, true)
-      .addField('Affinity', weapon.affinity, true)
-      .addField('Elemental Attack', weapon.elementalattack, true)
       .addField('Rarity', weapon.rarity, true)
-      .addField('Gem Slots', weapon.gemslots, true)
-      .addField('Wyvern Type', weapon.wyvernheart, true)
-      .addField('Phials', weapon.phials, true)
-      .addField('Notes', weapon.notes)
+      .addField('Displayed Attack', weapon.displayAttack, true)
+      .addField('Raw Attack', weapon.rawAttack, true)
+      .addField('damageType', weapon.damageType, true)
+      .addField('Affinity', weapon.affinity, true)
+      .addField('Defense', weapon.defense, true)
+      .addField('Elderseal', weapon.elderseal, true)
+      .addField('Shelling', weapon.shelling, true)
+      .addField('Special Ammo', weapon.specialAmmo, true)
+      .addField('Deviation', weapon.deviation, true)
+      .addField('Ammos', weapon.ammos, true)
+      .addField('Elements', weapon.elements, true)
+      .addField('Slots', weapon.slots, true)
+      .addField('Coatings', weapon.coatings, true)
+      .addField('Sharpness (Base)', weapon.sharpness.base, true)
+      .addField('Sharpness (Handicraft 1)', weapon.sharpness.h1, true)
+      .addField('Sharpness (Handicraft 2)', weapon.sharpness.h2, true)
+      .addField('Sharpness (Handicraft 3)', weapon.sharpness.h3, true)
+      .addField('Sharpness (Handicraft 4)', weapon.sharpness.h4, true)
+      .addField('Sharpness (Handicraft 5)', weapon.sharpness.h5, true)
       .setTimestamp()
       .setFooter('Info Menu');
 
@@ -39,7 +47,7 @@ class Weapon extends Command {
       const options = {
         input: input,
         threshold: 0.8,
-        innerKey: 'title',
+        innerKey: 'name',
         includeScore: true
       };
 
