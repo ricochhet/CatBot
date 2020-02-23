@@ -75,8 +75,7 @@ class Find extends Command {
 
     let reactions = {};
     this.menu(
-      message.channel,
-      message.author.id,
+      message,
       embeds,
       120000,
       (reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹' })
