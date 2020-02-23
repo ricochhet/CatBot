@@ -1,5 +1,8 @@
 const Command = require('../../utils/baseCommand.js');
-const { Canvas } = require('canvas-constructor');
+/**
+ * Image gen stuff, fix or yeet, who knows ;)
+ */
+/*const { Canvas } = require('canvas-constructor');
 const { loadImage } = require('canvas');
 const { Attachment } = require('discord.js'); // This is to send the image via discord.
 const hzvDB = require('../../utils/databases/mhw/hzv.json');
@@ -17,7 +20,7 @@ const HEX_RED = '#FF3232';
 const HEX_ORANGE = '#ffa500';
 const HEX_GREEN = '#78AB46';
 
-const ICON_SIZE_PX = 50;
+const ICON_SIZE_PX = 50;*/
 
 class Monster extends Command {
   constructor(prefix) {
@@ -29,7 +32,10 @@ class Monster extends Command {
   }
 
   async monsterEmbed(client, name, rawEmbed = this.RichEmbed()) {
-    async function hzvImageGen(monsterName) {
+    /**
+     * Image gen stuff, fix or yeet, who knows ;)
+     */
+    /*async function hzvImageGen(monsterName) {
       // get the monster hzv info from the db
       const monsterHzvInfo = hzvDB[monsterName.toLowerCase().replace(' ', '')];
 
@@ -143,28 +149,25 @@ class Monster extends Command {
 
       // Creates a discord attachment object and place the image content inside
       return new Attachment(hzvImage.toBuffer(), 'hzv.png');
-    }
+    }*/
 
     const monster = client.monsters.get(name);
     const embed = rawEmbed.setColor('#8fde5d').setTitle(monster.title);
 
-    if (!monster.url == null || !monster.url == '') {
-      embed.setURL(monster.url);
-    }
-
     embed
+      .setURL(`https://mhdb.catbot.xyz/monsters/${name}`)
       .setDescription(`${monster.description}\n\n${monster.info}`)
       .setThumbnail(monster.thumbnail)
       .addField(
         `Slash: **${monster.hzv.slash}** Blunt: **${monster.hzv.blunt}** Shot: **${monster.hzv.shot}**`,
         `🔥 **${monster.hzv.fire}** 💧 **${monster.hzv.water}** ⚡ **${monster.hzv.thunder}** ❄ **${monster.hzv.ice}** 🐉 **${monster.hzv.dragon}**`
       )
-      .attachFile(
+      /*.attachFile(
         await hzvImageGen(name).catch(e =>
           console.log(`Failed to load ${monster.title} hitzone value image`)
         )
       )
-      .setImage('attachment://hzv.png')
+      .setImage('attachment://hzv.png')*/
       .addField('Elements', monster.elements, true)
       .addField('Ailments', monster.ailments, true)
       .addField('Blights', monster.blights, true)

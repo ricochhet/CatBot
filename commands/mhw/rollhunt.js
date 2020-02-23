@@ -32,7 +32,7 @@ class RollHunt extends Command {
       .setThumbnail(monster.details.thumbnail)
       .addField('Monster', monster.details.title)
       .addField('Armor', armor)
-      .addField('Weapon', `${weapon.type}: ${weapon.title}`)
+      .addField('Weapon', `${weapon.type}: ${weapon.name}`)
       .setTimestamp()
       .setFooter('Roll Menu');
 
