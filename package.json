@@ -9,7 +9,23 @@
   "author": "Ricochet",
   "license": "ISC",
   "dependencies": {
+    "canvas": "^2.6.1",
+    "canvas-constructor": "^3.1.0",
     "dblapi.js": "^2.3.1",
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.7",
+    "prettier": "1.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --config .\\.prettierrc --write *.js"
   }
 }
