@@ -5,20 +5,18 @@ class Post extends Command {
   constructor(prefix) {
     super(
       'post',
-      'post [platform] [sessionid] (description)',
+      'post [platform] [session id] (description)',
       'Posts an active session to CatBots LFG command'
     );
   }
 
   usageEmbed() {
     const data = [];
-    data.push('platform: platform args are multiple choice of PC/XBOX/PS4\n');
+    data.push('platform: PC, PS4, or XBOX\n');
     data.push(
-      'sessionid: session id must be between 11 and 13 characters in length for PC; session id for console need to be between 14 and 16 characters long\n'
+      'session id: Must be between 11 and 13 characters in length for PC; for console, must be between 14 and 16 characters long\n'
     );
-    data.push(
-      'description: description is optional but is used for describing what you will be doing in the session and has a limit of 256 characters\n'
-    );
+    data.push('description: Describe what you plan to do in the session\n');
     const embed = this.RichEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
@@ -51,7 +49,9 @@ class Post extends Command {
       }
     });
 
-    message.channel.send(`Meowster, the session \`${sessionID}\` was replaced`);
+    message.channel.send(
+      `Meowster, the session \`${sessionID}\` was replaced!`
+    );
   }
 
   sendSub(client, sessionID, content) {
@@ -80,10 +80,19 @@ class Post extends Command {
         '```'
     );
 
-    const post = tEmbed._apiTransform();
+    //const post = tEmbed._apiTransform();
 
     for (const channelID of sub['subscribe']) {
-      client.rest.makeRequest(
+      let channel = client.channels.get(channelID);
+
+      if (channel != null) {
+        channel.send(tEmbed).catch(e => console.log(`ERROR: ${e}`));
+      } else {
+        let index = sub['subscribe'].indexOf(channelID);
+
+        sub['subscribe'].splice(index, 1);
+      }
+      /*client.rest.makeRequest(
         'post',
         client.Constants.Endpoints.Channel(channelID).messages,
         true,
@@ -91,8 +100,21 @@ class Post extends Command {
           content: '',
           embed: post
         }
-      );
+      );*/
     }
+
+    const jsonObj = JSON.stringify(sub, null, 4);
+    fs.writeFile(
+      `./utils/databases/lfg/subscribe.json`,
+      jsonObj,
+      'utf8',
+      function(err) {
+        if (err) {
+          console.log('An error occured while writing JSON Object to File.');
+          return console.log(err);
+        }
+      }
+    );
   }
 
   async run(client, message, args) {

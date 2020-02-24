@@ -52,13 +52,13 @@ class Subscribe extends Command {
           return element !== channel.id;
         });
         message.reply(
-          `Meowster the channel ${channel.name} will no longer be a session board for sessions!`
+          `Meowster the channel ${channel.name} will no longer act as a session board!`
         );
       } else {
         // Add to array
         sub['subscribe'].push(channel.id);
         message.reply(
-          `Meowster the channel ${channel.name} will now be a session board for sessions!`
+          `Meowster the channel ${channel.name} will now act as a session board!`
         );
       }
 
