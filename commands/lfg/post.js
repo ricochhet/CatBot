@@ -190,9 +190,6 @@ class Post extends Command {
     response
       .setColor('#8fde5d')
       .setTitle(`${platform.toUpperCase()} REQUEST SUCCESSFUL`)
-      .setFooter(
-        `Requested by ${message.author.username}#${message.author.discriminator} in ${message.guild.name}`
-      )
       .addField(`**${sessionID}**`, `*${newPost['description']}*`);
 
     // Finishes up object and pushes it back into the lfg db
