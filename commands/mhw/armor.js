@@ -8,11 +8,21 @@ class Armor extends Command {
   armorEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const armor = client.armors.get(name);
 
+    // Align the icons + resistance values
+    let formatted = '';
+    armor.resistances.split('\n').forEach(elem => {
+      let icon = elem.split(' ')[0];
+      let value = elem.split(' ')[1];
+      formatted += icon + value.padStart(6, ' ') + '\n';
+    });
+
+    // console.log(formatted); // aligns OK on console but not discord for some reason
+
     const embed = rawEmbed
       .setColor('#8fde5d')
       .setTitle(armor.name)
       .addField('Set Bonus', armor.setBonus)
-      .addField('Resistances', armor.resistances, true)
+      .addField('Resistances', formatted, true)
       .addField('Defenses', armor.defenses, true)
       .addField('Skills', armor.skills, true)
       .addField('Slots', armor.slots)

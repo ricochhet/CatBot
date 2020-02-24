@@ -14,7 +14,7 @@ class Post extends Command {
     const data = [];
     data.push('platform: PC, PS4, or XBOX\n');
     data.push(
-      'session id: Must be between 11 and 13 characters in length for PC; for console, must be between 14 and 16 characters long\n'
+      'session id: Must be between 11 and 13 characters long for PC; and between 14 and 16 characters long for console\n'
     );
     data.push('description: Describe what you plan to do in the session\n');
     const embed = this.RichEmbed()
@@ -24,34 +24,6 @@ class Post extends Command {
       .setTimestamp();
 
     return embed;
-  }
-
-  remove(lfg, message) {
-    // Checks if the user has already posted or not
-    let sessionID;
-    let userID = message.author.id;
-    for (let group in lfg) {
-      if (lfg[group]['userID'] == userID) {
-        sessionID = group;
-        break;
-      }
-    }
-
-    delete lfg[sessionID];
-
-    const jsonObj = JSON.stringify(lfg, null, 4);
-    fs.writeFile(`./utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function(
-      err
-    ) {
-      if (err) {
-        console.log('An error occured while writing JSON Object to File.');
-        return console.log(err);
-      }
-    });
-
-    message.channel.send(
-      `Meowster, the session \`${sessionID}\` was replaced!`
-    );
   }
 
   sendSub(client, sessionID, content) {
@@ -119,72 +91,94 @@ class Post extends Command {
 
   async run(client, message, args) {
     if (args.length == 0) return message.channel.send(this.usageEmbed());
-    // load in the current json
-    const lfg = require('../../utils/databases/lfg/lfg.json');
 
-    // Checks if the user has already posted or not
-    let repost = false;
-    for (let group in lfg) {
-      if (repost) break;
-      if (lfg[group]['userID'] == message.author.id) {
-        repost = true;
-        break;
-      }
-    }
+    // load in the current posts from the json db
+    const posts = require('../../utils/databases/lfg/lfg.json');
 
     const response = this.RichEmbed();
 
-    // Breaks up args into differenct sections
-    const sessionObj = {};
-    const platform = args[0].toLowerCase();
+    // Validate the arguments
     let sessionID;
-    if (['ps4', 'xbox'].includes(platform)) {
-      sessionID = args.slice(1, 4).join(' ');
+    const platform = args[0].toLowerCase();
 
-      if (sessionID.length == 0) return message.channel.send(this.usageEmbed());
-      if (sessionID.length < 14 || sessionID.length > 16)
+    if (['ps4', 'xbox'].includes(platform)) {
+      // for console the format is 'xxxx xxxx xxxx'(need to join args)
+      sessionID = args.slice(1, 4).join(' ');
+      if (
+        sessionID.length == 0 ||
+        sessionID.length < 14 ||
+        sessionID.length > 16
+      ) {
         return message.channel.send(this.usageEmbed());
+      }
     } else if (platform == 'pc') {
       sessionID = args[1];
 
-      if (sessionID == undefined)
+      if (
+        sessionID == undefined ||
+        sessionID.length < 11 ||
+        sessionID.length > 13
+      ) {
         return message.channel.send(this.usageEmbed());
-      if (sessionID.length < 11 || sessionID.length > 13)
-        return message.channel.send(this.usageEmbed());
+      }
     } else {
       return message.channel.send(this.usageEmbed());
     }
 
     // Checks if the sessionID has already been posted
     if (
-      Object.keys(lfg).includes(sessionID) &&
-      lfg[sessionID]['userID'] != message.author.id
+      Object.keys(posts).includes(sessionID) &&
+      posts[sessionID]['userID'] != message.author.id
     ) {
       return message.channel.send(
         'Sorry meowster but someone else has posted that session already!'
       );
     }
-    if (repost) {
-      this.remove(lfg, message);
+
+    // Checks if the user has already posted or not
+    let repost = false;
+    for (let post in posts) {
+      if (posts[post]['userID'] == message.author.id) {
+        repost = post;
+        break;
+      }
     }
 
-    // force push the remaining args into the obj
+    if (repost) {
+      delete posts[repost];
+
+      const jsonObj = JSON.stringify(posts, null, 4);
+      fs.writeFile(`./utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function(
+        err
+      ) {
+        if (err) {
+          console.log('An error occured while writing JSON Object to File.');
+          return console.log(err);
+        }
+      });
+
+      message.channel.send(`Meowster, the session \`${repost}\` was replaced!`);
+    }
+
+    // Create the new post
+    const newPost = {};
+
     if (args.length > 2) {
       if (['ps4', 'xbox'].includes(platform)) {
-        sessionObj['description'] = args.slice(4, args.length).join(' ');
+        newPost['description'] = args.slice(4, args.length).join(' ');
       } else {
-        sessionObj['description'] = args.slice(2, args.length).join(' ');
+        newPost['description'] = args.slice(2, args.length).join(' ');
       }
 
-      if (sessionObj['description'].length > 256)
+      if (newPost['description'].length > 256)
         return message.channel.send(this.usageEmbed());
     } else {
-      sessionObj['description'] = 'No description provided.';
+      newPost['description'] = 'No description provided.';
     }
 
-    sessionObj['userID'] = message.author.id;
-    sessionObj['platform'] = platform;
-    sessionObj['time'] = Date.now();
+    newPost['userID'] = message.author.id;
+    newPost['platform'] = platform;
+    newPost['time'] = Date.now();
 
     // Create embed for SUCCESSFUL requests
     response
@@ -192,22 +186,12 @@ class Post extends Command {
       .setTitle(`${platform.toUpperCase()} REQUEST SUCCESSFUL`)
       .setFooter(
         `Requested by ${message.author.username}#${message.author.discriminator} in ${message.guild.name}`
-      );
-
-    if ((args.length > 2) & (sessionObj['platform'] == 'pc')) {
-      response.addField(`**${sessionID}**`, `*${sessionObj['description']}*`);
-    } else if (
-      (sessionObj['description'].length != null) &
-      ['ps4', 'xbox'].includes(platform)
-    ) {
-      response.addField(`**${sessionID}**`, `*${sessionObj['description']}*`);
-    } else {
-      response.addField(`**${sessionID}**`, `*No description provided.*`);
-    }
+      )
+      .addField(`**${sessionID}**`, `*${newPost['description']}*`);
 
     // Finishes up object and pushes it back into the lfg db
-    lfg[`${sessionID}`] = sessionObj;
-    const jsonObj = JSON.stringify(lfg, null, 4);
+    posts[sessionID] = newPost;
+    const jsonObj = JSON.stringify(posts, null, 4);
     fs.writeFile(`./utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function(
       err
     ) {
@@ -220,7 +204,7 @@ class Post extends Command {
     message.channel.send(response);
 
     // Sends to all channel that are set to sub board
-    this.sendSub(client, sessionID, sessionObj);
+    this.sendSub(client, sessionID, newPost);
   }
 }
 
