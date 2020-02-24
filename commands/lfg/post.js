@@ -54,15 +54,14 @@ class Post extends Command {
 
     //const post = tEmbed._apiTransform();
 
+    let removableChannels = [];
     for (const channelID of sub['subscribe']) {
       let channel = client.channels.get(channelID);
 
       if (channel != null) {
         channel.send(tEmbed).catch(e => console.log(`ERROR: ${e}`));
       } else {
-        let index = sub['subscribe'].indexOf(channelID);
-
-        sub['subscribe'].splice(index, 1);
+        removableChannels.push(channelID);
       }
       /*client.rest.makeRequest(
         'post',
@@ -74,6 +73,13 @@ class Post extends Command {
         }
       );*/
     }
+
+    // You need to assign sub['subscribe] to a variable otherwise it doesn't work
+    const updatedSubscriptions = sub['subscribe'].filter(function(e) {
+      return !removableChannels.includes(e);
+    });
+
+    sub['subscribe'] = updatedSubscriptions;
 
     const jsonObj = JSON.stringify(sub, null, 4);
     fs.writeFile(
