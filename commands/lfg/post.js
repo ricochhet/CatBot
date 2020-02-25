@@ -1,5 +1,4 @@
 const Command = require('../../utils/baseCommand.js');
-const fs = require('fs');
 
 class Post extends Command {
   constructor(prefix) {
@@ -30,7 +29,7 @@ class Post extends Command {
     const sub = require('../../utils/databases/lfg/subscribe.json');
 
     let desc;
-    if (content['description'] == null || content['description'].length == 0) {
+    if (!content['description']) {
       desc = 'No description provided.';
     } else {
       desc = content['description'];
@@ -82,17 +81,11 @@ class Post extends Command {
     sub['subscribe'] = updatedSubscriptions;
 
     const jsonObj = JSON.stringify(sub, null, 4);
-    fs.writeFile(
-      `./utils/databases/lfg/subscribe.json`,
-      jsonObj,
-      'utf8',
-      function(err) {
-        if (err) {
-          console.log('An error occured while writing JSON Object to File.');
-          return console.log(err);
-        }
-      }
-    );
+    this.saveJsonFile(`./utils/databases/lfg/subscribe.json`, jsonObj);
+  }
+
+  updatePostsDb(json) {
+    this.saveJsonFile(`./utils/databases/lfg/lfg.json`, json);
   }
 
   async run(client, message, args) {
@@ -154,14 +147,7 @@ class Post extends Command {
       delete posts[repost];
 
       const jsonObj = JSON.stringify(posts, null, 4);
-      fs.writeFile(`./utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function(
-        err
-      ) {
-        if (err) {
-          console.log('An error occured while writing JSON Object to File.');
-          return console.log(err);
-        }
-      });
+      this.updatePostsDb(jsonObj);
 
       message.channel.send(`Meowster, the session \`${repost}\` was replaced!`);
     }
@@ -195,15 +181,8 @@ class Post extends Command {
     // Finishes up object and pushes it back into the lfg db
     posts[sessionID] = newPost;
     const jsonObj = JSON.stringify(posts, null, 4);
-    fs.writeFile(`./utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function(
-      err
-    ) {
-      if (err) {
-        console.log('An error occured while writing JSON Object to File.');
-        return console.log(err);
-      }
-    });
 
+    this.updatePostsDb(jsonObj);
     message.channel.send(response);
 
     // Sends to all channel that are set to sub board
