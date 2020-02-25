@@ -63,17 +63,7 @@ class Subscribe extends Command {
       }
 
       const jsonObj = JSON.stringify(sub, null, 4);
-      fs.writeFile(
-        `./utils/databases/lfg/subscribe.json`,
-        jsonObj,
-        'utf8',
-        function(err) {
-          if (err) {
-            console.log('An error occured while writing JSON Object to File.');
-            return console.log(err);
-          }
-        }
-      );
+      this.saveJsonFile(`./utils/databases/lfg/subscribe.json`, jsonObj);
     } else {
       message.reply(
         `Sorry meowster but you don't have the **Manage Channels** permission!`

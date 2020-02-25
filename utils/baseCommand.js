@@ -1,7 +1,8 @@
 const { RichEmbed, TextChannel, version } = require('discord.js');
 const Pages = require('./pagers.js');
 const similarity = require('./similarity.js');
-const { Attachment } = require('discord.js'); // This is to send the image via discord.
+const fs = require('fs');
+// const { Attachment } = require('discord.js'); // This is to send the image via discord.
 
 const defaultOptions = {
   args: true,
@@ -98,6 +99,15 @@ class Command {
 
   RichEmbed() {
     return new RichEmbed();
+  }
+
+  saveJsonFile(filePath, jsonObj) {
+    fs.writeFile(filePath, jsonObj, 'utf8', function(err) {
+      if (err) {
+        console.log('An error occured while writing JSON Object to file.');
+        return console.log(err);
+      }
+    });
   }
 
   menu(

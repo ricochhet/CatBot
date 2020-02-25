@@ -73,13 +73,14 @@ class Find extends Command {
       embeds.push(tEmbed);
     }
 
-    let reactions = {};
-    this.menu(
-      message,
-      embeds,
-      120000,
-      (reactions = { first: '⏪', back: '◀', next: '▶', last: '⏩', stop: '⏹' })
-    );
+    const reactions = {
+      first: '⏪',
+      back: '◀',
+      next: '▶',
+      last: '⏩',
+      stop: '⏹'
+    };
+    this.menu(message, embeds, 120000, reactions);
   }
 }
 

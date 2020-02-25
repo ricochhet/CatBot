@@ -1,5 +1,4 @@
 const Command = require('../../utils/baseCommand.js');
-const fs = require('fs');
 
 class Cancel extends Command {
   constructor(prefix) {
@@ -9,17 +8,17 @@ class Cancel extends Command {
   }
 
   run(client, message, args) {
-    const lfg = require('../../utils/databases/lfg/lfg.json');
+    const posts = require('../../utils/databases/lfg/lfg.json');
 
     const userId = message.author.id;
 
     // Checks if the user has already posted or not
     let userFound = false;
     let sessionId;
-    for (const group in lfg) {
-      if (lfg[group]['userID'] == userId) {
+    for (const postId in posts) {
+      if (posts[postId]['userID'] == userId) {
         userFound = true;
-        sessionId = group;
+        sessionId = postId;
         break;
       }
     }
@@ -30,16 +29,9 @@ class Cancel extends Command {
       );
     }
 
-    delete lfg[sessionId];
-    const jsonObj = JSON.stringify(lfg, null, 4);
-    fs.writeFile(`./utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function(
-      err
-    ) {
-      if (err) {
-        console.log('An error occured while writing JSON Object to file.');
-        return console.log(err);
-      }
-    });
+    delete posts[sessionId];
+    const jsonObj = JSON.stringify(posts, null, 4);
+    this.saveJsonFile(`./utils/databases/lfg/lfg.json`, jsonObj);
     message.reply(
       `Meowster, your previous session advertisement was cancelled! \`${sessionId}\``
     );
