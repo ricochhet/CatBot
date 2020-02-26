@@ -98,6 +98,9 @@ class Post extends Command {
   }
 
   async run(client, message, args) {
+    if (args.length == 1)
+      return message.channel.send(this.usageEmbed('Session ID is required'));
+
     // load in the current posts from the json db
     const posts = require('../../utils/databases/lfg/lfg.json');
 
@@ -109,7 +112,30 @@ class Post extends Command {
 
     if (['ps4', 'xbox'].includes(platform)) {
       // for console the format is 'xxxx xxxx xxxx'(need to join args)
-      sessionID = args.slice(1, 4).join(' ');
+
+      if (args.length >= 4) {
+        let tempArr = [];
+        for (var i = 1; i < args.length; i++) {
+          if (args[i].length <= 4) {
+            tempArr.push(args[i]);
+            args.slice(i);
+          }
+        }
+
+        if (tempArr.length >= 1) {
+          sessionID = tempArr.join(' ');
+        } else {
+          return message.channel.send(
+            this.usageEmbed(`Can not find the session id`)
+          );
+        }
+      } else if (args.length >= 2) {
+        sessionID = args[1];
+      } else {
+        return message.channel.send(
+          this.usageEmbed(`Can not find the session id`)
+        );
+      }
       if (
         sessionID.length == 0 ||
         sessionID.length < 14 ||
