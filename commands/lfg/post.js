@@ -9,15 +9,20 @@ class Post extends Command {
     );
   }
 
-  usageEmbed() {
+  usageEmbed(error = '') {
     const data = [];
     data.push('platform: PC, PS4, or XBOX\n');
     data.push(
       'session id: Must be between 11 and 13 characters long for PC; and between 14 and 16 characters long for console (including spaces)\n'
     );
     data.push('description: Describe what you plan to do in the session\n');
-    const embed = this.RichEmbed()
-      .setColor('#8fde5d')
+    const embed = this.RichEmbed().setColor('#8fde5d');
+
+    if (error) {
+      embed.addField('An error has occurred!', error);
+    }
+
+    embed
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
       .addField(
@@ -93,8 +98,6 @@ class Post extends Command {
   }
 
   async run(client, message, args) {
-    if (args.length == 0) return message.channel.send(this.usageEmbed());
-
     // load in the current posts from the json db
     const posts = require('../../utils/databases/lfg/lfg.json');
 
@@ -112,8 +115,19 @@ class Post extends Command {
         sessionID.length < 14 ||
         sessionID.length > 16
       ) {
-        return message.channel.send(this.usageEmbed());
+        return message.channel.send(
+          this.usageEmbed(
+            `XBOX/PS4 session ids need to be between 14 and 16 characters long \`${sessionID}\` is only ${sessionID.length} characters long.`
+          )
+        );
       }
+
+      if (sessionID.split(' ').length != 3 && sessionID.split(' ').length != 1)
+        return message.channel.send(
+          this.usageEmbed(
+            `XBOX/PS4 session ids needs to be in the format of xxxx xxxx xxxx or xxxx-xxxx-xxxx`
+          )
+        );
     } else if (platform == 'pc') {
       sessionID = args[1];
 
@@ -122,10 +136,16 @@ class Post extends Command {
         sessionID.length < 11 ||
         sessionID.length > 13
       ) {
-        return message.channel.send(this.usageEmbed());
+        return message.channel.send(
+          this.usageEmbed(
+            `PC session ids need to be between 11 and 13 characters long \`${sessionID}\` is only ${sessionID.length} characters long.`
+          )
+        );
       }
     } else {
-      return message.channel.send(this.usageEmbed());
+      return message.channel.send(
+        this.usageEmbed(`${platform} is not valid platform.`)
+      );
     }
 
     // Checks if the sessionID has already been posted
@@ -136,6 +156,24 @@ class Post extends Command {
       return message.channel.send(
         'Sorry meowster but someone else has posted that session already!'
       );
+    }
+
+    // Create the new post
+    const newPost = {
+      description: '' // make default empty string
+    };
+
+    if (args.length > 2) {
+      if (['ps4', 'xbox'].includes(platform)) {
+        newPost['description'] = args.slice(4, args.length).join(' ');
+      } else {
+        newPost['description'] = args.slice(2, args.length).join(' ');
+      }
+
+      if (newPost['description'].length > 256)
+        return message.channel.send(
+          this.usageEmbed('Description is larger than 256 characters.')
+        );
     }
 
     // Checks if the user has already posted or not
@@ -156,25 +194,12 @@ class Post extends Command {
       message.channel.send(`Meowster, the session \`${repost}\` was replaced!`);
     }
 
-    // Create the new post
-    const newPost = {};
-
-    if (args.length > 2) {
-      if (['ps4', 'xbox'].includes(platform)) {
-        newPost['description'] = args.slice(4, args.length).join(' ');
-      } else {
-        newPost['description'] = args.slice(2, args.length).join(' ');
-      }
-
-      if (newPost['description'].length > 256)
-        return message.channel.send(this.usageEmbed());
-    } else {
-      newPost['description'] = 'No description provided.';
-    }
-
     newPost['userID'] = message.author.id;
     newPost['platform'] = platform;
     newPost['time'] = Date.now();
+
+    if (newPost['description'].length == 0)
+      newPost['description'] = 'No description provided.';
 
     // Create embed for SUCCESSFUL requests
     response
