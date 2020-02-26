@@ -100,7 +100,7 @@ class Post extends Command {
     let sessionID;
     const platform = args[0].toLowerCase();
 
-    if (['ps4', 'xbox'].includes(platform)) {
+    if (['PS4', 'XBOX'].includes(platform)) {
       // for console the format is 'xxxx xxxx xxxx'(need to join args)
       sessionID = args.slice(1, 4).join(' ');
       if (
@@ -110,7 +110,7 @@ class Post extends Command {
       ) {
         return message.channel.send(this.usageEmbed());
       }
-    } else if (platform == 'pc') {
+    } else if (platform == 'PC') {
       sessionID = args[1];
 
       if (
@@ -156,7 +156,7 @@ class Post extends Command {
     const newPost = {};
 
     if (args.length > 2) {
-      if (['ps4', 'xbox'].includes(platform)) {
+      if (['PS4', 'XBOX'].includes(platform)) {
         newPost['description'] = args.slice(4, args.length).join(' ');
       } else {
         newPost['description'] = args.slice(2, args.length).join(' ');
