@@ -13,13 +13,17 @@ class Post extends Command {
     const data = [];
     data.push('platform: PC, PS4, or XBOX\n');
     data.push(
-      'session id: Must be between 11 and 13 characters long for PC; and between 14 and 16 characters long for console\n'
+      'session id: Must be between 11 and 13 characters long for PC; and between 14 and 16 characters long for console (including spaces)\n'
     );
     data.push('description: Describe what you plan to do in the session\n');
     const embed = this.RichEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
+      .addField(
+        'Examples',
+        'PC: +lfg post pc u7Mpp4F8Z$Wh This is a test description\nConsole: +lfg post xbox 4ZjN zKwZ TCdX This is a test description'
+      )
       .setTimestamp();
 
     return embed;
@@ -100,7 +104,7 @@ class Post extends Command {
     let sessionID;
     const platform = args[0].toLowerCase();
 
-    if (['PS4', 'XBOX'].includes(platform)) {
+    if (['ps4', 'xbox'].includes(platform)) {
       // for console the format is 'xxxx xxxx xxxx'(need to join args)
       sessionID = args.slice(1, 4).join(' ');
       if (
@@ -110,7 +114,7 @@ class Post extends Command {
       ) {
         return message.channel.send(this.usageEmbed());
       }
-    } else if (platform == 'PC') {
+    } else if (platform == 'pc') {
       sessionID = args[1];
 
       if (
@@ -156,7 +160,7 @@ class Post extends Command {
     const newPost = {};
 
     if (args.length > 2) {
-      if (['PS4', 'XBOX'].includes(platform)) {
+      if (['ps4', 'xbox'].includes(platform)) {
         newPost['description'] = args.slice(4, args.length).join(' ');
       } else {
         newPost['description'] = args.slice(2, args.length).join(' ');
