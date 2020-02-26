@@ -131,6 +131,17 @@ class Bot extends Client {
 
     if (!command) return;
 
+    const logObj = {
+      content: message.content,
+      timestamp: `${message.createdAt.toUTCString().substr(0, 16)} (${checkDays(
+        message.createdAt
+      )})`,
+      rawArguments: rawArgs,
+      arguments: args
+    };
+
+    console.log(logObj);
+
     // Ignores Secret Commands if Not Owner
     if (command.secret && message.author.id != this.config.get('OWNER')) return;
 
@@ -148,6 +159,13 @@ class Bot extends Client {
 
     command.run(this, message, args);
   }
+}
+
+function checkDays(date) {
+  let now = new Date();
+  let diff = now.getTime() - date.getTime();
+  let days = Math.floor(diff / 86400000);
+  return days + (days == 1 ? ' day' : ' days') + ' ago';
 }
 
 module.exports = Bot;
