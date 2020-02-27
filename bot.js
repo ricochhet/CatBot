@@ -2,6 +2,8 @@ const { Client, Collection, Constants } = require('discord.js');
 const DBL = require('dblapi.js');
 const fs = require('fs');
 
+const logger = require('./utils/log.js');
+
 apiDefault = {
   apiRequestMethod: 'sequential',
   shardId: 0,
@@ -46,7 +48,8 @@ class Bot extends Client {
     this.Constants = Constants;
 
     this.on('ready', () => {
-      console.log(`Logged in as ${client.user.tag}!`);
+      //console.log(`Logged in as ${client.user.tag}!`);
+      logger.info('Logged in as %s!', client.user.tag);
       this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
     });
   }
@@ -102,6 +105,9 @@ class Bot extends Client {
   }
 
   listenForCommands(message) {
+    // Ignore dms
+    if (typeof message.channel == 'DMChannel') return;
+
     // Ignore Bots
     if (message.author.bot) return;
 
@@ -113,34 +119,23 @@ class Bot extends Client {
 
     if (message.content.startsWith(`<@!${message.member.guild.me.id}>`))
       return message.channel.send(`Use \`${this.prefix}help\` to get started!`);
+
     if (message.content[0] != this.prefix) return;
 
     // Standard argument and command definitions
-    const args = message.content
-      .slice(this.prefix.length)
-      .trim()
-      .toLowerCase()
-      .split(/ +/g);
-    const rawArgs = message.content
-      .slice(this.prefix.length)
-      .trim()
-      .split(/ +/g);
-    const cmdName = args.shift().toLowerCase();
+    const content = message.content.slice(this.prefix.length).trim();
+
+    const rawArgs = content.split(/ +/g);
+
+    const args = content.toLowerCase().split(/ +/g);
+
+    const cmdName = args.shift();
 
     const command = this.commands.get(cmdName);
 
+    logger.info("received '%s'", content, { rawArgs: rawArgs });
+
     if (!command) return;
-
-    const logObj = {
-      content: message.content,
-      timestamp: `${message.createdAt.toUTCString().substr(0, 16)} (${checkDays(
-        message.createdAt
-      )})`,
-      rawArguments: rawArgs,
-      arguments: args
-    };
-
-    console.log(logObj);
 
     // Ignores Secret Commands if Not Owner
     if (command.secret && message.author.id != this.config.get('OWNER')) return;
@@ -161,11 +156,5 @@ class Bot extends Client {
   }
 }
 
-function checkDays(date) {
-  let now = new Date();
-  let diff = now.getTime() - date.getTime();
-  let days = Math.floor(diff / 86400000);
-  return days + (days == 1 ? ' day' : ' days') + ' ago';
-}
 
 module.exports = Bot;

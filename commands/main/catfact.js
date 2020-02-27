@@ -9,7 +9,7 @@ class Catfacts extends Command {
     });
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     const catFactKeys = Object.values(catFactsDatabase);
     message.channel.send(
       catFactKeys[Math.floor(Math.random() * catFactKeys.length)]

@@ -8,8 +8,10 @@ class Help extends Command {
     });
   }
 
-  run(client, message, args) {
-    const rico = client.users.find(user => user.id === client.config.get('RICO_ID'));
+  async run(client, message, args) {
+    const rico = client.users.find(
+      user => user.id === client.config.get('RICO_ID')
+    );
     const helpEmbed = this.RichEmbed().setColor('#8fde5d');
 
     let data = [];

@@ -9,7 +9,7 @@ class Status extends Command {
     });
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     let totalSeconds = client.uptime / 1000;
     let days = Math.floor(totalSeconds / 86400);
     let hours = Math.floor(totalSeconds / 3600);

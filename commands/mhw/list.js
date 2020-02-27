@@ -7,7 +7,7 @@ class List extends Command {
     });
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     const monsterNames = client.monsters.map(monster => monster.title);
     monsterNames.sort();
 

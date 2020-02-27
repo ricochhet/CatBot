@@ -98,6 +98,7 @@ class Post extends Command {
   }
 
   async run(client, message, args) {
+    if (args.includes('BOOM')) throw new Error('You asked for it');
     // Validate the arguments
     if (args.length < 2)
       return message.channel.send(this.usageEmbed('Session ID is required'));
