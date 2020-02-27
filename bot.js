@@ -107,6 +107,11 @@ class Bot extends Client {
 
     // Ignores message if bot cannot send messages
     if (!message.guild) return;
+
+    // This here is kind of temporary fix for the below, unless this itself fixes the issue fine, which it might
+    if (!message.member) return;
+
+    // Before this would sometimes error out as a cannot find guild of null, meaning message.member is null
     if (!message.member.guild.me.hasPermission('SEND_MESSAGES')) return;
     if (!message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES'))
       return;
