@@ -1,4 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
+const logger = require('../../utils/log.js');
 
 class Skill extends Command {
   constructor(prefix) {
@@ -7,6 +8,8 @@ class Skill extends Command {
 
   skillEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const skill = client.skills.get(name);
+
+    logger.debug('skill log', { type: 'skillRead', name: name });
 
     const embed = rawEmbed
       .setColor('#8fde5d')

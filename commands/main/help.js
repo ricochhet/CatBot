@@ -21,7 +21,7 @@ class Help extends Command {
       .forEach(cmd => {
         if (cmd.category) {
           if (!cmd.secret)
-            data.push(`${this.prefix}${cmd.name} - ${cmd.description}`);
+            data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
         }
       });
     helpEmbed.addField('Main / General', data.join('\n'));
@@ -33,7 +33,7 @@ class Help extends Command {
       .forEach(cmd => {
         if (!cmd.category) {
           if (!cmd.secret)
-            data.push(`${this.prefix}${cmd.name} - ${cmd.description}`);
+            data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
         }
       });
     helpEmbed.addField('General', data.join('\n'));

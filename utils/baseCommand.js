@@ -233,8 +233,8 @@ class Command {
           await message.delete();
           await channel.send(embed);
         })
-        .catch(async collected => {
-          // console.log(collected);
+        .catch(async err => {
+          logger.error(err);
           await message.clearReactions();
           await message.react('❌');
         });

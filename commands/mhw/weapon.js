@@ -1,4 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
+const logger = require('../../utils/log.js');
 
 class Weapon extends Command {
   constructor(prefix) {
@@ -7,6 +8,8 @@ class Weapon extends Command {
 
   weaponEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const weapon = client.weapons.get(name);
+
+    logger.debug('weapon log', { type: 'weaponRead', name: name });
 
     const embed = rawEmbed
       .setColor('#8fde5d')
