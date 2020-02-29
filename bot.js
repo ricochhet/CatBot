@@ -147,12 +147,21 @@ class Bot extends Client {
       return;
     }
 
-    if (command.caseSensitiveArgs) {
-      rawArgs.shift();
-      return command.run(this, message, rawArgs);
-    }
+    const log = command.category ? `${cmdName} ${args[0]}` : cmdName;
+    logger.debug('command log', { type: 'commandRun', cmd: log });
 
-    command.run(this, message, args);
+    try {
+      if (command.caseSensitiveArgs) {
+        rawArgs.shift();
+        return command
+          .run(this, message, rawArgs)
+          .catch(err => logger.error(err));
+      } else {
+        command.run(this, message, args).catch(err => logger.error(err));
+      }
+    } catch (err) {
+      logger.error(err);
+    }
   }
 }
 

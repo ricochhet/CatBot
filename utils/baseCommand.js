@@ -84,7 +84,7 @@ class Command {
     }
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     const subCommand = args[0];
     args = args.slice(1, args.length);
     const commandFound = client[this.subTree].find(

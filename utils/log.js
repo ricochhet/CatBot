@@ -14,7 +14,7 @@ const logger = createLogger({
   transports: [
     // console logger (info, warn, error)
     new transports.Console({
-      level: 'debug',
+      level: 'info',
       format: format.combine(format.colorize(), format.simple())
     }),
     // write all errors to separate log

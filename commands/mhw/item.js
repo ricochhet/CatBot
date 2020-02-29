@@ -21,7 +21,7 @@ class Item extends Command {
     return embed;
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
     if (!client.items.has(input)) {
