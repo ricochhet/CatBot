@@ -21,7 +21,7 @@ class Stats extends Command {
       //fields: ['cmd']
     };
 
-    // Retrieve logs from past week
+    // Retrieve all logs from past week
     let weekly = [];
     logger.query(options, (err, results) => {
       if (err) throw err;
@@ -53,7 +53,7 @@ class Stats extends Command {
       const second = sorted[1] || 'n/a';
       const third = sorted[2] || 'n/a';
 
-      const inviteEmbed = this.RichEmbed()
+      const statsEmbed = this.RichEmbed()
         .setColor('#8fde5d')
         .setTitle('Statistics')
         .addField(
@@ -68,9 +68,9 @@ class Stats extends Command {
           true
         )
         .setTimestamp()
-        .setFooter('Support Link Request', client.user.avatarURL);
+        .setFooter('Stats', client.user.avatarURL);
 
-      message.channel.send(inviteEmbed);
+      message.channel.send(statsEmbed);
     });
   }
 }
