@@ -8,7 +8,7 @@ class Support extends Command {
     });
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     const inviteEmbed = this.RichEmbed()
       .setColor('#8fde5d')
       .setTitle('CatBot Support Server')

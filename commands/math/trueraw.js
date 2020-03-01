@@ -37,7 +37,7 @@ class Trueraw extends Command {
     return embed;
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     let calculate = args[1] / this.weaponsRatio.get(args[0]);
     let rounded = Math.round(calculate);
 

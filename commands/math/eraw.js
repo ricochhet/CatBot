@@ -45,7 +45,7 @@ class Eraw extends Command {
     return embed;
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     let monsterHitzone = args[3];
     if (monsterHitzone == undefined || Number.isNaN(monsterHitzone)) {
       monsterHitzone = 1;

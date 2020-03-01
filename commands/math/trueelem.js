@@ -34,7 +34,7 @@ class Trueelem extends Command {
     return embed;
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     let calculate = args[0] / 10;
     let rounded = Math.round(calculate);
 

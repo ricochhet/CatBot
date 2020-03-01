@@ -7,7 +7,7 @@ class Cancel extends Command {
     });
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     const posts = require('../../utils/databases/lfg/lfg.json');
 
     const userId = message.author.id;

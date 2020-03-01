@@ -1,4 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
+const logger = require('../../utils/log.js');
 
 class Item extends Command {
   constructor(prefix) {
@@ -7,6 +8,8 @@ class Item extends Command {
 
   itemEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const item = client.items.get(name);
+
+    logger.debug('item log', { type: 'itemRead', name: name });
 
     const embed = rawEmbed
       .setColor('#8fde5d')
@@ -21,7 +24,7 @@ class Item extends Command {
     return embed;
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
     if (!client.items.has(input)) {

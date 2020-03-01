@@ -1,6 +1,7 @@
 const { RichEmbed, TextChannel, version } = require('discord.js');
 const Pages = require('./pagers.js');
 const similarity = require('./similarity.js');
+const logger = require('./log.js');
 const fs = require('fs');
 // const { Attachment } = require('discord.js'); // This is to send the image via discord.
 
@@ -77,24 +78,34 @@ class Command {
     ]);
 
     if (!this.category && this.subTree != null) {
-      console.log(
-        `Warning Non-Category Command (${this.name}) has set a subTree`
-      );
+      logger.warn('Non-category command %s has set a sub tree', this.name);
     } else if (this.category && this.subTree == null) {
       this.subTree = this.name;
     }
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     const subCommand = args[0];
     args = args.slice(1, args.length);
     const commandFound = client[this.subTree].find(
       cmd => cmd.name === subCommand && !cmd.secret
     );
+
     if (!commandFound) return message.channel.send(this.usageEmbed());
+
     if (commandFound.args && args.length == 0)
       return message.channel.send(commandFound.usageEmbed());
-    commandFound.run(client, message, args);
+
+    try {
+      commandFound.run(client, message, args).catch(err => logger.error(err));
+    } catch (err) {
+      if (err.message.includes("Cannot read property 'catch'"))
+        return logger.warn(
+          "Command '%s' does not have async run() method",
+          commandFound.name
+        );
+      return logger.error(err);
+    }
   }
 
   RichEmbed() {
@@ -102,11 +113,12 @@ class Command {
   }
 
   saveJsonFile(filePath, jsonObj) {
-    fs.writeFile(filePath, jsonObj, 'utf8', function(err) {
-      if (err) {
-        console.log('An error occured while writing JSON Object to file.');
-        return console.log(err);
-      }
+    fs.writeFile(filePath, jsonObj, 'utf8', err => {
+      if (err)
+        return logger.error(
+          'An error occured while writing JSON Object to file.',
+          err
+        );
     });
   }
 
@@ -209,6 +221,9 @@ class Command {
             .split(' ')
             .join('')
             .toLowerCase();
+
+          logger.info('user selected %s', name);
+
           const embed = await embedTemplate(
             message.client,
             name,
@@ -218,8 +233,8 @@ class Command {
           await message.delete();
           await channel.send(embed);
         })
-        .catch(async collected => {
-          console.log(collected);
+        .catch(async err => {
+          logger.error(err);
           await message.clearReactions();
           await message.react('❌');
         });

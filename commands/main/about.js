@@ -8,10 +8,16 @@ class About extends Command {
     });
   }
 
-  run(client, message, args) {
-    const rico = client.users.find(user => user.id === client.config.get('RICO_ID'));
-    const yofou = client.users.find(user => user.id === client.config.get('YOFOU_ID'));
-    const chad = client.users.find(user => user.id === client.config.get('CHAD_ID'));
+  async run(client, message, args) {
+    const rico = client.users.find(
+      user => user.id === client.config.get('RICO_ID')
+    );
+    const yofou = client.users.find(
+      user => user.id === client.config.get('YOFOU_ID')
+    );
+    const chad = client.users.find(
+      user => user.id === client.config.get('CHAD_ID')
+    );
 
     const aboutEmbed = this.RichEmbed()
       .setColor('#8fde5d')

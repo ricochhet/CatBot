@@ -1,4 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
+const logger = require('../../utils/log.js');
 
 class Armor extends Command {
   constructor(prefix) {
@@ -18,6 +19,8 @@ class Armor extends Command {
 
     // console.log(formatted); // aligns OK on console but not discord for some reason
 
+    logger.debug('armor log', { type: 'armorRead', name: name });
+
     const embed = rawEmbed
       .setColor('#8fde5d')
       .setTitle(armor.name)
@@ -32,7 +35,7 @@ class Armor extends Command {
     return embed;
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
     if (!client.armors.has(input)) {

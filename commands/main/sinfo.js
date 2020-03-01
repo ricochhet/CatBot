@@ -8,7 +8,7 @@ class Sinfo extends Command {
     });
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     let input = args[0];
 
     const guildName = client.guilds.get(input);

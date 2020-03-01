@@ -8,8 +8,10 @@ class Help extends Command {
     });
   }
 
-  run(client, message, args) {
-    const rico = client.users.find(user => user.id === client.config.get('RICO_ID'));
+  async run(client, message, args) {
+    const rico = client.users.find(
+      user => user.id === client.config.get('RICO_ID')
+    );
     const helpEmbed = this.RichEmbed().setColor('#8fde5d');
 
     let data = [];
@@ -19,7 +21,7 @@ class Help extends Command {
       .forEach(cmd => {
         if (cmd.category) {
           if (!cmd.secret)
-            data.push(`${this.prefix}${cmd.name} - ${cmd.description}`);
+            data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
         }
       });
     helpEmbed.addField('Main / General', data.join('\n'));
@@ -31,7 +33,7 @@ class Help extends Command {
       .forEach(cmd => {
         if (!cmd.category) {
           if (!cmd.secret)
-            data.push(`${this.prefix}${cmd.name} - ${cmd.description}`);
+            data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
         }
       });
     helpEmbed.addField('General', data.join('\n'));

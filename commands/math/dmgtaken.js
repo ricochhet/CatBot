@@ -34,7 +34,7 @@ class Dmgtaken extends Command {
     return embed;
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     let calculate = (80 / (Number(args[0]) + 80)) * 100;
     let rounded = Math.round(calculate);
 

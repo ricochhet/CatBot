@@ -1,4 +1,6 @@
 const Command = require('../../utils/baseCommand.js');
+const logger = require('../../utils/log.js');
+
 /**
  * Image gen stuff, fix or yeet, who knows ;)
  */
@@ -153,6 +155,8 @@ class Monster extends Command {
 
     const monster = client.monsters.get(name);
     const embed = rawEmbed.setColor('#8fde5d').setTitle(monster.title);
+
+    logger.debug('monster log', { type: 'monsterRead', name: name });
 
     embed
       .setURL(`https://mhdb.catbot.xyz/monsters/${name}`)

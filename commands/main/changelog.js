@@ -8,7 +8,7 @@ class About extends Command {
     });
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     const changelogEmbed = this.RichEmbed()
       .setColor('#8fde5d')
       .addField(

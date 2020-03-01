@@ -8,7 +8,7 @@ class Reload extends Command {
     });
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     if (!args || args.length < 1)
       return message.reply('Must provide a command name to reload.');
     let commandName = args[0];

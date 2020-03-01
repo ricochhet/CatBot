@@ -1,4 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
+const logger = require('../../utils/log.js');
 
 class Deco extends Command {
   constructor(prefix) {
@@ -7,6 +8,8 @@ class Deco extends Command {
 
   decorationEmbed(client, name, rawEmbed = this.RichEmbed()) {
     const decoration = client.decorations.get(name);
+
+    logger.debug('deco log', { type: 'decoRead', name: name });
 
     const embed = rawEmbed
       .setColor('#8fde5d')
@@ -39,7 +42,7 @@ class Deco extends Command {
     return arr;
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
     if (!client.decorations.has(input)) {

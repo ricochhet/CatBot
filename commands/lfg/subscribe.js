@@ -11,7 +11,7 @@ class Subscribe extends Command {
     );
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     if (message.member.hasPermission('MANAGE_CHANNELS')) {
       let sub = require('../../utils/databases/lfg/subscribe.json');
       let channel;

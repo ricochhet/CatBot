@@ -39,7 +39,7 @@ class RollHunt extends Command {
     return embed;
   }
 
-  run(client, message, args) {
+  async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
     const embed = this.rollEmbed(client, input);
