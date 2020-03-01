@@ -148,7 +148,9 @@ class Bot extends Client {
     }
 
     const log = command.category ? `${cmdName} ${args[0]}` : cmdName;
-    logger.debug('command log', { type: 'commandRun', cmd: log });
+
+    if (!command.secret)
+      logger.debug('command log', { type: 'commandRun', cmd: log });
 
     try {
       if (command.caseSensitiveArgs) {
