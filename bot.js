@@ -12,7 +12,7 @@ apiDefault = {
   messageCacheLifetime: 300,
   messageSweepInterval: 30,
   fetchAllMembers: false,
-  disableEveryone: false,
+  disableMentions: 'everyone',
   sync: false,
   restWsBridgeTimeout: 5000,
   restTimeOffset: 500,
