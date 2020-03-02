@@ -1,4 +1,4 @@
-const { RichEmbed, TextChannel, version } = require('discord.js');
+const { MessageEmbed, TextChannel, version } = require('discord.js');
 const Pages = require('./pagers.js');
 const similarity = require('./similarity.js');
 const logger = require('./log.js');
@@ -108,8 +108,8 @@ class Command {
     }
   }
 
-  RichEmbed() {
-    return new RichEmbed();
+  MessageEmbed() {
+    return new MessageEmbed();
   }
 
   saveJsonFile(filePath, jsonObj) {
@@ -145,14 +145,14 @@ class Command {
         );
       });
 
-      embed = this.RichEmbed()
+      embed = this.MessageEmbed()
         .setColor('#8fde5d')
         .addField(this.description, `**${this.usage}**`)
         .addField('Parameters Help', data.join('\n\n'))
         .setTimestamp()
         .setFooter(`${this.name.toUpperCase()} Help`);
     } else {
-      embed = this.RichEmbed()
+      embed = this.MessageEmbed()
         .setColor('#8fde5d')
         .addField('Usage: ', this.usage)
         .addField('Description: ', this.description)
@@ -169,7 +169,7 @@ class Command {
       return b[1] - a[1];
     });
 
-    let msg = this.RichEmbed()
+    let msg = this.MessageEmbed()
       .setColor('#8fde5d')
       .setAuthor('Did you mean?')
       .setTimestamp()
@@ -227,7 +227,7 @@ class Command {
           const embed = await embedTemplate(
             message.client,
             name,
-            this.RichEmbed()
+            this.MessageEmbed()
           );
           let channel = message.channel;
           await message.delete();

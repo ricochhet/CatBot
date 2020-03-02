@@ -9,10 +9,10 @@ class Help extends Command {
   }
 
   async run(client, message, args) {
-    const rico = client.users.find(
+    const rico = client.users.cache.find(
       user => user.id === client.config.get('RICO_ID')
     );
-    const helpEmbed = this.RichEmbed().setColor('#8fde5d');
+    const helpEmbed = this.MessageEmbed().setColor('#8fde5d');
 
     let data = [];
     data = [];
@@ -47,7 +47,7 @@ class Help extends Command {
 
     // Additional
     helpEmbed
-      .addBlankField()
+      .addField('\u200b', '\u200b')
       .addField(
         'Experiencing Issues? ',
         `\`\`\`Contact ${rico.tag} | Do ${this.prefix}support\`\`\``

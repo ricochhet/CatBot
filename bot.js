@@ -6,8 +6,8 @@ const logger = require('./utils/log.js');
 
 apiDefault = {
   apiRequestMethod: 'sequential',
-  shardId: 0,
-  shardCount: 0,
+  shardId: 1,
+  shardCount: 1,
   messageCacheMaxSize: 100,
   messageCacheLifetime: 300,
   messageSweepInterval: 30,
@@ -30,7 +30,7 @@ apiDefault = {
     'GUILD_BAN_REMOVE',
     'USER_SETTINGS_UPDATE'
   ],
-  ws: { large_threshold: 250, compress: true },
+  ws: { large_threshold: 250 },
   http: {
     version: 7,
     api: 'https://discordapp.com/api',
