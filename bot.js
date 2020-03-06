@@ -97,7 +97,10 @@ class Bot extends Client {
     if (!message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES'))
       return;
 
-    if (message.content.startsWith(`<@!${message.member.guild.me.id}>`))
+    if (
+      message.content.startsWith(`<@!${message.member.guild.me.id}>`) ||
+      message.content.startsWith(`<@${message.member.guild.me.id}>`)
+    )
       return message.channel.send(`Use \`${this.prefix}help\` to get started!`);
 
     if (message.content[0] != this.prefix) return;
