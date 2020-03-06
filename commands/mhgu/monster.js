@@ -62,7 +62,7 @@ class Monster extends Command {
 
       message.channel.send(msg);
     } else if (client.mhguMonsters.has(input)) {
-      const embed = this.monsterEmbed(client, input, this.RichEmbed());
+      const embed = this.monsterEmbed(client, input, this.MessageEmbed());
       message.channel.send(embed);
     }
   }

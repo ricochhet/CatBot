@@ -43,7 +43,7 @@ class Find extends Command {
     let tEmbed;
 
     for (const outer of tChunks) {
-      tEmbed = this.RichEmbed();
+      tEmbed = this.MessageEmbed();
 
       tEmbed
         .setTitle('Session List')

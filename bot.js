@@ -4,45 +4,20 @@ const fs = require('fs');
 
 const logger = require('./utils/log.js');
 
-apiDefault = {
-  apiRequestMethod: 'sequential',
-  shardId: 1,
-  shardCount: 1,
-  messageCacheMaxSize: 100,
-  messageCacheLifetime: 300,
+// params and defaults at https://discord.js.org/#/docs/main/v12/typedef/ClientOptions
+// these are the only values we're customizing (using defaults otherwise)
+baseOptions = {
+  messageCacheMaxSize: 100, // msgs
+  messageCacheLifetime: 300, // seconds
   messageSweepInterval: 30,
-  fetchAllMembers: false,
   disableMentions: 'everyone',
-  sync: false,
-  restWsBridgeTimeout: 5000,
-  restTimeOffset: 500,
-  retryLimit: Number.POSITIVE_INFINITY,
-  disabledEvents: [
-    'TYPING_START',
-    'PRESENCE_UPDATE',
-    'WEBHOOKS_UPDATE',
-    'VOICE_STATE_UPDATE',
-    'USER_NOTE_UPDATE',
-    'CHANNEL_PINS_UPDATE',
-    'RELATIONSHIP_ADD',
-    'RELATIONSHIP_REMOVE',
-    'GUILD_BAN_ADD',
-    'GUILD_BAN_REMOVE',
-    'USER_SETTINGS_UPDATE'
-  ],
-  ws: { large_threshold: 250 },
-  http: {
-    version: 7,
-    api: 'https://discordapp.com/api',
-    cdn: 'https://cdn.discordapp.com',
-    invite: 'https://discord.gg'
-  }
+  retryLimit: Number.POSITIVE_INFINITY
 };
 
 class Bot extends Client {
   constructor(prefix, customOptions) {
-    // Merge options (custom will override default if given)
-    const options = { ...apiDefault, ...customOptions };
+    // Merge options (custom will override base or default if given)
+    const options = { ...baseOptions, ...customOptions };
     super(options);
     this.prefix = prefix;
     this.Constants = Constants;

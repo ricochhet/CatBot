@@ -19,10 +19,10 @@ class Subscribe extends Command {
       if (args[0] == undefined) {
         channel = message.channel;
       } else {
-        channel = message.guild.channels.find(
+        channel = message.guild.channels.cache.find(
           channel => channel.name == args[0]
         );
-        if (channel == null)
+        if (!channel)
           return message.reply(`Sorry meowster but ${args[0]} doesn't exist`);
 
         if (

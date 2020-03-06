@@ -67,7 +67,7 @@ class Weapon extends Command {
 
       message.channel.send(msg);
     } else if (client.mhguWeapons.has(input)) {
-      const embed = this.weaponEmbed(client, input, this.RichEmbed());
+      const embed = this.weaponEmbed(client, input, this.MessageEmbed());
       message.channel.send(embed);
     }
   }

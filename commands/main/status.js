@@ -19,7 +19,7 @@ class Status extends Command {
     let secondsRounded = totalSeconds.toString().split('.')[0];
     let uptime = `${days}:${hours}:${minutes}:${secondsRounded}`;
 
-    let pingTime = client.ping;
+    let pingTime = client.ws.ping;
     let pingRounded = Math.round(pingTime);
 
     let messagePing = new Date().getTime() - message.createdTimestamp;
@@ -28,13 +28,13 @@ class Status extends Command {
     let nodejsVersion = process.version;
     let discordjsVersion = this.version;
 
-    let userCount = client.guilds
+    let userCount = client.guilds.cache
       .map(g => g.memberCount)
       .reduce((a, b) => a + b);
 
     let memory = process.memoryUsage().heapUsed / 1024 / 1024;
 
-    const statusEmbed = this.RichEmbed()
+    const statusEmbed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField('Servers: ', client.guilds.size, true)
       .addField('Members: ', userCount, true)
@@ -46,10 +46,12 @@ class Status extends Command {
       .addField('DiscordJS Version', discordjsVersion, true)
       .addField('Memory Usage', `${memory.toFixed(2)} MB`, true)
       .setTimestamp()
-      .setFooter('Status Menu', client.user.avatarURL);
+      .setFooter('Status Menu', client.user.avatarURL());
 
     message.channel.send(statusEmbed);
-    const guildNames = client.guilds.map(g => g.name + ' | ' + g.id).join('\n');
+    const guildNames = client.guilds.cache
+      .map(g => g.name + ' | ' + g.id)
+      .join('\n');
 
     console.log(guildNames);
   }

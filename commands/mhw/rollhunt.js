@@ -14,7 +14,7 @@ class RollHunt extends Command {
     );
   }
 
-  rollEmbed(client, name, rawEmbed = this.RichEmbed()) {
+  rollEmbed(client, name, rawEmbed = this.MessageEmbed()) {
     const mhMonsterKeys = Object.values(monsterDatabase);
     const mhWeaponKeys = Object.values(weaponDatabase);
     const mhArmorKeys = Object.values(armorDatabase);

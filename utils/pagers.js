@@ -42,7 +42,7 @@ class Pages {
       current = this.pages[i];
       current.setFooter(
         `Page ${i + 1} / ${total}`,
-        this.message.channel.client.user.avatarURL
+        this.message.channel.client.user.avatarURL()
       );
     }
   }
@@ -75,7 +75,7 @@ class Pages {
       r.remove(this.message.author.id);
     });
     collector.on('end', () => {
-      this.msg.clearReactions();
+      this.msg.reactions.removeAll();
     });
   }
 

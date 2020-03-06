@@ -21,7 +21,7 @@ class Eraw extends Command {
     data.push('critical boost level: current level of critical boost used');
     data.push('monster hitzone: monster part hitzone value');
 
-    const embed = this.RichEmbed()
+    const embed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
@@ -32,7 +32,7 @@ class Eraw extends Command {
   }
 
   erawEmbed(amount) {
-    const embed = this.RichEmbed()
+    const embed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField(
         'Formula ',

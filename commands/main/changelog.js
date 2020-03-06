@@ -9,7 +9,7 @@ class About extends Command {
   }
 
   async run(client, message, args) {
-    const changelogEmbed = this.RichEmbed()
+    const changelogEmbed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField(
         `Changelog: v${client.config.get('VERSION')}`,
@@ -28,7 +28,7 @@ class About extends Command {
         `
       )
       .setTimestamp()
-      .setFooter('Changelog Menu', client.user.avatarURL);
+      .setFooter('Changelog Menu', client.user.avatarURL());
 
     message.channel.send(changelogEmbed);
   }

@@ -139,7 +139,7 @@ class Command {
       // Get all commands in sub command
       const data = [];
 
-      client[this.subTree].tap(cmd => {
+      client[this.subTree].each(cmd => {
         data.push(
           `**${this.prefix}${this.name} ${cmd.usage}** - ${cmd.description}`
         );
@@ -235,7 +235,7 @@ class Command {
         })
         .catch(async err => {
           logger.error(err);
-          await message.clearReactions();
+          await message.reactions.removeAll();
           await message.react('❌');
         });
     });

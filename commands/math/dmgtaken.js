@@ -13,7 +13,7 @@ class Dmgtaken extends Command {
     const data = [];
     data.push('defense: base defense value');
 
-    const embed = this.RichEmbed()
+    const embed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
@@ -24,7 +24,7 @@ class Dmgtaken extends Command {
   }
 
   dmgTakenEmbed(amount) {
-    const embed = this.RichEmbed()
+    const embed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField('Formula ', `*(80 / (Defense + 80)) x 100*`)
       .addField('Answer', `**${amount}**`)

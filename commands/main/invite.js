@@ -9,7 +9,7 @@ class Invite extends Command {
   }
 
   async run(client, message, args) {
-    const inviteEmbed = this.RichEmbed()
+    const inviteEmbed = this.MessageEmbed()
       .setColor('#8fde5d')
       .setTitle('Invite CatBot to your Server')
       .setDescription(
@@ -20,7 +20,7 @@ class Invite extends Command {
         'CatBot is dedicated to providing Monster Hunter World information so you can always be prepared for your hunts ahead.'
       )
       .setTimestamp()
-      .setFooter('Invite Link Request', client.user.avatarURL);
+      .setFooter('Invite Link Request', client.user.avatarURL());
 
     message.channel.send(inviteEmbed);
   }

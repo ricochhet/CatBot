@@ -17,7 +17,7 @@ class Elem extends Command {
     data.push('true elem: true elem damage value');
     data.push('monster hitzone: monster part hitzone value');
 
-    const embed = this.RichEmbed()
+    const embed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
@@ -28,7 +28,7 @@ class Elem extends Command {
   }
 
   elemEmbed(amount) {
-    const embed = this.RichEmbed()
+    const embed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField(
         'Formula ',

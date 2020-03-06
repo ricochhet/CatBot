@@ -6,7 +6,7 @@ class Weapon extends Command {
     super('weapon', 'weapon [weapon name]', 'Get info for a specific weapon');
   }
 
-  weaponEmbed(client, name, rawEmbed = this.RichEmbed()) {
+  weaponEmbed(client, name, rawEmbed = this.MessageEmbed()) {
     const weapon = client.weapons.get(name);
 
     logger.debug('weapon log', { type: 'weaponRead', name: name });

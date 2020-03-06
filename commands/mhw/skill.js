@@ -6,7 +6,7 @@ class Skill extends Command {
     super('skill', 'skill [skill name]', 'Get info for a specific skill');
   }
 
-  skillEmbed(client, name, rawEmbed = this.RichEmbed()) {
+  skillEmbed(client, name, rawEmbed = this.MessageEmbed()) {
     const skill = client.skills.get(name);
 
     logger.debug('skill log', { type: 'skillRead', name: name });

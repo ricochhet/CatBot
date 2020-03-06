@@ -33,7 +33,7 @@ class Monster extends Command {
     );
   }
 
-  async monsterEmbed(client, name, rawEmbed = this.RichEmbed()) {
+  async monsterEmbed(client, name, rawEmbed = this.MessageEmbed()) {
     /**
      * Image gen stuff, fix or yeet, who knows ;)
      */

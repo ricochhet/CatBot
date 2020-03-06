@@ -6,7 +6,7 @@ class Item extends Command {
     super('item', 'item [item name]', 'Get info for a specific item');
   }
 
-  itemEmbed(client, name, rawEmbed = this.RichEmbed()) {
+  itemEmbed(client, name, rawEmbed = this.MessageEmbed()) {
     const item = client.items.get(name);
 
     logger.debug('item log', { type: 'itemRead', name: name });

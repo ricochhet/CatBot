@@ -9,9 +9,7 @@ class Help extends Command {
   }
 
   async run(client, message, args) {
-    const rico = client.users.cache.find(
-      user => user.id === client.config.get('RICO_ID')
-    );
+    const rico = client.users.cache.get(client.config.get('RICO_ID'));
     const helpEmbed = this.MessageEmbed().setColor('#8fde5d');
 
     let data = [];
@@ -59,7 +57,7 @@ class Help extends Command {
       .setTimestamp()
       .setFooter(
         `Help | Issues: Contact ${rico.tag} | Do ${this.prefix}support`,
-        client.user.avatarURL
+        client.user.avatarURL()
       );
 
     let embeds = [helpEmbed];

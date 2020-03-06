@@ -6,7 +6,7 @@ class Armor extends Command {
     super('armor', 'armor [armor name]', 'Get info for a specific armor set');
   }
 
-  armorEmbed(client, name, rawEmbed = this.RichEmbed()) {
+  armorEmbed(client, name, rawEmbed = this.MessageEmbed()) {
     const armor = client.armors.get(name);
 
     // Align the icons + resistance values
