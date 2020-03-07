@@ -175,7 +175,6 @@ class Command {
       .setTimestamp()
       .setFooter('Did you mean?');
 
-    let imgFiles = [];
     let counter = 0;
     for (let item of similarArray) {
       if (counter >= 8) {
@@ -206,7 +205,8 @@ class Command {
         counter
       );
       for (let emoji of emojis) {
-        await message.react(emoji);
+        // shuold be 'await' to guarantee order, but this seems just slow enough to be in order every time (slightly faster now)
+        message.react(emoji);
       }
 
       const filter = (reaction, user) => {
@@ -231,11 +231,13 @@ class Command {
           );
           let channel = message.channel;
           await message.delete();
-          await channel.send(embed);
+          channel.send(embed);
         })
         .catch(async err => {
           logger.error(err);
-          await message.reactions.removeAll();
+          await message.reactions
+            .removeAll()
+            .catch(err => logger.error('Failed to remove reactions %s', err));
           await message.react('❌');
         });
     });

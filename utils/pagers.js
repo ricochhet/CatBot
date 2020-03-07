@@ -31,7 +31,7 @@ class Pages {
 
       if (missingPermissions) return;
       this.addReactions();
-      this.createCollector(message.author.id);
+      this.createCollector();
     });
   }
 
@@ -52,39 +52,51 @@ class Pages {
     this.msg.edit(this.pages[pg - 1]);
   }
 
-  createCollector(uid) {
+  createCollector() {
     const collector = this.msg.createReactionCollector(
-      (r, u) => u.id == this.message.author.id,
+      (reaction, user) => user.id == this.message.author.id,
       {
         time: this.time
       }
     );
-    this.collector = collector;
-    collector.on('collect', r => {
-      if (r.emoji.name == this.reactions.first) {
-        if (this.page != 1) this.select(1);
-      } else if (r.emoji.name == this.reactions.back) {
-        if (this.page != 1) this.select(this.page - 1);
-      } else if (r.emoji.name == this.reactions.next) {
-        if (this.page != this.pages.length) this.select(this.page + 1);
-      } else if (r.emoji.name == this.reactions.last) {
-        if (this.page != this.pages.length) this.select(this.pages.length);
-      } else if (r.emoji.name == this.reactions.stop) {
-        collector.stop();
+
+    collector.on('collect', reaction => {
+      switch (reaction.emoji.name) {
+        case this.reactions.first:
+          if (this.page != 1) this.select(1);
+          break;
+        case this.reactions.back:
+          if (this.page != 1) this.select(this.page - 1);
+          break;
+        case this.reactions.next:
+          if (this.page != this.pages.length) this.select(this.page + 1);
+          break;
+        case this.reactions.last:
+          if (this.page != this.pages.length) this.select(this.pages.length);
+          break;
+        case this.reactions.stop:
+          collector.stop();
+          break;
+        default:
+          break;
       }
-      r.remove(this.message.author.id);
+
+      reaction.users.remove(this.message.author.id);
     });
+
     collector.on('end', () => {
-      this.msg.reactions.removeAll();
+      this.msg.reactions
+        .removeAll()
+        .catch(err => logger.error('Failed to remove reactions %s', err));
     });
   }
 
   async addReactions() {
-    if (this.reactions.first) await this.msg.react(this.reactions.first);
-    if (this.reactions.back) await this.msg.react(this.reactions.back);
-    if (this.reactions.next) await this.msg.react(this.reactions.next);
-    if (this.reactions.last) await this.msg.react(this.reactions.last);
-    if (this.reactions.stop) await this.msg.react(this.reactions.stop);
+    if (this.reactions.first) this.msg.react(this.reactions.first);
+    if (this.reactions.back) this.msg.react(this.reactions.back);
+    if (this.reactions.next) this.msg.react(this.reactions.next);
+    if (this.reactions.last) this.msg.react(this.reactions.last);
+    if (this.reactions.stop) this.msg.react(this.reactions.stop);
   }
 }
 

@@ -2,3 +2,5 @@
 config.json
 logs/
 .vscode/
+lfg.json
+subscribe.json
