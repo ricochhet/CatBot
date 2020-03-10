@@ -80,6 +80,9 @@ class Bot extends Client {
   }
 
   listenForCommands(message) {
+    // Ignores message if message doesn't exist
+    if (!message) return;
+
     // Ignore dms
     if (typeof message.channel == 'DMChannel') return;
 

@@ -36,7 +36,7 @@ class Status extends Command {
 
     const statusEmbed = this.MessageEmbed()
       .setColor('#8fde5d')
-      .addField('Servers: ', client.guilds.size, true)
+      .addField('Servers: ', client.guilds.cache.size, true)
       .addField('Members: ', userCount, true)
       .addField('Version: ', `v${client.config.get('VERSION')}`, true)
       .addField('Message Latency', messagePingRounded + 'ms', true)
