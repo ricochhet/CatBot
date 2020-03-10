@@ -10,6 +10,7 @@ const defaultOptions = {
   secret: false,
   category: false,
   subTree: null,
+  alias: [],
   prefix: ''
 };
 
@@ -26,6 +27,7 @@ class Command {
     this.subTree = options['subTree'];
     this.prefix = options['prefix'];
     this.version = version;
+    this.alias = options['alias'];
 
     this.score = similarity.score;
     this.findAllMatching = similarity.findAllMatching;
@@ -88,7 +90,9 @@ class Command {
     const subCommand = args[0];
     args = args.slice(1, args.length);
     const commandFound = client[this.subTree].find(
-      cmd => cmd.name === subCommand && !cmd.secret
+      cmd =>
+        (cmd.name === subCommand || cmd.alias.includes(subCommand)) &&
+        !cmd.secret
     );
 
     if (!commandFound) return message.channel.send(this.usageEmbed());

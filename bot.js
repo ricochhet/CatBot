@@ -129,7 +129,9 @@ class Bot extends Client {
 
     const cmdName = args.shift();
 
-    const command = this.commands.get(cmdName);
+    const command = this.commands.find(
+      cmd => cmdName == cmd.name || cmd.alias.includes(cmdName)
+    );
 
     logger.info("received '%s'", content, { rawArgs: rawArgs });
 
