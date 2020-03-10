@@ -109,7 +109,7 @@ class Bot extends Client {
       )
         return;
     } else {
-      logger.warn('Channels.channel doesnt not exist');
+      logger.warn('Channels.channel does not exist');
     }
 
     if (
