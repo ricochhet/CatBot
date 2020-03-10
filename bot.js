@@ -3,6 +3,7 @@ const DBL = require('dblapi.js');
 const fs = require('fs');
 
 const logger = require('./utils/log.js');
+const Channels = require('./utils/databases/server/ignoredChannels.json');
 
 // params and defaults at https://discord.js.org/#/docs/main/v12/typedef/ClientOptions
 // these are the only values we're customizing (using defaults otherwise)
@@ -99,6 +100,8 @@ class Bot extends Client {
     if (!message.member.guild.me.hasPermission('SEND_MESSAGES')) return;
     if (!message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES'))
       return;
+
+    if (Channels.channels.includes(message.channel.id)) return;
 
     if (
       message.content.startsWith(`<@!${message.member.guild.me.id}>`) ||

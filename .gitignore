@@ -4,3 +4,4 @@ logs/
 .vscode/
 lfg.json
 subscribe.json
+ignoredChannels.json
