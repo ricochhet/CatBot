@@ -8,97 +8,67 @@ class Ignore extends Command {
       'ignore [channel id / all]',
       'Allows the bot to ignore a channel based on its ID\n*(run again to remove channel from list)*',
       {
-        args: false,
+        args: true,
         prefix: prefix
       }
     );
   }
 
   async run(client, message, args) {
-    if (message.member.hasPermission('MANAGE_CHANNELS')) {
-      let Channels = require('../../utils/databases/server/ignoredChannels.json');
-
-      let channelID = args[0];
-      if (isNaN(channelID) && channelID != 'all')
-        return message.channel.send('A channel ID does not include letters!');
-      if (channelID.length != 18 && channelID != 'all')
-        return message.channel.send('This ID is not 18 characters long!');
-      if (Channels.channels == null) {
-        let obj = {
-          channels: []
-        };
-
-        const jsonObj = JSON.stringify(obj, null, 4);
-
-        fs.writeFile(
-          './utils/databases/server/ignoredChannels.json',
-          jsonObj,
-          'utf8',
-          err => {
-            if (err)
-              return logger.error(
-                'An error occured while writing JSON Object to file.',
-                err
-              );
-          }
-        );
-      }
-
-      if (Channels.channels != null) {
-        const index = Channels.channels.indexOf(channelID);
-        let obj = Channels.channels;
-
-        if (channelID == 'all') {
-          let array = [];
-          message.guild.channels.cache.forEach(channel =>
-            array.push(channel.id)
-          );
-
-          let currentChannel = array.indexOf(message.channel.id);
-          if (currentChannel !== -1) {
-            array.splice(currentChannel, 1);
-          }
-
-          for (const i in array) {
-            if (obj.indexOf(array[i]) === -1) obj.push(array[i]);
-          }
-
-          message.channel.send(
-            'Added all channel IDs to ignore list (except the current channel)!'
-          );
-        }
-
-        if (Channels.channels.includes(channelID) && channelID != 'all') {
-          if (index !== -1) obj.splice(index, 1);
-          message.channel.send('Removed channel ID from ignore list!');
-        } else if (
-          !Channels.channels.includes(channelID) &&
-          channelID != 'all'
-        ) {
-          obj.push(channelID);
-          message.channel.send('Added channel ID to ignore list!');
-        }
-
-        Channels.channels = obj;
-
-        fs.writeFile(
-          './utils/databases/server/ignoredChannels.json',
-          JSON.stringify(Channels, null, 4),
-          'utf8',
-          err => {
-            if (err)
-              return logger.error(
-                'An error occured while writing JSON Object to file.',
-                err
-              );
-          }
-        );
-      }
-    } else {
-      message.reply(
+    // some perm checking
+    if (!message.member.hasPermission('MANAGE_CHANNELS'))
+      return message.reply(
         `Sorry meowster but you don't have the **Manage Channels** permission!`
       );
+    let Channels = require('../../utils/databases/server/ignoredChannels.json');
+    let channelID = args[0];
+
+    // makes sure Channels.channels exists
+    if (!Channels.channels) Channels.channels = [];
+
+    // adds all channels in the guild to the list
+    if (channelID == 'all') {
+      let allChannels = message.guild.channels.cache
+        .map(channel => channel.id)
+        .filter(channel => channel != message.channel.id);
+
+      Channels.channels = [...new Set(Channels.channels.concat(allChannels))];
+
+      message.channel.send(
+        'Added all channel IDs to ignore list (except the current channel)!'
+      );
+    } else {
+      // Data validtion
+      if (isNaN(channelID))
+        return message.channel.send('A channel ID does not include letters!');
+      if (channelID.length != 18)
+        return message.channel.send('This ID is not 18 characters long!');
+
+      // remove or add to list
+      if (Channels.channels.includes(channelID)) {
+        Channels.channels = Channels.channels.filter(
+          channel => channel != channelID
+        );
+        message.channel.send('Removed channel ID from ignore list!');
+      } else {
+        Channels.channels.push(channelID);
+        message.channel.send('Added channel ID to ignore list!');
+      }
     }
+
+    // write the data to the file
+    fs.writeFile(
+      './utils/databases/server/ignoredChannels.json',
+      JSON.stringify(Channels, null, 4),
+      'utf8',
+      err => {
+        if (err)
+          return logger.error(
+            'An error occured while writing JSON Channelsect to file.',
+            err
+          );
+      }
+    );
   }
 }
 

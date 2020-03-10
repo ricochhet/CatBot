@@ -3,7 +3,6 @@ const DBL = require('dblapi.js');
 const fs = require('fs');
 
 const logger = require('./utils/log.js');
-const Channels = require('./utils/databases/server/ignoredChannels.json');
 
 // params and defaults at https://discord.js.org/#/docs/main/v12/typedef/ClientOptions
 // these are the only values we're customizing (using defaults otherwise)
@@ -81,6 +80,8 @@ class Bot extends Client {
   }
 
   listenForCommands(message) {
+    let Channels = require('./utils/databases/server/ignoredChannels.json');
+
     // Ignores message if message doesn't exist
     if (!message) return;
 
@@ -101,7 +102,15 @@ class Bot extends Client {
     if (!message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES'))
       return;
 
-    if (Channels.channels.includes(message.channel.id)) return;
+    if (Channels.channels) {
+      if (
+        Channels.channels.includes(message.channel.id) &&
+        !message.member.hasPermission('ADMINISTRATOR')
+      )
+        return;
+    } else {
+      logger.warn('Channels.channel doesnt not exist');
+    }
 
     if (
       message.content.startsWith(`<@!${message.member.guild.me.id}>`) ||
