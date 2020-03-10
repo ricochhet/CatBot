@@ -5,7 +5,7 @@ class Ignore extends Command {
   constructor(prefix) {
     super(
       'ignore',
-      'ignore [channel id]',
+      'ignore [channel id / all]',
       'Allows the bot to ignore a channel based on its ID\n*(run again to remove channel from list)*',
       {
         args: false,
@@ -19,8 +19,10 @@ class Ignore extends Command {
       let Channels = require('../../utils/databases/server/ignoredChannels.json');
 
       let channelID = args[0];
-      if (isNaN(channelID))
+      if (isNaN(channelID) && channelID != 'all')
         return message.channel.send('A channel ID does not include letters!');
+      if (channelID.length != 18 && channelID != 'all')
+        return message.channel.send('This ID is not 18 characters long!');
       if (Channels.channels == null) {
         let obj = {
           channels: []
@@ -46,10 +48,33 @@ class Ignore extends Command {
         const index = Channels.channels.indexOf(channelID);
         let obj = Channels.channels;
 
-        if (Channels.channels.includes(channelID)) {
+        if (channelID == 'all') {
+          let array = [];
+          message.guild.channels.cache.forEach(channel =>
+            array.push(channel.id)
+          );
+
+          let currentChannel = array.indexOf(message.channel.id);
+          if (currentChannel !== -1) {
+            array.splice(currentChannel, 1);
+          }
+
+          for (const i in array) {
+            if (obj.indexOf(array[i]) === -1) obj.push(array[i]);
+          }
+
+          message.channel.send(
+            'Added all channel IDs to ignore list (except the current channel)!'
+          );
+        }
+
+        if (Channels.channels.includes(channelID) && channelID != 'all') {
           if (index !== -1) obj.splice(index, 1);
           message.channel.send('Removed channel ID from ignore list!');
-        } else {
+        } else if (
+          !Channels.channels.includes(channelID) &&
+          channelID != 'all'
+        ) {
           obj.push(channelID);
           message.channel.send('Added channel ID to ignore list!');
         }
