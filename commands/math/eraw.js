@@ -18,7 +18,9 @@ class Eraw extends Command {
       'sharpness: none, red, orange, yellow, green, blue, white, purple'
     );
     data.push('true raw: true raw damage value');
-    data.push('critical boost level: current level of critical boost used');
+    data.push(
+      'critical boost level: current level of critical boost used (use "none" for no crit boost)'
+    );
     data.push('monster hitzone: monster part hitzone value');
 
     const embed = this.MessageEmbed()
