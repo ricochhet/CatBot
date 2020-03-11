@@ -25,6 +25,14 @@ class Bot extends Client {
     this.on('ready', () => {
       logger.info('Logged in as %s!', client.user.tag);
       this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
+
+      if (this.config.get('DBLTOKEN')) {
+        const dbl = this.dblSetup(client.config.get('DBLTOKEN'));
+
+        this.setInterval(() => {
+          dbl.postStats(client.guilds.size);
+        }, 1800000);
+      }
     });
   }
 

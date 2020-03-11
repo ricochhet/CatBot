@@ -26,8 +26,6 @@ client.buildDBs({
   config: './utils/config.json'
 });
 
-const dbl = client.dblSetup(client.config.get('DBLTOKEN'));
-
 // mhw monster collection has a custom collection algorithm
 client.monsters = client.buildCollection();
 for (const i of Object.keys(monsterDatabase)) {
@@ -62,9 +60,5 @@ client.setInterval(() => {
     });
   }
 }, 60000);
-
-client.setInterval(() => {
-  dbl.postStats(client.guilds.size);
-}, 1800000);
 
 client.login(client.config.get('TOKEN'));
