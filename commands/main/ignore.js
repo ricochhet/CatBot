@@ -28,15 +28,24 @@ class Ignore extends Command {
 
     // adds all channels in the guild to the list
     if (channelID == 'all') {
-      let allChannels = message.guild.channels.cache
-        .map(channel => channel.id)
-        .filter(channel => channel != message.channel.id);
+      let allChannels = message.guild.channels.cache.filter(
+        channel => channel.id != message.channel.id && channel.type == 'text'
+      );
 
+      // create mentionable channels for user responce
+      let mentions = allChannels
+        .filter(channel => channel.viewable)
+        .map(channel => `<#${channel.id}>`)
+        .join(', ');
+
+      // if not all channels are viewable add in some extra details
+      if (!allChannels.every(channel => channel.viewable))
+        mentions += ' and all invisible channels';
+
+      allChannels = allChannels.map(channel => channel.id);
       ignored.channels = [...new Set(ignored.channels.concat(allChannels))]; // this makes sure that they're only uniqe id's in this list
 
-      message.channel.send(
-        'Added all channel IDs to ignore list (except the current channel)!'
-      );
+      message.channel.send(`Ignored ${mentions}`);
     } else if (channelID == 'clear') {
       // get all channel id in guild
       let allChannels = message.guild.channels.cache.map(channel => channel.id);
@@ -46,7 +55,7 @@ class Ignore extends Command {
         channel => !allChannels.includes(channel)
       );
 
-      message.channel.send('Cleared all channel IDs in the ignore list!');
+      message.channel.send('Now listening to all channels!');
     } else {
       // Data validtion
       if (isNaN(channelID))
