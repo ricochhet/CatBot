@@ -32,7 +32,7 @@ class Ignore extends Command {
         .map(channel => channel.id)
         .filter(channel => channel != message.channel.id);
 
-      Channels.channels = [...new Set(Channels.channels.concat(allChannels))];
+      Channels.channels = [...new Set(Channels.channels.concat(allChannels))]; // this makes sure that they're only uniqe id's in this list
 
       message.channel.send(
         'Added all channel IDs to ignore list (except the current channel)!'
@@ -57,17 +57,9 @@ class Ignore extends Command {
     }
 
     // write the data to the file
-    fs.writeFile(
+    this.saveJsonFile(
       './utils/databases/server/ignoredChannels.json',
-      JSON.stringify(Channels, null, 4),
-      'utf8',
-      err => {
-        if (err)
-          return logger.error(
-            'An error occured while writing JSON Channelsect to file.',
-            err
-          );
-      }
+      JSON.stringify(Channels, null, 4)
     );
   }
 }
