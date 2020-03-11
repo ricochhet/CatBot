@@ -27,10 +27,10 @@ class Bot extends Client {
       this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
 
       if (this.config.get('DBLTOKEN')) {
-        const dbl = this.dblSetup(client.config.get('DBLTOKEN'));
+        const dbl = this.dblSetup(this.config.get('DBLTOKEN'));
 
         this.setInterval(() => {
-          dbl.postStats(client.guilds.size);
+          dbl.postStats(this.guilds.size);
         }, 1800000);
       }
     });
