@@ -20,11 +20,11 @@ class Ignore extends Command {
       return message.reply(
         `Sorry meowster but you don't have the **Manage Channels** permission!`
       );
-    let Channels = require('../../utils/databases/server/ignoredChannels.json');
+    let ignored = require('../../utils/databases/server/ignoredChannels.json');
     let channelID = args[0];
 
     // makes sure Channels.channels exists
-    if (!Channels.channels) Channels.channels = [];
+    if (!ignored.channels) ignored.channels = [];
 
     // adds all channels in the guild to the list
     if (channelID == 'all') {
@@ -32,11 +32,21 @@ class Ignore extends Command {
         .map(channel => channel.id)
         .filter(channel => channel != message.channel.id);
 
-      Channels.channels = [...new Set(Channels.channels.concat(allChannels))]; // this makes sure that they're only uniqe id's in this list
+      ignored.channels = [...new Set(ignored.channels.concat(allChannels))]; // this makes sure that they're only uniqe id's in this list
 
       message.channel.send(
         'Added all channel IDs to ignore list (except the current channel)!'
       );
+    } else if (channelID == 'clear') {
+      // get all channel id in guild
+      let allChannels = message.guild.channels.cache.map(channel => channel.id);
+
+      // filter out any of the channel in the ignored list
+      ignored.channels = ignored.channels.filter(
+        channel => !allChannels.includes(channel)
+      );
+
+      message.channel.send('Cleared all channel IDs in the ignore list!');
     } else {
       // Data validtion
       if (isNaN(channelID))
@@ -45,13 +55,13 @@ class Ignore extends Command {
         return message.channel.send('This ID is not 18 characters long!');
 
       // remove or add to list
-      if (Channels.channels.includes(channelID)) {
-        Channels.channels = Channels.channels.filter(
+      if (ignored.channels.includes(channelID)) {
+        ignored.channels = ignored.channels.filter(
           channel => channel != channelID
         );
         message.channel.send('Removed channel ID from ignore list!');
       } else {
-        Channels.channels.push(channelID);
+        ignored.channels.push(channelID);
         message.channel.send('Added channel ID to ignore list!');
       }
     }
@@ -59,7 +69,7 @@ class Ignore extends Command {
     // write the data to the file
     this.saveJsonFile(
       './utils/databases/server/ignoredChannels.json',
-      JSON.stringify(Channels, null, 4)
+      JSON.stringify(ignored, null, 4)
     );
   }
 }
