@@ -23,7 +23,6 @@ class Bot extends Client {
     this.Constants = Constants;
 
     this.on('ready', () => {
-      //console.log(`Logged in as ${client.user.tag}!`);
       logger.info('Logged in as %s!', client.user.tag);
       this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
     });
@@ -80,10 +79,14 @@ class Bot extends Client {
   }
 
   listenForCommands(message) {
-    let Channels = require('./utils/databases/server/ignoredChannels.json');
-
-    // Ignores message if message doesn't exist
-    if (!message) return;
+    // Ignores message if message doesn't exist (kek)
+    if (!message) {
+      logger.error(
+        'listenForCommands triggered with an empty message %s',
+        message
+      );
+      return;
+    }
 
     // Ignore dms
     if (typeof message.channel == 'DMChannel') return;
@@ -102,16 +105,16 @@ class Bot extends Client {
     if (!message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES'))
       return;
 
-    if (Channels.channels) {
+    let ignored = require('./utils/databases/server/ignoredChannels.json');
+    if (ignored.channels) {
       if (
-        Channels.channels.includes(message.channel.id) &&
+        ignored.channels.includes(message.channel.id) &&
         !message.member.hasPermission('ADMINISTRATOR')
       )
         return;
-    } else {
-      logger.warn('Channels.channel does not exist');
     }
 
+    // show help if bot gets mentioned (different syntax if mobile vs desktop)
     if (
       message.content.startsWith(`<@!${message.member.guild.me.id}>`) ||
       message.content.startsWith(`<@${message.member.guild.me.id}>`)

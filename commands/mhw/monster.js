@@ -29,7 +29,7 @@ class Monster extends Command {
       .addField('Blights', monster.blights, true)
       .addField('Locations', monster.locations, true)
       .setTimestamp()
-      .setFooter('Info Menu');
+      .setFooter('Monster Info');
 
     return embed;
   }

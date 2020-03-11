@@ -1,4 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
+const logger = require('../../utils/log.js');
 
 class Status extends Command {
   constructor(prefix) {
@@ -56,7 +57,7 @@ class Status extends Command {
       .map(g => g.name + ' | ' + g.id)
       .join('\n');
 
-    console.log(guildNames);
+    logger.info('Guild names: %s', guildNames);
   }
 }
 

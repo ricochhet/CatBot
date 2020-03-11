@@ -1,6 +1,7 @@
 const Bot = require('./bot.js');
 const monsterDatabase = require('./utils/databases/mhw/monsters.json');
 const fs = require('fs');
+const logger = require('./utils/log.js');
 
 client = new Bot('+');
 
@@ -53,8 +54,10 @@ client.setInterval(() => {
       err
     ) {
       if (err) {
-        console.log('An error occured while writing JSON Object to File.');
-        return console.log(err);
+        logger.error(
+          'An error occured while writing JSON Object to File.',
+          err
+        );
       }
     });
   }

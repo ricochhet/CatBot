@@ -21,128 +21,130 @@ const HEX_GREEN = '#78AB46';
 
 const ICON_SIZE_PX = 50;
 
+const HZV_FILENAME = 'hzv.png';
+
 class Hzv extends Command {
   constructor(prefix) {
     super('hzv', 'hzv [monster name]', 'Get hzv info for a specific monster');
   }
 
-  async monsterEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    async function hzvImageGen(monsterName) {
-      // get the monster hzv info from the db
-      const monsterHzvInfo = hzvDB[monsterName.toLowerCase().replace(' ', '')];
+  async hzvImageGen(monsterName) {
+    // get the monster hzv info from the db
+    const monsterHzvInfo = hzvDB[monsterName.toLowerCase().replace(' ', '')];
 
-      // store the monster parts in an array for canvas height calculation
-      const parts = Object.keys(monsterHzvInfo);
+    // store the monster parts in an array for canvas height calculation
+    const parts = Object.keys(monsterHzvInfo);
 
-      // remove the first element because its the name of the monster
-      parts.shift();
+    // remove the first element because its the name of the monster
+    parts.shift();
 
-      const canvasHeight = parts.length * (CANVAS_PART_HEIGHT + 5);
+    const canvasHeight = parts.length * (CANVAS_PART_HEIGHT + 5);
 
-      // Figure out space needed (in pixels) for monster part names
-      // by creating dummy canvas for each part and checking the width
-      let maxPartWidth = 0;
-      for (let key in monsterHzvInfo) {
-        new Canvas()
-          .setTextFont(CANVAS_TEXT_FONT)
-          .measureText(key, (size, inst) => {
-            if (size.width > maxPartWidth) {
-              maxPartWidth = size.width;
-            }
-          });
-      }
-
-      // Compute total canvas width
-      const canvasWidth =
-        maxPartWidth + COLUMN_COUNT * COLUMN_WIDTH + COLUMN_COUNT * COLUMN_GAP;
-
-      let hzvImage = new Canvas(canvasWidth, CANVAS_PADDING_Y + canvasHeight)
-        .setColor(HEX_WHITE)
+    // Figure out space needed (in pixels) for monster part names
+    // by creating dummy canvas for each part and checking the width
+    let maxPartWidth = 0;
+    for (let key in monsterHzvInfo) {
+      new Canvas()
         .setTextFont(CANVAS_TEXT_FONT)
-        .setTextAlign('center')
-        .addResponsiveText('Hitzone Values', canvasWidth / 2, 22.5) // center title, 22.5 == y offset
-        .setTextAlign('start');
-
-      // Set base y downwards by 100px (height for table title + header/icons) and then another 20px for a gap
-      // Set base x right to whatever the max monster part text size was.
-      let y = 120;
-      let x = maxPartWidth;
-
-      // places the hit zone icons horizontally
-      for (let iconName of [
-        'ke',
-        'slash',
-        'blunt',
-        'ranged',
-        'fire',
-        'water',
-        'thunder',
-        'ice',
-        'dragon',
-        'stun',
-        'flinch',
-        'trip',
-        'timer',
-        'wound',
-        'sever',
-        'notes'
-      ]) {
-        try {
-          let pic = await loadImage(
-            `${__dirname.replace(
-              'commands',
-              'utils\\databases'
-            )}\\element\\${iconName.toLowerCase()}.png`
-          );
-          hzvImage.addImage(pic, x + 15, 33, ICON_SIZE_PX, ICON_SIZE_PX);
-
-          // advance x to next icon position
-          x += COLUMN_WIDTH + 12;
-        } catch (e) {
-          console.log(e);
-        }
-      }
-
-      // Places all the monster parts vertically
-      for (let key in monsterHzvInfo) {
-        if (key == 'name') continue;
-        hzvImage.addResponsiveText(key, 0, y);
-
-        y += CANVAS_PART_HEIGHT + 5; // 5 for gap
-      }
-
-      y = 120;
-      // Sets The Hitzone Values in a grid like format
-      for (let key in monsterHzvInfo) {
-        if (key == 'name') continue;
-        let value = monsterHzvInfo[key];
-
-        x = maxPartWidth;
-        for (let hitzone in value) {
-          let hzv = value[hitzone];
-
-          if (hitzone == 'ke') {
-            if (hzv == 1) {
-              hzvImage.setColor(HEX_RED);
-            } else if (hzv == 3) {
-              hzvImage.setColor(HEX_ORANGE);
-            } else if (hzv == 4) {
-              hzvImage.setColor(HEX_GREEN);
-            }
+        .measureText(key, (size, inst) => {
+          if (size.width > maxPartWidth) {
+            maxPartWidth = size.width;
           }
-
-          hzvImage.addResponsiveText(hzv, x + 20, y).setColor(HEX_WHITE);
-          x += COLUMN_WIDTH + 12;
-        }
-
-        // next part y position
-        y += CANVAS_PART_HEIGHT + 5; // 5 for gap
-      }
-
-      // Creates a discord attachment object and place the image content inside
-      return new MessageAttachment(hzvImage.toBuffer(), 'hzv.png');
+        });
     }
 
+    // Compute total canvas width
+    const canvasWidth =
+      maxPartWidth + COLUMN_COUNT * COLUMN_WIDTH + COLUMN_COUNT * COLUMN_GAP;
+
+    let hzvImage = new Canvas(canvasWidth, CANVAS_PADDING_Y + canvasHeight)
+      .setColor(HEX_WHITE)
+      .setTextFont(CANVAS_TEXT_FONT)
+      .setTextAlign('center')
+      .addResponsiveText('Hitzone Values', canvasWidth / 2, 22.5) // center title, 22.5 == y offset
+      .setTextAlign('start');
+
+    // Set base y downwards by 100px (height for table title + header/icons) and then another 20px for a gap
+    // Set base x right to whatever the max monster part text size was.
+    let y = 120;
+    let x = maxPartWidth;
+
+    // places the hit zone icons horizontally
+    for (let iconName of [
+      'ke',
+      'slash',
+      'blunt',
+      'ranged',
+      'fire',
+      'water',
+      'thunder',
+      'ice',
+      'dragon',
+      'stun',
+      'flinch',
+      'trip',
+      'timer',
+      'wound',
+      'sever',
+      'notes'
+    ]) {
+      try {
+        let pic = await loadImage(
+          `${__dirname.replace(
+            'commands',
+            'utils\\databases'
+          )}\\element\\${iconName.toLowerCase()}.png`
+        );
+        hzvImage.addImage(pic, x + 15, 33, ICON_SIZE_PX, ICON_SIZE_PX);
+
+        // advance x to next icon position
+        x += COLUMN_WIDTH + 12;
+      } catch (err) {
+        logger.error(err);
+      }
+    }
+
+    // Places all the monster parts vertically
+    for (let key in monsterHzvInfo) {
+      if (key == 'name') continue;
+      hzvImage.addResponsiveText(key, 0, y);
+
+      y += CANVAS_PART_HEIGHT + 5; // 5 for gap
+    }
+
+    y = 120;
+    // Sets The Hitzone Values in a grid like format
+    for (let key in monsterHzvInfo) {
+      if (key == 'name') continue;
+      let value = monsterHzvInfo[key];
+
+      x = maxPartWidth;
+      for (let hitzone in value) {
+        let hzv = value[hitzone];
+
+        if (hitzone == 'ke') {
+          if (hzv == 1) {
+            hzvImage.setColor(HEX_RED);
+          } else if (hzv == 3) {
+            hzvImage.setColor(HEX_ORANGE);
+          } else if (hzv == 4) {
+            hzvImage.setColor(HEX_GREEN);
+          }
+        }
+
+        hzvImage.addResponsiveText(hzv, x + 20, y).setColor(HEX_WHITE);
+        x += COLUMN_WIDTH + 12;
+      }
+
+      // next part y position
+      y += CANVAS_PART_HEIGHT + 5; // 5 for gap
+    }
+
+    // Creates a discord attachment object and place the image content inside
+    return new MessageAttachment(hzvImage.toBuffer(), HZV_FILENAME);
+  }
+
+  async monsterEmbed(client, name, rawEmbed = this.MessageEmbed()) {
     const monster = client.monsters.get(name);
     const embed = rawEmbed.setColor('#8fde5d').setTitle(monster.title);
 
@@ -150,14 +152,18 @@ class Hzv extends Command {
 
     embed
       .setDescription(`${monster.description}\n\n${monster.info}`)
+      .setThumbnail(monster.thumbnail)
       .attachFiles(
-        await hzvImageGen(name).catch(e =>
-          console.log(`Failed to load ${monster.title} hitzone value image`)
+        await this.hzvImageGen(name).catch(err =>
+          logger.error(
+            `Failed to load ${monster.title} hitzone value image`,
+            err
+          )
         )
       )
-      .setImage('attachment://hzv.png')
+      .setImage(`attachment://${HZV_FILENAME}`)
       .setTimestamp()
-      .setFooter('Info Menu');
+      .setFooter('Hitzone Values');
 
     return embed;
   }

@@ -1,4 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
+const logger = require('../../utils/log.js');
 
 class Post extends Command {
   constructor(prefix) {
@@ -67,7 +68,7 @@ class Post extends Command {
       let channel = client.channels.cache.get(channelID);
 
       if (channel != null) {
-        channel.send(tEmbed).catch(e => console.log(`ERROR: ${e}`));
+        channel.send(tEmbed).catch(err => logger.error(err));
       } else {
         removableChannels.push(channelID);
       }
