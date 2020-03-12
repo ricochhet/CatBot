@@ -5,8 +5,8 @@ class Ignore extends Command {
   constructor(prefix) {
     super(
       'ignore',
-      'ignore [channel_id | all | clear | list]',
-      'Allows the bot to ignore a channel based on its ID\n*(run again to remove channel from list)*',
+      'ignore [channel_(id/mention/name) | all | clear | list]',
+      'Allows the bot to ignore a channel\n*(run again to remove channel from list)*',
       {
         args: true,
         prefix: prefix
@@ -33,6 +33,8 @@ class Ignore extends Command {
   usageEmbed(error = '') {
     const data = [];
     data.push('**channel_id:** 18 digits (turn on developer mode to see them)');
+    data.push('**channel_mention:** example - #general');
+    data.push('**channel_name:** example - general');
     data.push('**all:** ignore all channels, except current one');
     data.push('**clear:** clear ignore list');
     data.push('**list:** show current ignore list');

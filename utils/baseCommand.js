@@ -138,8 +138,13 @@ class Command {
     return new Pages(channel, uid, pages, time, reactions, pageFooter);
   }
 
-  usageEmbed() {
-    let embed;
+  usageEmbed(error = '') {
+    let embed = this.MessageEmbed();
+
+    if (error) {
+      embed.addField('An error has occurred!', error);
+    }
+
     if (this.category) {
       // Get all commands in sub command
       const data = [];
@@ -150,14 +155,14 @@ class Command {
         );
       });
 
-      embed = this.MessageEmbed()
+      embed
         .setColor('#8fde5d')
         .addField(this.description, `**${this.usage}**`)
         .addField('Parameters Help', data.join('\n\n'))
         .setTimestamp()
         .setFooter(`${this.name.toUpperCase()} Help`);
     } else {
-      embed = this.MessageEmbed()
+      embed
         .setColor('#8fde5d')
         .addField('Usage: ', this.usage)
         .addField('Description: ', this.description)
