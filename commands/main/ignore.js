@@ -5,7 +5,7 @@ class Ignore extends Command {
   constructor(prefix) {
     super(
       'ignore',
-      'ignore [channel id / all]',
+      'ignore [channel_id | all | clear | list]',
       'Allows the bot to ignore a channel based on its ID\n*(run again to remove channel from list)*',
       {
         args: true,
@@ -14,65 +14,117 @@ class Ignore extends Command {
     );
   }
 
+  usageEmbed(error = '') {
+    const data = [];
+    data.push('**channel_id:** 18 digits (turn on developer mode to see them)');
+    data.push('**all:** ignore all channels, except current one');
+    data.push('**clear:** clear ignore list');
+    data.push('**list:** show current ignore list');
+
+    const embed = this.MessageEmbed().setColor('#8fde5d');
+
+    if (error) {
+      embed.addField('An error has occurred!', error);
+    }
+
+    embed
+      .addField('Usage', this.usage)
+      .addField('Options', data.join('\n'))
+      .setTimestamp();
+
+    return embed;
+  }
+
   async run(client, message, args) {
     // some perm checking
     if (!message.member.hasPermission('MANAGE_CHANNELS'))
       return message.reply(
         `Sorry meowster but you don't have the **Manage Channels** permission!`
       );
+
     let ignored = require('../../utils/databases/server/ignoredChannels.json');
     let channelID = args[0];
 
-    // makes sure Channels.channels exists
+    // initialize list if needed (never set before)
     if (!ignored.channels) ignored.channels = [];
 
-    // adds all channels in the guild to the list
-    if (channelID == 'all') {
-      let allChannels = message.guild.channels.cache.filter(
-        channel => channel.id != message.channel.id && channel.type == 'text'
-      );
+    switch (channelID) {
+      case 'all':
+        {
+          // grab all text channels, except current one
+          let channels = message.guild.channels.cache.filter(
+            channel =>
+              channel.id != message.channel.id && channel.type == 'text'
+          );
 
-      // create mentionable channels for user responce
-      let mentions = allChannels
-        .filter(channel => channel.viewable)
-        .map(channel => `<#${channel.id}>`)
-        .join(', ');
+          // create mentionable channels for user response
+          let mentions = channels
+            .filter(channel => channel.viewable)
+            .map(channel => `<#${channel.id}>`)
+            .join(', ');
 
-      // if not all channels are viewable add in some extra details
-      if (!allChannels.every(channel => channel.viewable))
-        mentions += ' and all invisible channels';
+          // if not all channels are viewable add in some extra details
+          if (!channels.every(channel => channel.viewable))
+            mentions += ' and all private channels';
 
-      allChannels = allChannels.map(channel => channel.id);
-      ignored.channels = [...new Set(ignored.channels.concat(allChannels))]; // this makes sure that they're only uniqe id's in this list
+          channels = channels.map(channel => channel.id);
+          ignored.channels = [...new Set(ignored.channels.concat(channels))]; // filter unique ids
 
-      message.channel.send(`Ignored ${mentions}`);
-    } else if (channelID == 'clear') {
-      // get all channel id in guild
-      let allChannels = message.guild.channels.cache.map(channel => channel.id);
+          message.channel.send(`Will now ignore ${mentions}`);
+        }
+        break;
+      case 'clear':
+        {
+          let allChannels = message.guild.channels.cache.map(
+            channel => channel.id
+          );
 
-      // filter out any of the channel in the ignored list
-      ignored.channels = ignored.channels.filter(
-        channel => !allChannels.includes(channel)
-      );
+          // remove all the channels from the ignored list
+          ignored.channels = ignored.channels.filter(
+            channelID => !allChannels.includes(channelID)
+          );
 
-      message.channel.send('Now listening to all channels!');
-    } else {
-      // Data validtion
-      if (isNaN(channelID))
-        return message.channel.send('A channel ID does not include letters!');
-      if (channelID.length != 18)
-        return message.channel.send('This ID is not 18 characters long!');
+          message.channel.send('Now listening to all channels!');
+        }
+        break;
+      case 'list':
+        {
+          let channelsIgnored = message.guild.channels.cache.filter(
+            channel => ignored.channels.includes(channel.id) && channel.viewable
+          );
 
-      // remove or add to list
-      if (ignored.channels.includes(channelID)) {
-        ignored.channels = ignored.channels.filter(
-          channel => channel != channelID
-        );
-        message.channel.send('Removed channel ID from ignore list!');
-      } else {
-        ignored.channels.push(channelID);
-        message.channel.send('Added channel ID to ignore list!');
-      }
+          if (channelsIgnored.size == 0) {
+            return message.channel.send('Not ignoring any channel');
+          }
+
+          let mentions = channelsIgnored
+            .map(channel => `<#${channel.id}>`)
+            .join(', ');
+
+          message.channel.send(`Channels ignored: ${mentions}`);
+        }
+        break;
+
+      default:
+        {
+          // Data validation
+          const errorMsg = 'Invalid channel ID - should be 18 digits';
+          if (isNaN(channelID) || channelID.length != 18)
+            return message.channel.send(this.usageEmbed(errorMsg));
+
+          // remove or add to list
+          if (ignored.channels.includes(channelID)) {
+            ignored.channels = ignored.channels.filter(
+              channel => channel != channelID
+            );
+
+            message.channel.send(`Removed <#${channelID}> from ignore list!`);
+          } else {
+            ignored.channels.push(channelID);
+            message.channel.send(`Will now ignore <#${channelID}>`);
+          }
+        }
+        break;
     }
 
     // write the data to the file

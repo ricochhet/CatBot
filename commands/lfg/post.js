@@ -6,7 +6,7 @@ class Post extends Command {
     super(
       'post',
       'post [platform] [session id] (description)',
-      'Posts an active session to CatBots LFG command'
+      'Posts an active session to CatBots LFG command. Sessions expire after 2 hours.'
     );
   }
 
