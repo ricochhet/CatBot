@@ -14,6 +14,22 @@ class Ignore extends Command {
     );
   }
 
+  getChannelFromMention(cache, mention) {
+    if (!mention) return;
+
+    if (mention.startsWith('<#') && mention.endsWith('>')) {
+      mention = mention.slice(2, -1);
+
+      if (mention.startsWith('!')) {
+        mention = mention.slice(1);
+      }
+    }
+
+    return cache.find(
+      channel => channel.name == mention || channel.id == mention
+    );
+  }
+
   usageEmbed(error = '') {
     const data = [];
     data.push('**channel_id:** 18 digits (turn on developer mode to see them)');
@@ -70,7 +86,9 @@ class Ignore extends Command {
           channels = channels.map(channel => channel.id);
           ignored.channels = [...new Set(ignored.channels.concat(channels))]; // filter unique ids
 
-          message.channel.send(`Will now ignore ${mentions}`);
+          message.channel.send(
+            `Will now ignore ${mentions} (except for this channel)`
+          );
         }
         break;
       case 'clear':
@@ -101,16 +119,33 @@ class Ignore extends Command {
             .map(channel => `<#${channel.id}>`)
             .join(', ');
 
+          // if not all channels are viewable add in some extra details
+          if (
+            !message.guild.channels.cache
+              .filter(channel => ignored.channels.includes(channel.id))
+              .every(channel => channel.viewable)
+          )
+            mentions += ' and all private channels';
+
           message.channel.send(`Channels ignored: ${mentions}`);
         }
         break;
 
       default:
         {
-          // Data validation
-          const errorMsg = 'Invalid channel ID - should be 18 digits';
-          if (isNaN(channelID) || channelID.length != 18)
-            return message.channel.send(this.usageEmbed(errorMsg));
+          // // Data validation
+          // if (channelID.length != 18)
+          //   return message.channel.send(this.usageEmbed('Invalid channel ID - should be 18 digits'));
+
+          let channel = this.getChannelFromMention(
+            message.guild.channels.cache,
+            channelID
+          );
+          if (!channel)
+            return message.channel.send(
+              this.usageEmbed(`Cant find the channel by \`${channelID}\``)
+            );
+          channelID = channel.id;
 
           // remove or add to list
           if (ignored.channels.includes(channelID)) {

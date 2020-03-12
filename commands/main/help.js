@@ -26,14 +26,12 @@ class Help extends Command {
 
     // Other Commands w/o Args
     data = [];
-    client.commands
-      .filter(cmd => cmd.args != true)
-      .forEach(cmd => {
-        if (!cmd.category) {
-          if (!cmd.secret)
-            data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
-        }
-      });
+    client.commands.forEach(cmd => {
+      if (!cmd.category) {
+        if (!cmd.secret)
+          data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
+      }
+    });
     helpEmbed.addField('General', data.join('\n'));
 
     // Notes
