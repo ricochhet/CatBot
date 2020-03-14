@@ -15,11 +15,12 @@ class About extends Command {
         `Changelog: v${client.config.get('VERSION')}`,
         `
         🤖 Updated to latest version of DiscordJS.
-        📖 \`+calc eraw\` now has the option to not have any critical boost.
-        🆙 Iceborne weapons have been finally added to \`+mhw weapon\`!
-        🆕 Want to see how the bot is doing? Use \`+stats\` to see interesting information about the bot!
-        🆕 Finally, a bit of customization! Use \`+ignore [channel id / all]\` to have the bot ignore certain channels!
-        🆕 Use \`+mhw hzv [monster name]\` to get monster hitzone values!
+        📖 \`${this.prefix}calc eraw\` now has the option to not have any critical boost.
+        🆙 Iceborne weapons have been finally added to \`${this.prefix}mhw weapon\`! (crafting materials too)
+        🆕 Want to see how the bot is doing? Use \`${this.prefix}stats\` to see interesting facts about the bot!
+        🆕 Use \`${this.prefix}feedback\` to send us your feedback directly 
+        🆕 Finally, a bit of customization! Use \`${this.prefix}ignore\` to have the bot ignore certain channels!
+        🆕 Use \`${this.prefix}mhw hzv [monster name]\` to get monster hitzone values!
         `
       )
       .setTimestamp()
