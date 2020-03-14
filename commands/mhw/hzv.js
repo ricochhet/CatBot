@@ -93,8 +93,8 @@ class Hzv extends Command {
           let pic = await loadImage(
             `${__dirname.replace(
               'commands',
-              'utils\\databases'
-            )}\\element\\${iconName.toLowerCase()}.png`
+              'utils/databases'
+            )}/element/${iconName.toLowerCase()}.png`
           );
           hzvImage.addImage(pic, x + 15, 33, ICON_SIZE_PX, ICON_SIZE_PX);
 
