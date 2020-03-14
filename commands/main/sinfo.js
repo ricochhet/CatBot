@@ -11,7 +11,7 @@ class Sinfo extends Command {
   async run(client, message, args) {
     let input = args[0];
 
-    const guildName = client.guilds.get(input);
+    const guildName = client.guilds.cache.get(input);
 
     let verificationLevels = [
       'None',
@@ -43,7 +43,7 @@ class Sinfo extends Command {
     //||#${g.owner.user.discriminator}||
 
     if (guildName) {
-      const listEmbed = this.RichEmbed()
+      const listEmbed = this.MessageEmbed()
         .setColor('#8fde5d')
         .setAuthor(guildName.name, guildName.iconURL)
         .addField('Name', guildName.name, true)

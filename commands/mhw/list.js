@@ -17,7 +17,7 @@ class List extends Command {
 
     const makePage = names => {
       if (!names.length) return;
-      let page = this.RichEmbed()
+      let page = this.MessageEmbed()
         .setColor('#8fde5d')
         .addField('Monsters list', names.join('\n'))
         .setTimestamp();

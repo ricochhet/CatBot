@@ -4,53 +4,35 @@ const fs = require('fs');
 
 const logger = require('./utils/log.js');
 
-apiDefault = {
-  apiRequestMethod: 'sequential',
-  shardId: 0,
-  shardCount: 0,
-  messageCacheMaxSize: 100,
-  messageCacheLifetime: 300,
+// params and defaults at https://discord.js.org/#/docs/main/v12/typedef/ClientOptions
+// these are the only values we're customizing (using defaults otherwise)
+baseOptions = {
+  messageCacheMaxSize: 100, // msgs
+  messageCacheLifetime: 300, // seconds
   messageSweepInterval: 30,
-  fetchAllMembers: false,
-  disableEveryone: false,
-  sync: false,
-  restWsBridgeTimeout: 5000,
-  restTimeOffset: 500,
-  retryLimit: Number.POSITIVE_INFINITY,
-  disabledEvents: [
-    'TYPING_START',
-    'PRESENCE_UPDATE',
-    'WEBHOOKS_UPDATE',
-    'VOICE_STATE_UPDATE',
-    'USER_NOTE_UPDATE',
-    'CHANNEL_PINS_UPDATE',
-    'RELATIONSHIP_ADD',
-    'RELATIONSHIP_REMOVE',
-    'GUILD_BAN_ADD',
-    'GUILD_BAN_REMOVE',
-    'USER_SETTINGS_UPDATE'
-  ],
-  ws: { large_threshold: 250, compress: true },
-  http: {
-    version: 7,
-    api: 'https://discordapp.com/api',
-    cdn: 'https://cdn.discordapp.com',
-    invite: 'https://discord.gg'
-  }
+  disableMentions: 'everyone',
+  retryLimit: Number.POSITIVE_INFINITY
 };
 
 class Bot extends Client {
   constructor(prefix, customOptions) {
-    // Merge options (custom will override default if given)
-    const options = { ...apiDefault, ...customOptions };
+    // Merge options (custom will override base or default if given)
+    const options = { ...baseOptions, ...customOptions };
     super(options);
     this.prefix = prefix;
     this.Constants = Constants;
 
     this.on('ready', () => {
-      //console.log(`Logged in as ${client.user.tag}!`);
       logger.info('Logged in as %s!', client.user.tag);
       this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
+
+      if (this.config.get('DBLTOKEN')) {
+        const dbl = this.dblSetup(this.config.get('DBLTOKEN'));
+
+        this.setInterval(() => {
+          dbl.postStats(this.guilds.size);
+        }, 1800000);
+      }
     });
   }
 
@@ -105,6 +87,15 @@ class Bot extends Client {
   }
 
   listenForCommands(message) {
+    // Ignores message if message doesn't exist (kek)
+    if (!message) {
+      logger.error(
+        'listenForCommands triggered with an empty message %s',
+        message
+      );
+      return;
+    }
+
     // Ignore dms
     if (typeof message.channel == 'DMChannel') return;
 
@@ -122,7 +113,20 @@ class Bot extends Client {
     if (!message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES'))
       return;
 
-    if (message.content.startsWith(`<@!${message.member.guild.me.id}>`))
+    let ignored = require('./utils/databases/server/ignoredChannels.json');
+    if (ignored.channels) {
+      if (
+        ignored.channels.includes(message.channel.id) &&
+        !message.member.hasPermission('ADMINISTRATOR')
+      )
+        return;
+    }
+
+    // show help if bot gets mentioned (different syntax if mobile vs desktop)
+    if (
+      message.content.startsWith(`<@!${message.member.guild.me.id}>`) ||
+      message.content.startsWith(`<@${message.member.guild.me.id}>`)
+    )
       return message.channel.send(`Use \`${this.prefix}help\` to get started!`);
 
     if (message.content[0] != this.prefix) return;
@@ -136,7 +140,9 @@ class Bot extends Client {
 
     const cmdName = args.shift();
 
-    const command = this.commands.get(cmdName);
+    const command = this.commands.find(
+      cmd => cmdName == cmd.name || cmd.alias.includes(cmdName)
+    );
 
     logger.info("received '%s'", content, { rawArgs: rawArgs });
 

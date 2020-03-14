@@ -37,7 +37,7 @@ class Events extends Command {
         // Start to use nested arrays to iterate through the 2D chunck array we created
         for (let outer of tChunks) {
           // Start to init the embed we gonna use
-          tEmbed = this.RichEmbed().setTitle('Monster Hunter World Events');
+          tEmbed = this.MessageEmbed().setTitle('Monster Hunter World Events');
 
           tEmbed.setDescription('Shows all the current active mhw events');
           tEmbed.setColor('#8fde5d');

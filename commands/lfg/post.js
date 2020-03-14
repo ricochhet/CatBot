@@ -1,11 +1,12 @@
 const Command = require('../../utils/baseCommand.js');
+const logger = require('../../utils/log.js');
 
 class Post extends Command {
   constructor(prefix) {
     super(
       'post',
       'post [platform] [session id] (description)',
-      'Posts an active session to CatBots LFG command'
+      'Posts an active session to CatBots LFG command. Sessions expire after 2 hours.'
     );
   }
 
@@ -16,7 +17,7 @@ class Post extends Command {
       'session id:\n - Must be between 11 and 13 characters long for PC\n - `xxxx-xxxx-xxxx` or `xxxx xxxx xxxx` for PS4/XBOX\n'
     );
     data.push('description: Describe what you plan to do in the session\n');
-    const embed = this.RichEmbed().setColor('#8fde5d');
+    const embed = this.MessageEmbed().setColor('#8fde5d');
 
     if (error) {
       embed.addField('An error has occurred!', error);
@@ -44,7 +45,7 @@ class Post extends Command {
       desc = content['description'];
     }
 
-    let tEmbed = this.RichEmbed();
+    let tEmbed = this.MessageEmbed();
 
     tEmbed
       .setTitle('Session List')
@@ -64,10 +65,10 @@ class Post extends Command {
 
     let removableChannels = [];
     for (const channelID of sub['subscribe']) {
-      let channel = client.channels.get(channelID);
+      let channel = client.channels.cache.get(channelID);
 
       if (channel != null) {
-        channel.send(tEmbed).catch(e => console.log(`ERROR: ${e}`));
+        channel.send(tEmbed).catch(err => logger.error(err));
       } else {
         removableChannels.push(channelID);
       }
@@ -164,7 +165,7 @@ class Post extends Command {
     // load in the current posts from the json db
     const posts = require('../../utils/databases/lfg/lfg.json');
 
-    const response = this.RichEmbed();
+    const response = this.MessageEmbed();
 
     // Checks if the sessionID has already been posted
     if (

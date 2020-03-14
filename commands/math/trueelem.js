@@ -13,7 +13,7 @@ class Trueelem extends Command {
     const data = [];
     data.push('attack: in-game attack value');
 
-    const embed = this.RichEmbed()
+    const embed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField('Usage', this.usage)
       .addField('Parameters Help', data.join('\n'))
@@ -24,7 +24,7 @@ class Trueelem extends Command {
   }
 
   trueelemEmbed(amount) {
-    const embed = this.RichEmbed()
+    const embed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField('Formula ', `*Elemental / 10*`)
       .addField('Answer', `**${amount}**`)

@@ -6,7 +6,7 @@ class Deco extends Command {
     super('deco', 'deco [deco name]', 'Get info for a specific decoration');
   }
 
-  decorationEmbed(client, name, rawEmbed = this.RichEmbed()) {
+  decorationEmbed(client, name, rawEmbed = this.MessageEmbed()) {
     const decoration = client.decorations.get(name);
 
     logger.debug('deco log', { type: 'decoRead', name: name });

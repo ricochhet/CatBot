@@ -9,17 +9,11 @@ class About extends Command {
   }
 
   async run(client, message, args) {
-    const rico = client.users.find(
-      user => user.id === client.config.get('RICO_ID')
-    );
-    const yofou = client.users.find(
-      user => user.id === client.config.get('YOFOU_ID')
-    );
-    const chad = client.users.find(
-      user => user.id === client.config.get('CHAD_ID')
-    );
+    const rico = client.users.cache.get(client.config.get('RICO_ID'));
+    const yofou = client.users.cache.get(client.config.get('YOFOU_ID'));
+    const chad = client.users.cache.get(client.config.get('CHAD_ID'));
 
-    const aboutEmbed = this.RichEmbed()
+    const aboutEmbed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField('Author: ', `${rico.tag}`, true)
       .addField('Contributors', `${chad.tag}\n${yofou.tag}`, true)
@@ -33,7 +27,7 @@ class About extends Command {
         `Do \`${this.prefix}support\` to go to the support server.`
       )
       .setTimestamp()
-      .setFooter('About Menu', client.user.avatarURL);
+      .setFooter('About Menu', client.user.avatarURL());
 
     message.channel.send(aboutEmbed);
   }

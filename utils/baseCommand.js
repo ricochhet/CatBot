@@ -1,4 +1,4 @@
-const { RichEmbed, TextChannel, version } = require('discord.js');
+const { MessageEmbed, TextChannel, version } = require('discord.js');
 const Pages = require('./pagers.js');
 const similarity = require('./similarity.js');
 const logger = require('./log.js');
@@ -10,6 +10,7 @@ const defaultOptions = {
   secret: false,
   category: false,
   subTree: null,
+  alias: [],
   prefix: ''
 };
 
@@ -26,6 +27,7 @@ class Command {
     this.subTree = options['subTree'];
     this.prefix = options['prefix'];
     this.version = version;
+    this.alias = options['alias'];
 
     this.score = similarity.score;
     this.findAllMatching = similarity.findAllMatching;
@@ -71,6 +73,7 @@ class Command {
     ]);
 
     this.critBoostLvl = new Map([
+      ['none', 1],
       ['1', 1.25],
       ['2', 1.3],
       ['3', 1.35],
@@ -88,7 +91,9 @@ class Command {
     const subCommand = args[0];
     args = args.slice(1, args.length);
     const commandFound = client[this.subTree].find(
-      cmd => cmd.name === subCommand && !cmd.secret
+      cmd =>
+        (cmd.name === subCommand || cmd.alias.includes(subCommand)) &&
+        !cmd.secret
     );
 
     if (!commandFound) return message.channel.send(this.usageEmbed());
@@ -108,8 +113,8 @@ class Command {
     }
   }
 
-  RichEmbed() {
-    return new RichEmbed();
+  MessageEmbed() {
+    return new MessageEmbed();
   }
 
   saveJsonFile(filePath, jsonObj) {
@@ -133,26 +138,31 @@ class Command {
     return new Pages(channel, uid, pages, time, reactions, pageFooter);
   }
 
-  usageEmbed() {
-    let embed;
+  usageEmbed(error = '') {
+    let embed = this.MessageEmbed();
+
+    if (error) {
+      embed.addField('An error has occurred!', error);
+    }
+
     if (this.category) {
       // Get all commands in sub command
       const data = [];
 
-      client[this.subTree].tap(cmd => {
+      client[this.subTree].each(cmd => {
         data.push(
           `**${this.prefix}${this.name} ${cmd.usage}** - ${cmd.description}`
         );
       });
 
-      embed = this.RichEmbed()
+      embed
         .setColor('#8fde5d')
         .addField(this.description, `**${this.usage}**`)
         .addField('Parameters Help', data.join('\n\n'))
         .setTimestamp()
         .setFooter(`${this.name.toUpperCase()} Help`);
     } else {
-      embed = this.RichEmbed()
+      embed
         .setColor('#8fde5d')
         .addField('Usage: ', this.usage)
         .addField('Description: ', this.description)
@@ -169,13 +179,12 @@ class Command {
       return b[1] - a[1];
     });
 
-    let msg = this.RichEmbed()
+    let msg = this.MessageEmbed()
       .setColor('#8fde5d')
       .setAuthor('Did you mean?')
       .setTimestamp()
       .setFooter('Did you mean?');
 
-    let imgFiles = [];
     let counter = 0;
     for (let item of similarArray) {
       if (counter >= 8) {
@@ -206,7 +215,8 @@ class Command {
         counter
       );
       for (let emoji of emojis) {
-        await message.react(emoji);
+        // shuold be 'await' to guarantee order, but this seems just slow enough to be in order every time (slightly faster now)
+        message.react(emoji);
       }
 
       const filter = (reaction, user) => {
@@ -227,15 +237,17 @@ class Command {
           const embed = await embedTemplate(
             message.client,
             name,
-            this.RichEmbed()
+            this.MessageEmbed()
           );
           let channel = message.channel;
           await message.delete();
-          await channel.send(embed);
+          channel.send(embed);
         })
         .catch(async err => {
           logger.error(err);
-          await message.clearReactions();
+          await message.reactions
+            .removeAll()
+            .catch(err => logger.error('Failed to remove reactions %s', err));
           await message.react('❌');
         });
     });

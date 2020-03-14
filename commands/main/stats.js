@@ -58,7 +58,7 @@ class Stats extends Command {
       addToTop('Skills', 'skillRead');
       addToTop('Weapons', 'weaponRead');
 
-      const statsEmbed = this.RichEmbed()
+      const statsEmbed = this.MessageEmbed()
         .setColor('#8fde5d')
         .setTitle('Statistics')
         .addField(
@@ -73,7 +73,7 @@ class Stats extends Command {
         )
         .addField('Most searched by category', topByCategory)
         .setTimestamp()
-        .setFooter('Stats', client.user.avatarURL);
+        .setFooter('Stats', client.user.avatarURL());
 
       message.channel.send(statsEmbed);
     });

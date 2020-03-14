@@ -9,10 +9,8 @@ class Help extends Command {
   }
 
   async run(client, message, args) {
-    const rico = client.users.find(
-      user => user.id === client.config.get('RICO_ID')
-    );
-    const helpEmbed = this.RichEmbed().setColor('#8fde5d');
+    const rico = client.users.cache.get(client.config.get('RICO_ID'));
+    const helpEmbed = this.MessageEmbed().setColor('#8fde5d');
 
     let data = [];
     data = [];
@@ -28,14 +26,12 @@ class Help extends Command {
 
     // Other Commands w/o Args
     data = [];
-    client.commands
-      .filter(cmd => cmd.args != true)
-      .forEach(cmd => {
-        if (!cmd.category) {
-          if (!cmd.secret)
-            data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
-        }
-      });
+    client.commands.forEach(cmd => {
+      if (!cmd.category) {
+        if (!cmd.secret)
+          data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
+      }
+    });
     helpEmbed.addField('General', data.join('\n'));
 
     // Notes
@@ -47,7 +43,7 @@ class Help extends Command {
 
     // Additional
     helpEmbed
-      .addBlankField()
+      .addField('\u200b', '\u200b')
       .addField(
         'Experiencing Issues? ',
         `\`\`\`Contact ${rico.tag} | Do ${this.prefix}support\`\`\``
@@ -59,7 +55,7 @@ class Help extends Command {
       .setTimestamp()
       .setFooter(
         `Help | Issues: Contact ${rico.tag} | Do ${this.prefix}support`,
-        client.user.avatarURL
+        client.user.avatarURL()
       );
 
     let embeds = [helpEmbed];

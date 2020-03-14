@@ -1,6 +1,7 @@
 const Bot = require('./bot.js');
 const monsterDatabase = require('./utils/databases/mhw/monsters.json');
 const fs = require('fs');
+const logger = require('./utils/log.js');
 
 client = new Bot('+');
 
@@ -24,8 +25,6 @@ client.buildDBs({
   mhguWeapons: './utils/databases/mhgu/weapons.json',
   config: './utils/config.json'
 });
-
-const dbl = client.dblSetup(client.config.get('DBLTOKEN'));
 
 // mhw monster collection has a custom collection algorithm
 client.monsters = client.buildCollection();
@@ -53,15 +52,13 @@ client.setInterval(() => {
       err
     ) {
       if (err) {
-        console.log('An error occured while writing JSON Object to File.');
-        return console.log(err);
+        logger.error(
+          'An error occured while writing JSON Object to File.',
+          err
+        );
       }
     });
   }
 }, 60000);
-
-client.setInterval(() => {
-  dbl.postStats(client.guilds.size);
-}, 1800000);
 
 client.login(client.config.get('TOKEN'));
