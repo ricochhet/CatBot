@@ -138,12 +138,8 @@ class Command {
     return new Pages(channel, uid, pages, time, reactions, pageFooter);
   }
 
-  usageEmbed(error = '') {
+  usageEmbed() {
     let embed = this.MessageEmbed();
-
-    if (error) {
-      embed.addField('An error has occurred!', error);
-    }
 
     if (this.category) {
       // Get all commands in sub command
