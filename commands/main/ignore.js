@@ -145,7 +145,7 @@ class Ignore extends Command {
           );
           if (!channel)
             return message.channel.send(
-              this.usageEmbed(`Cant find the channel by \`${channelID}\``)
+              this.usageEmbed(`Can't find the channel by \`${channelID}\``)
             );
           channelID = channel.id;
 
