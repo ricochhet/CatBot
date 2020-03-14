@@ -27,7 +27,7 @@ class Subscribe extends Command {
 
         if (
           !channel
-            .memberPermissions(message.guild.client.user)
+            .permissionsFor(message.guild.client.user)
             .has('SEND_MESSAGES', true)
         ) {
           return message.reply(
@@ -37,7 +37,7 @@ class Subscribe extends Command {
 
         if (
           !channel
-            .memberPermissions(message.guild.client.user)
+            .permissionsFor(message.guild.client.user)
             .has('MANAGE_MESSAGES', true)
         ) {
           return message.reply(
