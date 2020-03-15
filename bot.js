@@ -30,7 +30,7 @@ class Bot extends Client {
         const dbl = this.dblSetup(this.config.get('DBLTOKEN'));
 
         this.setInterval(() => {
-          dbl.postStats(this.guilds.size);
+          dbl.postStats(this.guilds.cache.size);
         }, 1800000);
       }
     });
