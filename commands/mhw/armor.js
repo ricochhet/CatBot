@@ -25,6 +25,7 @@ class Armor extends Command {
       .setColor('#8fde5d')
       .setTitle(armor.name)
       .addField('Set Bonus', armor.setBonus)
+      .addField('Pieces', armor.pieces)
       .addField('Resistances', formatted, true)
       .addField('Defenses', armor.defenses, true)
       .addField('Skills', armor.skills, true)
