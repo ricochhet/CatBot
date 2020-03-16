@@ -27,6 +27,6 @@
     }
   },
   "lint-staged": {
-    "*.{js,css,md}": "prettier --config .\\.prettierrc --write *.js"
+    "*.{js,css}": "prettier --config .\\.prettierrc --write *.js"
   }
 }
