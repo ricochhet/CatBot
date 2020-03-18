@@ -101,7 +101,7 @@ class Hzv extends Command {
           // advance x to next icon position
           x += COLUMN_WIDTH + 12;
         } catch (err) {
-          logger.error(err);
+          logger.error(err, { where: 'hzv.js 104' });
         }
       }
 

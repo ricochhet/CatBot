@@ -68,7 +68,9 @@ class Post extends Command {
       let channel = client.channels.cache.get(channelID);
 
       if (channel != null) {
-        channel.send(tEmbed).catch(err => logger.error(err));
+        channel
+          .send(tEmbed)
+          .catch(err => logger.error(err, { where: 'post.js 71' }));
       } else {
         removableChannels.push(channelID);
       }

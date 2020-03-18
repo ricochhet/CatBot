@@ -102,14 +102,16 @@ class Command {
       return message.channel.send(commandFound.usageEmbed());
 
     try {
-      commandFound.run(client, message, args).catch(err => logger.error(err));
+      commandFound
+        .run(client, message, args)
+        .catch(err => logger.error(err, { where: 'baseCommand.js 105' }));
     } catch (err) {
       if (err.message.includes("Cannot read property 'catch'"))
         return logger.warn(
           "Command '%s' does not have async run() method",
           commandFound.name
         );
-      return logger.error(err);
+      return logger.error(err, { where: 'baseCommand.js 112' });
     }
   }
 
@@ -240,7 +242,7 @@ class Command {
           channel.send(embed);
         })
         .catch(async err => {
-          logger.error(err);
+          logger.error(err, { where: 'baseCommand.js 243' });
           await message.reactions
             .removeAll()
             .catch(err => logger.error('Failed to remove reactions %s', err));
