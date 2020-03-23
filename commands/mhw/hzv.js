@@ -201,6 +201,10 @@ class Hzv extends Command {
 
       message.channel.send(msg);
     } else if (client.monsters.has(input)) {
+      if (hzvDB[input.toLowerCase().replace(' ', '')] == null)
+        return message.channel.send(
+          `Could not find information on **${input}**`
+        );
       const embed = await this.monsterEmbed(client, input);
       message.channel.send(embed);
     }
