@@ -201,7 +201,7 @@ class Hzv extends Command {
 
       message.channel.send(msg);
     } else if (client.monsters.has(input)) {
-      const embed = await this.monsterEmbed(client, input, message);
+      const embed = await this.monsterEmbed(client, input);
       message.channel.send(embed);
     }
   }
