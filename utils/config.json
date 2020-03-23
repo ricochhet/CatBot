@@ -1,5 +1,5 @@
 {
-    "TOKEN" : "NjM2MDA1NzA2MTg4NzE4MTAw.XnkYHQ.rHjZFmOU58X1OLjYlqr-AWcNPI4",
+    "TOKEN" : "INSERT BOT TOKEN HERE",
     "VERSION": "1.0",
     "DBLTOKEN": "INSERT DBL API TOKEN",
     "OWNER": "OWNER DISCORD ID",
@@ -7,4 +7,5 @@
     "RICO_ID": "RICOS",
     "YOFOU_ID": "YOFOUS",
     "feedbackChannel": "ID OF THE FEEDBACK CHANNEL"
+
 }
