@@ -5,7 +5,7 @@ class Subscribe extends Command {
   constructor(prefix) {
     super(
       'subscribe',
-      'subscribe (channel name)',
+      'subscribe (channel name/id/mention)',
       'All user posted sessions will be sent to the subscribed Discord channel',
       { args: false }
     );
@@ -19,8 +19,9 @@ class Subscribe extends Command {
       if (args[0] == undefined) {
         channel = message.channel;
       } else {
-        channel = message.guild.channels.cache.find(
-          channel => channel.name == args[0]
+        channel = this.getChannelFromMention(
+          message.guild.channels.cache,
+          args[0]
         );
         if (!channel)
           return message.reply(`Sorry meowster but ${args[0]} doesn't exist`);
