@@ -65,7 +65,11 @@ class Hzv extends Command {
         .setColor(HEX_WHITE)
         .setTextFont(CANVAS_TEXT_FONT)
         .setTextAlign('center')
-        .addResponsiveText('Hitzone Values', canvasWidth / 2, 22.5) // center title, 22.5 == y offset
+        .addResponsiveText(
+          'Hitzone Values - (tenderized values in brackets) ',
+          canvasWidth / 2,
+          22.5
+        ) // center title, 22.5 == y offset
         .setTextAlign('start');
 
       // Set base y downwards by 100px (height for table title + header/icons) and then another 20px for a gap
