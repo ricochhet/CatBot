@@ -87,6 +87,8 @@ class Bot extends Client {
   }
 
   listenForCommands(message) {
+    let disableCommands = require('./utils/databases/server/disabledCommands.json');
+
     // Ignores message if message doesn't exist (kek)
     if (!message) {
       logger.error(
@@ -150,6 +152,24 @@ class Bot extends Client {
 
     // Ignores Secret Commands if Not Owner
     if (command.secret && message.author.id != this.config.get('OWNER')) return;
+
+    if (disableCommands[message.guild.id]) {
+      if (command.category) {
+        if (disableCommands[message.guild.id][command.name]) {
+          if (disableCommands[message.guild.id][command.name].includes(args[0]))
+            return message.channel.send(
+              'Sorry meowster, but the admins of this server have disabled this command!'
+            );
+        }
+      } else {
+        if (disableCommands[message.guild.id]['main']) {
+          if (disableCommands[message.guild.id]['main'].includes(command.name))
+            return message.channel.send(
+              'Sorry meowster, but the admins of this server have disabled this command!'
+            );
+        }
+      }
+    }
 
     if (command.args && !args.length) {
       if (command.usage) {
