@@ -13,6 +13,7 @@ const CANVAS_PART_HEIGHT = 30; // pixels
 const COLUMN_COUNT = 16; // columns
 const COLUMN_GAP = 20;
 const COLUMN_WIDTH = 64; // Max value for a column (in terms of width) is '1000' == 4 chars, which is 64 px
+const MULITIPLIED_COLUMN_WIDTH = 95; // Max value for a column (in terms of width) is '1000' == 4 chars, which is 64 px
 
 const HEX_WHITE = '#FFFFFF';
 const HEX_RED = '#FF3232';
@@ -56,13 +57,19 @@ class Hzv extends Command {
 
       // Compute total canvas width
       const canvasWidth =
-        maxPartWidth + COLUMN_COUNT * COLUMN_WIDTH + COLUMN_COUNT * COLUMN_GAP;
+        maxPartWidth +
+        ((COLUMN_COUNT - 8) * COLUMN_WIDTH + 8 * MULITIPLIED_COLUMN_WIDTH) +
+        COLUMN_COUNT * COLUMN_GAP;
 
       let hzvImage = new Canvas(canvasWidth, CANVAS_PADDING_Y + canvasHeight)
         .setColor(HEX_WHITE)
         .setTextFont(CANVAS_TEXT_FONT)
         .setTextAlign('center')
-        .addResponsiveText('Hitzone Values', canvasWidth / 2, 22.5) // center title, 22.5 == y offset
+        .addResponsiveText(
+          'Hitzone Values - (tenderized values in brackets) ',
+          canvasWidth / 2,
+          22.5
+        ) // center title, 22.5 == y offset
         .setTextAlign('start');
 
       // Set base y downwards by 100px (height for table title + header/icons) and then another 20px for a gap
@@ -99,7 +106,22 @@ class Hzv extends Command {
           hzvImage.addImage(pic, x + 15, 33, ICON_SIZE_PX, ICON_SIZE_PX);
 
           // advance x to next icon position
-          x += COLUMN_WIDTH + 12;
+          if (
+            [
+              'slash',
+              'blunt',
+              'ranged',
+              'fire',
+              'water',
+              'thunder',
+              'ice',
+              'dragon'
+            ].includes(iconName)
+          ) {
+            x += MULITIPLIED_COLUMN_WIDTH + 12;
+          } else {
+            x += COLUMN_WIDTH + 12;
+          }
         } catch (err) {
           logger.error(err, { where: 'hzv.js 104' });
         }
@@ -133,8 +155,25 @@ class Hzv extends Command {
             }
           }
 
-          hzvImage.addResponsiveText(hzv, x + 20, y).setColor(HEX_WHITE);
-          x += COLUMN_WIDTH + 12;
+          if (
+            [
+              'slash',
+              'blunt',
+              'ranged',
+              'fire',
+              'water',
+              'thunder',
+              'ice',
+              'dragon'
+            ].includes(hitzone)
+          ) {
+            hzv = `${hzv} (${Math.round(hzv * 0.75 + 25)})`;
+            hzvImage.addResponsiveText(hzv, x + 20, y).setColor(HEX_WHITE);
+            x += MULITIPLIED_COLUMN_WIDTH + 12;
+          } else {
+            hzvImage.addResponsiveText(hzv, x + 20, y).setColor(HEX_WHITE);
+            x += COLUMN_WIDTH + 12;
+          }
         }
 
         // next part y position
