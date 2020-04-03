@@ -87,8 +87,6 @@ class Bot extends Client {
   }
 
   listenForCommands(message) {
-    let disableCommands = require('./utils/databases/server/disabledCommands.json');
-
     // Ignores message if message doesn't exist (kek)
     if (!message) {
       logger.error(
@@ -162,27 +160,25 @@ class Bot extends Client {
     }
 
     // Check if command is disabled (bypass for ADMINS)
-    if (!message.member.hasPermission('ADMINISTRATOR')) {
-      if (disableCommands[message.guild.id]) {
-        if (command.category) {
-          if (disableCommands[message.guild.id][command.name]) {
-            if (
-              disableCommands[message.guild.id][command.name].includes(args[0])
-            )
-              return message.channel.send(
-                'Sorry meowster, but the admins of this server have disabled this command!'
-              );
-          }
-        } else {
-          if (disableCommands[message.guild.id]['main']) {
-            if (
-              disableCommands[message.guild.id]['main'].includes(command.name)
-            )
-              return message.channel.send(
-                'Sorry meowster, but the admins of this server have disabled this command!'
-              );
-          }
-        }
+    let disabled = require('./utils/databases/server/disabledCommands.json');
+    if (
+      !message.member.hasPermission('ADMINISTRATOR') &&
+      disabled[message.guild.id]
+    ) {
+      let category, name;
+      if (command.category) {
+        category = command.name;
+        name = args[0];
+      } else {
+        category = 'main';
+        name = command.name;
+      }
+
+      let found = disabled[message.guild.id][category];
+      if (found && found.includes(name)) {
+        return message.channel.send(
+          'Sorry meowster, but the admins of this server have disabled this command!'
+        );
       }
     }
 
