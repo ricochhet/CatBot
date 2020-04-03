@@ -115,6 +115,7 @@ class Bot extends Client {
     if (!message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES'))
       return;
 
+    // Check if the channel should be ignored (bypassed for ADMINS)
     let ignored = require('./utils/databases/server/ignoredChannels.json');
     if (ignored.channels) {
       if (
@@ -153,20 +154,34 @@ class Bot extends Client {
     // Ignores Secret Commands if Not Owner
     if (command.secret && message.author.id != this.config.get('OWNER')) return;
 
-    if (disableCommands[message.guild.id]) {
-      if (command.category) {
-        if (disableCommands[message.guild.id][command.name]) {
-          if (disableCommands[message.guild.id][command.name].includes(args[0]))
-            return message.channel.send(
-              'Sorry meowster, but the admins of this server have disabled this command!'
-            );
-        }
-      } else {
-        if (disableCommands[message.guild.id]['main']) {
-          if (disableCommands[message.guild.id]['main'].includes(command.name))
-            return message.channel.send(
-              'Sorry meowster, but the admins of this server have disabled this command!'
-            );
+    // Ignore admin only commands
+    if (command.admin && !message.member.hasPermission('ADMINISTRATOR')) {
+      return message.channel.send(
+        'Sorry meowster, this command is for admins only!'
+      );
+    }
+
+    // Check if command is disabled (bypass for ADMINS)
+    if (!message.member.hasPermission('ADMINISTRATOR')) {
+      if (disableCommands[message.guild.id]) {
+        if (command.category) {
+          if (disableCommands[message.guild.id][command.name]) {
+            if (
+              disableCommands[message.guild.id][command.name].includes(args[0])
+            )
+              return message.channel.send(
+                'Sorry meowster, but the admins of this server have disabled this command!'
+              );
+          }
+        } else {
+          if (disableCommands[message.guild.id]['main']) {
+            if (
+              disableCommands[message.guild.id]['main'].includes(command.name)
+            )
+              return message.channel.send(
+                'Sorry meowster, but the admins of this server have disabled this command!'
+              );
+          }
         }
       }
     }

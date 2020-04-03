@@ -11,7 +11,8 @@ const defaultOptions = {
   category: false,
   subTree: null,
   alias: [],
-  prefix: ''
+  prefix: '',
+  admin: false
 };
 
 class Command {
@@ -28,6 +29,7 @@ class Command {
     this.prefix = options['prefix'];
     this.version = version;
     this.alias = options['alias'];
+    this.admin = options['admin'];
 
     this.score = similarity.score;
     this.findAllMatching = similarity.findAllMatching;

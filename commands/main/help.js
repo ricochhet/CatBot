@@ -17,9 +17,8 @@ class Help extends Command {
     client.commands
       .filter(cmd => cmd.calc != true)
       .forEach(cmd => {
-        if (cmd.category) {
-          if (!cmd.secret)
-            data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
+        if (cmd.category && !cmd.secret) {
+          data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
         }
       });
     helpEmbed.addField('Main / General', data.join('\n'));
@@ -27,8 +26,11 @@ class Help extends Command {
     // Other Commands w/o Args
     data = [];
     client.commands.forEach(cmd => {
-      if (!cmd.category) {
-        if (!cmd.secret)
+      if (!cmd.category && !cmd.secret) {
+        if (
+          !cmd.admin ||
+          (cmd.admin && message.member.hasPermission('ADMINISTRATOR'))
+        )
           data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
       }
     });

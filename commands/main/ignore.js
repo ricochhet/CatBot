@@ -9,7 +9,8 @@ class Ignore extends Command {
       'Allows the bot to ignore a channel\n*(run again to remove channel from list)*',
       {
         args: true,
-        prefix: prefix
+        prefix: prefix,
+        admin: true
       }
     );
   }
@@ -17,8 +18,8 @@ class Ignore extends Command {
   usageEmbed(error = '') {
     const data = [];
     data.push('**channel_id:** 18 digits (turn on developer mode to see them)');
-    data.push('**channel_mention:** example - #general');
-    data.push('**channel_name:** example - general');
+    data.push('**channel_mention:** example -> #general');
+    data.push('**channel_name:** example -> general');
     data.push('**all:** ignore all channels, except current one');
     data.push('**clear:** clear ignore list');
     data.push('**list:** show current ignore list');
@@ -38,12 +39,6 @@ class Ignore extends Command {
   }
 
   async run(client, message, args) {
-    // some perm checking
-    if (!message.member.hasPermission('MANAGE_CHANNELS'))
-      return message.reply(
-        `Sorry meowster but you don't have the **Manage Channels** permission!`
-      );
-
     let ignored = require('../../utils/databases/server/ignoredChannels.json');
     let channelID = args[0];
 
