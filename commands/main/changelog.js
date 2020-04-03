@@ -12,7 +12,7 @@ class About extends Command {
     const changelogEmbed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField(
-        `Changelog: v${client.config.get('VERSION')}`,
+        `Changelog: v${client.version}`,
         `
         🤖 Updated to latest version of DiscordJS.
         📖 \`${this.prefix}calc eraw\` now has the option to not have any critical boost.

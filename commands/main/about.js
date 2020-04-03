@@ -17,7 +17,7 @@ class About extends Command {
       .setColor('#8fde5d')
       .addField('Author: ', `${rico.tag}`, true)
       .addField('Contributors', `${chad.tag}\n${yofou.tag}`, true)
-      .addField('Version: ', `v${client.config.get('VERSION')}`, true)
+      .addField('Version: ', `v${client.version}`, true)
       .addField(
         'Changelog: ',
         `Do \`${this.prefix}changelog\` to see the latest version changes.`

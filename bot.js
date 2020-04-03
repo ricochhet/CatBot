@@ -23,7 +23,11 @@ class Bot extends Client {
     this.Constants = Constants;
 
     this.on('ready', () => {
-      logger.info('Logged in as %s!', client.user.tag);
+      logger.info(
+        'Logged in as %s! (running version %s)',
+        client.user.tag,
+        client.version
+      );
       this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
 
       if (this.config.get('DBLTOKEN')) {
