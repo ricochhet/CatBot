@@ -172,7 +172,11 @@ class Bot extends Client {
       let category, name;
       if (command.category) {
         category = command.name;
-        name = args[0];
+        name = client[category].find(
+          cmd => cmd.name == args[0] || cmd.alias.includes(args[0])
+        );
+        if (!name) name = { name: args[0] };
+        name = name.name;
       } else {
         category = 'main';
         name = command.name;
