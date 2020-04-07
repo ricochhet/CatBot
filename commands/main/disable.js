@@ -8,7 +8,7 @@ class Disable extends Command {
       'Disable (category) commands **per guild**',
       {
         prefix: prefix,
-        admin: false,
+        admin: true,
         alias: ['enable', 'disable']
       }
     );
@@ -48,7 +48,7 @@ class Disable extends Command {
 
     if (args[0] == 'list') {
       if (!disabled[message.guild.id])
-        return message.channel.send('Meowster, no commands are disabled!');
+        return message.channel.send('⚠️ Meowster, no commands are disabled!');
 
       let guildDisabled = disabled[message.guild.id];
       let reply = '';
@@ -76,7 +76,7 @@ class Disable extends Command {
       cmd => cmd.name == args[0] || cmd.alias.includes(args[0])
     );
 
-    if (!command) return message.channel.send('Invalid command/category');
+    if (!command) return message.channel.send('⚠️ Invalid command/category');
 
     if (command.category) {
       if (args.length == 1) {
@@ -91,7 +91,7 @@ class Disable extends Command {
             JSON.stringify(disabled, null, 4)
           );
           return message.channel.send(
-            `Disabled All **${command.name.toUpperCase()}** Category Commands!`
+            `❌ Disabled All **${command.name.toUpperCase()}** Category Commands!`
           );
         } else {
           delete disabled[message.guild.id][command.name];
@@ -102,7 +102,7 @@ class Disable extends Command {
             JSON.stringify(disabled, null, 4)
           );
           return message.channel.send(
-            `Enabled All **${command.name.toUpperCase()}** Category Commands!`
+            `✅ Enabled All **${command.name.toUpperCase()}** Category Commands!`
           );
         }
       }
@@ -111,11 +111,11 @@ class Disable extends Command {
         cmd => cmd.name == args[1] || cmd.alias.includes(args[1])
       );
       if (!childCommand)
-        return message.channel.send('Invalid category command');
+        return message.channel.send('⚠️ Invalid category command');
 
       if (this.isBlacklisted(childCommand.name))
         return message.channel.send(
-          "Sorry meowster, but these commands can't be disabled!"
+          "⚠️ Sorry meowster, but these commands can't be disabled!"
         );
 
       if (!disabled[message.guild.id]) disabled[message.guild.id] = {};
@@ -127,7 +127,7 @@ class Disable extends Command {
           JSON.stringify(disabled, null, 4)
         );
         return message.channel.send(
-          `Disabled **${command.name.toUpperCase()} ${childCommand.name.toUpperCase()}** Category Command!`
+          `❌ Disabled **${command.name.toUpperCase()} ${childCommand.name.toUpperCase()}** Category Command!`
         );
       } else {
         if (
@@ -145,7 +145,7 @@ class Disable extends Command {
             JSON.stringify(disabled, null, 4)
           );
           return message.channel.send(
-            `Enabled **${command.name.toUpperCase()} ${childCommand.name.toUpperCase()}** Category Command!`
+            `✅ Enabled **${command.name.toUpperCase()} ${childCommand.name.toUpperCase()}** Category Command!`
           );
         } else {
           disabled[message.guild.id][command.name].push(childCommand.name);
@@ -154,14 +154,14 @@ class Disable extends Command {
             JSON.stringify(disabled, null, 4)
           );
           return message.channel.send(
-            `Disabled **${command.name.toUpperCase()} ${childCommand.name.toUpperCase()}** Category Command!`
+            `❌ Disabled **${command.name.toUpperCase()} ${childCommand.name.toUpperCase()}** Category Command!`
           );
         }
       }
     } else {
       if (this.isBlacklisted(command.name))
         return message.channel.send(
-          "Sorry meowster, but these commands can't be disabled!"
+          "⚠️ Sorry meowster, but these commands can't be disabled!"
         );
 
       if (!disabled[message.guild.id]) disabled[message.guild.id] = {};
@@ -182,7 +182,7 @@ class Disable extends Command {
           JSON.stringify(disabled, null, 4)
         );
         return message.channel.send(
-          `Enabled **${command.name.toUpperCase()}** Command!`
+          `✅ Enabled **${command.name.toUpperCase()}** Command!`
         );
       } else {
         disabled[message.guild.id]['main'].push(command.name);
@@ -191,7 +191,7 @@ class Disable extends Command {
           JSON.stringify(disabled, null, 4)
         );
         return message.channel.send(
-          `Disabled **${command.name.toUpperCase()}** Command!`
+          `❌ Disabled **${command.name.toUpperCase()}** Command!`
         );
       }
     }
