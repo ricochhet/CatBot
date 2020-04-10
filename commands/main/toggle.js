@@ -1,6 +1,6 @@
 const Command = require('../../utils/baseCommand.js');
 
-class Disable extends Command {
+class Toggle extends Command {
   constructor(prefix) {
     super(
       'toggle',
@@ -198,4 +198,4 @@ class Disable extends Command {
   }
 }
 
-module.exports = Disable;
+module.exports = Toggle;
