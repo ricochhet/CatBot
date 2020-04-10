@@ -1,10 +1,11 @@
 const Command = require('../../utils/baseCommand.js');
+const DisabledHandler = require('../../utils/disabledHandler.js');
 
 class Toggle extends Command {
   constructor(prefix) {
     super(
       'toggle',
-      'toggle (cmd)',
+      'toggle [command | category | list]',
       'Disable (category) commands **per guild**',
       {
         prefix: prefix,
@@ -22,12 +23,11 @@ class Toggle extends Command {
 
   usageEmbed(error = '') {
     const data = [];
-    data.push('**channel_id:** 18 digits (turn on developer mode to see them)');
-    data.push('**channel_mention:** example - #general');
-    data.push('**channel_name:** example - general');
-    data.push('**all:** ignore all channels, except current one');
-    data.push('**clear:** clear ignore list');
-    data.push('**list:** show current ignore list');
+    data.push('**list:** show all the disabled commands');
+    data.push('**category:** toggle a whole category on/off, e.g `lfg`');
+    data.push(
+      '**command** toggle one command on/off, e.g. `lfg subscribe`, `catfact`'
+    );
 
     const embed = this.MessageEmbed().setColor('#8fde5d');
 
@@ -44,156 +44,84 @@ class Toggle extends Command {
   }
 
   async run(client, message, args) {
-    let disabled = require('../../utils/databases/server/disabledCommands.json');
+    const handler = new DisabledHandler();
+
+    const guildId = message.guild.id;
 
     if (args[0] == 'list') {
-      if (!disabled[message.guild.id])
+      if (!handler.isGuildInDB(guildId))
         return message.channel.send('⚠️ Meowster, no commands are disabled!');
 
-      let guildDisabled = disabled[message.guild.id];
-      let reply = '';
-
-      for (let key in guildDisabled) {
-        reply += `\n  ${key.toUpperCase()}`;
-
-        for (let cmdName of guildDisabled[key]) {
-          reply += `\n    ${cmdName}`;
-        }
-
-        if (
-          Object.keys(guildDisabled).indexOf(key) !=
-          Object.keys(guildDisabled).length - 1
-        )
-          reply += '\n';
-      }
+      let reply = handler.getDisabledList(guildId);
 
       reply = `Disabled Commands\n\`\`\`${reply}\`\`\``;
 
       return message.channel.send(reply);
     }
 
-    let command = client.commands.find(
+    const command = client.commands.find(
       cmd => cmd.name == args[0] || cmd.alias.includes(args[0])
     );
 
     if (!command) return message.channel.send('⚠️ Invalid command/category');
 
-    if (command.category) {
-      if (args.length == 1) {
-        if (!disabled[message.guild.id]) disabled[message.guild.id] = {};
+    if (command.category && args.length == 1) {
+      // user wants to toggle a whole category
+      const category = command.name;
 
-        if (!disabled[message.guild.id][command.name]) {
-          disabled[message.guild.id][command.name] = client[command.name].map(
-            cmd => cmd.name
-          );
-          this.saveJsonFile(
-            `./utils/databases/server/disabledCommands.json`,
-            JSON.stringify(disabled, null, 4)
-          );
-          return message.channel.send(
-            `❌ Disabled All **${command.name.toUpperCase()}** Category Commands!`
-          );
-        } else {
-          delete disabled[message.guild.id][command.name];
-          if (Object.keys(disabled[message.guild.id]).length == 0)
-            delete disabled[message.guild.id];
-          this.saveJsonFile(
-            `./utils/databases/server/disabledCommands.json`,
-            JSON.stringify(disabled, null, 4)
-          );
-          return message.channel.send(
-            `✅ Enabled All **${command.name.toUpperCase()}** Category Commands!`
-          );
-        }
+      if (handler.isCategoryDisabled(guildId, category)) {
+        handler.enableCategory(guildId, category);
+        return message.channel.send(
+          `✅ Enabled all **${category.toUpperCase()}** commands!`
+        );
+      } else {
+        const subCmds = client[category].map(cmd => cmd.name);
+
+        handler.disableCategory(guildId, category, subCmds);
+        return message.channel.send(
+          `❌ Disabled all **${category.toUpperCase()}** commands!`
+        );
       }
+    }
 
-      let childCommand = client[args[0]].find(
+    // user wants to toggle a specific command
+    let category, name;
+    if (command.category) {
+      category = command.name;
+
+      // find subcommand (by name or alias)
+      const childCommand = client[category].find(
         cmd => cmd.name == args[1] || cmd.alias.includes(args[1])
       );
-      if (!childCommand)
-        return message.channel.send('⚠️ Invalid category command');
 
-      if (this.isBlacklisted(childCommand.name))
-        return message.channel.send(
-          "⚠️ Sorry meowster, but these commands can't be disabled!"
-        );
+      if (!childCommand) return message.channel.send('⚠️ Invalid sub command');
 
-      if (!disabled[message.guild.id]) disabled[message.guild.id] = {};
-
-      if (!disabled[message.guild.id][command.name]) {
-        disabled[message.guild.id][command.name] = [childCommand.name];
-        this.saveJsonFile(
-          `./utils/databases/server/disabledCommands.json`,
-          JSON.stringify(disabled, null, 4)
-        );
-        return message.channel.send(
-          `❌ Disabled **${command.name.toUpperCase()} ${childCommand.name.toUpperCase()}** Category Command!`
-        );
-      } else {
-        if (
-          disabled[message.guild.id][command.name].includes(childCommand.name)
-        ) {
-          disabled[message.guild.id][command.name] = disabled[message.guild.id][
-            command.name
-          ].filter(cmdName => cmdName != childCommand.name);
-          if (disabled[message.guild.id][command.name].length == 0)
-            delete disabled[message.guild.id][command.name];
-          if (Object.keys(disabled[message.guild.id]).length == 0)
-            delete disabled[message.guild.id];
-          this.saveJsonFile(
-            `./utils/databases/server/disabledCommands.json`,
-            JSON.stringify(disabled, null, 4)
-          );
-          return message.channel.send(
-            `✅ Enabled **${command.name.toUpperCase()} ${childCommand.name.toUpperCase()}** Category Command!`
-          );
-        } else {
-          disabled[message.guild.id][command.name].push(childCommand.name);
-          this.saveJsonFile(
-            `./utils/databases/server/disabledCommands.json`,
-            JSON.stringify(disabled, null, 4)
-          );
-          return message.channel.send(
-            `❌ Disabled **${command.name.toUpperCase()} ${childCommand.name.toUpperCase()}** Category Command!`
-          );
-        }
-      }
+      name = childCommand.name;
     } else {
-      if (this.isBlacklisted(command.name))
-        return message.channel.send(
-          "⚠️ Sorry meowster, but these commands can't be disabled!"
-        );
+      category = 'main';
+      name = command.name;
+    }
 
-      if (!disabled[message.guild.id]) disabled[message.guild.id] = {};
-      if (!disabled[message.guild.id]['main'])
-        disabled[message.guild.id]['main'] = [];
+    if (this.isBlacklisted(name)) {
+      return message.channel.send(
+        "⚠️ Sorry meowster, but that command can't be disabled!"
+      );
+    }
 
-      if (disabled[message.guild.id]['main'].includes(command.name)) {
-        disabled[message.guild.id]['main'] = disabled[message.guild.id][
-          'main'
-        ].filter(cmdName => cmdName != command.name);
-        if (disabled[message.guild.id]['main'].length == 0)
-          delete disabled[message.guild.id]['main'];
-        if (Object.keys(disabled[message.guild.id]).length == 0)
-          delete disabled[message.guild.id];
+    if (handler.isCommandDisabled(guildId, category, name)) {
+      handler.enableCommand(guildId, category, name);
+      category = category == 'main' ? '' : category + ' ';
 
-        this.saveJsonFile(
-          `./utils/databases/server/disabledCommands.json`,
-          JSON.stringify(disabled, null, 4)
-        );
-        return message.channel.send(
-          `✅ Enabled **${command.name.toUpperCase()}** Command!`
-        );
-      } else {
-        disabled[message.guild.id]['main'].push(command.name);
-        this.saveJsonFile(
-          `./utils/databases/server/disabledCommands.json`,
-          JSON.stringify(disabled, null, 4)
-        );
-        return message.channel.send(
-          `❌ Disabled **${command.name.toUpperCase()}** Command!`
-        );
-      }
+      return message.channel.send(
+        `✅ Enabled the command **${category}${name}**!`
+      );
+    } else {
+      handler.disableCommand(guildId, category, name);
+      category = category == 'main' ? '' : category + ' ';
+
+      return message.channel.send(
+        `❌ Disabled the command **${category}${name}**!`
+      );
     }
   }
 }

@@ -3,6 +3,7 @@ const DBL = require('dblapi.js');
 const fs = require('fs');
 
 const logger = require('./utils/log.js');
+const DisabledHandler = require('./utils/disabledHandler.js');
 
 // params and defaults at https://discord.js.org/#/docs/main/v12/typedef/ClientOptions
 // these are the only values we're customizing (using defaults otherwise)
@@ -164,10 +165,10 @@ class Bot extends Client {
     }
 
     // Check if command is disabled (bypass for ADMINS)
-    let disabled = require('./utils/databases/server/disabledCommands.json');
+    let handler = new DisabledHandler();
     if (
-      !message.member.hasPermission('ADMINISTRATOR') &&
-      disabled[message.guild.id]
+      //!message.member.hasPermission('ADMINISTRATOR') &&
+      handler.isGuildInDB(message.guild.id)
     ) {
       let category, name;
       if (command.category) {
@@ -184,8 +185,7 @@ class Bot extends Client {
         name = command.name;
       }
 
-      let found = disabled[message.guild.id][category];
-      if (found && found.includes(name)) {
+      if (handler.isCommandDisabled(message.guild.id, category, name)) {
         return message.channel.send(
           'Sorry meowster, but the admins of this server have disabled this command!'
         );
