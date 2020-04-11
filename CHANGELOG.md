@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
  
 ## [Unreleased] 
  
-- `+disable` for admins who want to disable a command or category in their server
+- `+toggle` for admins who want to disable a command or category in their server
 - `+lfg subscribe` now supports channels by name, #mention or ID 
 - `+ignore` changed to admin only (from MANAGE_CHANNELS)
  - Added Furious Rajang & Raging Brachydios to monster info

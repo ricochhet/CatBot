@@ -167,7 +167,7 @@ class Bot extends Client {
     // Check if command is disabled (bypass for ADMINS)
     let handler = new DisabledHandler();
     if (
-      //!message.member.hasPermission('ADMINISTRATOR') &&
+      !message.member.hasPermission('ADMINISTRATOR') &&
       handler.isGuildInDB(message.guild.id)
     ) {
       let category, name;
