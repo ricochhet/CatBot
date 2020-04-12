@@ -13,7 +13,7 @@ const CANVAS_PART_HEIGHT = 30; // pixels
 const COLUMN_COUNT = 16; // columns
 const COLUMN_GAP = 20;
 const COLUMN_WIDTH = 64; // Max value for a column (in terms of width) is '1000' == 4 chars, which is 64 px
-const MULITIPLIED_COLUMN_WIDTH = 95; // Max value for a column (in terms of width) is '1000' == 4 chars, which is 64 px
+const MULITIPLIED_COLUMN_WIDTH = 120; // Max value for a column (in terms of width) is '1000' == 4 chars, which is 64 px
 
 const HEX_WHITE = '#FFFFFF';
 const HEX_RED = '#FF3232';
