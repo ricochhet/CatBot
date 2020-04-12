@@ -23,6 +23,7 @@ utils\config.json
 utils\databases\lfg\lfg.json
 utils\databases\lfg\subscribe.json
 utils\databases\server\ignoredChannels.json
+utils\databases\server\disabledCommands.json
 ``` 
 
 ## Optional steps

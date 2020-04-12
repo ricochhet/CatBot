@@ -42,7 +42,7 @@ class Status extends Command {
       .setColor('#8fde5d')
       .addField('Servers: ', client.guilds.cache.size, true)
       .addField('Members: ', userCount, true)
-      .addField('Version: ', `v${client.config.get('VERSION')}`, true)
+      .addField('Version: ', `v${client.version}`, true)
       .addField('Message Latency', messagePingRounded + 'ms', true)
       .addField('API Latency: ', pingRounded + 'ms', true)
       .addField('Uptime: ', uptime, true)

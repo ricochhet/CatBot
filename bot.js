@@ -3,6 +3,7 @@ const DBL = require('dblapi.js');
 const fs = require('fs');
 
 const logger = require('./utils/log.js');
+const DisabledHandler = require('./utils/disabledHandler.js');
 
 // params and defaults at https://discord.js.org/#/docs/main/v12/typedef/ClientOptions
 // these are the only values we're customizing (using defaults otherwise)
@@ -23,7 +24,11 @@ class Bot extends Client {
     this.Constants = Constants;
 
     this.on('ready', () => {
-      logger.info('Logged in as %s!', client.user.tag);
+      logger.info(
+        'Logged in as %s! (running version %s)',
+        client.user.tag,
+        client.version
+      );
       this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
 
       if (this.config.get('DBLTOKEN')) {
@@ -113,6 +118,7 @@ class Bot extends Client {
     if (!message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES'))
       return;
 
+    // Check if the channel should be ignored (bypassed for ADMINS)
     let ignored = require('./utils/databases/server/ignoredChannels.json');
     if (ignored.channels) {
       if (
@@ -150,6 +156,41 @@ class Bot extends Client {
 
     // Ignores Secret Commands if Not Owner
     if (command.secret && message.author.id != this.config.get('OWNER')) return;
+
+    // Ignore admin only commands
+    if (command.admin && !message.member.hasPermission('ADMINISTRATOR')) {
+      return message.channel.send(
+        'Sorry meowster, this command is for admins only!'
+      );
+    }
+
+    // Check if command is disabled (bypass for ADMINS)
+    let handler = new DisabledHandler();
+    if (
+      !message.member.hasPermission('ADMINISTRATOR') &&
+      handler.isGuildInDB(message.guild.id)
+    ) {
+      let category, name;
+      if (command.category) {
+        category = command.name;
+
+        // find subcommand (by name or alias)
+        let subCmd = client[category].find(
+          cmd => cmd.name == args[0] || cmd.alias.includes(args[0])
+        );
+        if (!subCmd) subCmd = { name: args[0] };
+        name = subCmd.name;
+      } else {
+        category = 'main';
+        name = command.name;
+      }
+
+      if (handler.isCommandDisabled(message.guild.id, category, name)) {
+        return message.channel.send(
+          'Sorry meowster, but the admins of this server have disabled this command!'
+        );
+      }
+    }
 
     if (command.args && !args.length) {
       if (command.usage) {

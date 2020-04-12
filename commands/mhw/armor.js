@@ -3,7 +3,9 @@ const logger = require('../../utils/log.js');
 
 class Armor extends Command {
   constructor(prefix) {
-    super('armor', 'armor [armor name]', 'Get info for a specific armor set');
+    super('armor', 'armor [armor name]', 'Get info for a specific armor set', {
+      alias: ['armour']
+    });
   }
 
   armorEmbed(client, name, rawEmbed = this.MessageEmbed()) {

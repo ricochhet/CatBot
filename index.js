@@ -2,8 +2,10 @@ const Bot = require('./bot.js');
 const monsterDatabase = require('./utils/databases/mhw/monsters.json');
 const fs = require('fs');
 const logger = require('./utils/log.js');
+var pjson = require('./package.json');
 
 client = new Bot('+');
+client.version = pjson.version;
 
 // load commands
 client.buildCommands([
