@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
  
-## [Unreleased] 
+## [2.2.0] 
  
 - `+toggle` for admins who want to disable a command or category in their server
 - `+lfg subscribe` now supports channels by name, #mention or ID 

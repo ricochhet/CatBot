@@ -14,13 +14,11 @@ class About extends Command {
       .addField(
         `Changelog: v${client.version}`,
         `
-        🤖 Updated to latest version of DiscordJS.
-        📖 \`${this.prefix}calc eraw\` now has the option to not have any critical boost.
-        🆙 Iceborne weapons have been finally added to \`${this.prefix}mhw weapon\`! (crafting materials too)
-        🆕 Want to see how the bot is doing? Use \`${this.prefix}stats\` to see interesting facts about the bot!
-        🆕 Use \`${this.prefix}feedback\` to send us your feedback directly 
-        🆕 Finally, a bit of customization! Use \`${this.prefix}ignore\` to have the bot ignore certain channels!
-        🆕 Use \`${this.prefix}mhw hzv [monster name]\` to get monster hitzone values!
+        📖 Furious Rajang & Raging Brachydios data added!
+        📖 Tenderized values now also shown in \`${this.prefix}mhw hzv\`
+        🆙 \`${this.prefix}lfg subscribe\` now supports channels by name, #mention or ID.
+        🆕 Use \`${this.prefix}toggle\` to disable a command or category!
+        🤖 \`${this.prefix}ignore\` is now admin only. So is \`${this.prefix}toggle\` 
         `
       )
       .setTimestamp()

@@ -26,7 +26,7 @@ class Toggle extends Command {
     data.push('**list:** show all the disabled commands');
     data.push('**category:** toggle a whole category on/off, e.g `lfg`');
     data.push(
-      '**command** toggle one command on/off, e.g. `lfg subscribe`, `catfact`'
+      '**command:** toggle one command on/off, e.g. `lfg subscribe`, `catfact`'
     );
 
     const embed = this.MessageEmbed().setColor('#8fde5d');
