@@ -11,8 +11,8 @@ const CANVAS_PADDING_Y = 90;
 const CANVAS_TEXT_FONT = '30px Tahoma';
 const CANVAS_PART_HEIGHT = 30; // pixels
 const COLUMN_COUNT = 16; // columns
-const COLUMN_GAP = 20;
-const COLUMN_WIDTH = 64; // Max value for a column (in terms of width) is '1000' == 4 chars, which is 64 px
+const COLUMN_GAP = 35;
+const COLUMN_WIDTH = 80; // Max value for a column (in terms of width) is '1000' == 4 chars, which is 64 px
 const MULITIPLIED_COLUMN_WIDTH = 120; // Max value for a column (in terms of width) is '1000' == 4 chars, which is 64 px
 
 const HEX_WHITE = '#FFFFFF';
@@ -21,6 +21,16 @@ const HEX_ORANGE = '#ffa500';
 const HEX_GREEN = '#78AB46';
 
 const ICON_SIZE_PX = 50;
+const TENDERIZED_WHITLIST = [
+  'slash',
+  'blunt',
+  'ranged',
+  'fire',
+  'water',
+  'thunder',
+  'ice',
+  'dragon'
+];
 
 const HZV_FILENAME = 'hzv.png';
 
@@ -61,7 +71,10 @@ class Hzv extends Command {
         ((COLUMN_COUNT - 8) * COLUMN_WIDTH + 8 * MULITIPLIED_COLUMN_WIDTH) +
         COLUMN_COUNT * COLUMN_GAP;
 
-      let hzvImage = new Canvas(canvasWidth, CANVAS_PADDING_Y + canvasHeight)
+      let hzvImage = new Canvas(
+        canvasWidth + 40,
+        CANVAS_PADDING_Y + canvasHeight
+      )
         .setColor(HEX_WHITE)
         .setTextFont(CANVAS_TEXT_FONT)
         .setTextAlign('center')
@@ -103,24 +116,25 @@ class Hzv extends Command {
               'utils/databases'
             )}/element/${iconName.toLowerCase()}.png`
           );
-          hzvImage.addImage(pic, x + 15, 33, ICON_SIZE_PX, ICON_SIZE_PX);
+          hzvImage.addImage(
+            pic,
+            x + COLUMN_WIDTH / 2,
+            33,
+            ICON_SIZE_PX,
+            ICON_SIZE_PX
+          );
 
           // advance x to next icon position
-          if (
-            [
-              'slash',
-              'blunt',
-              'ranged',
-              'fire',
-              'water',
-              'thunder',
-              'ice',
-              'dragon'
-            ].includes(iconName)
-          ) {
-            x += MULITIPLIED_COLUMN_WIDTH + 12;
+          if (TENDERIZED_WHITLIST.includes(iconName)) {
+            if (
+              TENDERIZED_WHITLIST[TENDERIZED_WHITLIST.length - 1] == iconName
+            ) {
+              x += COLUMN_WIDTH + COLUMN_GAP;
+            } else {
+              x += MULITIPLIED_COLUMN_WIDTH + COLUMN_GAP;
+            }
           } else {
-            x += COLUMN_WIDTH + 12;
+            x += COLUMN_WIDTH + COLUMN_GAP;
           }
         } catch (err) {
           logger.error(err, { where: 'hzv.js 104' });
@@ -135,13 +149,15 @@ class Hzv extends Command {
         y += CANVAS_PART_HEIGHT + 5; // 5 for gap
       }
 
+      hzvImage.setTextAlign('center');
+
       y = 120;
       // Sets The Hitzone Values in a grid like format
       for (let key in monsterHzvInfo) {
         if (key == 'name') continue;
         let value = monsterHzvInfo[key];
 
-        x = maxPartWidth;
+        x = maxPartWidth + COLUMN_WIDTH / 2;
         for (let hitzone in value) {
           let hzv = value[hitzone];
 
@@ -155,24 +171,19 @@ class Hzv extends Command {
             }
           }
 
-          if (
-            [
-              'slash',
-              'blunt',
-              'ranged',
-              'fire',
-              'water',
-              'thunder',
-              'ice',
-              'dragon'
-            ].includes(hitzone)
-          ) {
+          if (TENDERIZED_WHITLIST.includes(hitzone)) {
             hzv = `${hzv} (${Math.round(hzv * 0.75 + 25)})`;
             hzvImage.addResponsiveText(hzv, x + 20, y).setColor(HEX_WHITE);
-            x += MULITIPLIED_COLUMN_WIDTH + 12;
+            if (
+              TENDERIZED_WHITLIST[TENDERIZED_WHITLIST.length - 1] == hitzone
+            ) {
+              x += COLUMN_WIDTH + COLUMN_GAP;
+            } else {
+              x += MULITIPLIED_COLUMN_WIDTH + COLUMN_GAP;
+            }
           } else {
             hzvImage.addResponsiveText(hzv, x + 20, y).setColor(HEX_WHITE);
-            x += COLUMN_WIDTH + 12;
+            x += COLUMN_WIDTH + COLUMN_GAP;
           }
         }
 
