@@ -1,4 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
+const logger = require('../../utils/log.js');
 
 class Feedback extends Command {
   constructor(prefix) {
@@ -50,7 +51,13 @@ class Feedback extends Command {
       .setFooter(`Sent by ${message.author.tag} in ${message.guild.name}`)
       .setTimestamp();
 
-    channel.send(embed);
+    channel
+      .send(embed)
+      .then(_ => message.react('✅'))
+      .catch(err => {
+        logger.error(err, { where: 'feedback.js 56' });
+        message.react('❌');
+      });
   }
 }
 
