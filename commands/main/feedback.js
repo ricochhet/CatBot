@@ -36,9 +36,6 @@ class Feedback extends Command {
 
   async run(client, message, args) {
     let description = args.join(' ');
-    const channel = client.channels.cache.get(
-      client.config.get('feedbackChannel')
-    );
 
     if (description.length > 512)
       return message.channel.send(
@@ -51,13 +48,29 @@ class Feedback extends Command {
       .setFooter(`Sent by ${message.author.tag} in ${message.guild.name}`)
       .setTimestamp();
 
-    channel
-      .send(embed)
-      .then(_ => message.react('✅'))
-      .catch(err => {
-        logger.error(err, { where: 'feedback.js 56' });
-        message.react('❌');
-      });
+    client.shard
+      .broadcastEval(
+        `
+    	let channel = this.channels.cache.get('${client.config.get(
+        'feedbackChannel'
+      )}');
+
+      if ( channel ) {
+        channel.send( { embed : ${JSON.stringify(embed.toJSON())} } )
+        true
+      } else {
+        false
+      }
+    `
+      )
+      .then(results => {
+        if (results.includes(true)) {
+          message.react('✅');
+        } else {
+          message.react('❌');
+        }
+      })
+      .catch(err => logger.error(err, { where: 'feedback.js 68' }));
   }
 }
 

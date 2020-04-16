@@ -35,7 +35,7 @@ class Post extends Command {
     return embed;
   }
 
-  sendSub(client, sessionID, content) {
+  async sendSub(client, sessionID, content) {
     const sub = require('../../utils/databases/lfg/subscribe.json');
 
     let desc;
@@ -61,36 +61,34 @@ class Post extends Command {
         '```'
     );
 
-    //const post = tEmbed._apiTransform();
-
     let removableChannels = [];
     for (const channelID of sub['subscribe']) {
-      let channel = client.channels.cache.get(channelID);
+      // you need to await as client.shard.broadcastEval is automaticly async function?
+      await client.shard
+        .broadcastEval(
+          `
+        let channel = this.channels.cache.get('${channelID}');
 
-      if (channel != null) {
-        channel
-          .send(tEmbed)
-          .catch(err => logger.error(err, { where: 'post.js 71' }));
-      } else {
-        removableChannels.push(channelID);
-      }
-      /*client.rest.makeRequest(
-        'post',
-        client.Constants.Endpoints.Channel(channelID).messages,
-        true,
-        {
-          content: '',
-          embed: post
+        if (channel != null) {
+          channel.send( {embed : ${JSON.stringify(tEmbed.toJSON())}} )
+          true
+        } else {
+          false
         }
-      );*/
+      `
+        )
+        .then(results => {
+          // if all the shards counldnt find the channel add it too the removableChannels list
+          if (results.every(result => result == false))
+            removableChannels.push(channelID);
+        })
+        .catch(err => logger.error(err, { where: 'feedback.js 77' }));
     }
 
     // You need to assign sub['subscribe] to a variable otherwise it doesn't work
-    const updatedSubscriptions = sub['subscribe'].filter(function(e) {
+    sub['subscribe'] = sub['subscribe'].filter(function(e) {
       return !removableChannels.includes(e);
     });
-
-    sub['subscribe'] = updatedSubscriptions;
 
     const jsonObj = JSON.stringify(sub, null, 4);
     this.saveJsonFile(`./utils/databases/lfg/subscribe.json`, jsonObj);
@@ -223,7 +221,7 @@ class Post extends Command {
     message.channel.send(response);
 
     // Sends to all channel that are set to sub board
-    this.sendSub(client, sessionID, newPost);
+    await this.sendSub(client, sessionID, newPost);
   }
 }
 
