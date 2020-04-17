@@ -12,8 +12,6 @@ class Sinfo extends Command {
   async run(client, message, args) {
     let input = args.join(' ');
 
-    console.log(input);
-
     const guild = await client.shard
       .fetchClientValues('guilds.cache')
       .then(results => {
