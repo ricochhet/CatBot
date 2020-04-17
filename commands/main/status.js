@@ -32,15 +32,30 @@ class Status extends Command {
     let nodejsVersion = process.version;
     let discordjsVersion = this.version;
 
-    let userCount = client.guilds.cache
-      .map(g => g.memberCount)
-      .reduce((a, b) => a + b);
+    let [userCount, serverSize, guildNames] = await client.shard
+      .fetchClientValues('guilds.cache')
+      .then(results => {
+        let count = 0;
+        let xSize = 0;
+        let names = [];
+        results.forEach(shard => {
+          xSize += shard.length;
+          shard.forEach(({ memberCount, id, name }) => {
+            count += memberCount;
+            names.push(`${name} | ${id}`);
+          });
+        });
+
+        return [count, xSize, names.join('\n')];
+      })
+      .catch(err => logger.error(err, { where: 'status.js 50' }));
 
     let memory = process.memoryUsage().heapUsed / 1024 / 1024;
 
     const statusEmbed = this.MessageEmbed()
       .setColor('#8fde5d')
-      .addField('Servers: ', client.guilds.cache.size, true)
+      .addField('Servers: ', serverSize, true)
+      .addField('Shards: ', client.shard.count, true)
       .addField('Members: ', userCount, true)
       .addField('Version: ', `v${client.version}`, true)
       .addField('Message Latency', messagePingRounded + 'ms', true)
@@ -53,9 +68,6 @@ class Status extends Command {
       .setFooter('Status Menu', client.user.avatarURL());
 
     message.channel.send(statusEmbed);
-    const guildNames = client.guilds.cache
-      .map(g => g.name + ' | ' + g.id)
-      .join('\n');
 
     logger.info('Guild names: %s', guildNames);
   }

@@ -1,4 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
+const logger = require('../../utils/log.js');
 
 class Sinfo extends Command {
   constructor(prefix) {
@@ -9,9 +10,26 @@ class Sinfo extends Command {
   }
 
   async run(client, message, args) {
-    let input = args[0];
+    let input = args.join(' ');
 
-    const guildName = client.guilds.cache.get(input);
+    console.log(input);
+
+    const guild = await client.shard
+      .fetchClientValues('guilds.cache')
+      .then(results => {
+        let xGuild = null;
+        results.forEach(shard => {
+          shard.forEach(obj => {
+            if (obj.id == input || obj.name.toLowerCase() == input)
+              xGuild = obj;
+          });
+        });
+
+        return xGuild;
+      })
+      .catch(err => logger.error(err, { where: 'sinfo.js 16' }));
+
+    if (!guild) return;
 
     let verificationLevels = [
       'None',
@@ -39,48 +57,39 @@ class Sinfo extends Command {
       southafrica: ':flag_za:  South Africa'
     };
 
-    if (guildName == null || guildName == false) return;
-    //||#${g.owner.user.discriminator}||
+    const listEmbed = this.MessageEmbed()
+      .setColor('#8fde5d')
+      .setAuthor(guild.name, guild.iconURL)
+      .addField('Name', guild.name, true)
+      .addField('ID', '||' + guild.id + '||', true)
+      /*.addField("Owner",  `${g.owner.user.username}#${g.owner.user.discriminator}`, true)*/
+      .setThumbnail(guild.iconURL)
+      .addField('Region', region[guild.region], true)
+      .addField('Members', `${guild.memberCount}`)
+      .addField('Verification Level', guild.verificationLevel, true)
+      .addField('Channels', guild.channels.length, true)
+      .addField('Roles', guild.roles.length, true)
+      .addField(
+        'Creation Date',
+        `${new Date(guild.createdTimestamp)
+          .toUTCString()
+          .substr(0, 16)} (${checkDays(guild.createdTimestamp)})`,
+        true
+      )
+      .addField(
+        'Note: ',
+        'Do not use the visible information to your advantage in anyway, incl. but not limited to server raiding, etc.'
+      )
+      .setTimestamp()
+      .setFooter('Sinfo Menu');
 
-    if (guildName) {
-      const listEmbed = this.MessageEmbed()
-        .setColor('#8fde5d')
-        .setAuthor(guildName.name, guildName.iconURL)
-        .addField('Name', guildName.name, true)
-        .addField('ID', '||' + guildName.id + '||', true)
-        /*.addField("Owner",  `${g.owner.user.username}#${g.owner.user.discriminator}`, true)*/
-        .setThumbnail(guildName.iconURL)
-        .addField('Region', region[guildName.region], true)
-        .addField('Members', `${guildName.memberCount}`)
-        .addField(
-          'Verification Level',
-          verificationLevels[guildName.verificationLevel],
-          true
-        )
-        .addField('Channels', guildName.channels.size, true)
-        .addField('Roles', guildName.roles.size, true)
-        .addField(
-          'Creation Date',
-          `${guildName.createdAt.toUTCString().substr(0, 16)} (${checkDays(
-            guildName.createdAt
-          )})`,
-          true
-        )
-        .addField(
-          'Note: ',
-          'Do not use the visible information to your advantage in anyway, incl. but not limited to server raiding, etc.'
-        )
-        .setTimestamp()
-        .setFooter('Sinfo Menu');
-
-      message.channel.send(listEmbed);
-    }
+    message.channel.send(listEmbed);
   }
 }
 
 function checkDays(date) {
   let now = new Date();
-  let diff = now.getTime() - date.getTime();
+  let diff = now.getTime() - date;
   let days = Math.floor(diff / 86400000);
   return days + (days == 1 ? ' day' : ' days') + ' ago';
 }
