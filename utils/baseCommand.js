@@ -211,62 +211,61 @@ class Command {
     }
 
     let missingPermissions = false;
+    let checkPermissions;
     if (
       !message.member.guild.me.hasPermission('MANAGE_MESSAGES') ||
       !message.member.guild.me.hasPermission('ADD_REACTIONS')
     ) {
-      let checkPermissions = `💡 *The bot doesn't have* **MANAGE_MESSAGES** *or* **ADD_REACTIONS** *permission!*`;
+      checkPermissions = `💡 *The bot doesn't have* **MANAGE_MESSAGES** *or* **ADD_REACTIONS** *permission!*`;
       missingPermissions = true;
-      msg.setDescription(checkPermissions);
-      msg.setFooter(
-        'Permission Issue: The bot needs MANAGE_MESSAGES & ADD_REACTIONS to work properly'
-      );
     }
 
-    message.channel.send({ embed: msg, files: null }).then(async message => {
-      if (missingPermissions) return;
+    message.channel
+      .send(checkPermissions, { embed: msg, files: null })
+      .then(async message => {
+        if (missingPermissions) return;
 
-      let emojis = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣'].slice(
-        0,
-        counter
-      );
-      for (let emoji of emojis) {
-        // shuold be 'await' to guarantee order, but this seems just slow enough to be in order every time (slightly faster now)
-        message.react(emoji);
-      }
+        let emojis = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣'].slice(
+          0,
+          counter
+        );
+        for (let emoji of emojis) {
+          // shuold be 'await' to guarantee order, but this seems just slow enough to be in order every time (slightly faster now)
+          message.react(emoji);
+        }
 
-      const filter = (reaction, user) => {
-        return emojis.includes(reaction.emoji.name) && user.id === author;
-      };
+        const filter = (reaction, user) => {
+          return emojis.includes(reaction.emoji.name) && user.id === author;
+        };
 
-      message
-        .awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
-        .then(async collected => {
-          const reaction = collected.first();
-          let name = similarArray[emojis.indexOf(reaction.emoji.name)][0]
-            .split(' ')
-            .join('')
-            .toLowerCase();
+        message
+          .awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+          .then(async collected => {
+            const reaction = collected.first();
+            let name = similarArray[emojis.indexOf(reaction.emoji.name)][0]
+              .split(' ')
+              .join('')
+              .toLowerCase();
 
-          logger.info('user selected %s', name);
+            logger.info('user selected %s', name);
 
-          const embed = await embedTemplate(
-            message.client,
-            name,
-            this.MessageEmbed()
-          );
-          let channel = message.channel;
-          await message.delete();
-          channel.send(embed);
-        })
-        .catch(async err => {
-          logger.error(err, { where: 'baseCommand.js 243' });
-          await message.reactions
-            .removeAll()
-            .catch(err => logger.error('Failed to remove reactions %s', err));
-          await message.react('❌');
-        });
-    });
+            const embed = await embedTemplate(
+              message.client,
+              name,
+              this.MessageEmbed()
+            );
+            let channel = message.channel;
+            await message.delete();
+            channel.send(embed);
+          })
+          .catch(async err => {
+            logger.error(err, { where: 'baseCommand.js 243' });
+            await message.reactions
+              .removeAll()
+              .catch(err => logger.error('Failed to remove reactions %s', err));
+            await message.react('❌');
+          });
+      });
   }
 }
 
