@@ -57,26 +57,6 @@ class Bot extends Client {
     return new DBL(token, this);
   }
 
-  // setupCommand(dir) {
-  //   let collectionName;
-  //   if (typeof dir == 'object') {
-  //     collectionName = dir[0];
-  //     dir = dir[1];
-  //   } else {
-  //     collectionName = dir.split('/')[2];
-  //   }
-  //   this[collectionName] = new Collection();
-  //   fs.readdir(dir, (err, files) => {
-  //     if (err) return console.error(err);
-  //     files.forEach(file => {
-  //       if (!file.endsWith('.js')) return;
-  //       const props = require(`.${dir}${file}`);
-  //       const commandName = file.split('.')[0];
-  //       this[collectionName].set(commandName, new props(this.prefix));
-  //     });
-  //   });
-  // }
-
   setupDB(collection, jsonDir) {
     let json = require(jsonDir);
     for (const i of Object.keys(json)) {

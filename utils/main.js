@@ -12,14 +12,6 @@ client.buildCommands(__dirname.replace('utils', 'commands'), {
   main: 'commands'
 });
 
-// client.buildCommands([
-//   ['commands', './commands/main/'],
-//   './commands/lfg/',
-//   './commands/math/',
-//   './commands/mhgu/',
-//   './commands/mhw/'
-// ]);
-
 // load Bot databases
 client.buildDBs({
   weapons: './databases/mhw/weapons.json',
