@@ -259,7 +259,8 @@ class Command {
             channel.send(embed);
           })
           .catch(async err => {
-            logger.error(err, { where: 'baseCommand.js 243' });
+            if (err instanceof Error)
+              logger.error(err, { where: 'baseCommand.js 243' }); // only log if its not a collection & an actual error
             await message.reactions
               .removeAll()
               .catch(err => logger.error('Failed to remove reactions %s', err));

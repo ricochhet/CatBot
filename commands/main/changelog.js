@@ -14,11 +14,8 @@ class About extends Command {
       .addField(
         `Changelog: v${client.version}`,
         `
-        📖 Furious Rajang & Raging Brachydios data added!
-        📖 Tenderized values now also shown in \`${this.prefix}mhw hzv\`
-        🆙 \`${this.prefix}lfg subscribe\` now supports channels by name, #mention or ID.
-        🆕 Use \`${this.prefix}toggle\` to disable a command or category!
-        🤖 \`${this.prefix}ignore\` is now admin only. So is \`${this.prefix}toggle\` 
+        🔧 CatBot has had a few upgrades on the technikal side
+        📖 Moved some error messages outside the embeds
         `
       )
       .setTimestamp()
