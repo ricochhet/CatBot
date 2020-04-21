@@ -1,6 +1,5 @@
 const { Client, Collection, Constants } = require('discord.js');
 const DBL = require('dblapi.js');
-const fs = require('fs');
 const glob = require('glob');
 const { parse } = require('path');
 
