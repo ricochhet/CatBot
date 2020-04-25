@@ -4,7 +4,6 @@ const logger = require('../../utils/log.js');
 const { Canvas } = require('canvas-constructor');
 const { loadImage } = require('canvas');
 const { MessageAttachment } = require('discord.js'); // This is to send the image via discord.
-const hzvDB = require('../../utils/databases/mhw/hzv.json');
 
 // Canvas parameters
 const CANVAS_PADDING_Y = 90;
@@ -21,7 +20,7 @@ const HEX_ORANGE = '#ffa500';
 const HEX_GREEN = '#78AB46';
 
 const ICON_SIZE_PX = 50;
-const TENDERIZED_WHITLIST = [
+const TENDERIZED_WHITELIST = [
   'slash',
   'blunt',
   'ranged',
@@ -42,7 +41,13 @@ class Hzv extends Command {
   async monsterEmbed(client, name, rawEmbed = this.MessageEmbed()) {
     async function hzvImageGen(monsterName) {
       // get the monster hzv info from the db
-      const monsterHzvInfo = hzvDB[monsterName.toLowerCase().replace(' ', '')];
+      const monsterHzvInfo = client.monsters.get(
+        monsterName.toLowerCase().replace(' ', '')
+      ).hitzones;
+
+      const monsterEnrageInfo = client.monsters.get(
+        monsterName.toLowerCase().replace(' ', '')
+      ).enrage;
 
       // store the monster parts in an array for canvas height calculation
       const parts = Object.keys(monsterHzvInfo);
@@ -114,7 +119,7 @@ class Hzv extends Command {
             `${__dirname.replace(
               'commands',
               'utils/databases'
-            )}/element/${iconName.toLowerCase()}.png`
+            )}/icons/${iconName.toLowerCase()}.png`
           );
           hzvImage.addImage(
             pic,
@@ -125,9 +130,9 @@ class Hzv extends Command {
           );
 
           // advance x to next icon position
-          if (TENDERIZED_WHITLIST.includes(iconName)) {
+          if (TENDERIZED_WHITELIST.includes(iconName)) {
             if (
-              TENDERIZED_WHITLIST[TENDERIZED_WHITLIST.length - 1] == iconName
+              TENDERIZED_WHITELIST[TENDERIZED_WHITELIST.length - 1] == iconName
             ) {
               x += COLUMN_WIDTH + COLUMN_GAP;
             } else {
@@ -171,11 +176,14 @@ class Hzv extends Command {
             }
           }
 
-          if (TENDERIZED_WHITLIST.includes(hitzone)) {
-            hzv = `${hzv} (${Math.round(hzv * 0.75 + 25)})`;
+          if (TENDERIZED_WHITELIST.includes(hitzone)) {
+            const tenderizeVal = monsterEnrageInfo.tenderizeFormula.split(
+              '+'
+            )[1];
+            hzv = `${hzv} (${Math.round(hzv * 0.75 + tenderizeVal)})`;
             hzvImage.addResponsiveText(hzv, x + 20, y).setColor(HEX_WHITE);
             if (
-              TENDERIZED_WHITLIST[TENDERIZED_WHITLIST.length - 1] == hitzone
+              TENDERIZED_WHITELIST[TENDERIZED_WHITELIST.length - 1] == hitzone
             ) {
               x += COLUMN_WIDTH + COLUMN_GAP;
             } else {
@@ -211,6 +219,17 @@ class Hzv extends Command {
           )
         )
       )
+      .addField(
+        'Legend (by Order)',
+        'Kinsect Extract, Slash, Blunt, Ranged, Fire, Water, Thunder, Ice, Dragon, Stun, Flinch, Trip, Timer, Wound, Sever, Notes'
+      )
+      .addField('Tender', monster.enrage.tender, true)
+      .addField('Damage To Enrage', monster.enrage.dmgToEnrage, true)
+      .addField('Enrage Duration', monster.enrage.enrageDuration, true)
+      .addField('Enrage Speed', monster.enrage.enrageSpeed, true)
+      .addField('Monster Damage', monster.enrage.monstrDmg, true)
+      .addField('Player Damage', monster.enrage.playerDmg, true)
+      .addField('Tenderize Formula', monster.enrage.tenderizeFormula, true)
       .setImage(`attachment://${HZV_FILENAME}`)
       .setTimestamp()
       .setFooter('Hitzone Values');

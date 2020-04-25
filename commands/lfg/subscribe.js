@@ -1,4 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
+const db = require('../../utils/libraries/utils/client');
 const fs = require('fs');
 
 class Subscribe extends Command {
@@ -16,58 +17,75 @@ class Subscribe extends Command {
 
   async run(client, message, args) {
     if (message.member.hasPermission('MANAGE_CHANNELS')) {
-      let sub = require('../../utils/databases/lfg/subscribe.json');
-      let channel;
+      const self = this;
 
-      if (args[0] == undefined) {
-        channel = message.channel;
-      } else {
-        channel = this.getChannelFromMention(
-          message.guild.channels.cache,
-          args[0]
-        );
-        if (!channel)
-          return message.reply(`Sorry meowster but ${args[0]} doesn't exist`);
+      db.get(
+        'http:localhost:8080/api/database/573958899582107653/lfg/subscribe?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+      ).then(function(data) {
+        let sub = JSON.parse(data);
+        //let sub = require('../../utils/databases/lfg/subscribe.json');
+        let channel;
 
-        if (
-          !channel
-            .permissionsFor(message.guild.client.user)
-            .has('SEND_MESSAGES', true)
-        ) {
-          return message.reply(
-            `Sorry meowster but I can't send messages in ${channel.name}`
+        if (args[0] == undefined) {
+          channel = message.channel;
+        } else {
+          channel = self.getChannelFromMention(
+            message.guild.channels.cache,
+            args[0]
+          );
+          if (!channel)
+            return message.reply(`Sorry meowster but ${args[0]} doesn't exist`);
+
+          if (
+            !channel
+              .permissionsFor(message.guild.client.user)
+              .has('SEND_MESSAGES', true)
+          ) {
+            return message.reply(
+              `Sorry meowster but I can't send messages in ${channel.name}`
+            );
+          }
+
+          if (
+            !channel
+              .permissionsFor(message.guild.client.user)
+              .has('MANAGE_MESSAGES', true)
+          ) {
+            return message.reply(
+              `Sorry meowster but I don't have the **Manage Messages** permission in ${channel.name}`
+            );
+          }
+        }
+
+        if (sub['subscribe'].includes(channel.id)) {
+          // Remove from array
+          sub['subscribe'] = sub['subscribe'].filter(function(element) {
+            return element !== channel.id;
+          });
+          message.reply(
+            `Meowster the channel ${channel.name} will no longer act as a session board!`
+          );
+        } else {
+          // Add to array
+          sub['subscribe'].push(channel.id);
+          message.reply(
+            `Meowster the channel ${channel.name} will now act as a session board!`
           );
         }
 
-        if (
-          !channel
-            .permissionsFor(message.guild.client.user)
-            .has('MANAGE_MESSAGES', true)
-        ) {
-          return message.reply(
-            `Sorry meowster but I don't have the **Manage Messages** permission in ${channel.name}`
-          );
-        }
-      }
+        //const jsonObj = JSON.stringify(sub, null, 4);
 
-      if (sub['subscribe'].includes(channel.id)) {
-        // Remove from array
-        sub['subscribe'] = sub['subscribe'].filter(function(element) {
-          return element !== channel.id;
-        });
-        message.reply(
-          `Meowster the channel ${channel.name} will no longer act as a session board!`
+        db.request(
+          { message: sub },
+          {
+            hostname: 'localhost',
+            port: 8080,
+            path:
+              '/api/database/573958899582107653/lfg/subscribe?key=5e97fa61-c93d-46dd-9f71-826a5caf0984',
+            method: 'POST'
+          }
         );
-      } else {
-        // Add to array
-        sub['subscribe'].push(channel.id);
-        message.reply(
-          `Meowster the channel ${channel.name} will now act as a session board!`
-        );
-      }
-
-      const jsonObj = JSON.stringify(sub, null, 4);
-      this.saveJsonFile(`./utils/databases/lfg/subscribe.json`, jsonObj);
+      });
     } else {
       message.reply(
         `Sorry meowster but you don't have the **Manage Channels** permission!`

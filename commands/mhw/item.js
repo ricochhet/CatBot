@@ -17,7 +17,6 @@ class Item extends Command {
       .setDescription(item.description)
       .addField('Rarity', item.rarity, true)
       .addField('Max', item.carryLimit, true)
-      .addField('Buy', item.buy, true)
       .addField('Sell', item.value, true)
       .setTimestamp()
       .setFooter('Info Menu');

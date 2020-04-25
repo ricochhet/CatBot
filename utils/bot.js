@@ -5,6 +5,7 @@ const { parse } = require('path');
 
 const logger = require('./log.js');
 const DisabledHandler = require('./disabledHandler.js');
+const db = require('./libraries/utils/client');
 
 // params and defaults at https://discord.js.org/#/docs/main/v12/typedef/ClientOptions
 // these are the only values we're customizing (using defaults otherwise)
@@ -114,14 +115,19 @@ class Bot extends Client {
       return;
 
     // Check if the channel should be ignored (bypassed for ADMINS)
-    let ignored = require('./databases/server/ignoredChannels.json');
-    if (ignored.channels) {
-      if (
-        ignored.channels.includes(message.channel.id) &&
-        !message.member.hasPermission('ADMINISTRATOR')
-      )
-        return;
-    }
+    db.get(
+      'http:localhost:8080/api/database/573958899582107653/server/ignoredChannels?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+    ).then(function(data) {
+      let ignored = JSON.parse(data);
+      //let ignored = require('./databases/server/ignoredChannels.json');
+      if (ignored.channels) {
+        if (
+          ignored.channels.includes(message.channel.id) &&
+          !message.member.hasPermission('ADMINISTRATOR')
+        )
+          return;
+      }
+    });
 
     // show help if bot gets mentioned (different syntax if mobile vs desktop)
     if (

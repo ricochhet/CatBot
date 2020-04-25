@@ -1,5 +1,4 @@
 const Command = require('../../utils/baseCommand.js');
-const catFactsDatabase = require(`../../utils/databases/other/catfacts.json`);
 
 class Catfacts extends Command {
   constructor(prefix) {
@@ -10,7 +9,8 @@ class Catfacts extends Command {
   }
 
   async run(client, message, args) {
-    const catFactKeys = Object.values(catFactsDatabase);
+    const catFactKeys = Object.values(JSON.parse(client.catfacts));
+
     message.channel.send(
       catFactKeys[Math.floor(Math.random() * catFactKeys.length)]
     );

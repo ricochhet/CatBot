@@ -1,107 +1,174 @@
 const fs = require('fs');
 const logger = require('./log.js');
+const db = require('./libraries/utils/client');
 
 class DisabledHandler {
   // Commands are stored per guild. Each guild has an entry in the db (key = guild id)
   // Within that each category has an entry (including 'main')
   // key = category name, value = list of disabled sub commands
-  constructor() {
-    this.db = require('./databases/server/disabledCommands.json');
-  }
-
   isGuildInDB(guildId) {
-    if (this.db[guildId]) return true;
-    return false;
+    db.get(
+      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+    ).then(async function(data) {
+      let db = JSON.parse(data);
+
+      if (db[guildId]) return true;
+      return false;
+    });
   }
 
   isCategoryDisabled(guildId, category) {
-    if (this.db[guildId] && this.db[guildId][category]) return true;
-    return false;
+    db.get(
+      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+    ).then(async function(data) {
+      let db = JSON.parse(data);
+
+      console.log(db[guildId][category]);
+      if (db[guildId] && db[guildId][category]) return true;
+      return false;
+    });
   }
 
   isCommandDisabled(guildId, category, name) {
-    try {
-      return this.db[guildId][category].includes(name);
-    } catch (error) {
-      return false;
-    }
+    db.get(
+      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+    ).then(async function(data) {
+      const db = JSON.parse(data);
+
+      try {
+        return db[guildId][category].includes(name);
+      } catch (error) {
+        return false;
+      }
+    });
   }
 
   getDisabledList(guildId) {
-    if (!this.db[guildId]) return null;
+    db.get(
+      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+    ).then(async function(data) {
+      const db = JSON.parse(data);
 
-    let guildEntry = this.db[guildId];
-    let output = '';
+      if (!db[guildId]) return null;
 
-    for (let category in guildEntry) {
-      output += `\n  ${category.toUpperCase()}`;
+      let guildEntry = db[guildId];
+      let output = '';
 
-      for (let command of guildEntry[category]) {
-        output += `\n    ${command}`;
+      for (let category in guildEntry) {
+        output += `\n  ${category.toUpperCase()}`;
+
+        for (let command of guildEntry[category]) {
+          output += `\n    ${command}`;
+        }
+
+        if (
+          Object.keys(guildEntry).indexOf(category) !=
+          Object.keys(guildEntry).length - 1
+        )
+          output += '\n';
       }
 
-      if (
-        Object.keys(guildEntry).indexOf(category) !=
-        Object.keys(guildEntry).length - 1
-      )
-        output += '\n';
-    }
-
-    return output;
+      return output;
+    });
   }
 
   disableCategory(guildId, category, commands) {
-    if (!this.db[guildId]) this.db[guildId] = {};
+    const self = this;
 
-    // Sets category entry with the given command names
-    this.db[guildId][category] = commands;
-    this.saveDb();
+    db.get(
+      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+    ).then(async function(data) {
+      const db = JSON.parse(data);
+
+      if (!db[guildId]) db[guildId] = {};
+
+      // Sets category entry with the given command names
+      db[guildId][category] = commands;
+      self.saveDb(db);
+    });
   }
 
   enableCategory(guildId, category) {
-    // return early if nothing to delete
-    if (!this.db[guildId] || !this.db[guildId][category]) return;
+    const self = this;
 
-    // delete category entry
-    delete this.db[guildId][category];
+    db.get(
+      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+    ).then(async function(data) {
+      const db = JSON.parse(data);
 
-    // delete guild from db if that was the only category
-    if (Object.keys(this.db[guildId]).length == 0) delete this.db[guildId];
+      // return early if nothing to delete
+      if (!db[guildId] || !db[guildId][category]) return;
 
-    this.saveDb();
+      // delete category entry
+      delete db[guildId][category];
+
+      // delete guild from db if that was the only category
+      if (Object.keys(db[guildId]).length == 0) delete db[guildId];
+
+      self.saveDb(db);
+    });
   }
 
   disableCommand(guildId, category, name) {
-    if (!this.db[guildId]) this.db[guildId] = {};
+    const self = this;
 
-    let categoryEntry = this.db[guildId][category];
-    if (!categoryEntry) categoryEntry = [];
-    categoryEntry.push(name);
+    db.get(
+      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+    ).then(async function(data) {
+      const db = JSON.parse(data);
 
-    this.db[guildId][category] = categoryEntry;
-    this.saveDb();
+      if (!db[guildId]) db[guildId] = {};
+
+      let categoryEntry = db[guildId][category];
+      if (!categoryEntry) categoryEntry = [];
+      categoryEntry.push(name);
+
+      db[guildId][category] = categoryEntry;
+      self.saveDb(db);
+    });
   }
 
   enableCommand(guildId, category, name) {
-    if (!this.isCommandDisabled(guildId, category, name)) return;
+    const self = this;
 
-    // remove command from disabled list
-    let categoryEntry = this.db[guildId][category];
-    categoryEntry = categoryEntry.filter(cmdName => cmdName != name);
+    db.get(
+      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+    ).then(async function(data) {
+      const db = JSON.parse(data);
 
-    if (categoryEntry.length) {
-      this.db[guildId][category] = categoryEntry;
-    } else {
-      delete this.db[guildId][category];
-      // delete guild from db if that was the only category
-      if (Object.keys(this.db[guildId]).length == 0) delete this.db[guildId];
-    }
+      if (!self.isCommandDisabled(guildId, category, name)) return;
 
-    this.saveDb();
+      // remove command from disabled list
+      let categoryEntry = db[guildId][category];
+      categoryEntry = categoryEntry.filter(cmdName => cmdName != name);
+
+      if (categoryEntry.length) {
+        db[guildId][category] = categoryEntry;
+      } else {
+        delete db[guildId][category];
+        // delete guild from db if that was the only category
+        if (Object.keys(db[guildId]).length == 0) delete db[guildId];
+      }
+
+      self.saveDb(db);
+    });
   }
 
-  saveDb() {
-    fs.writeFile(
+  saveDb(json) {
+    console.log(json);
+
+    db.request(
+      { message: json },
+      {
+        hostname: 'localhost',
+        port: 8080,
+        path:
+          '/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984',
+        method: 'POST'
+      }
+    );
+
+    /*fs.writeFile(
       'utils/databases/server/disabledCommands.json',
       JSON.stringify(this.db, null, 4),
       'utf8',
@@ -112,7 +179,7 @@ class DisabledHandler {
             err
           );
       }
-    );
+    );*/
   }
 }
 

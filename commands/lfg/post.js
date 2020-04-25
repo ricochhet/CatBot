@@ -1,4 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
+const db = require('../../utils/libraries/utils/client');
 const logger = require('../../utils/log.js');
 
 class Post extends Command {
@@ -36,66 +37,93 @@ class Post extends Command {
   }
 
   async sendSub(client, sessionID, content) {
-    const sub = require('../../utils/databases/lfg/subscribe.json');
+    const self = this;
 
-    let desc;
-    if (!content['description']) {
-      desc = 'No description provided.';
-    } else {
-      desc = content['description'];
-    }
+    db.get(
+      'http:localhost:8080/api/database/573958899582107653/lfg/subscribe?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+    ).then(async function(data) {
+      let sub = JSON.parse(data);
+      //const sub = require('../../utils/databases/lfg/subscribe.json');
 
-    let tEmbed = this.MessageEmbed();
+      let desc;
+      if (!content['description']) {
+        desc = 'No description provided.';
+      } else {
+        desc = content['description'];
+      }
 
-    tEmbed
-      .setTitle('Session List')
-      .setDescription('Find other players to hunt with!')
-      .setColor('#8fde5d');
+      let tEmbed = self.MessageEmbed();
 
-    tEmbed.addField(
-      '\u200B',
-      '```\n' +
-        `🔖 Session ID: ${sessionID}\n` +
-        `🕹️ Platform: ${content['platform']}\n` +
-        `📝 Description: ${desc}\n` +
-        '```'
-    );
+      tEmbed
+        .setTitle('Session List')
+        .setDescription('Find other players to hunt with!')
+        .setColor('#8fde5d');
 
-    let removableChannels = [];
-    for (const channelID of sub['subscribe']) {
-      // you need to await as client.shard.broadcastEval is automaticly async function?
-      await client.shard
-        .broadcastEval(
-          `
-        let channel = this.channels.cache.get('${channelID}');
+      tEmbed.addField(
+        '\u200B',
+        '```\n' +
+          `🔖 Session ID: ${sessionID}\n` +
+          `🕹️ Platform: ${content['platform']}\n` +
+          `📝 Description: ${desc}\n` +
+          '```'
+      );
 
-        if (channel != null) {
-          channel.send( {embed : ${JSON.stringify(tEmbed.toJSON())}} )
-          true
-        } else {
-          false
+      let removableChannels = [];
+      for (const channelID of sub['subscribe']) {
+        // you need to await as client.shard.broadcastEval is automaticly async function?
+        await client.shard
+          .broadcastEval(
+            `
+          let channel = this.channels.cache.get('${channelID}');
+  
+          if (channel != null) {
+            channel.send( {embed : ${JSON.stringify(tEmbed.toJSON())}} )
+            true
+          } else {
+            false
+          }
+        `
+          )
+          .then(results => {
+            // if all the shards counldnt find the channel add it too the removableChannels list
+            if (results.every(result => result == false))
+              removableChannels.push(channelID);
+          })
+          .catch(err => logger.error(err, { where: 'feedback.js 77' }));
+      }
+
+      // You need to assign sub['subscribe] to a variable otherwise it doesn't work
+      sub['subscribe'] = sub['subscribe'].filter(function(e) {
+        return !removableChannels.includes(e);
+      });
+
+      db.request(
+        { message: sub },
+        {
+          hostname: 'localhost',
+          port: 8080,
+          path:
+            '/api/database/573958899582107653/lfg/subscribe?key=5e97fa61-c93d-46dd-9f71-826a5caf0984',
+          method: 'POST'
         }
-      `
-        )
-        .then(results => {
-          // if all the shards counldnt find the channel add it too the removableChannels list
-          if (results.every(result => result == false))
-            removableChannels.push(channelID);
-        })
-        .catch(err => logger.error(err, { where: 'feedback.js 77' }));
-    }
+      );
 
-    // You need to assign sub['subscribe] to a variable otherwise it doesn't work
-    sub['subscribe'] = sub['subscribe'].filter(function(e) {
-      return !removableChannels.includes(e);
+      /*const jsonObj = JSON.stringify(sub, null, 4);
+      this.saveJsonFile(`./utils/databases/lfg/subscribe.json`, jsonObj);*/
     });
-
-    const jsonObj = JSON.stringify(sub, null, 4);
-    this.saveJsonFile(`./utils/databases/lfg/subscribe.json`, jsonObj);
   }
 
   updatePostsDb(json) {
-    this.saveJsonFile(`./utils/databases/lfg/lfg.json`, json);
+    db.request(
+      { message: json },
+      {
+        hostname: 'localhost',
+        port: 8080,
+        path:
+          '/api/database/573958899582107653/lfg/posts?key=5e97fa61-c93d-46dd-9f71-826a5caf0984',
+        method: 'POST'
+      }
+    );
   }
 
   async run(client, message, args) {
@@ -162,66 +190,74 @@ class Post extends Command {
       );
     }
 
-    // load in the current posts from the json db
-    const posts = require('../../utils/databases/lfg/lfg.json');
+    const self = this;
 
-    const response = this.MessageEmbed();
+    db.get(
+      'http:localhost:8080/api/database/573958899582107653/lfg/posts?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+    ).then(async function(data) {
+      // load in the current posts from the json db
+      const posts = JSON.parse(data);
+      //const posts = require('../../utils/databases/lfg/lfg.json');
+      const response = self.MessageEmbed();
 
-    // Checks if the sessionID has already been posted
-    if (
-      Object.keys(posts).includes(sessionID) &&
-      posts[sessionID]['userID'] != message.author.id
-    ) {
-      return message.channel.send(
-        'Sorry meowster but someone else has posted that session already!'
-      );
-    }
-
-    // Create the new post
-    const newPost = {
-      description: description
-    };
-
-    // Checks if the user has already posted or not
-    let repost = false;
-    for (let post in posts) {
-      if (posts[post]['userID'] == message.author.id) {
-        repost = post;
-        break;
+      // Checks if the sessionID has already been posted
+      if (
+        Object.keys(posts).includes(sessionID) &&
+        posts[sessionID]['userID'] != message.author.id
+      ) {
+        return message.channel.send(
+          'Sorry meowster but someone else has posted that session already!'
+        );
       }
-    }
 
-    if (repost) {
-      delete posts[repost];
+      // Create the new post
+      const newPost = {
+        description: description
+      };
 
-      const jsonObj = JSON.stringify(posts, null, 4);
-      this.updatePostsDb(jsonObj);
+      // Checks if the user has already posted or not
+      let repost = false;
+      for (let post in posts) {
+        if (posts[post]['userID'] == message.author.id) {
+          repost = post;
+          break;
+        }
+      }
 
-      message.channel.send(`Meowster, the session \`${repost}\` was replaced!`);
-    }
+      if (repost) {
+        delete posts[repost];
 
-    newPost['userID'] = message.author.id;
-    newPost['platform'] = platform;
-    newPost['time'] = Date.now();
+        //const jsonObj = JSON.stringify(posts, null, 4);
+        self.updatePostsDb(posts);
 
-    if (newPost['description'].length == 0)
-      newPost['description'] = 'No description provided.';
+        message.channel.send(
+          `Meowster, the session \`${repost}\` was replaced!`
+        );
+      }
 
-    // Create embed for SUCCESSFUL requests
-    response
-      .setColor('#8fde5d')
-      .setTitle(`${platform.toUpperCase()} REQUEST SUCCESSFUL`)
-      .addField(`**${sessionID}**`, `*${newPost['description']}*`);
+      newPost['userID'] = message.author.id;
+      newPost['platform'] = platform;
+      newPost['time'] = Date.now();
 
-    // Finishes up object and pushes it back into the lfg db
-    posts[sessionID] = newPost;
-    const jsonObj = JSON.stringify(posts, null, 4);
+      if (newPost['description'].length == 0)
+        newPost['description'] = 'No description provided.';
 
-    this.updatePostsDb(jsonObj);
-    message.channel.send(response);
+      // Create embed for SUCCESSFUL requests
+      response
+        .setColor('#8fde5d')
+        .setTitle(`${platform.toUpperCase()} REQUEST SUCCESSFUL`)
+        .addField(`**${sessionID}**`, `*${newPost['description']}*`);
 
-    // Sends to all channel that are set to sub board
-    await this.sendSub(client, sessionID, newPost);
+      // Finishes up object and pushes it back into the lfg db
+      posts[sessionID] = newPost;
+      //const jsonObj = JSON.stringify(posts, null, 4);
+
+      self.updatePostsDb(posts);
+      message.channel.send(response);
+
+      // Sends to all channel that are set to sub board
+      await self.sendSub(client, sessionID, newPost);
+    });
   }
 }
 
