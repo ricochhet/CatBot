@@ -204,14 +204,14 @@ class Bot extends Client {
         rawArgs.shift();
         return command
           .run(this, message, rawArgs)
-          .catch(err => logger.error(err, { where: 'bot.js 171' }));
+          .catch(err => logger.error(err, { where: 'bot.js 207' }));
       } else {
         command
           .run(this, message, args)
-          .catch(err => logger.error(err, { where: 'bot.js 173' }));
+          .catch(err => logger.error(err, { where: 'bot.js 211' }));
       }
     } catch (err) {
-      logger.error(err, { where: 'bot.js 176' });
+      logger.error(err, { where: 'bot.js 214' });
     }
   }
 }

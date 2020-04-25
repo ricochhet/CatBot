@@ -14,8 +14,9 @@ class About extends Command {
       .addField(
         `Changelog: v${client.version}`,
         `
-        🔧 CatBot has had a few upgrades on the technikal side
-        📖 Moved some error messages outside the embeds
+        🔧 CatBot has had a few upgrades on the technical side
+        📖 Moved permission error messages outside the embeds
+        📖 HZV revamped, should be easier to read
         `
       )
       .setTimestamp()

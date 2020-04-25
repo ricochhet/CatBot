@@ -27,7 +27,7 @@ class Feedback extends Command {
       .addField(
         'Description: ',
         this.description +
-          '\n\nIf you want to follow up or discuss more you can do +support instead and join the support server'
+          `\n\nIf you want to follow up or discuss more you can do ${this.prefix}support instead and join the support server`
       )
       .setTimestamp();
 
@@ -39,7 +39,7 @@ class Feedback extends Command {
 
     if (description.length > 512)
       return message.channel.send(
-        this.usageEmbed('description can only be 512 characters or less')
+        this.usageEmbed('Description must be less than 512 characters')
       );
 
     let embed = this.MessageEmbed()
@@ -70,7 +70,11 @@ class Feedback extends Command {
           message.react('❌');
         }
       })
-      .catch(err => logger.error(err, { where: 'feedback.js 68' }));
+      .catch(err =>
+        logger.error(err, {
+          where: 'feedback.js 73 (client.shard.broadcastEval)'
+        })
+      );
   }
 }
 

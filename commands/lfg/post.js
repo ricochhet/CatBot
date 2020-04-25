@@ -38,13 +38,6 @@ class Post extends Command {
   async sendSub(client, sessionID, content) {
     const sub = require('../../utils/databases/lfg/subscribe.json');
 
-    let desc;
-    if (!content['description']) {
-      desc = 'No description provided.';
-    } else {
-      desc = content['description'];
-    }
-
     let tEmbed = this.MessageEmbed();
 
     tEmbed
@@ -57,7 +50,7 @@ class Post extends Command {
       '```\n' +
         `🔖 Session ID: ${sessionID}\n` +
         `🕹️ Platform: ${content['platform']}\n` +
-        `📝 Description: ${desc}\n` +
+        `📝 Description: ${content['description']}\n` +
         '```'
     );
 
@@ -82,10 +75,14 @@ class Post extends Command {
           if (results.every(result => result == false))
             removableChannels.push(channelID);
         })
-        .catch(err => logger.error(err, { where: 'feedback.js 77' }));
+        .catch(err =>
+          logger.error(err, {
+            where: 'post.js 78 (client.shard.broadcastEval)'
+          })
+        );
     }
 
-    // You need to assign sub['subscribe] to a variable otherwise it doesn't work
+    // filter out removable channels
     sub['subscribe'] = sub['subscribe'].filter(function(e) {
       return !removableChannels.includes(e);
     });
@@ -108,7 +105,7 @@ class Post extends Command {
 
     if (!['pc', 'ps4', 'xbox'].includes(platform)) {
       return message.channel.send(
-        this.usageEmbed(`${platform} is not valid platform.`)
+        this.usageEmbed(`${platform} is not a valid platform.`)
       );
     }
 
@@ -122,7 +119,7 @@ class Post extends Command {
       ) {
         return message.channel.send(
           this.usageEmbed(
-            `PC session ids must be between 11 and 13 characters long \`${sessionID}\` is ${sessionID.length} characters long.`
+            `PC session ids must be between 11 and 13 characters long.\n\`${sessionID}\` is ${sessionID.length} characters long.`
           )
         );
       }
@@ -146,7 +143,6 @@ class Post extends Command {
         return message.channel.send(
           this.usageEmbed(
             `XBOX/PS4 session ids must be in the format of \`xxxx xxxx xxxx\` or \`xxxx-xxxx-xxxx\`.`
-            //`XBOX/PS4 session ids need to be between 14 and 16 characters long \`${sessionID}\` is ${sessionID.length} characters long.`
           )
         );
       }
@@ -204,9 +200,6 @@ class Post extends Command {
     newPost['platform'] = platform;
     newPost['time'] = Date.now();
 
-    if (newPost['description'].length == 0)
-      newPost['description'] = 'No description provided.';
-
     // Create embed for SUCCESSFUL requests
     response
       .setColor('#8fde5d')
@@ -220,7 +213,7 @@ class Post extends Command {
     this.updatePostsDb(jsonObj);
     message.channel.send(response);
 
-    // Sends to all channel that are set to sub board
+    // Sends to all channels that are subscribed to lfg posts
     await this.sendSub(client, sessionID, newPost);
   }
 }

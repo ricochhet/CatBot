@@ -48,7 +48,11 @@ class Status extends Command {
 
         return [count, xSize, names.join('\n')];
       })
-      .catch(err => logger.error(err, { where: 'status.js 50' }));
+      .catch(err =>
+        logger.error(err, {
+          where: 'status.js 51 (client.shard.fetchClientValues)'
+        })
+      );
 
     let memory = process.memoryUsage().heapUsed / 1024 / 1024;
 

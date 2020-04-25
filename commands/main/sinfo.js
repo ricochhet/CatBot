@@ -25,17 +25,21 @@ class Sinfo extends Command {
 
         return xGuild;
       })
-      .catch(err => logger.error(err, { where: 'sinfo.js 16' }));
+      .catch(err =>
+        logger.error(err, {
+          where: 'sinfo.js 28 (client.shard.fetchClientValues)'
+        })
+      );
 
     if (!guild) return;
 
-    let verificationLevels = [
-      'None',
-      'Low',
-      'Medium',
-      '(╯°□°）╯︵  ┻━┻',
-      '┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻'
-    ];
+    // let verificationLevels = [
+    //   'None',
+    //   'Low',
+    //   'Medium',
+    //   '(╯°□°）╯︵  ┻━┻',
+    //   '┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻'
+    // ];
 
     const region = {
       brazil: ':flag_br: Brazil',

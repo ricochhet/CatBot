@@ -106,14 +106,16 @@ class Command {
     try {
       commandFound
         .run(client, message, args)
-        .catch(err => logger.error(err, { where: 'baseCommand.js 105' }));
+        .catch(err =>
+          logger.error(err, { where: 'baseCommand.js 109 (run command found)' })
+        );
     } catch (err) {
       if (err.message.includes("Cannot read property 'catch'"))
         return logger.warn(
           "Command '%s' does not have async run() method",
           commandFound.name
         );
-      return logger.error(err, { where: 'baseCommand.js 112' });
+      return logger.error(err, { where: 'baseCommand.js 116' });
     }
   }
 
@@ -230,7 +232,7 @@ class Command {
           counter
         );
         for (let emoji of emojis) {
-          // shuold be 'await' to guarantee order, but this seems just slow enough to be in order every time (slightly faster now)
+          // should be 'await' to guarantee order, but this seems just slow enough to be in order every time (slightly faster now)
           message.react(emoji);
         }
 
@@ -260,7 +262,9 @@ class Command {
           })
           .catch(async err => {
             if (err instanceof Error)
-              logger.error(err, { where: 'baseCommand.js 243' }); // only log if its not a collection & an actual error
+              logger.error(err, {
+                where: 'baseCommand.js 263 (await user reactions)'
+              }); // only log if its not a collection & an actual error
             await message.reactions
               .removeAll()
               .catch(err => logger.error('Failed to remove reactions %s', err));

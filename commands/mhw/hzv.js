@@ -137,7 +137,7 @@ class Hzv extends Command {
             x += COLUMN_WIDTH + COLUMN_GAP;
           }
         } catch (err) {
-          logger.error(err, { where: 'hzv.js 104' });
+          logger.error(err, { where: 'hzv.js 140 (placing icon images)' });
         }
       }
 
