@@ -1,9 +1,10 @@
 const { Client, Collection, Constants } = require('discord.js');
 const DBL = require('dblapi.js');
-const fs = require('fs');
+const glob = require('glob');
+const { parse } = require('path');
 
-const logger = require('./utils/log.js');
-const DisabledHandler = require('./utils/disabledHandler.js');
+const logger = require('./log.js');
+const DisabledHandler = require('./disabledHandler.js');
 
 // params and defaults at https://discord.js.org/#/docs/main/v12/typedef/ClientOptions
 // these are the only values we're customizing (using defaults otherwise)
@@ -35,7 +36,13 @@ class Bot extends Client {
         const dbl = this.dblSetup(this.config.get('DBLTOKEN'));
 
         this.setInterval(() => {
-          dbl.postStats(this.guilds.cache.size);
+          this.shard.fetchClientValues('guilds.cache').then(results => {
+            let size = 0;
+            results.forEach(shard => {
+              size += shard.length;
+            });
+            dbl.postStats(size);
+          });
         }, 1800000);
       }
     });
@@ -49,26 +56,6 @@ class Bot extends Client {
     return new DBL(token, this);
   }
 
-  setupCommand(dir) {
-    let collectionName;
-    if (typeof dir == 'object') {
-      collectionName = dir[0];
-      dir = dir[1];
-    } else {
-      collectionName = dir.split('/')[2];
-    }
-    this[collectionName] = new Collection();
-    fs.readdir(dir, (err, files) => {
-      if (err) return console.error(err);
-      files.forEach(file => {
-        if (!file.endsWith('.js')) return;
-        const props = require(`${dir}${file}`);
-        const commandName = file.split('.')[0];
-        this[collectionName].set(commandName, new props(this.prefix));
-      });
-    });
-  }
-
   setupDB(collection, jsonDir) {
     let json = require(jsonDir);
     for (const i of Object.keys(json)) {
@@ -76,12 +63,20 @@ class Bot extends Client {
     }
   }
 
-  buildCommands(dirs) {
-    dirs.forEach(dir => {
-      this.setupCommand(dir);
-    });
+  buildCommands(parentDir, collectionNameOverides) {
+    glob(`${parentDir}/**/*.js`, async (_, files) => {
+      files.forEach(file => {
+        let { dir, name } = parse(file);
+        let collectionName = dir.split('/').pop();
+        if (collectionNameOverides[collectionName])
+          collectionName = collectionNameOverides[collectionName];
+        if (!this[collectionName]) this[collectionName] = new Collection();
+        let cmd = require(file);
+        this[collectionName].set(name, new cmd(this.prefix));
+      });
 
-    this.on('message', this.listenForCommands);
+      this.on('message', this.listenForCommands);
+    });
   }
 
   buildDBs(dbCollection) {
@@ -119,7 +114,7 @@ class Bot extends Client {
       return;
 
     // Check if the channel should be ignored (bypassed for ADMINS)
-    let ignored = require('./utils/databases/server/ignoredChannels.json');
+    let ignored = require('./databases/server/ignoredChannels.json');
     if (ignored.channels) {
       if (
         ignored.channels.includes(message.channel.id) &&
