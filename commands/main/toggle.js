@@ -49,10 +49,10 @@ class Toggle extends Command {
     const guildId = message.guild.id;
 
     if (args[0] == 'list') {
-      if (!handler.isGuildInDB(guildId))
+      if (!(await handler.isGuildInDB(guildId)))
         return message.channel.send('⚠️ Meowster, no commands are disabled!');
 
-      let reply = handler.getDisabledList(guildId);
+      let reply = await handler.getDisabledList(guildId);
 
       reply = `Disabled Commands\n\`\`\`${reply}\`\`\``;
 
@@ -69,7 +69,7 @@ class Toggle extends Command {
       // user wants to toggle a whole category
       const category = command.name;
 
-      if (handler.isCategoryDisabled(guildId, category)) {
+      if (await handler.isCategoryDisabled(guildId, category)) {
         handler.enableCategory(guildId, category);
         return message.channel.send(
           `✅ Enabled all **${category.toUpperCase()}** commands!`
@@ -108,7 +108,7 @@ class Toggle extends Command {
       );
     }
 
-    if (handler.isCommandDisabled(guildId, category, name)) {
+    if (await handler.isCommandDisabled(guildId, category, name)) {
       handler.enableCommand(guildId, category, name);
       category = category == 'main' ? '' : category + ' ';
 

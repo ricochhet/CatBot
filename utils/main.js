@@ -119,7 +119,6 @@ client.setInterval(() => {
   db.get(
     'http:localhost:8080/api/database/573958899582107653/lfg/posts?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
   ).then(function(data) {
-    console.log('test');
     const lfg = JSON.parse(data);
     // const lfg = require('./databases/lfg/lfg.json');
     let rewrite = false;
@@ -134,7 +133,6 @@ client.setInterval(() => {
     }
 
     if (rewrite) {
-      console.log('rewrite');
       db.request(
         { message: lfg },
         {

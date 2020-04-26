@@ -7,68 +7,89 @@ class DisabledHandler {
   // Within that each category has an entry (including 'main')
   // key = category name, value = list of disabled sub commands
   isGuildInDB(guildId) {
-    db.get(
-      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
-    ).then(async function(data) {
-      let db = JSON.parse(data);
+    return new Promise(function(resolve, reject) {
+      db.get(
+        'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+      ).then(async function(data) {
+        let db = JSON.parse(data);
 
-      if (db[guildId]) return true;
-      return false;
+        if (db[guildId]) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+
+        //if (db[guildId]) return true;
+        //return false;
+      });
     });
   }
 
   isCategoryDisabled(guildId, category) {
-    db.get(
-      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
-    ).then(async function(data) {
-      let db = JSON.parse(data);
+    return new Promise(function(resolve, reject) {
+      db.get(
+        'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+      ).then(async function(data) {
+        let db = JSON.parse(data);
 
-      console.log(db[guildId][category]);
-      if (db[guildId] && db[guildId][category]) return true;
-      return false;
+        if (db[guildId] && db[guildId][category]) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+
+        //if (db[guildId] && db[guildId][category]) return true;
+        //return false;
+      });
     });
   }
 
   isCommandDisabled(guildId, category, name) {
-    db.get(
-      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
-    ).then(async function(data) {
-      const db = JSON.parse(data);
+    return new Promise(function(resolve, reject) {
+      db.get(
+        'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+      ).then(async function(data) {
+        const db = JSON.parse(data);
 
-      try {
-        return db[guildId][category].includes(name);
-      } catch (error) {
-        return false;
-      }
+        try {
+          resolve(db[guildId][category].includes(name));
+        } catch (error) {
+          resolve(false);
+        }
+      });
     });
   }
 
   getDisabledList(guildId) {
-    db.get(
-      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
-    ).then(async function(data) {
-      const db = JSON.parse(data);
+    return new Promise(function(resolve, reject) {
+      db.get(
+        'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+      ).then(async function(data) {
+        const db = JSON.parse(data);
 
-      if (!db[guildId]) return null;
-
-      let guildEntry = db[guildId];
-      let output = '';
-
-      for (let category in guildEntry) {
-        output += `\n  ${category.toUpperCase()}`;
-
-        for (let command of guildEntry[category]) {
-          output += `\n    ${command}`;
+        if (!db[guildId]) {
+          resolve(null);
         }
 
-        if (
-          Object.keys(guildEntry).indexOf(category) !=
-          Object.keys(guildEntry).length - 1
-        )
-          output += '\n';
-      }
+        let guildEntry = db[guildId];
+        let output = '';
 
-      return output;
+        for (let category in guildEntry) {
+          output += `\n  ${category.toUpperCase()}`;
+
+          for (let command of guildEntry[category]) {
+            output += `\n    ${command}`;
+          }
+
+          if (
+            Object.keys(guildEntry).indexOf(category) !=
+            Object.keys(guildEntry).length - 1
+          )
+            output += '\n';
+        }
+
+        resolve(output);
+      });
     });
   }
 
@@ -155,8 +176,6 @@ class DisabledHandler {
   }
 
   saveDb(json) {
-    console.log(json);
-
     db.request(
       { message: json },
       {
