@@ -80,6 +80,15 @@ class Bot extends Client {
     });
   }
 
+  isDev(id) {
+    let devs = [
+      this.config.get('RICO_ID'),
+      this.config.get('CHAD_ID'),
+      this.config.get('YOFOU_ID')
+    ];
+    return devs.includes(id);
+  }
+
   buildDBs(dbCollection) {
     Object.entries(dbCollection).forEach(([collectionName, dbDir]) => {
       this[collectionName] = new Collection();
@@ -87,7 +96,7 @@ class Bot extends Client {
     });
   }
 
-  listenForCommands(message) {
+  async listenForCommands(message) {
     // Ignores message if message doesn't exist (kek)
     if (!message) {
       logger.error(
@@ -159,7 +168,11 @@ class Bot extends Client {
     if (command.secret && message.author.id != this.config.get('OWNER')) return;
 
     // Ignore admin only commands
-    if (command.admin && !message.member.hasPermission('ADMINISTRATOR')) {
+    if (
+      command.admin &&
+      !message.member.hasPermission('ADMINISTRATOR') &&
+        !this.isDev(message.author.id)
+    ) {
       return message.channel.send(
         'Sorry meowster, this command is for admins only!'
       );
@@ -186,7 +199,7 @@ class Bot extends Client {
         name = command.name;
       }
 
-      if (handler.isCommandDisabled(message.guild.id, category, name)) {
+      if (await handler.isCommandDisabled(message.guild.id, category, name)) {
         return message.channel.send(
           'Sorry meowster, but the admins of this server have disabled this command!'
         );
