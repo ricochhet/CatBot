@@ -38,7 +38,6 @@ class Client {
       method: 'POST'
     }
   ) {
-    console.log(options);
     const data = JSON.stringify(json);
 
     options.headers = {
