@@ -9,9 +9,9 @@ class About extends Command {
   }
 
   async run(client, message, args) {
-    const rico = client.users.cache.get(client.config.get('RICO_ID'));
-    const yofou = client.users.cache.get(client.config.get('YOFOU_ID'));
-    const chad = client.users.cache.get(client.config.get('CHAD_ID'));
+    const rico = client.users.cache.get(client.config['user_ids']['rico_id']);
+    const yofou = client.users.cache.get(client.config['user_ids']['yofou_id']);
+    const chad = client.users.cache.get(client.config['user_ids']['chad_id']);
 
     const aboutEmbed = this.MessageEmbed()
       .setColor('#8fde5d')

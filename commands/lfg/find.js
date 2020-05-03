@@ -1,5 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
-const db = require('../../utils/libraries/utils/client');
+const db = require('../../utils/libraries/client');
 
 class Find extends Command {
   constructor(prefix) {
@@ -26,10 +26,9 @@ class Find extends Command {
     const self = this;
 
     db.get(
-      'http:localhost:8080/api/database/573958899582107653/lfg/posts?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+      `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/posts?key=${client.server_conf.server_key}`
     ).then(async function(data) {
       const lfg = JSON.parse(data);
-      //const lfg = require('../../utils/databases/lfg/lfg.json');
 
       if (Object.keys(lfg).length == 0) {
         return message.reply(

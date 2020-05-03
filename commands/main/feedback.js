@@ -51,9 +51,9 @@ class Feedback extends Command {
     client.shard
       .broadcastEval(
         `
-    	let channel = this.channels.cache.get('${client.config.get(
-        'feedbackChannel'
-      )}');
+    	let channel = this.channels.cache.get('${
+        client.config.channel_ids.feedback_channel
+      }');
 
       if ( channel ) {
         channel.send( { embed : ${JSON.stringify(embed.toJSON())} } )

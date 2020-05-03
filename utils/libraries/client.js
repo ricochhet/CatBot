@@ -34,10 +34,11 @@ class Client {
     options = {
       hostname: 'localhost',
       port: 8080,
-      path: '/api',
+      path: '/api/',
       method: 'POST'
     }
   ) {
+    console.log(options);
     const data = JSON.stringify(json);
 
     options.headers = {

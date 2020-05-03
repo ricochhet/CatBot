@@ -1,5 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
-const db = require('../../utils/libraries/utils/client');
+const db = require('../../utils/libraries/client');
 const fs = require('fs');
 
 class Subscribe extends Command {
@@ -20,10 +20,9 @@ class Subscribe extends Command {
       const self = this;
 
       db.get(
-        'http:localhost:8080/api/database/573958899582107653/lfg/subscribe?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+        `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`
       ).then(function(data) {
         let sub = JSON.parse(data);
-        //let sub = require('../../utils/databases/lfg/subscribe.json');
         let channel;
 
         if (args[0] == undefined) {
@@ -73,15 +72,12 @@ class Subscribe extends Command {
           );
         }
 
-        //const jsonObj = JSON.stringify(sub, null, 4);
-
         db.request(
           { message: sub },
           {
-            hostname: 'localhost',
-            port: 8080,
-            path:
-              '/api/database/573958899582107653/lfg/subscribe?key=5e97fa61-c93d-46dd-9f71-826a5caf0984',
+            hostname: client.server_conf.server_hostname,
+            port: client.server_conf.server_port,
+            path: `${client.server_conf.server_apipath}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`,
             method: 'POST'
           }
         );

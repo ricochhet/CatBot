@@ -1,7 +1,22 @@
 const { ShardingManager } = require('discord.js');
-const { TOKEN } = require('./utils/config.json');
+const config = require('./config.json');
 
-const manager = new ShardingManager('./utils/main.js', { token: TOKEN });
+if (config['base']['dev_mode'] == true) {
+  const manager = new ShardingManager('./utils/main.js', {
+    token: config['base']['token_dev']
+  });
 
-manager.spawn();
-manager.on('shardCreate', shard => console.log(`Launched shard ${shard.id}`));
+  manager.spawn();
+  manager.on('shardCreate', shard =>
+    console.log(`[SHARD] Launched shard ${shard.id}`)
+  );
+} else {
+  const manager = new ShardingManager('./utils/main.js', {
+    token: config['base']['token_main']
+  });
+
+  manager.spawn();
+  manager.on('shardCreate', shard =>
+    console.log(`[SHARD] Launched shard ${shard.id}`)
+  );
+}

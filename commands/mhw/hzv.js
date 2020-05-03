@@ -84,7 +84,7 @@ class Hzv extends Command {
         .setTextFont(CANVAS_TEXT_FONT)
         .setTextAlign('center')
         .addResponsiveText(
-          'Hitzone Values - (tenderized values in brackets) ',
+          'Hitzone Values - (Tenderized Values in Brackets) ',
           canvasWidth / 2,
           22.5
         ) // center title, 22.5 == y offset
@@ -117,9 +117,9 @@ class Hzv extends Command {
         try {
           let pic = await loadImage(
             `${__dirname.replace(
-              'commands',
-              'utils/databases'
-            )}/icons/${iconName.toLowerCase()}.png`
+              'commands\\mhw',
+              'utils/icons'
+            )}/${iconName.toLowerCase()}.png`
           );
           hzvImage.addImage(
             pic,

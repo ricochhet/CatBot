@@ -1,18 +1,28 @@
 const Bot = require('./bot.js');
 const fs = require('fs');
-const logger = require('./log.js');
 const pjson = require('../package.json');
+const db = require('./libraries/client');
+const config = require('../config.json');
 
-const db = require('./libraries/utils/client');
+client = new Bot(config['base']['bot_prefix']);
+client.version = pjson.version;
+client.config = config;
+
+client.server_conf = {
+  server_clientid: config['server']['client_id'],
+  server_url: config['server']['url_base'],
+  server_key: config['api_keys']['catbotserver_key'],
+  server_port: config['server']['port'],
+  server_hostname: config['server']['hostname'],
+  server_apipath: config['server']['api_path']
+};
+
 const dbOptions = {
-  url: 'http://localhost:8080/api/',
-  key: '5e97fa61-c93d-46dd-9f71-826a5caf0984'
+  url: client.server_conf.server_url,
+  key: client.server_conf.server_key
 };
 
 db.config(dbOptions);
-
-client = new Bot('+');
-client.version = pjson.version;
 
 // load commands
 client.buildCommands(__dirname.replace('utils', 'commands'), {
@@ -20,7 +30,9 @@ client.buildCommands(__dirname.replace('utils', 'commands'), {
 });
 
 function requestDatabase() {
-  db.get(`${dbOptions.url}catfacts?key=${dbOptions.key}`).then(function(data) {
+  db.get(
+    `${client.server_conf.server_url}catfacts?key=${client.server_conf.server_key}`
+  ).then(function(data) {
     client.catfacts = data;
   });
 
@@ -109,18 +121,12 @@ function requestDatabase() {
   });
 }
 
-// load Bot databases
-client.buildDBs({
-  config: './config.json'
-});
-
 // Check every minute and delete lfg sessions older than 2 hours
 client.setInterval(() => {
   db.get(
-    'http:localhost:8080/api/database/573958899582107653/lfg/posts?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+    `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/posts?key=${client.server_conf.server_key}`
   ).then(function(data) {
     const lfg = JSON.parse(data);
-    // const lfg = require('./databases/lfg/lfg.json');
     let rewrite = false;
 
     for (const sessionID in lfg) {
@@ -136,32 +142,23 @@ client.setInterval(() => {
       db.request(
         { message: lfg },
         {
-          hostname: 'localhost',
-          port: 8080,
-          path:
-            '/api/database/573958899582107653/lfg/posts?key=5e97fa61-c93d-46dd-9f71-826a5caf0984',
+          hostname: client.server_conf.server_hostname,
+          port: client.server_conf.server_port,
+          path: `${client.server_conf.server_apipath}database/${client.server_conf.server_clientid}/lfg/posts?key=${client.server_conf.server_key}`,
           method: 'POST'
         }
       );
-
-      /*const jsonObj = JSON.stringify(lfg, null, 4);
-      fs.writeFile(`utils/databases/lfg/lfg.json`, jsonObj, 'utf8', function(
-        err
-      ) {
-        if (err) {
-          logger.error(
-            'An error occured while writing JSON Object to File.',
-            err
-          );
-        }
-      });*/
     }
   });
 }, 60000);
 
 requestDatabase();
 
-client.login(client.config.get('TOKEN'));
+if (client.config['base']['dev_mode'] == true) {
+  client.login(client.config['base']['token_dev']);
+} else {
+  client.login(client.config['base']['token_main']);
+}
 
 setInterval(function() {
   requestDatabase();

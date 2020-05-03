@@ -5,7 +5,17 @@ const { parse } = require('path');
 
 const logger = require('./log.js');
 const DisabledHandler = require('./disabledHandler.js');
-const db = require('./libraries/utils/client');
+const db = require('./libraries/client');
+const config = require('../config.json');
+
+let server_conf = {
+  server_clientid: config['server']['client_id'],
+  server_url: config['server']['url_base'],
+  server_key: config['api_keys']['catbotserver_key'],
+  server_port: config['server']['port'],
+  server_hostname: config['server']['hostname'],
+  server_apipath: config['server']['api_path']
+};
 
 // params and defaults at https://discord.js.org/#/docs/main/v12/typedef/ClientOptions
 // these are the only values we're customizing (using defaults otherwise)
@@ -33,8 +43,8 @@ class Bot extends Client {
       );
       this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
 
-      if (this.config.get('DBLTOKEN')) {
-        const dbl = this.dblSetup(this.config.get('DBLTOKEN'));
+      if (config['api_keys']['dbl_token']) {
+        const dbl = this.dblSetup(config['api_keys']['dbl_token']);
 
         this.setInterval(() => {
           this.shard.fetchClientValues('guilds.cache').then(results => {
@@ -82,9 +92,9 @@ class Bot extends Client {
 
   isDev(id) {
     let devs = [
-      this.config.get('RICO_ID'),
-      this.config.get('CHAD_ID'),
-      this.config.get('YOFOU_ID')
+      config['user_ids']['rico_id'],
+      config['user_ids']['yofou_id'],
+      config['user_ids']['chad_id']
     ];
     return devs.includes(id);
   }
@@ -125,7 +135,7 @@ class Bot extends Client {
 
     // Check if the channel should be ignored (bypassed for ADMINS)
     db.get(
-      'http:localhost:8080/api/database/573958899582107653/server/ignoredChannels?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+      `${server_conf.server_url}database/${server_conf.server_clientid}/server/ignoredChannels?key=${server_conf.server_key}`
     ).then(function(data) {
       let ignored = JSON.parse(data);
       //let ignored = require('./databases/server/ignoredChannels.json');
@@ -165,13 +175,14 @@ class Bot extends Client {
     if (!command) return;
 
     // Ignores Secret Commands if Not Owner
-    if (command.secret && message.author.id != this.config.get('OWNER')) return;
+    if (command.secret && message.author.id != config['user_ids']['rico_id'])
+      return;
 
     // Ignore admin only commands
     if (
       command.admin &&
       !message.member.hasPermission('ADMINISTRATOR') &&
-        !this.isDev(message.author.id)
+      !this.isDev(message.author.id)
     ) {
       return message.channel.send(
         'Sorry meowster, this command is for admins only!'

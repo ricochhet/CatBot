@@ -1,6 +1,6 @@
 const fs = require('fs');
 const logger = require('./log.js');
-const db = require('./libraries/utils/client');
+const db = require('./libraries/client');
 
 class DisabledHandler {
   // Commands are stored per guild. Each guild has an entry in the db (key = guild id)
@@ -9,7 +9,7 @@ class DisabledHandler {
   isGuildInDB(guildId) {
     return new Promise(function(resolve, reject) {
       db.get(
-        'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+        `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`
       ).then(async function(data) {
         let db = JSON.parse(data);
 
@@ -18,9 +18,6 @@ class DisabledHandler {
         } else {
           resolve(false);
         }
-
-        //if (db[guildId]) return true;
-        //return false;
       });
     });
   }
@@ -28,7 +25,7 @@ class DisabledHandler {
   isCategoryDisabled(guildId, category) {
     return new Promise(function(resolve, reject) {
       db.get(
-        'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+        `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`
       ).then(async function(data) {
         let db = JSON.parse(data);
 
@@ -37,9 +34,6 @@ class DisabledHandler {
         } else {
           resolve(false);
         }
-
-        //if (db[guildId] && db[guildId][category]) return true;
-        //return false;
       });
     });
   }
@@ -47,7 +41,7 @@ class DisabledHandler {
   isCommandDisabled(guildId, category, name) {
     return new Promise(function(resolve, reject) {
       db.get(
-        'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+        `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`
       ).then(async function(data) {
         const db = JSON.parse(data);
 
@@ -63,7 +57,7 @@ class DisabledHandler {
   getDisabledList(guildId) {
     return new Promise(function(resolve, reject) {
       db.get(
-        'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+        `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`
       ).then(async function(data) {
         const db = JSON.parse(data);
 
@@ -97,7 +91,7 @@ class DisabledHandler {
     const self = this;
 
     db.get(
-      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+      `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`
     ).then(async function(data) {
       const db = JSON.parse(data);
 
@@ -113,7 +107,7 @@ class DisabledHandler {
     const self = this;
 
     db.get(
-      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+      `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`
     ).then(async function(data) {
       const db = JSON.parse(data);
 
@@ -134,7 +128,7 @@ class DisabledHandler {
     const self = this;
 
     db.get(
-      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+      `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`
     ).then(async function(data) {
       const db = JSON.parse(data);
 
@@ -153,7 +147,7 @@ class DisabledHandler {
     const self = this;
 
     db.get(
-      'http:localhost:8080/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+      `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`
     ).then(async function(data) {
       const db = JSON.parse(data);
 
@@ -179,26 +173,12 @@ class DisabledHandler {
     db.request(
       { message: json },
       {
-        hostname: 'localhost',
-        port: 8080,
-        path:
-          '/api/database/573958899582107653/server/disabledCommands?key=5e97fa61-c93d-46dd-9f71-826a5caf0984',
+        hostname: client.server_conf.server_hostname,
+        port: client.server_conf.server_port,
+        path: `${client.server_conf.server_apipath}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`,
         method: 'POST'
       }
     );
-
-    /*fs.writeFile(
-      'utils/databases/server/disabledCommands.json',
-      JSON.stringify(this.db, null, 4),
-      'utf8',
-      err => {
-        if (err)
-          return logger.error(
-            'An error occured while saving disabled commands.',
-            err
-          );
-      }
-    );*/
   }
 }
 

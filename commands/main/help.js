@@ -9,7 +9,7 @@ class Help extends Command {
   }
 
   async run(client, message, args) {
-    const rico = client.users.cache.get(client.config.get('RICO_ID'));
+    const rico = client.users.cache.get(client.config['user_ids']['rico_id']);
     const helpEmbed = this.MessageEmbed().setColor('#8fde5d');
 
     let data = [];

@@ -1,0 +1,27 @@
+{
+    "base": {
+        "dev_mode": true,
+        "bot_prefix": "+",
+        "token_main": null,
+        "token_dev": "NjM2MDA1NzA2MTg4NzE4MTAw.XqQvJQ.JMj0KK69CD92OhJtYtOHBA04_G4"
+    },
+    "api_keys": {
+        "dbl_token": null,
+        "catbotserver_key": "5e97fa61-c93d-46dd-9f71-826a5caf0984"
+    },
+    "server": {
+        "hostname": "localhost",
+        "port": 8080,
+        "api_path": "/api/",
+        "url_base": "http://localhost:8080/api/",
+        "client_id": "573958899582107653"
+    },
+    "user_ids": {
+        "rico_id": "381239423645515776",
+        "yofou_id": "264781399737892865",
+        "chad_id": "123633666550136832"
+    },
+    "channel_ids": {
+        "feedback_channel": "689096540593324073"
+    }
+}

@@ -1,5 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
-const db = require('../../utils/libraries/utils/client');
+const db = require('../../utils/libraries/client');
 const logger = require('../../utils/log.js');
 
 class Post extends Command {
@@ -40,10 +40,9 @@ class Post extends Command {
     const self = this;
 
     db.get(
-      'http:localhost:8080/api/database/573958899582107653/lfg/subscribe?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+      `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`
     ).then(async function(data) {
       let sub = JSON.parse(data);
-      //const sub = require('../../utils/databases/lfg/subscribe.json');
 
       let desc;
       if (!content['description']) {
@@ -100,16 +99,12 @@ class Post extends Command {
       db.request(
         { message: sub },
         {
-          hostname: 'localhost',
-          port: 8080,
-          path:
-            '/api/database/573958899582107653/lfg/subscribe?key=5e97fa61-c93d-46dd-9f71-826a5caf0984',
+          hostname: client.server_conf.server_hostname,
+          port: client.server_conf.server_port,
+          path: `${client.server_conf.server_apipath}database/${client.server_conf.server_clientid}/lfg/susbcribe?key=${client.server_conf.server_key}`,
           method: 'POST'
         }
       );
-
-      /*const jsonObj = JSON.stringify(sub, null, 4);
-      this.saveJsonFile(`./utils/databases/lfg/subscribe.json`, jsonObj);*/
     });
   }
 
@@ -117,10 +112,9 @@ class Post extends Command {
     db.request(
       { message: json },
       {
-        hostname: 'localhost',
-        port: 8080,
-        path:
-          '/api/database/573958899582107653/lfg/posts?key=5e97fa61-c93d-46dd-9f71-826a5caf0984',
+        hostname: client.server_conf.server_hostname,
+        port: client.server_conf.server_port,
+        path: `${client.server_conf.server_apipath}database/${client.server_conf.server_clientid}/lfg/posts?key=${client.server_conf.server_key}`,
         method: 'POST'
       }
     );
@@ -227,7 +221,6 @@ class Post extends Command {
       if (repost) {
         delete posts[repost];
 
-        //const jsonObj = JSON.stringify(posts, null, 4);
         self.updatePostsDb(posts);
 
         message.channel.send(
@@ -250,7 +243,6 @@ class Post extends Command {
 
       // Finishes up object and pushes it back into the lfg db
       posts[sessionID] = newPost;
-      //const jsonObj = JSON.stringify(posts, null, 4);
 
       self.updatePostsDb(posts);
       message.channel.send(response);

@@ -1,5 +1,5 @@
 const Command = require('../../utils/baseCommand.js');
-const db = require('../../utils/libraries/utils/client');
+const db = require('../../utils/libraries/client');
 const fs = require('fs');
 
 class Ignore extends Command {
@@ -43,10 +43,9 @@ class Ignore extends Command {
     const self = this;
 
     db.get(
-      'http:localhost:8080/api/database/573958899582107653/server/ignoredChannels?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
+      `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/ignoredChannels?key=${client.server_conf.server_key}`
     ).then(function(data) {
       let ignored = JSON.parse(data);
-      //let ignored = require('../../utils/databases/server/ignoredChannels.json');
       let channelID = args[0];
 
       // initialize list if needed (never set before)
@@ -154,10 +153,9 @@ class Ignore extends Command {
       db.request(
         { message: ignored },
         {
-          hostname: 'localhost',
-          port: 8080,
-          path:
-            '/api/database/573958899582107653/server/ignoredChannels?key=5e97fa61-c93d-46dd-9f71-826a5caf0984',
+          hostname: client.server_conf.server_hostname,
+          port: client.server_conf.server_port,
+          path: `${client.server_conf.server_apipath}database/${client.server_conf.server_clientid}/server/ignoredChannels?key=${client.server_conf.server_key}`,
           method: 'POST'
         }
       );
