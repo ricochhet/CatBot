@@ -41,7 +41,11 @@ class Bot extends Client {
         client.user.tag,
         client.version
       );
-      this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
+
+      this.shard.broadcastEval(
+        `this.user.setActivity('for ${this.prefix}help', { type: 'WATCHING' });`
+      );
+      //this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
 
       if (config['api_keys']['dbl_token']) {
         const dbl = this.dblSetup(config['api_keys']['dbl_token']);

@@ -8,7 +8,7 @@ if (config['base']['dev_mode'] == true) {
 
   manager.spawn();
   manager.on('shardCreate', shard =>
-    console.log(`[SHARD] Launched shard ${shard.id}`)
+    console.log(`[SHARD] Launched shard ${shard.id} / ${manager.totalShards}`)
   );
 } else {
   const manager = new ShardingManager('./utils/main.js', {
@@ -17,6 +17,6 @@ if (config['base']['dev_mode'] == true) {
 
   manager.spawn();
   manager.on('shardCreate', shard =>
-    console.log(`[SHARD] Launched shard ${shard.id}`)
+    console.log(`[SHARD] Launched shard ${shard.id} / ${manager.totalShards}`)
   );
 }

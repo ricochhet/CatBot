@@ -33,10 +33,22 @@ function requestDatabase() {
   db.get(
     `${client.server_conf.server_url}catfacts?key=${client.server_conf.server_key}`
   ).then(function(data) {
+    if (!data) {
+      return console.log(
+        `Failed to request data @ ${client.server_conf.server_url}catfacts?key=${client.server_conf.server_key}`
+      );
+    }
+
     client.catfacts = data;
   });
 
   db.get(db.query('mhw', 'weapons')).then(function(data) {
+    if (!data) {
+      return console.log(
+        `Failed to request data @ ${db.query('mhw', 'weapons')}`
+      );
+    }
+
     const output = db.parsers.mhw.parse_as_weapons(data);
     client.weapons = client.buildCollection();
 
@@ -46,6 +58,12 @@ function requestDatabase() {
   });
 
   db.get(db.query('mhw', 'skills')).then(function(data) {
+    if (!data) {
+      return console.log(
+        `Failed to request data @ ${db.query('mhw', 'skills')}`
+      );
+    }
+
     const output = db.parsers.mhw.parse_as_skills(data);
     client.skills = client.buildCollection();
 
@@ -55,6 +73,12 @@ function requestDatabase() {
   });
 
   db.get(db.query('mhw', 'items')).then(function(data) {
+    if (!data) {
+      return console.log(
+        `Failed to request data @ ${db.query('mhw', 'items')}`
+      );
+    }
+
     const map = db.to_map(data, {
       raw: true
     }).map;
@@ -67,6 +91,12 @@ function requestDatabase() {
   });
 
   db.get(db.query('mhw', 'decorations')).then(function(data) {
+    if (!data) {
+      return console.log(
+        `Failed to request data @ ${db.query('mhw', 'decorations')}`
+      );
+    }
+
     const output = db.parsers.mhw.parse_as_decorations(data);
     client.decorations = client.buildCollection();
 
@@ -76,6 +106,12 @@ function requestDatabase() {
   });
 
   db.get(db.query('mhw', 'armors')).then(function(data) {
+    if (!data) {
+      return console.log(
+        `Failed to request data @ ${db.query('mhw', 'armors')}`
+      );
+    }
+
     const output = db.parsers.mhw.parse_as_armors(data);
     client.armors = client.buildCollection();
 
@@ -85,6 +121,12 @@ function requestDatabase() {
   });
 
   db.get(db.query('mhw', 'monsters')).then(function(data) {
+    if (!data) {
+      return console.log(
+        `Failed to request data @ ${db.query('mhw', 'monsters')}`
+      );
+    }
+
     const map = db.to_map(data, {
       raw: true
     }).map;
@@ -97,6 +139,12 @@ function requestDatabase() {
   });
 
   db.get(db.query('mhgu', 'monsters')).then(function(data) {
+    if (!data) {
+      return console.log(
+        `Failed to request data @ ${db.query('mhgu', 'monsters')}`
+      );
+    }
+
     const map = db.to_map(data, {
       raw: true
     }).map;
@@ -109,6 +157,12 @@ function requestDatabase() {
   });
 
   db.get(db.query('mhgu', 'weapons')).then(function(data) {
+    if (!data) {
+      return console.log(
+        `Failed to request data @ ${db.query('mhgu', 'weapons')}`
+      );
+    }
+
     const map = db.to_map(data, {
       raw: true
     }).map;

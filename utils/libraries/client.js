@@ -89,11 +89,13 @@ class Client {
               resolve(body);
             } catch (error) {
               console.error(error);
+              resolve(false);
             }
           });
         })
         .on('error', error => {
           console.error(error.message);
+          resolve(false);
         });
     });
   }
