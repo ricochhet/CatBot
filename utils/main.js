@@ -1,5 +1,4 @@
 const Bot = require('./bot.js');
-const fs = require('fs');
 const pjson = require('../package.json');
 const db = require('./libraries/client');
 const config = require('../config.json');
@@ -34,6 +33,8 @@ function requestDatabase() {
     `${client.server_conf.server_url}catfacts?key=${client.server_conf.server_key}`
   ).then(function(data) {
     if (!data) {
+      client.catfacts = null;
+
       return console.log(
         `Failed to request data @ ${client.server_conf.server_url}catfacts?key=${client.server_conf.server_key}`
       );
@@ -44,36 +45,42 @@ function requestDatabase() {
 
   db.get(db.query('mhw', 'weapons')).then(function(data) {
     if (!data) {
+      client.mhwWeapons = null;
+
       return console.log(
         `Failed to request data @ ${db.query('mhw', 'weapons')}`
       );
     }
 
     const output = db.parsers.mhw.parse_as_weapons(data);
-    client.weapons = client.buildCollection();
+    client.mhwWeapons = client.buildCollection();
 
     for (const i of Object.keys(output)) {
-      client.weapons.set(i, output[i]);
+      client.mhwWeapons.set(i, output[i]);
     }
   });
 
   db.get(db.query('mhw', 'skills')).then(function(data) {
     if (!data) {
+      client.mhwSkills = null;
+
       return console.log(
         `Failed to request data @ ${db.query('mhw', 'skills')}`
       );
     }
 
     const output = db.parsers.mhw.parse_as_skills(data);
-    client.skills = client.buildCollection();
+    client.mhwSkills = client.buildCollection();
 
     for (const i of Object.keys(output)) {
-      client.skills.set(i, output[i]);
+      client.mhwSkills.set(i, output[i]);
     }
   });
 
   db.get(db.query('mhw', 'items')).then(function(data) {
     if (!data) {
+      client.mhwItems = null;
+
       return console.log(
         `Failed to request data @ ${db.query('mhw', 'items')}`
       );
@@ -83,45 +90,51 @@ function requestDatabase() {
       raw: true
     }).map;
 
-    client.items = client.buildCollection();
+    client.mhwItems = client.buildCollection();
 
     for (const [k, v] of map) {
-      client.items.set(k, v);
+      client.mhwItems.set(k, v);
     }
   });
 
   db.get(db.query('mhw', 'decorations')).then(function(data) {
     if (!data) {
+      client.mhwDecorations = null;
+
       return console.log(
         `Failed to request data @ ${db.query('mhw', 'decorations')}`
       );
     }
 
     const output = db.parsers.mhw.parse_as_decorations(data);
-    client.decorations = client.buildCollection();
+    client.mhwDecorations = client.buildCollection();
 
     for (const i of Object.keys(output)) {
-      client.decorations.set(i, output[i]);
+      client.mhwDecorations.set(i, output[i]);
     }
   });
 
   db.get(db.query('mhw', 'armors')).then(function(data) {
     if (!data) {
+      client.mhwArmors = null;
+
       return console.log(
         `Failed to request data @ ${db.query('mhw', 'armors')}`
       );
     }
 
     const output = db.parsers.mhw.parse_as_armors(data);
-    client.armors = client.buildCollection();
+    client.mhwArmors = client.buildCollection();
 
     for (const i of Object.keys(output)) {
-      client.armors.set(i, output[i]);
+      client.mhwArmors.set(i, output[i]);
     }
   });
 
   db.get(db.query('mhw', 'monsters')).then(function(data) {
     if (!data) {
+      client.mhwMonsters = null;
+
       return console.log(
         `Failed to request data @ ${db.query('mhw', 'monsters')}`
       );
@@ -131,15 +144,17 @@ function requestDatabase() {
       raw: true
     }).map;
 
-    client.monsters = client.buildCollection();
+    client.mhwMonsters = client.buildCollection();
 
     for (const [k, v] of map) {
-      client.monsters.set(v.name, v.details);
+      client.mhwMonsters.set(v.name, v.details);
     }
   });
 
   db.get(db.query('mhgu', 'monsters')).then(function(data) {
     if (!data) {
+      client.mhguMonsters = null;
+
       return console.log(
         `Failed to request data @ ${db.query('mhgu', 'monsters')}`
       );
@@ -158,6 +173,8 @@ function requestDatabase() {
 
   db.get(db.query('mhgu', 'weapons')).then(function(data) {
     if (!data) {
+      client.mhguWeapons = null;
+
       return console.log(
         `Failed to request data @ ${db.query('mhgu', 'weapons')}`
       );

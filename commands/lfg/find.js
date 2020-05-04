@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 const db = require('../../utils/libraries/client');
 
 class Find extends Command {

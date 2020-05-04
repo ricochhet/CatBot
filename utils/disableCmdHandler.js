@@ -2,7 +2,7 @@ const fs = require('fs');
 const logger = require('./log.js');
 const db = require('./libraries/client');
 
-class DisabledHandler {
+class DisableCmdHandler {
   // Commands are stored per guild. Each guild has an entry in the db (key = guild id)
   // Within that each category has an entry (including 'main')
   // key = category name, value = list of disabled sub commands
@@ -182,4 +182,4 @@ class DisabledHandler {
   }
 }
 
-module.exports = DisabledHandler;
+module.exports = DisableCmdHandler;

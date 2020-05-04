@@ -1,5 +1,5 @@
-const Command = require('../../utils/baseCommand.js');
-const DisabledHandler = require('../../utils/disabledHandler.js');
+const Command = require('../../utils/command.js');
+const DisableCmdHandler = require('../../utils/disableCmdHandler.js');
 
 class Toggle extends Command {
   constructor(prefix) {
@@ -44,7 +44,7 @@ class Toggle extends Command {
   }
 
   async run(client, message, args) {
-    const handler = new DisabledHandler();
+    const handler = new DisableCmdHandler();
 
     const guildId = message.guild.id;
 

@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 
 class Help extends Command {
   constructor(prefix) {
@@ -21,7 +21,7 @@ class Help extends Command {
           data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
         }
       });
-    helpEmbed.addField('Main / General', data.join('\n'));
+    helpEmbed.addField('Main', data.join('\n'));
 
     // Other Commands w/o Args
     data = [];

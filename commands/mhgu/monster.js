@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 
 class Monster extends Command {
   constructor(prefix) {
@@ -43,6 +43,10 @@ class Monster extends Command {
 
   async run(client, message, args) {
     let input = args.join('').toLowerCase();
+
+    if (client.mhguMonsters == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    }
 
     if (!client.mhguMonsters.has(input)) {
       let msg = "That monster doesn't seem to exist!";

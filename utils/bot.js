@@ -4,7 +4,7 @@ const glob = require('glob');
 const { parse } = require('path');
 
 const logger = require('./log.js');
-const DisabledHandler = require('./disabledHandler.js');
+const DisableCmdHandler = require('./disableCmdHandler.js');
 const db = require('./libraries/client');
 const config = require('../config.json');
 
@@ -194,7 +194,7 @@ class Bot extends Client {
     }
 
     // Check if command is disabled (bypass for ADMINS)
-    let handler = new DisabledHandler();
+    let handler = new DisableCmdHandler();
     if (
       !message.member.hasPermission('ADMINISTRATOR') &&
       handler.isGuildInDB(message.guild.id)

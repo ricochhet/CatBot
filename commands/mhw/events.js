@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 const fetch = require('node-fetch');
 
 class Events extends Command {

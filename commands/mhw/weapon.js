@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Weapon extends Command {
@@ -7,7 +7,7 @@ class Weapon extends Command {
   }
 
   weaponEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const weapon = client.weapons.get(name);
+    const weapon = client.mhwWeapons.get(name);
 
     logger.debug('weapon log', { type: 'weaponRead', name: name });
 
@@ -25,13 +25,13 @@ class Weapon extends Command {
       .addField('Shelling', weapon.shelling, true)
       .addField('Special Ammo', weapon.specialAmmo, true)
       .addField('Deviation', weapon.deviation, true)
-      .addField('Ammos', weapon.ammos, true)
       .addField('Elements', weapon.elements, true)
       .addField('Slots', weapon.slots, true)
       .addField('Coatings', weapon.coatings, true)
       .addField('Sharpness', weapon.sharpness.base, true)
       .addField('Forge', weapon.crafting, true)
       .addField('Upgrade', weapon.upgrade, true)
+      .addField('Ammos', weapon.ammos)
       .setTimestamp()
       .setFooter('Info Menu');
 
@@ -41,7 +41,11 @@ class Weapon extends Command {
   async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
-    if (!client.weapons.has(input)) {
+    if (client.mhwWeapons == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    }
+
+    if (!client.mhwWeapons.has(input)) {
       let msg = "That weapon doesn't seem to exist!";
 
       const options = {
@@ -51,14 +55,14 @@ class Weapon extends Command {
         includeScore: true
       };
 
-      let similarItems = this.findAllMatching(client.weapons, options);
+      let similarItems = this.findAllMatching(client.mhwWeapons, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.weaponEmbed);
       }
 
       message.channel.send(msg);
-    } else if (client.weapons.has(input)) {
+    } else if (client.mhwWeapons.has(input)) {
       const embed = this.weaponEmbed(client, input);
       message.channel.send(embed);
     }

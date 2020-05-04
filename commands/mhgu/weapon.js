@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 
 class Weapon extends Command {
   constructor(prefix) {
@@ -48,6 +48,10 @@ class Weapon extends Command {
 
   async run(client, message, args) {
     let input = args.join('').toLowerCase();
+
+    if (client.mhguWeapons == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    }
 
     if (!client.mhguWeapons.has(input)) {
       let msg = "That weapon doesn't seem to exist!";

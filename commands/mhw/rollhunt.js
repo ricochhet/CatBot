@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 
 class RollHunt extends Command {
   constructor(prefix) {
@@ -11,17 +11,19 @@ class RollHunt extends Command {
   }
 
   rollEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const monster = client.monsters.get(
-      [...client.monsters.keys()][
-        Math.floor(Math.random() * client.monsters.size)
+    const monster = client.mhwMonsters.get(
+      [...client.mhwMonsters.keys()][
+        Math.floor(Math.random() * client.mhwMonsters.size)
       ]
     );
-    const armor = client.armors.get(
-      [...client.armors.keys()][Math.floor(Math.random() * client.armors.size)]
+    const armor = client.mhwArmors.get(
+      [...client.mhwArmors.keys()][
+        Math.floor(Math.random() * client.mhwArmors.size)
+      ]
     );
-    const weapon = client.weapons.get(
-      [...client.weapons.keys()][
-        Math.floor(Math.random() * client.weapons.size)
+    const weapon = client.mhwWeapons.get(
+      [...client.mhwWeapons.keys()][
+        Math.floor(Math.random() * client.mhwWeapons.size)
       ]
     );
 
@@ -40,6 +42,14 @@ class RollHunt extends Command {
 
   async run(client, message, args) {
     let input = args.join('').toLowerCase();
+
+    if (client.mhwArmors == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    } else if (client.mhwArmors == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    } else if (client.mhwMonsters == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    }
 
     const embed = this.rollEmbed(client, input);
     message.channel.send(embed);

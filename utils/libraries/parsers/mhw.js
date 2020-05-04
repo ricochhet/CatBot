@@ -28,11 +28,13 @@ class Parser {
       }
 
       for (const i in item.pieces) {
-        array_pieces.push(item.pieces[i].name);
+        array_pieces.push(`${item.pieces[i].name} (${item.pieces[i].type})`);
       }
 
       for (const i in item.skills) {
-        array_skills.push(item.skills[i].name);
+        array_skills.push(
+          `${item.skills[i].name} LV${item.skills[i].rank} (${item.skills[i].piece})`
+        );
       }
 
       for (const i in item.slots) {

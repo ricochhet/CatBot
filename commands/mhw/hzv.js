@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 const { Canvas } = require('canvas-constructor');
@@ -41,11 +41,11 @@ class Hzv extends Command {
   async monsterEmbed(client, name, rawEmbed = this.MessageEmbed()) {
     async function hzvImageGen(monsterName) {
       // get the monster hzv info from the db
-      const monsterHzvInfo = client.monsters.get(
+      const monsterHzvInfo = client.mhwMonsters.get(
         monsterName.toLowerCase().replace(' ', '')
       ).hitzones;
 
-      const monsterEnrageInfo = client.monsters.get(
+      const monsterEnrageInfo = client.mhwMonsters.get(
         monsterName.toLowerCase().replace(' ', '')
       ).enrage;
 
@@ -203,7 +203,7 @@ class Hzv extends Command {
       return new MessageAttachment(hzvImage.toBuffer(), HZV_FILENAME);
     }
 
-    const monster = client.monsters.get(name);
+    const monster = client.mhwMonsters.get(name);
     const embed = rawEmbed.setColor('#8fde5d').setTitle(monster.title);
 
     logger.debug('hzv log', { type: 'monsterRead', name: name });
@@ -240,7 +240,11 @@ class Hzv extends Command {
   async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
-    for (let [name, monster] of client.monsters.entries()) {
+    if (client.mhwMonsters == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    }
+
+    for (let [name, monster] of client.mhwMonsters.entries()) {
       if (
         monster.aliases &&
         monster.aliases.includes(input) &&
@@ -251,7 +255,7 @@ class Hzv extends Command {
       }
     }
 
-    if (!client.monsters.has(input)) {
+    if (!client.mhwMonsters.has(input)) {
       let msg = `That monster doesn't seem to exist! Check out \`${this.prefix}mhw list\` for the full list.`;
 
       const options = {
@@ -262,14 +266,14 @@ class Hzv extends Command {
         reloop: true
       };
 
-      let similarItems = this.findAllMatching(client.monsters, options);
+      let similarItems = this.findAllMatching(client.mhwMonsters, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.monsterEmbed);
       }
 
       message.channel.send(msg);
-    } else if (client.monsters.has(input)) {
+    } else if (client.mhwMonsters.has(input)) {
       const embed = await this.monsterEmbed(client, input);
       message.channel.send(embed);
     }

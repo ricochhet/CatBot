@@ -106,14 +106,14 @@ class Command {
     try {
       commandFound
         .run(client, message, args)
-        .catch(err => logger.error(err, { where: 'baseCommand.js 105' }));
+        .catch(err => logger.error(err, { where: 'command.js 105' }));
     } catch (err) {
       if (err.message.includes("Cannot read property 'catch'"))
         return logger.warn(
           "Command '%s' does not have async run() method",
           commandFound.name
         );
-      return logger.error(err, { where: 'baseCommand.js 112' });
+      return logger.error(err, { where: 'command.js 112' });
     }
   }
 
@@ -140,6 +140,24 @@ class Command {
     pageFooter = false
   ) {
     return new Pages(channel, uid, pages, time, reactions, pageFooter);
+  }
+
+  serverErrorEmbed() {
+    let embed = this.MessageEmbed();
+    const rico = client.users.cache.get(client.config['user_ids']['rico_id']);
+
+    embed
+      .setColor('#8fde5d')
+      .setDescription('An error has occurred!')
+      .addField(
+        'Error',
+        `The server could not be accessed at this time, please try again later, or contact support.\n\n[Join the Discord](https://discord.gg/srNyk8G) or contact \`${rico.tag}\``,
+        true
+      )
+      .setTimestamp()
+      .setFooter(`${this.name.toUpperCase()} Help`);
+
+    return embed;
   }
 
   usageEmbed() {
@@ -198,6 +216,9 @@ class Command {
     let msg = this.MessageEmbed()
       .setColor('#8fde5d')
       .setAuthor('Did you mean?')
+      .setDescription(
+        'Click the appropriate reaction or re-type w/ the proper name.'
+      )
       .setTimestamp()
       .setFooter('Did you mean?');
 
@@ -206,7 +227,7 @@ class Command {
       if (counter >= 8) {
         break;
       }
-      msg.addField(`${counter + 1} : ${item[0]}`, '\n\u200B');
+      msg.addField(`${counter + 1}: ${item[0]}`, '\n\u200B');
       counter++;
     }
 
@@ -260,7 +281,7 @@ class Command {
           })
           .catch(async err => {
             if (err instanceof Error)
-              logger.error(err, { where: 'baseCommand.js 243' }); // only log if its not a collection & an actual error
+              logger.error(err, { where: 'command.js 243' }); // only log if its not a collection & an actual error
             await message.reactions
               .removeAll()
               .catch(err => logger.error('Failed to remove reactions %s', err));
