@@ -47,7 +47,7 @@ class Bot extends Client {
       );
       //this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
 
-      if (config['api_keys']['dbl_token']) {
+      if (config['api_keys']['dbl_token'] && !config['base']['dev_mode']) {
         const dbl = this.dblSetup(config['api_keys']['dbl_token']);
 
         this.setInterval(() => {
