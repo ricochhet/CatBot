@@ -40,16 +40,14 @@ class Ignore extends Command {
   }
 
   async run(client, message, args) {
-    const self = this;
-
     db.get(
       `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/ignoredChannels?key=${client.server_conf.server_key}`
-    ).then(function(data) {
+    ).then(data => {
       if (!data) {
         console.log(
           `Failed to request data @ ${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/ignoredChannels?key=${client.server_conf.server_key}`
         );
-        return message.channel.send(self.serverErrorEmbed());
+        return message.channel.send(this.serverErrorEmbed());
       }
 
       let ignored = JSON.parse(data);
@@ -132,13 +130,13 @@ class Ignore extends Command {
             // if (channelID.length != 18)
             //   return message.channel.send(this.usageEmbed('Invalid channel ID - should be 18 digits'));
 
-            let channel = self.getChannelFromMention(
+            let channel = this.getChannelFromMention(
               message.guild.channels.cache,
               channelID
             );
             if (!channel)
               return message.channel.send(
-                self.usageEmbed(`Can't find the channel by \`${channelID}\``)
+                this.usageEmbed(`Can't find the channel by \`${channelID}\``)
               );
             channelID = channel.id;
 
