@@ -141,6 +141,11 @@ class Bot extends Client {
     db.get(
       `${server_conf.server_url}database/${server_conf.server_clientid}/server/ignoredChannels?key=${server_conf.server_key}`
     ).then(function(data) {
+      if (!data)
+        return console.log(
+          `Failed to request data @ ${server_conf.server_url}database/${server_conf.server_clientid}/server/ignoredChannels?key=${server_conf.server_key}`
+        );
+
       let ignored = JSON.parse(data);
       //let ignored = require('./databases/server/ignoredChannels.json');
       if (ignored.channels) {

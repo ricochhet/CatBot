@@ -197,6 +197,10 @@ client.setInterval(() => {
   db.get(
     `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/posts?key=${client.server_conf.server_key}`
   ).then(function(data) {
+    if (!data) return console.log(
+      `Failed to request data @ ${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/posts?key=${client.server_conf.server_key}`
+    );
+
     const lfg = JSON.parse(data);
     let rewrite = false;
 

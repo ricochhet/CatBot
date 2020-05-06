@@ -22,6 +22,13 @@ class Subscribe extends Command {
       db.get(
         `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`
       ).then(function(data) {
+        if (!data) {
+          console.log(
+            `Failed to request data @ ${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`
+          );
+          return message.channel.send(self.serverErrorEmbed());
+        }
+
         let sub = JSON.parse(data);
         let channel;
 

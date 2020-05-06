@@ -6,6 +6,16 @@ class DisableCmdHandler {
   // Commands are stored per guild. Each guild has an entry in the db (key = guild id)
   // Within that each category has an entry (including 'main')
   // key = category name, value = list of disabled sub commands
+  isData() {
+    return new Promise(function(resolve, reject) {
+      db.get(
+        `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`
+      ).then(async function(data) {
+        if (!data) resolve(false);
+      });
+    });
+  }
+
   isGuildInDB(guildId) {
     return new Promise(function(resolve, reject) {
       db.get(

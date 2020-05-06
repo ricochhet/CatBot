@@ -46,6 +46,13 @@ class Toggle extends Command {
   async run(client, message, args) {
     const handler = new DisableCmdHandler();
 
+    if (!(await handler.isData())) {
+      console.log(
+        `Failed to request data @ ${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`
+      );
+      return message.channel.send(self.serverErrorEmbed());
+    }
+
     const guildId = message.guild.id;
 
     if (args[0] == 'list') {
