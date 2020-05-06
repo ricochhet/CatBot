@@ -50,7 +50,7 @@ class Toggle extends Command {
       console.log(
         `Failed to request data @ ${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`
       );
-      return message.channel.send(self.serverErrorEmbed());
+      return message.channel.send(this.serverErrorEmbed());
     }
 
     const guildId = message.guild.id;
