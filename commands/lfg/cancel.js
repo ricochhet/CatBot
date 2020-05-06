@@ -11,15 +11,17 @@ class Cancel extends Command {
   async run(client, message, args) {
     db.get(
       `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/posts?key=${client.server_conf.server_key}`
-    ).then(async function(data) {
+    ).then(async data => {
       if (!data) {
         console.log(
           `Failed to request data @ ${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/posts?key=${client.server_conf.server_key}`
         );
-        return message.channel.send(self.serverErrorEmbed());
+        return message.channel.send(this.serverErrorEmbed());
       }
 
+      const posts = JSON.parse(data);
       const userId = message.author.id;
+      console.log(posts);
 
       // Checks if the user has already posted or not
       let userFound = false;
