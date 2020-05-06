@@ -17,7 +17,6 @@ class Monster extends Command {
     logger.debug('monster log', { type: 'monsterRead', name: name });
 
     embed
-      .setURL(`https://mhdb.catbot.xyz/monsters/${name}`)
       .setDescription(`${monster.description}\n\n${monster.info}`)
       .setThumbnail(monster.thumbnail)
       .addField(
