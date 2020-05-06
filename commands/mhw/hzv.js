@@ -177,9 +177,9 @@ class Hzv extends Command {
           }
 
           if (TENDERIZED_WHITELIST.includes(hitzone)) {
-            const tenderizeVal = monsterEnrageInfo.tenderizeFormula.split(
-              '+'
-            )[1];
+            const tenderizeVal = Number(
+              monsterEnrageInfo.tenderizeFormula.split('+')[1]
+            );
             hzv = `${hzv} (${Math.round(hzv * 0.75 + tenderizeVal)})`;
             hzvImage.addResponsiveText(hzv, x + 20, y).setColor(HEX_WHITE);
             if (
