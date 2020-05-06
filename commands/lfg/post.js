@@ -37,16 +37,14 @@ class Post extends Command {
   }
 
   async sendSub(client, sessionID, content) {
-    const self = this;
-
     db.get(
       `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`
-    ).then(async function(data) {
+    ).then(async data => {
       if (!data) {
         console.log(
           `Failed to request data @ ${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`
         );
-        return message.channel.send(self.serverErrorEmbed());
+        return message.channel.send(this.serverErrorEmbed());
       }
 
       let sub = JSON.parse(data);
@@ -58,7 +56,7 @@ class Post extends Command {
         desc = content['description'];
       }
 
-      let tEmbed = self.MessageEmbed();
+      let tEmbed = this.MessageEmbed();
 
       tEmbed
         .setTitle('Session List')
@@ -81,7 +79,7 @@ class Post extends Command {
           .broadcastEval(
             `
           let channel = this.channels.cache.get('${channelID}');
-  
+
           if (channel != null) {
             channel.send( {embed : ${JSON.stringify(tEmbed.toJSON())}} )
             true
@@ -191,15 +189,13 @@ class Post extends Command {
       );
     }
 
-    const self = this;
-
     db.get(
       'http:localhost:8080/api/database/573958899582107653/lfg/posts?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
-    ).then(async function(data) {
+    ).then(async data => {
       // load in the current posts from the json db
       const posts = JSON.parse(data);
       //const posts = require('../../utils/databases/lfg/lfg.json');
-      const response = self.MessageEmbed();
+      const response = this.MessageEmbed();
 
       // Checks if the sessionID has already been posted
       if (
@@ -228,7 +224,7 @@ class Post extends Command {
       if (repost) {
         delete posts[repost];
 
-        self.updatePostsDb(posts);
+        this.updatePostsDb(posts);
 
         message.channel.send(
           `Meowster, the session \`${repost}\` was replaced!`
@@ -251,11 +247,11 @@ class Post extends Command {
       // Finishes up object and pushes it back into the lfg db
       posts[sessionID] = newPost;
 
-      self.updatePostsDb(posts);
+      this.updatePostsDb(posts);
       message.channel.send(response);
 
       // Sends to all channel that are set to sub board
-      await self.sendSub(client, sessionID, newPost);
+      await this.sendSub(client, sessionID, newPost);
     });
   }
 }

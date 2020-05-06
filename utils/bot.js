@@ -207,7 +207,6 @@ class Bot extends Client {
       let category, name;
       if (command.category) {
         category = command.subTree;
-        console.log(category);
         // find subcommand (by name or alias)
         let subCmd = client[category].find(
           cmd => cmd.name == args[0] || cmd.alias.includes(args[0])

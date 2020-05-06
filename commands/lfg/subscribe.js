@@ -17,16 +17,14 @@ class Subscribe extends Command {
 
   async run(client, message, args) {
     if (message.member.hasPermission('MANAGE_CHANNELS')) {
-      const self = this;
-
       db.get(
         `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`
-      ).then(function(data) {
+      ).then(data => {
         if (!data) {
           console.log(
             `Failed to request data @ ${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`
           );
-          return message.channel.send(self.serverErrorEmbed());
+          return message.channel.send(this.serverErrorEmbed());
         }
 
         let sub = JSON.parse(data);
@@ -35,7 +33,7 @@ class Subscribe extends Command {
         if (args[0] == undefined) {
           channel = message.channel;
         } else {
-          channel = self.getChannelFromMention(
+          channel = this.getChannelFromMention(
             message.guild.channels.cache,
             args[0]
           );
