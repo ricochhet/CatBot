@@ -12,6 +12,7 @@ class DisableCmdHandler {
         `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`
       ).then(async function(data) {
         if (!data) resolve(false);
+        resolve(true);
       });
     });
   }
