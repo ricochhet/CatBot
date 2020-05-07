@@ -73,7 +73,6 @@ class Weapon extends Command {
 
       let reactions = {};
       let embeds = [embed[0], embed[1]];
-      console.log(embeds);
 
       this.menu(
         message,
