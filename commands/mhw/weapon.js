@@ -6,12 +6,12 @@ class Weapon extends Command {
     super('weapon', 'weapon [weapon name]', 'Get info for a specific weapon');
   }
 
-  weaponEmbed(client, name, rawEmbed = this.MessageEmbed()) {
+  weaponEmbed(client, name) {
     const weapon = client.mhwWeapons.get(name);
 
     logger.debug('weapon log', { type: 'weaponRead', name: name });
 
-    const embed = rawEmbed
+    const embed = this.MessageEmbed()
       .setColor('#8fde5d')
       .setTitle(weapon.name)
       .addField('Type', weapon.type, true)
@@ -31,11 +31,17 @@ class Weapon extends Command {
       .addField('Sharpness', weapon.sharpness.base, true)
       .addField('Forge', weapon.crafting, true)
       .addField('Upgrade', weapon.upgrade, true)
+      .setTimestamp()
+      .setFooter('Info Menu');
+
+    const embed_2 = this.MessageEmbed()
+      .setColor('#8fde5d')
+      .setTitle(weapon.name)
       .addField('Ammos', weapon.ammos)
       .setTimestamp()
       .setFooter('Info Menu');
 
-    return embed;
+    return [embed, embed_2];
   }
 
   async run(client, message, args) {
@@ -63,8 +69,27 @@ class Weapon extends Command {
 
       message.channel.send(msg);
     } else if (client.mhwWeapons.has(input)) {
-      const embed = this.weaponEmbed(client, input);
-      message.channel.send(embed);
+      let embed = this.weaponEmbed(client, input);
+
+      let reactions = {};
+      let embeds = [embed[0], embed[1]];
+      console.log(embeds);
+
+      this.menu(
+        message,
+        embeds,
+        120000,
+        (reactions = {
+          first: '⏪',
+          back: '◀',
+          next: '▶',
+          last: '⏩',
+          stop: '⏹'
+        }),
+        true // override embed footers (with page number)
+      );
+
+      // message.channel.send(embed);
     }
   }
 }
