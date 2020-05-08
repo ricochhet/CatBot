@@ -9,10 +9,10 @@ class Monster extends Command {
     );
   }
 
-  monsterEmbed(client, name, rawEmbed) {
-    const monster = client.mhguMonsters.get(name);
+  monsterEmbed(message, name, rawEmbed = this.MessageEmbed, menu = this.menu) {
+    const monster = message.client.mhguMonsters.get(name);
 
-    const embed = rawEmbed
+    const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle(monster.name)
       .addField(
@@ -66,7 +66,7 @@ class Monster extends Command {
 
       message.channel.send(msg);
     } else if (client.mhguMonsters.has(input)) {
-      const embed = this.monsterEmbed(client, input, this.MessageEmbed());
+      const embed = this.monsterEmbed(message, input);
       message.channel.send(embed);
     }
   }

@@ -10,8 +10,8 @@ class RollHunt extends Command {
     );
   }
 
-  rollEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const monster = client.mhwMonsters.get(
+  rollEmbed(message, name, rawEmbed = this.MessageEmbed, menu = this.menu) {
+    const monster = message.client.mhwMonsters.get(
       [...client.mhwMonsters.keys()][
         Math.floor(Math.random() * client.mhwMonsters.size)
       ]
@@ -27,7 +27,7 @@ class RollHunt extends Command {
       ]
     );
 
-    const embed = rawEmbed
+    const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle('Roll Hunt')
       .setThumbnail(monster.thumbnail)
@@ -51,7 +51,7 @@ class RollHunt extends Command {
       return message.channel.send(this.serverErrorEmbed());
     }
 
-    const embed = this.rollEmbed(client, input);
+    const embed = this.rollEmbed(message, input);
     message.channel.send(embed);
   }
 }

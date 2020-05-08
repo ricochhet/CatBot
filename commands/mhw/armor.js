@@ -8,8 +8,8 @@ class Armor extends Command {
     });
   }
 
-  armorEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const armor = client.mhwArmors.get(name);
+  armorEmbed(message, name, rawEmbed = this.MessageEmbed, menu = this.menu) {
+    const armor = message.client.mhwArmors.get(name);
 
     // Align the icons + resistance values
     let formatted = '';
@@ -23,7 +23,7 @@ class Armor extends Command {
 
     logger.debug('armor log', { type: 'armorRead', name: name });
 
-    const embed = rawEmbed
+    const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle(armor.name)
       .addField('Set Bonus', armor.setBonus)
@@ -64,7 +64,7 @@ class Armor extends Command {
 
       message.channel.send(msg);
     } else if (client.mhwArmors.has(input)) {
-      const embed = this.armorEmbed(client, input);
+      const embed = this.armorEmbed(message, input);
       message.channel.send(embed);
     }
   }

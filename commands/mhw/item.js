@@ -6,12 +6,12 @@ class Item extends Command {
     super('item', 'item [item name]', 'Get info for a specific item');
   }
 
-  itemEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const item = client.mhwItems.get(name);
+  itemEmbed(message, name, rawEmbed = this.MessageEmbed, menu = this.menu) {
+    const item = message.client.mhwItems.get(name);
 
     logger.debug('item log', { type: 'itemRead', name: name });
 
-    const embed = rawEmbed
+    const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle(item.name)
       .setDescription(item.description)
@@ -49,7 +49,7 @@ class Item extends Command {
 
       message.channel.send(msg);
     } else if (client.mhwItems.has(input)) {
-      const embed = this.itemEmbed(client, input);
+      const embed = this.itemEmbed(message, input);
       message.channel.send(embed);
     }
   }

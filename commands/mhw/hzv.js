@@ -38,7 +38,12 @@ class Hzv extends Command {
     super('hzv', 'hzv [monster name]', 'Get hzv info for a specific monster');
   }
 
-  async monsterEmbed(client, name, rawEmbed = this.MessageEmbed()) {
+  async monsterEmbed(
+    message,
+    name,
+    rawEmbed = this.MessageEmbed,
+    menu = this.menu
+  ) {
     async function hzvImageGen(monsterName) {
       // get the monster hzv info from the db
       const monsterHzvInfo = client.mhwMonsters.get(
@@ -203,8 +208,10 @@ class Hzv extends Command {
       return new MessageAttachment(hzvImage.toBuffer(), HZV_FILENAME);
     }
 
-    const monster = client.mhwMonsters.get(name);
-    const embed = rawEmbed.setColor('#8fde5d').setTitle(monster.title);
+    const monster = message.client.mhwMonsters.get(name);
+    const embed = rawEmbed()
+      .setColor('#8fde5d')
+      .setTitle(monster.title);
 
     logger.debug('hzv log', { type: 'monsterRead', name: name });
 
@@ -274,7 +281,7 @@ class Hzv extends Command {
 
       message.channel.send(msg);
     } else if (client.mhwMonsters.has(input)) {
-      const embed = await this.monsterEmbed(client, input);
+      const embed = await this.monsterEmbed(message, input);
       message.channel.send(embed);
     }
   }
