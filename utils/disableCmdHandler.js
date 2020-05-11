@@ -6,10 +6,6 @@ class DisableCmdHandler {
   // key = category name, value = list of disabled sub commands
   constructor(apiClient) {
     this.apiClient = apiClient;
-    this.db = this.apiClient
-      .getDisabledCommands()
-      .then(value => value)
-      .catch(err => logger.error(err, { where: 'disableCommand.js 11' }));
   }
 
   async initDb() {
