@@ -1,22 +1,14 @@
 const { ShardingManager } = require('discord.js');
 const config = require('./config.json');
+const logger = require('./utils/log');
 
-if (config['base']['dev_mode'] == true) {
-  const manager = new ShardingManager('./utils/main.js', {
-    token: config['base']['token_dev']
-  });
+const manager = new ShardingManager('./utils/main.js', {
+  token: config['bot']['token']
+});
 
-  manager.spawn();
-  manager.on('shardCreate', shard =>
-    console.log(`[SHARD] Launched shard ${shard.id} / ${manager.totalShards}`)
-  );
-} else {
-  const manager = new ShardingManager('./utils/main.js', {
-    token: config['base']['token_main']
-  });
-
-  manager.spawn();
-  manager.on('shardCreate', shard =>
-    console.log(`[SHARD] Launched shard ${shard.id} / ${manager.totalShards}`)
-  );
-}
+manager.spawn();
+manager.on('shardCreate', shard =>
+  logger.info(
+    `[SHARD] Launched shard #${shard.id} (total ${manager.totalShards})`
+  )
+);

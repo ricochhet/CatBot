@@ -1,6 +1,5 @@
 const Command = require('../../utils/command.js');
-const db = require('../../utils/libraries/client');
-const fs = require('fs');
+const logger = require('../../utils/log.js');
 
 class Subscribe extends Command {
   constructor(prefix) {
@@ -17,76 +16,66 @@ class Subscribe extends Command {
 
   async run(client, message, args) {
     if (message.member.hasPermission('MANAGE_CHANNELS')) {
-      db.get(
-        `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`
-      ).then(data => {
-        if (!data) {
-          console.log(
-            `Failed to request data @ ${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`
-          );
-          return message.channel.send(this.serverErrorEmbed());
-        }
+      client.apiClient
+        .getLfgSubs()
+        .then(subs => {
+          let channel;
 
-        let sub = JSON.parse(data);
-        let channel;
+          if (args[0] == undefined) {
+            channel = message.channel;
+          } else {
+            channel = this.getChannelFromMention(
+              message.guild.channels.cache,
+              args[0]
+            );
+            if (!channel)
+              return message.reply(
+                `Sorry meowster but ${args[0]} doesn't exist`
+              );
 
-        if (args[0] == undefined) {
-          channel = message.channel;
-        } else {
-          channel = this.getChannelFromMention(
-            message.guild.channels.cache,
-            args[0]
-          );
-          if (!channel)
-            return message.reply(`Sorry meowster but ${args[0]} doesn't exist`);
+            if (
+              !channel
+                .permissionsFor(message.guild.client.user)
+                .has('SEND_MESSAGES', true)
+            ) {
+              return message.reply(
+                `Sorry meowster but I can't send messages in ${channel.name}`
+              );
+            }
 
-          if (
-            !channel
-              .permissionsFor(message.guild.client.user)
-              .has('SEND_MESSAGES', true)
-          ) {
-            return message.reply(
-              `Sorry meowster but I can't send messages in ${channel.name}`
+            if (
+              !channel
+                .permissionsFor(message.guild.client.user)
+                .has('MANAGE_MESSAGES', true)
+            ) {
+              return message.reply(
+                `Sorry meowster but I don't have the **Manage Messages** permission in ${channel.name}`
+              );
+            }
+          }
+
+          if (subs['subscribe'].includes(channel.id)) {
+            // Remove from array
+            subs['subscribe'] = subs['subscribe'].filter(function(element) {
+              return element !== channel.id;
+            });
+            message.reply(
+              `Meowster the channel ${channel.name} will no longer act as a session board!`
+            );
+          } else {
+            // Add to array
+            subs['subscribe'].push(channel.id);
+            message.reply(
+              `Meowster the channel ${channel.name} will now act as a session board!`
             );
           }
 
-          if (
-            !channel
-              .permissionsFor(message.guild.client.user)
-              .has('MANAGE_MESSAGES', true)
-          ) {
-            return message.reply(
-              `Sorry meowster but I don't have the **Manage Messages** permission in ${channel.name}`
-            );
-          }
-        }
-
-        if (sub['subscribe'].includes(channel.id)) {
-          // Remove from array
-          sub['subscribe'] = sub['subscribe'].filter(function(element) {
-            return element !== channel.id;
-          });
-          message.reply(
-            `Meowster the channel ${channel.name} will no longer act as a session board!`
-          );
-        } else {
-          // Add to array
-          sub['subscribe'].push(channel.id);
-          message.reply(
-            `Meowster the channel ${channel.name} will now act as a session board!`
-          );
-        }
-
-        db.request(
-          { message: sub },
-          {
-            hostname: client.server_conf.server_hostname,
-            port: client.server_conf.server_port,
-            path: `${client.server_conf.server_apipath}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`,
-            method: 'POST'
-          }
-        );
-      });
+          client.apiClient.updateLfgSubs(subs);
+        })
+        .catch(error => {
+          logger.error('Failed retrieving lfg subs', error);
+          message.channel.send(this.serverErrorEmbed());
+        });
     } else {
       message.reply(
         `Sorry meowster but you don't have the **Manage Channels** permission!`

@@ -1,5 +1,6 @@
 const Command = require('../../utils/command.js');
 const DisableCmdHandler = require('../../utils/disableCmdHandler.js');
+const logger = require('../../utils/log.js');
 
 class Toggle extends Command {
   constructor(prefix) {
@@ -44,22 +45,20 @@ class Toggle extends Command {
   }
 
   async run(client, message, args) {
-    const handler = new DisableCmdHandler();
+    const handler = new DisableCmdHandler(client.apiClient);
 
-    if (!(await handler.isData())) {
-      console.log(
-        `Failed to request data @ ${client.server_conf.server_url}database/${client.server_conf.server_clientid}/server/disabledCommands?key=${client.server_conf.server_key}`
-      );
+    await handler.initDb().catch(err => {
+      logger.error(err);
       return message.channel.send(this.serverErrorEmbed());
-    }
+    });
 
     const guildId = message.guild.id;
 
     if (args[0] == 'list') {
-      if (!(await handler.isGuildInDB(guildId)))
+      if (!handler.isGuildInDB(guildId))
         return message.channel.send('⚠️ Meowster, no commands are disabled!');
 
-      let reply = await handler.getDisabledList(guildId);
+      let reply = handler.getDisabledList(guildId);
 
       reply = `Disabled Commands\n\`\`\`${reply}\`\`\``;
 
@@ -74,9 +73,9 @@ class Toggle extends Command {
 
     if (command.category && args.length == 1) {
       // user wants to toggle a whole category
-      const category = command.name;
+      const category = command.subTree;
 
-      if (await handler.isCategoryDisabled(guildId, category)) {
+      if (handler.isCategoryDisabled(guildId, category)) {
         handler.enableCategory(guildId, category);
         return message.channel.send(
           `✅ Enabled all **${category.toUpperCase()}** commands!`
@@ -115,7 +114,7 @@ class Toggle extends Command {
       );
     }
 
-    if (await handler.isCommandDisabled(guildId, category, name)) {
+    if (handler.isCommandDisabled(guildId, category, name)) {
       handler.enableCommand(guildId, category, name);
       category = category == 'main' ? '' : category + ' ';
 

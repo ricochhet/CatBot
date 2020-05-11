@@ -5,17 +5,7 @@ const { parse } = require('path');
 
 const logger = require('./log.js');
 const DisableCmdHandler = require('./disableCmdHandler.js');
-const db = require('./libraries/client');
 const config = require('../config.json');
-
-let server_conf = {
-  server_clientid: config['server']['client_id'],
-  server_url: config['server']['url_base'],
-  server_key: config['api_keys']['catbotserver_key'],
-  server_port: config['server']['port'],
-  server_hostname: config['server']['hostname'],
-  server_apipath: config['server']['api_path']
-};
 
 // params and defaults at https://discord.js.org/#/docs/main/v12/typedef/ClientOptions
 // these are the only values we're customizing (using defaults otherwise)
@@ -45,10 +35,10 @@ class Bot extends Client {
       this.shard.broadcastEval(
         `this.user.setActivity('for ${this.prefix}help', { type: 'WATCHING' });`
       );
-      //this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
 
-      if (config['api_keys']['dbl_token'] && !config['base']['dev_mode']) {
-        const dbl = this.dblSetup(config['api_keys']['dbl_token']);
+      const dbl_token = config['bot']['dbl_token'];
+      if (dbl_token) {
+        const dbl = new DBL(dbl_token);
 
         this.setInterval(() => {
           this.shard.fetchClientValues('guilds.cache').then(results => {
@@ -67,10 +57,6 @@ class Bot extends Client {
     return new Collection();
   }
 
-  dblSetup(token) {
-    return new DBL(token, this);
-  }
-
   setupDB(collection, jsonDir) {
     let json = require(jsonDir);
     for (const i of Object.keys(json)) {
@@ -78,7 +64,7 @@ class Bot extends Client {
     }
   }
 
-  buildCommands(parentDir, collectionNameOverides) {
+  async buildCommands(parentDir, collectionNameOverides) {
     glob(`${parentDir}/**/*.js`, async (_, files) => {
       files.forEach(file => {
         let { dir, name } = parse(file);
@@ -138,16 +124,7 @@ class Bot extends Client {
       return;
 
     // Check if the channel should be ignored (bypassed for ADMINS)
-    db.get(
-      `${server_conf.server_url}database/${server_conf.server_clientid}/server/ignoredChannels?key=${server_conf.server_key}`
-    ).then(function(data) {
-      if (!data)
-        return console.log(
-          `Failed to request data @ ${server_conf.server_url}database/${server_conf.server_clientid}/server/ignoredChannels?key=${server_conf.server_key}`
-        );
-
-      let ignored = JSON.parse(data);
-      //let ignored = require('./databases/server/ignoredChannels.json');
+    client.apiClient.getIgnoredChannels().then(ignored => {
       if (ignored.channels) {
         if (
           ignored.channels.includes(message.channel.id) &&
@@ -187,7 +164,7 @@ class Bot extends Client {
     if (command.secret && message.author.id != config['user_ids']['rico_id'])
       return;
 
-    // Ignore admin only commands
+    // Ignore admin only commands, unless user is dev
     if (
       command.admin &&
       !message.member.hasPermission('ADMINISTRATOR') &&
@@ -199,7 +176,7 @@ class Bot extends Client {
     }
 
     // Check if command is disabled (bypass for ADMINS)
-    let handler = new DisableCmdHandler();
+    let handler = new DisableCmdHandler(client.apiClient);
     if (
       !message.member.hasPermission('ADMINISTRATOR') &&
       handler.isGuildInDB(message.guild.id)
@@ -218,7 +195,7 @@ class Bot extends Client {
         name = command.name;
       }
 
-      if (await handler.isCommandDisabled(message.guild.id, category, name)) {
+      if (handler.isCommandDisabled(message.guild.id, category, name)) {
         return message.channel.send(
           'Sorry meowster, but the admins of this server have disabled this command!'
         );

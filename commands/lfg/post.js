@@ -1,5 +1,4 @@
 const Command = require('../../utils/command.js');
-const db = require('../../utils/libraries/client');
 const logger = require('../../utils/log.js');
 
 class Post extends Command {
@@ -37,47 +36,38 @@ class Post extends Command {
   }
 
   async sendSub(client, sessionID, content) {
-    db.get(
-      `${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`
-    ).then(async data => {
-      if (!data) {
-        console.log(
-          `Failed to request data @ ${client.server_conf.server_url}database/${client.server_conf.server_clientid}/lfg/subscribe?key=${client.server_conf.server_key}`
+    client.apiClient
+      .getLfgSubs()
+      .then(sub => {
+        let desc;
+        if (!content['description']) {
+          desc = 'No description provided.';
+        } else {
+          desc = content['description'];
+        }
+
+        let tEmbed = this.MessageEmbed();
+
+        tEmbed
+          .setTitle('Session List')
+          .setDescription('Find other players to hunt with!')
+          .setColor('#8fde5d');
+
+        tEmbed.addField(
+          '\u200B',
+          '```\n' +
+            `🔖 Session ID: ${sessionID}\n` +
+            `🕹️ Platform: ${content['platform']}\n` +
+            `📝 Description: ${desc}\n` +
+            '```'
         );
-        return message.channel.send(this.serverErrorEmbed());
-      }
 
-      let sub = JSON.parse(data);
-
-      let desc;
-      if (!content['description']) {
-        desc = 'No description provided.';
-      } else {
-        desc = content['description'];
-      }
-
-      let tEmbed = this.MessageEmbed();
-
-      tEmbed
-        .setTitle('Session List')
-        .setDescription('Find other players to hunt with!')
-        .setColor('#8fde5d');
-
-      tEmbed.addField(
-        '\u200B',
-        '```\n' +
-          `🔖 Session ID: ${sessionID}\n` +
-          `🕹️ Platform: ${content['platform']}\n` +
-          `📝 Description: ${desc}\n` +
-          '```'
-      );
-
-      let removableChannels = [];
-      for (const channelID of sub['subscribe']) {
-        // you need to await as client.shard.broadcastEval is automaticly async function?
-        await client.shard
-          .broadcastEval(
-            `
+        let removableChannels = [];
+        for (const channelID of sub['subscribe']) {
+          // you need to await as client.shard.broadcastEval is automaticly async function?
+          client.shard
+            .broadcastEval(
+              `
           let channel = this.channels.cache.get('${channelID}');
 
           if (channel != null) {
@@ -87,42 +77,26 @@ class Post extends Command {
             false
           }
         `
-          )
-          .then(results => {
-            // if all the shards counldnt find the channel add it too the removableChannels list
-            if (results.every(result => result == false))
-              removableChannels.push(channelID);
-          })
-          .catch(err => logger.error(err, { where: 'feedback.js 77' }));
-      }
-
-      // You need to assign sub['subscribe] to a variable otherwise it doesn't work
-      sub['subscribe'] = sub['subscribe'].filter(function(e) {
-        return !removableChannels.includes(e);
-      });
-
-      db.request(
-        { message: sub },
-        {
-          hostname: client.server_conf.server_hostname,
-          port: client.server_conf.server_port,
-          path: `${client.server_conf.server_apipath}database/${client.server_conf.server_clientid}/lfg/susbcribe?key=${client.server_conf.server_key}`,
-          method: 'POST'
+            )
+            .then(results => {
+              // if all the shards counldnt find the channel add it too the removableChannels list
+              if (results.every(result => result == false))
+                removableChannels.push(channelID);
+            })
+            .catch(err => logger.error(err, { where: 'feedback.js 77' }));
         }
-      );
-    });
-  }
 
-  updatePostsDb(json) {
-    db.request(
-      { message: json },
-      {
-        hostname: client.server_conf.server_hostname,
-        port: client.server_conf.server_port,
-        path: `${client.server_conf.server_apipath}database/${client.server_conf.server_clientid}/lfg/posts?key=${client.server_conf.server_key}`,
-        method: 'POST'
-      }
-    );
+        // You need to assign sub['subscribe] to a variable otherwise it doesn't work
+        sub['subscribe'] = sub['subscribe'].filter(function(e) {
+          return !removableChannels.includes(e);
+        });
+
+        client.apiClient.updateLfgSubs(sub);
+      })
+      .catch(err => {
+        logger.error(err);
+        message.channel.send(this.serverErrorEmbed());
+      });
   }
 
   async run(client, message, args) {
@@ -173,7 +147,6 @@ class Post extends Command {
         return message.channel.send(
           this.usageEmbed(
             `XBOX/PS4 session ids must be in the format of \`xxxx xxxx xxxx\` or \`xxxx-xxxx-xxxx\`.`
-            //`XBOX/PS4 session ids need to be between 14 and 16 characters long \`${sessionID}\` is ${sessionID.length} characters long.`
           )
         );
       }
@@ -189,70 +162,71 @@ class Post extends Command {
       );
     }
 
-    db.get(
-      'http:localhost:8080/api/database/573958899582107653/lfg/posts?key=5e97fa61-c93d-46dd-9f71-826a5caf0984'
-    ).then(async data => {
-      // load in the current posts from the json db
-      const posts = JSON.parse(data);
-      //const posts = require('../../utils/databases/lfg/lfg.json');
-      const response = this.MessageEmbed();
+    client.apiClient
+      .getLfgPosts()
+      .then(posts => {
+        const response = this.MessageEmbed();
 
-      // Checks if the sessionID has already been posted
-      if (
-        Object.keys(posts).includes(sessionID) &&
-        posts[sessionID]['userID'] != message.author.id
-      ) {
-        return message.channel.send(
-          'Sorry meowster but someone else has posted that session already!'
-        );
-      }
-
-      // Create the new post
-      const newPost = {
-        description: description
-      };
-
-      // Checks if the user has already posted or not
-      let repost = false;
-      for (let post in posts) {
-        if (posts[post]['userID'] == message.author.id) {
-          repost = post;
-          break;
+        // Checks if the sessionID has already been posted
+        if (
+          Object.keys(posts).includes(sessionID) &&
+          posts[sessionID]['userID'] != message.author.id
+        ) {
+          return message.channel.send(
+            'Sorry meowster but someone else has posted that session already!'
+          );
         }
-      }
 
-      if (repost) {
-        delete posts[repost];
+        // Create the new post
+        const newPost = {
+          description: description
+        };
 
-        this.updatePostsDb(posts);
+        // Checks if the user has already posted or not
+        let repost = false;
+        for (let post in posts) {
+          if (posts[post]['userID'] == message.author.id) {
+            repost = post;
+            break;
+          }
+        }
 
-        message.channel.send(
-          `Meowster, the session \`${repost}\` was replaced!`
-        );
-      }
+        if (repost) {
+          delete posts[repost];
 
-      newPost['userID'] = message.author.id;
-      newPost['platform'] = platform;
-      newPost['time'] = Date.now();
+          client.apiClient.updateLfgPosts(posts);
 
-      if (newPost['description'].length == 0)
-        newPost['description'] = 'No description provided.';
+          message.channel.send(
+            `Meowster, the session \`${repost}\` was replaced!`
+          );
+        }
 
-      // Create embed for SUCCESSFUL requests
-      response
-        .setColor('#8fde5d')
-        .setTitle(`${platform.toUpperCase()} REQUEST SUCCESSFUL`)
-        .addField(`**${sessionID}**`, `*${newPost['description']}*`);
+        newPost['userID'] = message.author.id;
+        newPost['platform'] = platform;
+        newPost['time'] = Date.now();
 
-      // Finishes up object and pushes it back into the lfg db
-      posts[sessionID] = newPost;
+        if (newPost['description'].length == 0)
+          newPost['description'] = 'No description provided.';
 
-      this.updatePostsDb(posts);
-      message.channel.send(response);
+        // Create embed for SUCCESSFUL requests
+        response
+          .setColor('#8fde5d')
+          .setTitle(`${platform.toUpperCase()} REQUEST SUCCESSFUL`)
+          .addField(`**${sessionID}**`, `*${newPost['description']}*`);
 
-      // Sends to all channel that are set to sub board
-      await this.sendSub(client, sessionID, newPost);
-    });
+        // Finishes up object and pushes it back into the lfg db
+        posts[sessionID] = newPost;
+
+        client.apiClient.updateLfgPosts(posts);
+        message.channel.send(response);
+
+        // Sends to all channel that are set to sub board
+        this.sendSub(client, sessionID, newPost);
+      })
+      .catch(err => {
+        logger.error(err);
+        message.channel.send(this.serverErrorEmbed());
+      });
   }
 }
 

@@ -9,11 +9,10 @@ class Catfacts extends Command {
   }
 
   async run(client, message, args) {
-    const catFactKeys = Object.values(JSON.parse(client.catfacts));
+    if (!client.catfacts) return message.channel.send(this.serverErrorEmbed());
 
-    message.channel.send(
-      catFactKeys[Math.floor(Math.random() * catFactKeys.length)]
-    );
+    const randomIndex = Math.floor(Math.random() * client.catfacts.length);
+    message.channel.send(client.catfacts[randomIndex]);
   }
 }
 
