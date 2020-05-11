@@ -180,7 +180,7 @@ class Bot extends Client {
 
     await handler.initDb().catch(err => {
       logger.error(err);
-      return message.channel.send(this.serverErrorEmbed());
+      return message.channel.send(command.serverErrorEmbed());
     });
 
     if (
