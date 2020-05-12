@@ -8,7 +8,12 @@ class Armor extends Command {
     });
   }
 
-  armorEmbed(message, name, rawEmbed = this.MessageEmbed, menu = this.menu) {
+  async armorEmbed(
+    message,
+    name,
+    rawEmbed = this.MessageEmbed,
+    menu = this.menu
+  ) {
     const armor = message.client.mhwArmors.get(name);
 
     // Align the icons + resistance values
@@ -23,20 +28,44 @@ class Armor extends Command {
 
     logger.debug('armor log', { type: 'armorRead', name: name });
 
-    const embed = rawEmbed()
+    const page1 = rawEmbed()
       .setColor('#8fde5d')
-      .setTitle(armor.name)
+      .setTitle(armor.name);
+
+    const page2 = rawEmbed()
+      .setColor('#8fde5d')
+      .setTitle(armor.name);
+
+    page1
       .addField('Set Bonus', armor.setBonus)
       .addField('Pieces', armor.pieces)
       .addField('Resistances', formatted, true)
       .addField('Defenses', armor.defenses, true)
-      .addField('\u200b', '\u200b')
+      .setTimestamp()
+      .setFooter('Info Menu');
+
+    page2
       .addField('Slots', armor.slots, true)
       .addField('Skills', armor.skills, true)
       .setTimestamp()
       .setFooter('Info Menu');
 
-    return embed;
+    let embeds = [page1, page2];
+
+    let reactions = {};
+    menu(
+      message,
+      embeds,
+      120000,
+      (reactions = {
+        first: '⏪',
+        back: '◀',
+        next: '▶',
+        last: '⏩',
+        stop: '⏹'
+      }),
+      true // override embed footers (with page number)
+    );
   }
 
   async run(client, message, args) {
@@ -64,8 +93,7 @@ class Armor extends Command {
 
       message.channel.send(msg);
     } else if (client.mhwArmors.has(input)) {
-      const embed = this.armorEmbed(message, input);
-      message.channel.send(embed);
+      await this.armorEmbed(message, input);
     }
   }
 }

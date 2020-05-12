@@ -6,14 +6,25 @@ class Weapon extends Command {
     super('weapon', 'weapon [weapon name]', 'Get info for a specific weapon');
   }
 
-  weaponEmbed(message, name, rawEmbed = this.MessageEmbed, menu = this.menu) {
+  async weaponEmbed(
+    message,
+    name,
+    rawEmbed = this.MessageEmbed,
+    menu = this.menu
+  ) {
     const weapon = message.client.mhwWeapons.get(name);
 
     logger.debug('weapon log', { type: 'weaponRead', name: name });
 
-    const embed = rawEmbed()
+    const page1 = rawEmbed()
       .setColor('#8fde5d')
-      .setTitle(weapon.name)
+      .setTitle(weapon.name);
+
+    const page2 = rawEmbed()
+      .setColor('#8fde5d')
+      .setTitle(weapon.name);
+
+    page1
       .addField('Type', weapon.type, true)
       .addField('Rarity', weapon.rarity, true)
       .addField('Displayed Attack', weapon.displayAttack, true)
@@ -31,11 +42,30 @@ class Weapon extends Command {
       .addField('Sharpness', weapon.sharpness.base, true)
       .addField('Forge', weapon.crafting, true)
       .addField('Upgrade', weapon.upgrade, true)
+      .setTimestamp()
+      .setFooter('Info Menu');
+
+    page2
       .addField('Ammos', weapon.ammos)
       .setTimestamp()
       .setFooter('Info Menu');
 
-    return embed;
+    let embeds = [page1, page2];
+
+    let reactions = {};
+    menu(
+      message,
+      embeds,
+      120000,
+      (reactions = {
+        first: '⏪',
+        back: '◀',
+        next: '▶',
+        last: '⏩',
+        stop: '⏹'
+      }),
+      true // override embed footers (with page number)
+    );
   }
 
   async run(client, message, args) {
@@ -63,8 +93,7 @@ class Weapon extends Command {
 
       message.channel.send(msg);
     } else if (client.mhwWeapons.has(input)) {
-      let embed = this.weaponEmbed(message, input);
-      message.channel.send(embed);
+      await this.weaponEmbed(message, input);
     }
   }
 }
