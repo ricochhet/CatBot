@@ -1,8 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
-
-const monsterDatabase = require(`../../utils/databases/mhw/monsters.json`);
-const weaponDatabase = require(`../../utils/databases/mhw/weapons.json`);
-const armorDatabase = require(`../../utils/databases/mhw/armors.json`);
+const Command = require('../../utils/command.js');
 
 class RollHunt extends Command {
   constructor(prefix) {
@@ -14,24 +10,29 @@ class RollHunt extends Command {
     );
   }
 
-  rollEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const mhMonsterKeys = Object.values(monsterDatabase);
-    const mhWeaponKeys = Object.values(weaponDatabase);
-    const mhArmorKeys = Object.values(armorDatabase);
+  rollEmbed(message, name, rawEmbed = this.MessageEmbed, menu = this.menu) {
+    const monster = message.client.mhwMonsters.get(
+      [...client.mhwMonsters.keys()][
+        Math.floor(Math.random() * client.mhwMonsters.size)
+      ]
+    );
+    const armor = client.mhwArmors.get(
+      [...client.mhwArmors.keys()][
+        Math.floor(Math.random() * client.mhwArmors.size)
+      ]
+    );
+    const weapon = client.mhwWeapons.get(
+      [...client.mhwWeapons.keys()][
+        Math.floor(Math.random() * client.mhwWeapons.size)
+      ]
+    );
 
-    const monster =
-      mhMonsterKeys[Math.floor(Math.random() * mhMonsterKeys.length)];
-    const weapon =
-      mhWeaponKeys[Math.floor(Math.random() * mhWeaponKeys.length)];
-    const armor =
-      mhArmorKeys[Math.floor(Math.random() * mhArmorKeys.length)].name;
-
-    const embed = rawEmbed
+    const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle('Roll Hunt')
-      .setThumbnail(monster.details.thumbnail)
-      .addField('Monster', monster.details.title)
-      .addField('Armor', armor)
+      .setThumbnail(monster.thumbnail)
+      .addField('Monster', monster.title)
+      .addField('Armor', armor.name)
       .addField('Weapon', `${weapon.type}: ${weapon.name}`)
       .setTimestamp()
       .setFooter('Roll Menu');
@@ -42,7 +43,15 @@ class RollHunt extends Command {
   async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
-    const embed = this.rollEmbed(client, input);
+    if (client.mhwArmors == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    } else if (client.mhwArmors == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    } else if (client.mhwMonsters == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    }
+
+    const embed = this.rollEmbed(message, input);
     message.channel.send(embed);
   }
 }

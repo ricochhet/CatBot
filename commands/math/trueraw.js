@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 
 class Trueraw extends Command {
   constructor(prefix) {

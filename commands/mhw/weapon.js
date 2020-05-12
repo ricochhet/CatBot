@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Weapon extends Command {
@@ -6,14 +6,25 @@ class Weapon extends Command {
     super('weapon', 'weapon [weapon name]', 'Get info for a specific weapon');
   }
 
-  weaponEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const weapon = client.weapons.get(name);
+  async weaponEmbed(
+    message,
+    name,
+    rawEmbed = this.MessageEmbed,
+    menu = this.menu
+  ) {
+    const weapon = message.client.mhwWeapons.get(name);
 
     logger.debug('weapon log', { type: 'weaponRead', name: name });
 
-    const embed = rawEmbed
+    const page1 = rawEmbed()
       .setColor('#8fde5d')
-      .setTitle(weapon.name)
+      .setTitle(weapon.name);
+
+    const page2 = rawEmbed()
+      .setColor('#8fde5d')
+      .setTitle(weapon.name);
+
+    page1
       .addField('Type', weapon.type, true)
       .addField('Rarity', weapon.rarity, true)
       .addField('Displayed Attack', weapon.displayAttack, true)
@@ -25,7 +36,6 @@ class Weapon extends Command {
       .addField('Shelling', weapon.shelling, true)
       .addField('Special Ammo', weapon.specialAmmo, true)
       .addField('Deviation', weapon.deviation, true)
-      .addField('Ammos', weapon.ammos, true)
       .addField('Elements', weapon.elements, true)
       .addField('Slots', weapon.slots, true)
       .addField('Coatings', weapon.coatings, true)
@@ -35,13 +45,37 @@ class Weapon extends Command {
       .setTimestamp()
       .setFooter('Info Menu');
 
-    return embed;
+    page2
+      .addField('Ammos', weapon.ammos)
+      .setTimestamp()
+      .setFooter('Info Menu');
+
+    let embeds = [page1, page2];
+
+    let reactions = {};
+    menu(
+      message,
+      embeds,
+      120000,
+      (reactions = {
+        first: '⏪',
+        back: '◀',
+        next: '▶',
+        last: '⏩',
+        stop: '⏹'
+      }),
+      true // override embed footers (with page number)
+    );
   }
 
   async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
-    if (!client.weapons.has(input)) {
+    if (client.mhwWeapons == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    }
+
+    if (!client.mhwWeapons.has(input)) {
       let msg = "That weapon doesn't seem to exist!";
 
       const options = {
@@ -51,16 +85,15 @@ class Weapon extends Command {
         includeScore: true
       };
 
-      let similarItems = this.findAllMatching(client.weapons, options);
+      let similarItems = this.findAllMatching(client.mhwWeapons, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.weaponEmbed);
       }
 
       message.channel.send(msg);
-    } else if (client.weapons.has(input)) {
-      const embed = this.weaponEmbed(client, input);
-      message.channel.send(embed);
+    } else if (client.mhwWeapons.has(input)) {
+      await this.weaponEmbed(message, input);
     }
   }
 }

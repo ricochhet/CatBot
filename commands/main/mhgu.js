@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 
 class Mhgu extends Command {
   constructor(prefix) {

@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Deco extends Command {
@@ -6,12 +6,17 @@ class Deco extends Command {
     super('deco', 'deco [deco name]', 'Get info for a specific decoration');
   }
 
-  decorationEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const decoration = client.decorations.get(name);
+  decorationEmbed(
+    message,
+    name,
+    rawEmbed = this.MessageEmbed,
+    menu = this.menu
+  ) {
+    const decoration = message.client.mhwDecorations.get(name);
 
     logger.debug('deco log', { type: 'decoRead', name: name });
 
-    const embed = rawEmbed
+    const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle(decoration.name)
       .addField('Skills', decoration.skills)
@@ -25,7 +30,7 @@ class Deco extends Command {
 
   findDecosBySkill(input) {
     let arr = [];
-    for (let [name, deco] of client.decorations.entries()) {
+    for (let [name, deco] of client.mhwDecorations.entries()) {
       for (let skill of deco.skills) {
         let skillname = skill
           .split('-')[0]
@@ -45,7 +50,11 @@ class Deco extends Command {
   async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
-    if (!client.decorations.has(input)) {
+    if (client.mhwDecorations == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    }
+
+    if (!client.mhwDecorations.has(input)) {
       let msg = "That decoration doesn't seem to exist!";
 
       let decosMatchingSkill = this.findDecosBySkill(input);
@@ -58,15 +67,15 @@ class Deco extends Command {
         initial: decosMatchingSkill
       };
 
-      let similarItems = this.findAllMatching(client.decorations, options);
+      let similarItems = this.findAllMatching(client.mhwDecorations, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.decorationEmbed);
       }
 
       message.channel.send(msg);
-    } else if (client.decorations.has(input)) {
-      const embed = this.decorationEmbed(client, input);
+    } else if (client.mhwDecorations.has(input)) {
+      const embed = this.decorationEmbed(message, input);
       message.channel.send(embed);
     }
   }

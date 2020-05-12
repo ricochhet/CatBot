@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 
 class Calc extends Command {
   constructor(prefix) {

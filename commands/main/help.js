@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 
 class Help extends Command {
   constructor(prefix) {
@@ -9,7 +9,7 @@ class Help extends Command {
   }
 
   async run(client, message, args) {
-    const rico = client.users.cache.get(client.config.get('RICO_ID'));
+    const rico = client.users.cache.get(client.config['user_ids']['rico_id']);
     const helpEmbed = this.MessageEmbed().setColor('#8fde5d');
 
     let data = [];
@@ -21,7 +21,7 @@ class Help extends Command {
           data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
         }
       });
-    helpEmbed.addField('Main / General', data.join('\n'));
+    helpEmbed.addField('Main', data.join('\n'));
 
     // Other Commands w/o Args
     data = [];
