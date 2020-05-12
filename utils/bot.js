@@ -177,6 +177,12 @@ class Bot extends Client {
 
     // Check if command is disabled (bypass for ADMINS)
     let handler = new DisableCmdHandler(client.apiClient);
+
+    await handler.initDb().catch(err => {
+      logger.error(err);
+      return message.channel.send(command.serverErrorEmbed());
+    });
+
     if (
       !message.member.hasPermission('ADMINISTRATOR') &&
       handler.isGuildInDB(message.guild.id)

@@ -5,10 +5,10 @@ class Weapon extends Command {
     super('weapon', 'weapon [weapon name]', 'Get info for a specific weapon');
   }
 
-  weaponEmbed(client, name, rawEmbed) {
-    const weapon = client.mhguWeapons.get(name);
+  weaponEmbed(message, name, rawEmbed = this.MessageEmbed, menu = this.menu) {
+    const weapon = message.client.mhguWeapons.get(name);
 
-    const embed = rawEmbed
+    const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle(weapon.name)
       .addField('Type', weapon.type)
@@ -71,7 +71,7 @@ class Weapon extends Command {
 
       message.channel.send(msg);
     } else if (client.mhguWeapons.has(input)) {
-      const embed = this.weaponEmbed(client, input, this.MessageEmbed());
+      const embed = this.weaponEmbed(message, input);
       message.channel.send(embed);
     }
   }

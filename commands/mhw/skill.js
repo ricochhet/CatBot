@@ -6,12 +6,12 @@ class Skill extends Command {
     super('skill', 'skill [skill name]', 'Get info for a specific skill');
   }
 
-  skillEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const skill = client.mhwSkills.get(name);
+  skillEmbed(message, name, rawEmbed = this.MessageEmbed, menu = this.menu) {
+    const skill = message.client.mhwSkills.get(name);
 
     logger.debug('skill log', { type: 'skillRead', name: name });
 
-    const embed = rawEmbed
+    const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle(skill.name)
       .setDescription(skill.description)
@@ -47,7 +47,7 @@ class Skill extends Command {
 
       message.channel.send(msg);
     } else if (client.mhwSkills.has(input)) {
-      const embed = this.skillEmbed(client, input);
+      const embed = this.skillEmbed(message, input);
       message.channel.send(embed);
     }
   }

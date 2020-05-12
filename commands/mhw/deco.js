@@ -6,12 +6,17 @@ class Deco extends Command {
     super('deco', 'deco [deco name]', 'Get info for a specific decoration');
   }
 
-  decorationEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const decoration = client.mhwDecorations.get(name);
+  decorationEmbed(
+    message,
+    name,
+    rawEmbed = this.MessageEmbed,
+    menu = this.menu
+  ) {
+    const decoration = message.client.mhwDecorations.get(name);
 
     logger.debug('deco log', { type: 'decoRead', name: name });
 
-    const embed = rawEmbed
+    const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle(decoration.name)
       .addField('Skills', decoration.skills)
@@ -70,7 +75,7 @@ class Deco extends Command {
 
       message.channel.send(msg);
     } else if (client.mhwDecorations.has(input)) {
-      const embed = this.decorationEmbed(client, input);
+      const embed = this.decorationEmbed(message, input);
       message.channel.send(embed);
     }
   }

@@ -6,12 +6,12 @@ class Weapon extends Command {
     super('weapon', 'weapon [weapon name]', 'Get info for a specific weapon');
   }
 
-  weaponEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const weapon = client.mhwWeapons.get(name);
+  weaponEmbed(message, name, rawEmbed = this.MessageEmbed, menu = this.menu) {
+    const weapon = message.client.mhwWeapons.get(name);
 
     logger.debug('weapon log', { type: 'weaponRead', name: name });
 
-    const embed = rawEmbed
+    const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle(weapon.name)
       .addField('Type', weapon.type, true)
@@ -63,7 +63,7 @@ class Weapon extends Command {
 
       message.channel.send(msg);
     } else if (client.mhwWeapons.has(input)) {
-      let embed = this.weaponEmbed(client, input);
+      let embed = this.weaponEmbed(message, input);
       message.channel.send(embed);
     }
   }

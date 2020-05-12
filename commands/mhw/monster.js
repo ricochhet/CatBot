@@ -10,19 +10,32 @@ class Monster extends Command {
     );
   }
 
-  async monsterEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const monster = client.mhwMonsters.get(name);
-    const embed = rawEmbed.setColor('#8fde5d').setTitle(monster.title);
+  async monsterEmbed(
+    message,
+    name,
+    rawEmbed = this.MessageEmbed,
+    menu = this.menu
+  ) {
+    const monster = message.client.mhwMonsters.get(name);
+    const page1 = rawEmbed()
+      .setColor('#8fde5d')
+      .setTitle(monster.title)
+      .setThumbnail(monster.thumbnail);
+    const page2 = rawEmbed()
+      .setColor('#8fde5d')
+      .setTitle(monster.title)
+      .setThumbnail(monster.thumbnail);
 
     logger.debug('monster log', { type: 'monsterRead', name: name });
 
-    embed
+    page1
       .setDescription(`${monster.description}\n\n${monster.info}`)
-      .setThumbnail(monster.thumbnail)
       .addField(
         `Slash: **${monster.hzv.slash}** Blunt: **${monster.hzv.blunt}** Shot: **${monster.hzv.shot}**`,
         `🔥 **${monster.hzv.fire}** 💧 **${monster.hzv.water}** ⚡ **${monster.hzv.thunder}** ❄ **${monster.hzv.ice}** 🐉 **${monster.hzv.dragon}**`
-      )
+      );
+
+    page2
       .addField('Elements', monster.elements, true)
       .addField('Ailments', monster.ailments, true)
       .addField('Blights', monster.blights, true)
@@ -30,7 +43,23 @@ class Monster extends Command {
       .setTimestamp()
       .setFooter('Monster Info');
 
-    return embed;
+    let embeds = [page1, page2];
+
+    // make sure not to return the menu
+    let reactions = {};
+    menu(
+      message,
+      embeds,
+      120000,
+      (reactions = {
+        first: '⏪',
+        back: '◀',
+        next: '▶',
+        last: '⏩',
+        stop: '⏹'
+      }),
+      true // override embed footers (with page number)
+    );
   }
 
   async run(client, message, args) {
@@ -70,8 +99,7 @@ class Monster extends Command {
 
       message.channel.send(msg);
     } else if (client.mhwMonsters.has(input)) {
-      const embed = await this.monsterEmbed(client, input);
-      message.channel.send(embed);
+      await this.monsterEmbed(message, input);
     }
   }
 }
