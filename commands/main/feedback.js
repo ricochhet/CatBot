@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Feedback extends Command {
@@ -51,9 +51,9 @@ class Feedback extends Command {
     client.shard
       .broadcastEval(
         `
-    	let channel = this.channels.cache.get('${client.config.get(
-        'feedbackChannel'
-      )}');
+    	let channel = this.channels.cache.get('${
+        client.config.channel_ids.feedback_channel
+      }');
 
       if ( channel ) {
         channel.send( { embed : ${JSON.stringify(embed.toJSON())} } )

@@ -1,4 +1,5 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
+const logger = require('../../utils/log.js');
 
 class Cancel extends Command {
   constructor(prefix) {
@@ -8,33 +9,39 @@ class Cancel extends Command {
   }
 
   async run(client, message, args) {
-    const posts = require('../../utils/databases/lfg/lfg.json');
+    client.apiClient
+      .getLfgPosts()
+      .then(posts => {
+        const userId = message.author.id;
 
-    const userId = message.author.id;
+        // Checks if the user has already posted or not
+        let userFound = false;
+        let sessionId;
+        for (const postId in posts) {
+          if (posts[postId]['userID'] == userId) {
+            userFound = true;
+            sessionId = postId;
+            break;
+          }
+        }
 
-    // Checks if the user has already posted or not
-    let userFound = false;
-    let sessionId;
-    for (const postId in posts) {
-      if (posts[postId]['userID'] == userId) {
-        userFound = true;
-        sessionId = postId;
-        break;
-      }
-    }
+        if (!userFound) {
+          return message.reply(
+            'Sorry meowster but you have no sessions posted right now!'
+          );
+        }
 
-    if (!userFound) {
-      return message.reply(
-        'Sorry meowster but you have no sessions posted right now!'
-      );
-    }
+        delete posts[sessionId];
 
-    delete posts[sessionId];
-    const jsonObj = JSON.stringify(posts, null, 4);
-    this.saveJsonFile(`./utils/databases/lfg/lfg.json`, jsonObj);
-    message.reply(
-      `Meowster, your previous session advertisement was cancelled! \`${sessionId}\``
-    );
+        client.apiClient.updateLfgPosts(posts);
+        message.reply(
+          `Meowster, your previous session advertisement was cancelled! \`${sessionId}\``
+        );
+      })
+      .catch(err => {
+        logger.error(err);
+        message.channel.send(this.serverErrorEmbed());
+      });
   }
 }
 

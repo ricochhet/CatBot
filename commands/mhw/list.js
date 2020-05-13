@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 
 class List extends Command {
   constructor(prefix) {
@@ -8,7 +8,11 @@ class List extends Command {
   }
 
   async run(client, message, args) {
-    const monsterNames = client.monsters.map(monster => monster.title);
+    if (client.mhwMonsters == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    }
+
+    const monsterNames = client.mhwMonsters.map(monster => monster.title);
     monsterNames.sort();
 
     let monsterPerPage = 20;

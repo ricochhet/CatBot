@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Skill extends Command {
@@ -6,12 +6,12 @@ class Skill extends Command {
     super('skill', 'skill [skill name]', 'Get info for a specific skill');
   }
 
-  skillEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const skill = client.skills.get(name);
+  skillEmbed(message, name, rawEmbed = this.MessageEmbed, menu = this.menu) {
+    const skill = message.client.mhwSkills.get(name);
 
     logger.debug('skill log', { type: 'skillRead', name: name });
 
-    const embed = rawEmbed
+    const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle(skill.name)
       .setDescription(skill.description)
@@ -25,7 +25,11 @@ class Skill extends Command {
   async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
-    if (!client.skills.has(input)) {
+    if (client.mhwSkills == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    }
+
+    if (!client.mhwSkills.has(input)) {
       let msg = "That skill doesn't seem to exist!";
 
       const options = {
@@ -35,15 +39,15 @@ class Skill extends Command {
         includeScore: true
       };
 
-      let similarItems = this.findAllMatching(client.skills, options);
+      let similarItems = this.findAllMatching(client.mhwSkills, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.skillEmbed);
       }
 
       message.channel.send(msg);
-    } else if (client.skills.has(input)) {
-      const embed = this.skillEmbed(client, input);
+    } else if (client.mhwSkills.has(input)) {
+      const embed = this.skillEmbed(message, input);
       message.channel.send(embed);
     }
   }

@@ -1,10 +1,9 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 const { Canvas } = require('canvas-constructor');
 const { loadImage } = require('canvas');
 const { MessageAttachment } = require('discord.js'); // This is to send the image via discord.
-const hzvDB = require('../../utils/databases/mhw/hzv.json');
 
 // Canvas parameters
 const CANVAS_PADDING_Y = 90;
@@ -21,7 +20,7 @@ const HEX_ORANGE = '#ffa500';
 const HEX_GREEN = '#78AB46';
 
 const ICON_SIZE_PX = 50;
-const TENDERIZED_WHITLIST = [
+const TENDERIZED_WHITELIST = [
   'slash',
   'blunt',
   'ranged',
@@ -39,10 +38,21 @@ class Hzv extends Command {
     super('hzv', 'hzv [monster name]', 'Get hzv info for a specific monster');
   }
 
-  async monsterEmbed(client, name, rawEmbed = this.MessageEmbed()) {
+  async monsterEmbed(
+    message,
+    name,
+    rawEmbed = this.MessageEmbed,
+    menu = this.menu
+  ) {
     async function hzvImageGen(monsterName) {
       // get the monster hzv info from the db
-      const monsterHzvInfo = hzvDB[monsterName.toLowerCase().replace(' ', '')];
+      const monsterHzvInfo = client.mhwMonsters.get(
+        monsterName.toLowerCase().replace(' ', '')
+      ).hitzones;
+
+      const monsterEnrageInfo = client.mhwMonsters.get(
+        monsterName.toLowerCase().replace(' ', '')
+      ).enrage;
 
       // store the monster parts in an array for canvas height calculation
       const parts = Object.keys(monsterHzvInfo);
@@ -79,7 +89,7 @@ class Hzv extends Command {
         .setTextFont(CANVAS_TEXT_FONT)
         .setTextAlign('center')
         .addResponsiveText(
-          'Hitzone Values - (tenderized values in brackets) ',
+          'Hitzone Values - (Tenderized Values in Brackets) ',
           canvasWidth / 2,
           22.5
         ) // center title, 22.5 == y offset
@@ -112,9 +122,9 @@ class Hzv extends Command {
         try {
           let pic = await loadImage(
             `${__dirname.replace(
-              'commands',
-              'utils/databases'
-            )}/element/${iconName.toLowerCase()}.png`
+              'commands\\mhw',
+              'utils/icons'
+            )}/${iconName.toLowerCase()}.png`
           );
           hzvImage.addImage(
             pic,
@@ -125,9 +135,9 @@ class Hzv extends Command {
           );
 
           // advance x to next icon position
-          if (TENDERIZED_WHITLIST.includes(iconName)) {
+          if (TENDERIZED_WHITELIST.includes(iconName)) {
             if (
-              TENDERIZED_WHITLIST[TENDERIZED_WHITLIST.length - 1] == iconName
+              TENDERIZED_WHITELIST[TENDERIZED_WHITELIST.length - 1] == iconName
             ) {
               x += COLUMN_WIDTH + COLUMN_GAP;
             } else {
@@ -171,11 +181,14 @@ class Hzv extends Command {
             }
           }
 
-          if (TENDERIZED_WHITLIST.includes(hitzone)) {
-            hzv = `${hzv} (${Math.round(hzv * 0.75 + 25)})`;
+          if (TENDERIZED_WHITELIST.includes(hitzone)) {
+            const tenderizeVal = Number(
+              monsterEnrageInfo.tenderizeFormula.split('+')[1]
+            );
+            hzv = `${hzv} (${Math.round(hzv * 0.75 + tenderizeVal)})`;
             hzvImage.addResponsiveText(hzv, x + 20, y).setColor(HEX_WHITE);
             if (
-              TENDERIZED_WHITLIST[TENDERIZED_WHITLIST.length - 1] == hitzone
+              TENDERIZED_WHITELIST[TENDERIZED_WHITELIST.length - 1] == hitzone
             ) {
               x += COLUMN_WIDTH + COLUMN_GAP;
             } else {
@@ -195,8 +208,10 @@ class Hzv extends Command {
       return new MessageAttachment(hzvImage.toBuffer(), HZV_FILENAME);
     }
 
-    const monster = client.monsters.get(name);
-    const embed = rawEmbed.setColor('#8fde5d').setTitle(monster.title);
+    const monster = message.client.mhwMonsters.get(name);
+    const embed = rawEmbed()
+      .setColor('#8fde5d')
+      .setTitle(monster.title);
 
     logger.debug('hzv log', { type: 'monsterRead', name: name });
 
@@ -211,6 +226,17 @@ class Hzv extends Command {
           )
         )
       )
+      .addField(
+        'Legend (by Order)',
+        'Kinsect Extract, Slash, Blunt, Ranged, Fire, Water, Thunder, Ice, Dragon, Stun, Flinch, Trip, Timer, Wound, Sever, Notes'
+      )
+      .addField('Tender', monster.enrage.tender, true)
+      .addField('Damage To Enrage', monster.enrage.dmgToEnrage, true)
+      .addField('Enrage Duration', monster.enrage.enrageDuration, true)
+      .addField('Enrage Speed', monster.enrage.enrageSpeed, true)
+      .addField('Monster Damage', monster.enrage.monstrDmg, true)
+      .addField('Player Damage', monster.enrage.playerDmg, true)
+      .addField('Tenderize Formula', monster.enrage.tenderizeFormula, true)
       .setImage(`attachment://${HZV_FILENAME}`)
       .setTimestamp()
       .setFooter('Hitzone Values');
@@ -221,7 +247,11 @@ class Hzv extends Command {
   async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
-    for (let [name, monster] of client.monsters.entries()) {
+    if (client.mhwMonsters == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    }
+
+    for (let [name, monster] of client.mhwMonsters.entries()) {
       if (
         monster.aliases &&
         monster.aliases.includes(input) &&
@@ -232,7 +262,7 @@ class Hzv extends Command {
       }
     }
 
-    if (!client.monsters.has(input)) {
+    if (!client.mhwMonsters.has(input)) {
       let msg = `That monster doesn't seem to exist! Check out \`${this.prefix}mhw list\` for the full list.`;
 
       const options = {
@@ -243,15 +273,15 @@ class Hzv extends Command {
         reloop: true
       };
 
-      let similarItems = this.findAllMatching(client.monsters, options);
+      let similarItems = this.findAllMatching(client.mhwMonsters, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.monsterEmbed);
       }
 
       message.channel.send(msg);
-    } else if (client.monsters.has(input)) {
-      const embed = await this.monsterEmbed(client, input);
+    } else if (client.mhwMonsters.has(input)) {
+      const embed = await this.monsterEmbed(message, input);
       message.channel.send(embed);
     }
   }

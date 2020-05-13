@@ -1,12 +1,15 @@
-const fs = require('fs');
 const logger = require('./log.js');
 
-class DisabledHandler {
+class DisableCmdHandler {
   // Commands are stored per guild. Each guild has an entry in the db (key = guild id)
   // Within that each category has an entry (including 'main')
   // key = category name, value = list of disabled sub commands
-  constructor() {
-    this.db = require('./databases/server/disabledCommands.json');
+  constructor(apiClient) {
+    this.apiClient = apiClient;
+  }
+
+  async initDb() {
+    this.db = await this.apiClient.getDisabledCommands();
   }
 
   isGuildInDB(guildId) {
@@ -55,6 +58,8 @@ class DisabledHandler {
 
     // Sets category entry with the given command names
     this.db[guildId][category] = commands;
+
+    logger.debug(`disabled '${category}' in guild #${guildId}.`);
     this.saveDb();
   }
 
@@ -64,6 +69,7 @@ class DisabledHandler {
 
     // delete category entry
     delete this.db[guildId][category];
+    logger.debug(`enabled '${category}' in guild #${guildId}.`);
 
     // delete guild from db if that was the only category
     if (Object.keys(this.db[guildId]).length == 0) delete this.db[guildId];
@@ -79,6 +85,7 @@ class DisabledHandler {
     categoryEntry.push(name);
 
     this.db[guildId][category] = categoryEntry;
+    logger.debug(`disabled '${category} ${name}' in guild #${guildId}.`);
     this.saveDb();
   }
 
@@ -97,23 +104,14 @@ class DisabledHandler {
       if (Object.keys(this.db[guildId]).length == 0) delete this.db[guildId];
     }
 
+    logger.debug(`enabled '${category} ${name}' in guild #${guildId}.`);
     this.saveDb();
   }
 
   saveDb() {
-    fs.writeFile(
-      'utils/databases/server/disabledCommands.json',
-      JSON.stringify(this.db, null, 4),
-      'utf8',
-      err => {
-        if (err)
-          return logger.error(
-            'An error occured while saving disabled commands.',
-            err
-          );
-      }
-    );
+    this.apiClient.updateDisabledCommands(this.db);
+    logger.debug('Disabled commands DB updated.');
   }
 }
 
-module.exports = DisabledHandler;
+module.exports = DisableCmdHandler;

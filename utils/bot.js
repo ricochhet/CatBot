@@ -4,7 +4,8 @@ const glob = require('glob');
 const { parse } = require('path');
 
 const logger = require('./log.js');
-const DisabledHandler = require('./disabledHandler.js');
+const DisableCmdHandler = require('./disableCmdHandler.js');
+const config = require('../config.json');
 
 // params and defaults at https://discord.js.org/#/docs/main/v12/typedef/ClientOptions
 // these are the only values we're customizing (using defaults otherwise)
@@ -30,10 +31,14 @@ class Bot extends Client {
         client.user.tag,
         client.version
       );
-      this.user.setActivity(`for ${this.prefix}help`, { type: 'WATCHING' });
 
-      if (this.config.get('DBLTOKEN')) {
-        const dbl = this.dblSetup(this.config.get('DBLTOKEN'));
+      this.shard.broadcastEval(
+        `this.user.setActivity('for ${this.prefix}help', { type: 'WATCHING' });`
+      );
+
+      const dbl_token = config['bot']['dbl_token'];
+      if (dbl_token) {
+        const dbl = new DBL(dbl_token);
 
         this.setInterval(() => {
           this.shard.fetchClientValues('guilds.cache').then(results => {
@@ -52,10 +57,6 @@ class Bot extends Client {
     return new Collection();
   }
 
-  dblSetup(token) {
-    return new DBL(token, this);
-  }
-
   setupDB(collection, jsonDir) {
     let json = require(jsonDir);
     for (const i of Object.keys(json)) {
@@ -63,7 +64,7 @@ class Bot extends Client {
     }
   }
 
-  buildCommands(parentDir, collectionNameOverides) {
+  async buildCommands(parentDir, collectionNameOverides) {
     glob(`${parentDir}/**/*.js`, async (_, files) => {
       files.forEach(file => {
         let { dir, name } = parse(file);
@@ -79,6 +80,15 @@ class Bot extends Client {
     });
   }
 
+  isDev(id) {
+    let devs = [
+      config['user_ids']['rico_id'],
+      config['user_ids']['yofou_id'],
+      config['user_ids']['chad_id']
+    ];
+    return devs.includes(id);
+  }
+
   buildDBs(dbCollection) {
     Object.entries(dbCollection).forEach(([collectionName, dbDir]) => {
       this[collectionName] = new Collection();
@@ -86,7 +96,7 @@ class Bot extends Client {
     });
   }
 
-  listenForCommands(message) {
+  async listenForCommands(message) {
     // Ignores message if message doesn't exist (kek)
     if (!message) {
       logger.error(
@@ -114,14 +124,15 @@ class Bot extends Client {
       return;
 
     // Check if the channel should be ignored (bypassed for ADMINS)
-    let ignored = require('./databases/server/ignoredChannels.json');
-    if (ignored.channels) {
-      if (
-        ignored.channels.includes(message.channel.id) &&
-        !message.member.hasPermission('ADMINISTRATOR')
-      )
-        return;
-    }
+    client.apiClient.getIgnoredChannels().then(ignored => {
+      if (ignored.channels) {
+        if (
+          ignored.channels.includes(message.channel.id) &&
+          !message.member.hasPermission('ADMINISTRATOR')
+        )
+          return;
+      }
+    });
 
     // show help if bot gets mentioned (different syntax if mobile vs desktop)
     if (
@@ -150,25 +161,35 @@ class Bot extends Client {
     if (!command) return;
 
     // Ignores Secret Commands if Not Owner
-    if (command.secret && message.author.id != this.config.get('OWNER')) return;
+    if (command.secret && message.author.id != config['user_ids']['rico_id'])
+      return;
 
-    // Ignore admin only commands
-    if (command.admin && !message.member.hasPermission('ADMINISTRATOR')) {
+    // Ignore admin only commands, unless user is dev
+    if (
+      command.admin &&
+      !message.member.hasPermission('ADMINISTRATOR') &&
+      !this.isDev(message.author.id)
+    ) {
       return message.channel.send(
         'Sorry meowster, this command is for admins only!'
       );
     }
 
     // Check if command is disabled (bypass for ADMINS)
-    let handler = new DisabledHandler();
+    let handler = new DisableCmdHandler(client.apiClient);
+
+    await handler.initDb().catch(err => {
+      logger.error(err);
+      return message.channel.send(command.serverErrorEmbed());
+    });
+
     if (
       !message.member.hasPermission('ADMINISTRATOR') &&
       handler.isGuildInDB(message.guild.id)
     ) {
       let category, name;
       if (command.category) {
-        category = command.name;
-
+        category = command.subTree;
         // find subcommand (by name or alias)
         let subCmd = client[category].find(
           cmd => cmd.name == args[0] || cmd.alias.includes(args[0])

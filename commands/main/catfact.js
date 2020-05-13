@@ -1,5 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
-const catFactsDatabase = require(`../../utils/databases/other/catfacts.json`);
+const Command = require('../../utils/command.js');
 
 class Catfacts extends Command {
   constructor(prefix) {
@@ -10,10 +9,10 @@ class Catfacts extends Command {
   }
 
   async run(client, message, args) {
-    const catFactKeys = Object.values(catFactsDatabase);
-    message.channel.send(
-      catFactKeys[Math.floor(Math.random() * catFactKeys.length)]
-    );
+    if (!client.catfacts) return message.channel.send(this.serverErrorEmbed());
+
+    const randomIndex = Math.floor(Math.random() * client.catfacts.length);
+    message.channel.send(client.catfacts[randomIndex]);
   }
 }
 

@@ -1,4 +1,4 @@
-const Command = require('../../utils/baseCommand.js');
+const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Monster extends Command {
@@ -10,16 +10,16 @@ class Monster extends Command {
     );
   }
 
-  async monsterEmbed(client, name, rawEmbed = this.MessageEmbed()) {
-    const monster = client.monsters.get(name);
-    const embed = rawEmbed.setColor('#8fde5d').setTitle(monster.title);
+  monsterEmbed(message, name, rawEmbed = this.MessageEmbed, menu = this.menu) {
+    const monster = message.client.mhwMonsters.get(name);
 
     logger.debug('monster log', { type: 'monsterRead', name: name });
 
-    embed
-      .setURL(`https://mhdb.catbot.xyz/monsters/${name}`)
-      .setDescription(`${monster.description}\n\n${monster.info}`)
+    const embed = rawEmbed()
+      .setColor('#8fde5d')
+      .setTitle(monster.title)
       .setThumbnail(monster.thumbnail)
+      .setDescription(`${monster.description}\n\n${monster.info}`)
       .addField(
         `Slash: **${monster.hzv.slash}** Blunt: **${monster.hzv.blunt}** Shot: **${monster.hzv.shot}**`,
         `🔥 **${monster.hzv.fire}** 💧 **${monster.hzv.water}** ⚡ **${monster.hzv.thunder}** ❄ **${monster.hzv.ice}** 🐉 **${monster.hzv.dragon}**`
@@ -29,7 +29,7 @@ class Monster extends Command {
       .addField('Blights', monster.blights, true)
       .addField('Locations', monster.locations, true)
       .setTimestamp()
-      .setFooter('Monster Info');
+      .setFooter('Info Menu');
 
     return embed;
   }
@@ -37,7 +37,11 @@ class Monster extends Command {
   async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
-    for (let [name, monster] of client.monsters.entries()) {
+    if (client.mhwMonsters == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    }
+
+    for (let [name, monster] of client.mhwMonsters.entries()) {
       if (
         monster.aliases &&
         monster.aliases.includes(input) &&
@@ -48,7 +52,7 @@ class Monster extends Command {
       }
     }
 
-    if (!client.monsters.has(input)) {
+    if (!client.mhwMonsters.has(input)) {
       let msg = `That monster doesn't seem to exist! Check out \`${this.prefix}mhw list\` for the full list.`;
 
       const options = {
@@ -59,15 +63,15 @@ class Monster extends Command {
         reloop: true
       };
 
-      let similarItems = this.findAllMatching(client.monsters, options);
+      let similarItems = this.findAllMatching(client.mhwMonsters, options);
 
       if (similarItems.length) {
         return this.reactions(message, similarItems, this.monsterEmbed);
       }
 
       message.channel.send(msg);
-    } else if (client.monsters.has(input)) {
-      const embed = await this.monsterEmbed(client, input);
+    } else if (client.mhwMonsters.has(input)) {
+      const embed = this.monsterEmbed(message, input);
       message.channel.send(embed);
     }
   }

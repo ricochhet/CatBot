@@ -1,5 +1,5 @@
-const Command = require('../../utils/baseCommand.js');
-const fs = require('fs');
+const Command = require('../../utils/command.js');
+const logger = require('../../utils/log.js');
 
 class Subscribe extends Command {
   constructor(prefix) {
@@ -16,58 +16,66 @@ class Subscribe extends Command {
 
   async run(client, message, args) {
     if (message.member.hasPermission('MANAGE_CHANNELS')) {
-      let sub = require('../../utils/databases/lfg/subscribe.json');
-      let channel;
+      client.apiClient
+        .getLfgSubs()
+        .then(subs => {
+          let channel;
 
-      if (args[0] == undefined) {
-        channel = message.channel;
-      } else {
-        channel = this.getChannelFromMention(
-          message.guild.channels.cache,
-          args[0]
-        );
-        if (!channel)
-          return message.reply(`Sorry meowster but ${args[0]} doesn't exist`);
+          if (args[0] == undefined) {
+            channel = message.channel;
+          } else {
+            channel = this.getChannelFromMention(
+              message.guild.channels.cache,
+              args[0]
+            );
+            if (!channel)
+              return message.reply(
+                `Sorry meowster but ${args[0]} doesn't exist`
+              );
 
-        if (
-          !channel
-            .permissionsFor(message.guild.client.user)
-            .has('SEND_MESSAGES', true)
-        ) {
-          return message.reply(
-            `Sorry meowster but I can't send messages in ${channel.name}`
-          );
-        }
+            if (
+              !channel
+                .permissionsFor(message.guild.client.user)
+                .has('SEND_MESSAGES', true)
+            ) {
+              return message.reply(
+                `Sorry meowster but I can't send messages in ${channel.name}`
+              );
+            }
 
-        if (
-          !channel
-            .permissionsFor(message.guild.client.user)
-            .has('MANAGE_MESSAGES', true)
-        ) {
-          return message.reply(
-            `Sorry meowster but I don't have the **Manage Messages** permission in ${channel.name}`
-          );
-        }
-      }
+            if (
+              !channel
+                .permissionsFor(message.guild.client.user)
+                .has('MANAGE_MESSAGES', true)
+            ) {
+              return message.reply(
+                `Sorry meowster but I don't have the **Manage Messages** permission in ${channel.name}`
+              );
+            }
+          }
 
-      if (sub['subscribe'].includes(channel.id)) {
-        // Remove from array
-        sub['subscribe'] = sub['subscribe'].filter(function(element) {
-          return element !== channel.id;
+          if (subs['subscribe'].includes(channel.id)) {
+            // Remove from array
+            subs['subscribe'] = subs['subscribe'].filter(function(element) {
+              return element !== channel.id;
+            });
+            message.reply(
+              `Meowster the channel ${channel.name} will no longer act as a session board!`
+            );
+          } else {
+            // Add to array
+            subs['subscribe'].push(channel.id);
+            message.reply(
+              `Meowster the channel ${channel.name} will now act as a session board!`
+            );
+          }
+
+          client.apiClient.updateLfgSubs(subs);
+        })
+        .catch(error => {
+          logger.error('Failed retrieving lfg subs', error);
+          message.channel.send(this.serverErrorEmbed());
         });
-        message.reply(
-          `Meowster the channel ${channel.name} will no longer act as a session board!`
-        );
-      } else {
-        // Add to array
-        sub['subscribe'].push(channel.id);
-        message.reply(
-          `Meowster the channel ${channel.name} will now act as a session board!`
-        );
-      }
-
-      const jsonObj = JSON.stringify(sub, null, 4);
-      this.saveJsonFile(`./utils/databases/lfg/subscribe.json`, jsonObj);
     } else {
       message.reply(
         `Sorry meowster but you don't have the **Manage Channels** permission!`

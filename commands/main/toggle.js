@@ -1,5 +1,6 @@
-const Command = require('../../utils/baseCommand.js');
-const DisabledHandler = require('../../utils/disabledHandler.js');
+const Command = require('../../utils/command.js');
+const DisableCmdHandler = require('../../utils/disableCmdHandler.js');
+const logger = require('../../utils/log.js');
 
 class Toggle extends Command {
   constructor(prefix) {
@@ -44,7 +45,12 @@ class Toggle extends Command {
   }
 
   async run(client, message, args) {
-    const handler = new DisabledHandler();
+    const handler = new DisableCmdHandler(client.apiClient);
+
+    await handler.initDb().catch(err => {
+      logger.error(err);
+      return message.channel.send(this.serverErrorEmbed());
+    });
 
     const guildId = message.guild.id;
 
@@ -67,7 +73,7 @@ class Toggle extends Command {
 
     if (command.category && args.length == 1) {
       // user wants to toggle a whole category
-      const category = command.name;
+      const category = command.subTree;
 
       if (handler.isCategoryDisabled(guildId, category)) {
         handler.enableCategory(guildId, category);
