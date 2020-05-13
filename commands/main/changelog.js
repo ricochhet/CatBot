@@ -14,9 +14,10 @@ class About extends Command {
       .addField(
         `Changelog: v${client.version}`,
         `
-        🔧 CatBot has had a few upgrades on the technical side
-        📖 Moved permission error messages outside the embeds
-        📖 HZV revamped, should be easier to read
+        🔧 CatBot has had a few more upgrades on the technical side
+        🔧 Changed database to API
+        📖 Tinkered mhw weapons & armor embeds so they were not so **THICC**
+        📖 Added safi jiiva weapon data
         `
       )
       .setTimestamp()
