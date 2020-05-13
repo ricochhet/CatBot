@@ -27,27 +27,24 @@ class Events extends Command {
     let [rankType, maxRank] = args;
     let checkRank = parseInt(maxRank);
     maxRank = Number.isInteger(checkRank) ? checkRank : 999;
-    let events = [];
+    let events;
 
     // Get all of the info from mhw api and casts it too a json format
     fetch('https://mhw-db.com/events')
       .then(response => response.json())
       .then(eventItems => {
-        eventItems.forEach(event => {
+        events = eventItems.filter(event => {
           // if filter arguments were passed with the command, filter the events
           if (rankType && event.requirements) {
             let [t, r] = event.requirements.split(' ');
             let rank = 0;
             let parsed = parseInt(r);
-            if (Number.isInteger(parsed)) {
-              rank = parsed;
-            }
-            if (t.toLowerCase() === rankType.toLowerCase() && rank <= maxRank) {
-              events.push(event);
-            }
-          } else {
-            events.push(event);
+            if (Number.isInteger(parsed)) rank = parsed;
+            return (
+              t.toLowerCase() === rankType.toLowerCase() && rank <= maxRank
+            );
           }
+          return true;
         });
 
         // Chuncks create a 2D array that lets us control how many events we want on one embed
