@@ -3,7 +3,12 @@ const fetch = require('node-fetch');
 
 class Events extends Command {
   constructor() {
-    super('events', 'events', 'Get all current events info', { args: false });
+    super(
+      'events',
+      'events ([rank-type] max-rank)',
+      'Get all current events info',
+      { args: false }
+    );
   }
 
   Chunk(arr, len) {
@@ -19,14 +24,30 @@ class Events extends Command {
   }
 
   async run(client, message, args) {
+    let [rankType, maxRank] = args;
+    let checkRank = parseInt(maxRank);
+    maxRank = Number.isInteger(checkRank) ? checkRank : 999;
     let events = [];
 
     // Get all of the info from mhw api and casts it too a json format
     fetch('https://mhw-db.com/events')
       .then(response => response.json())
-      .then(ailments => {
-        ailments.forEach(event => {
-          events.push(event);
+      .then(eventItems => {
+        eventItems.forEach(event => {
+          // if filter arguments were passed with the command, filter the events
+          if (rankType && event.requirements) {
+            let [t, r] = event.requirements.split(' ');
+            let rank = 0;
+            let parsed = parseInt(r);
+            if (Number.isInteger(parsed)) {
+              rank = parsed;
+            }
+            if (t.toLowerCase() === rankType.toLowerCase() && rank <= maxRank) {
+              events.push(event);
+            }
+          } else {
+            events.push(event);
+          }
         });
 
         // Chuncks create a 2D array that lets us control how many events we want on one embed
