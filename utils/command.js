@@ -249,9 +249,10 @@ class Command {
           0,
           counter
         );
+
         for (let emoji of emojis) {
           // shuold be 'await' to guarantee order, but this seems just slow enough to be in order every time (slightly faster now)
-          message2.react(emoji);
+          await message2.react(emoji);
         }
 
         const filter = (reaction, user) => {
@@ -278,13 +279,14 @@ class Command {
             );
 
             if (embed) {
-              let channel = message2.channel;
+              let channel = message.channel;
               channel.send(embed);
             }
           })
           .catch(async err => {
             if (err instanceof Error)
               logger.error(err, { where: 'command.js 243' }); // only log if its not a collection & an actual error
+            if (!message2) return;
             await message2.reactions
               .removeAll()
               .catch(err => logger.error('Failed to remove reactions %s', err));
