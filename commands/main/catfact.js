@@ -9,10 +9,9 @@ class Catfacts extends Command {
   }
 
   async run(client, message, args) {
-    if (!client.catfacts) return message.channel.send(this.serverErrorEmbed());
-
-    const randomIndex = Math.floor(Math.random() * client.catfacts.length);
-    message.channel.send(client.catfacts[randomIndex]);
+    message.reply(
+      `CatFacts has been moved to ${this.prefix}cat facts, Also feel free to check out our new command ${this.prefix}cat pics`
+    );
   }
 }
 
