@@ -18,6 +18,7 @@ class About extends Command {
         🔧 Changed database to API
         📖 Tinkered mhw weapons & armor embeds so they were not so **THICC**
         📖 Added safi jiiva weapon data
+        📖 Added ${this.prefix}cat, Where we share our love of cats
         `
       )
       .setTimestamp()
