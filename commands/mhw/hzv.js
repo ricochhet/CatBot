@@ -122,7 +122,7 @@ class Hzv extends Command {
         try {
           let pic = await loadImage(
             `${__dirname.replace(
-              'commands\\mhw',
+              'commands/mhw',
               'utils/icons'
             )}/${iconName.toLowerCase()}.png`
           );
