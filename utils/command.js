@@ -250,14 +250,14 @@ class Command {
           counter
         );
 
-        await message.channel
-          .send('**Wait until all reactions are placed before reacting**')
+        await message2
+          .edit('**Wait until all reactions are placed before reacting**', msg)
           .then(async warnMessage => {
             for (let emoji of emojis) {
               // shuold be 'await' to guarantee order, but this seems just slow enough to be in order every time (slightly faster now)
               await message2.react(emoji);
             }
-            warnMessage.delete();
+            message2.edit(msg);
           })
           .catch(err => logger.error(err, { where: 'command.js 262' }));
 

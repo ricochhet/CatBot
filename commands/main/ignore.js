@@ -15,6 +15,18 @@ class Ignore extends Command {
     );
   }
 
+  Chunk(arr, len) {
+    let chunks = [],
+      i = 0,
+      n = arr.length;
+
+    while (i < n) {
+      chunks.push(arr.slice(i, (i += len)));
+    }
+
+    return chunks;
+  }
+
   usageEmbed(error = '') {
     const data = [];
     data.push('**channel_id:** 18 digits (turn on developer mode to see them)');
@@ -59,20 +71,41 @@ class Ignore extends Command {
               // create mentionable channels for user response
               let mentions = channels
                 .filter(channel => channel.viewable)
-                .map(channel => `<#${channel.id}>`)
-                .join(', ');
+                .map(channel => `<#${channel.id}>`);
 
               // if not all channels are viewable add in some extra details
               if (!channels.every(channel => channel.viewable))
-                mentions += ' and all private channels';
+                mentions.push('and all private channels');
 
               channels = channels.map(channel => channel.id);
               ignored.channels = [
                 ...new Set(ignored.channels.concat(channels))
               ]; // filter unique ids
 
-              message.channel.send(
-                `Will now ignore ${mentions} (except for this channel)`
+              mentions = this.Chunk(mentions, 8).map(chunk => {
+                let embed = this.MessageEmbed()
+                  .setTitle('Channels being Ignored')
+                  .setColor('#8fde5d')
+                  .setDescription(`${chunk.join('\n')}`);
+
+                return embed;
+              });
+
+              const reactions = {
+                first: '⏪',
+                back: '◀',
+                next: '▶',
+                last: '⏩',
+                stop: '⏹'
+              };
+              const displayPageNumbers = true;
+
+              this.menu(
+                message,
+                mentions,
+                120000,
+                reactions,
+                displayPageNumbers
               );
             }
             break;
@@ -101,9 +134,7 @@ class Ignore extends Command {
                 return message.channel.send('Not ignoring any channel');
               }
 
-              let mentions = channelsIgnored
-                .map(channel => `<#${channel.id}>`)
-                .join(', ');
+              let mentions = channelsIgnored.map(channel => `<#${channel.id}>`);
 
               // if not all channels are viewable add in some extra details
               if (
@@ -111,9 +142,33 @@ class Ignore extends Command {
                   .filter(channel => ignored.channels.includes(channel.id))
                   .every(channel => channel.viewable)
               )
-                mentions += ' and all private channels';
+                mentions.push('and all private channels');
 
-              message.channel.send(`Channels ignored: ${mentions}`);
+              mentions = this.Chunk(mentions, 8).map(chunk => {
+                let embed = this.MessageEmbed()
+                  .setTitle('Channels being Ignored')
+                  .setColor('#8fde5d')
+                  .setDescription(`${chunk.join('\n')}`);
+
+                return embed;
+              });
+
+              const reactions = {
+                first: '⏪',
+                back: '◀',
+                next: '▶',
+                last: '⏩',
+                stop: '⏹'
+              };
+              const displayPageNumbers = true;
+
+              this.menu(
+                message,
+                mentions,
+                120000,
+                reactions,
+                displayPageNumbers
+              );
             }
             break;
 
