@@ -18,6 +18,9 @@ class Changelog extends Command {
         📖 Tinkered mhw weapons & armor embeds so they were not so **THICC**
         📖 Added safi jiiva weapon data
         📖 Added ${client.prefix(message)}cat, Where we share our love of cats
+        📖 Added ${client.prefix(
+          message
+        )}prefix, Where you can set your own custom prefix
         `
       )
       .setTimestamp()

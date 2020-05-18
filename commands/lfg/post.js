@@ -165,8 +165,10 @@ class Post extends Command {
 
     if (description.length > 256) {
       return message.channel.send(
-        client.prefix(message),
-        this.usageEmbed('Description is larger than 256 characters.')
+        this.usageEmbed(
+          client.prefix(message),
+          'Description is larger than 256 characters.'
+        )
       );
     }
 
