@@ -21,7 +21,7 @@ class Toggle extends Command {
     return this.blacklist.includes(name);
   }
 
-  usageEmbed(error = '') {
+  usageEmbed(prefix, error = '') {
     const data = [];
     data.push('**list:** show all the disabled commands');
     data.push('**category:** toggle a whole category on/off, e.g `lfg`');

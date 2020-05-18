@@ -71,7 +71,7 @@ class Help extends Command {
       .filter(cmd => cmd.calc != true)
       .forEach(cmd => {
         if (cmd.category) {
-          if (!cmd.secret) embeds.push(cmd.usageEmbed(message));
+          if (!cmd.secret) embeds.push(cmd.usageEmbed(client.prefix(message)));
         }
       });
 

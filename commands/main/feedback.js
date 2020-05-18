@@ -38,7 +38,10 @@ class Feedback extends Command {
 
     if (description.length > 512)
       return message.channel.send(
-        this.usageEmbed('Description must be less than 512 characters')
+        this.usageEmbed(
+          client.prefix(message),
+          'Description must be less than 512 characters'
+        )
       );
 
     let embed = this.MessageEmbed()

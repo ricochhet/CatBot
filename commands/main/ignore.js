@@ -26,7 +26,7 @@ class Ignore extends Command {
     return chunks;
   }
 
-  usageEmbed(error = '') {
+  usageEmbed(prefix, error = '') {
     const data = [];
     data.push('**channel_id:** 18 digits (turn on developer mode to see them)');
     data.push('**channel_mention:** example -> #general');
@@ -179,7 +179,10 @@ class Ignore extends Command {
               );
               if (!channel)
                 return message.channel.send(
-                  this.usageEmbed(`Can't find the channel by \`${channelID}\``)
+                  this.usageEmbed(
+                    client.prefix(message),
+                    `Can't find the channel by \`${channelID}\``
+                  )
                 );
               channelID = channel.id;
 

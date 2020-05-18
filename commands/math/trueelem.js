@@ -9,7 +9,7 @@ class Trueelem extends Command {
     );
   }
 
-  usageEmbed() {
+  usageEmbed(prefix) {
     const data = [];
     data.push('attack: in-game attack value');
 
@@ -39,7 +39,7 @@ class Trueelem extends Command {
     let rounded = Math.round(calculate);
 
     if (Number.isNaN(rounded) || !args[0]) {
-      message.channel.send(this.usageEmbed());
+      message.channel.send(this.usageEmbed(client.prefix(message)));
     } else {
       message.channel.send(this.trueelemEmbed(rounded));
     }
