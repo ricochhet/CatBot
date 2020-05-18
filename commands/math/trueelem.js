@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class Trueelem extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'trueelem',
       'trueelem [attack]',

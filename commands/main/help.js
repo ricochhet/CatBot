@@ -1,10 +1,9 @@
 const Command = require('../../utils/command.js');
 
 class Help extends Command {
-  constructor(prefix) {
+  constructor() {
     super('help', 'help', 'List all commands and their information', {
-      args: false,
-      prefix: prefix
+      args: false
     });
   }
 
@@ -18,7 +17,9 @@ class Help extends Command {
       .filter(cmd => cmd.calc != true)
       .forEach(cmd => {
         if (cmd.category && !cmd.secret) {
-          data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
+          data.push(
+            `**${client.prefix(message)}${cmd.name}** - ${cmd.description}`
+          );
         }
       });
     helpEmbed.addField('Main', data.join('\n'));
@@ -31,7 +32,9 @@ class Help extends Command {
           !cmd.admin ||
           (cmd.admin && message.member.hasPermission('ADMINISTRATOR'))
         )
-          data.push(`**${this.prefix}${cmd.name}** - ${cmd.description}`);
+          data.push(
+            `**${client.prefix(message)}${cmd.name}** - ${cmd.description}`
+          );
       }
     });
     helpEmbed.addField('General', data.join('\n'));
@@ -48,7 +51,7 @@ class Help extends Command {
       .addField('\u200b', '\u200b')
       .addField(
         'Experiencing Issues? ',
-        `\`\`\`Contact ${rico.tag} | Do ${this.prefix}support\`\`\``
+        `\`\`\`Contact ${rico.tag} | Do ${client.prefix(message)}support\`\`\``
       )
       .addField(
         'Links',
@@ -56,7 +59,9 @@ class Help extends Command {
       )
       .setTimestamp()
       .setFooter(
-        `Help | Issues: Contact ${rico.tag} | Do ${this.prefix}support`,
+        `Help | Issues: Contact ${rico.tag} | Do ${client.prefix(
+          message
+        )}support`,
         client.user.avatarURL()
       );
 

@@ -2,14 +2,13 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Ignore extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'ignore',
       'ignore [channel_(id/mention/name) | all | clear | list]',
       'Allows the bot to ignore a channel\n*(run again to remove channel from list)*',
       {
         args: true,
-        prefix: prefix,
         admin: true
       }
     );

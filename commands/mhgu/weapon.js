@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class Weapon extends Command {
-  constructor(prefix) {
+  constructor() {
     super('weapon', 'weapon [weapon name]', 'Get info for a specific weapon');
   }
 

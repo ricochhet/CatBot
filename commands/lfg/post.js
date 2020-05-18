@@ -2,7 +2,7 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Post extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'post',
       'post [platform] [session id] (description)',
@@ -10,7 +10,7 @@ class Post extends Command {
     );
   }
 
-  usageEmbed(error = '') {
+  usageEmbed(prefix, error = '') {
     const data = [];
     data.push('platform: PC, PS4, or XBOX\n');
     data.push(
@@ -28,7 +28,7 @@ class Post extends Command {
       .addField('Parameters Help', data.join('\n'))
       .addField(
         'Examples',
-        `${this.prefix}lfg post pc u7Mpp4F8Z$Wh This is a test description\n${this.prefix}lfg post xbox 4ZjN zKwZ TCdX This is a test description`
+        `${prefix}lfg post pc u7Mpp4F8Z$Wh This is a test description\n${prefix}lfg post xbox 4ZjN zKwZ TCdX This is a test description`
       )
       .setTimestamp();
 

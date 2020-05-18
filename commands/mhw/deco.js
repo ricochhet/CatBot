@@ -2,7 +2,7 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Deco extends Command {
-  constructor(prefix) {
+  constructor() {
     super('deco', 'deco [deco name]', 'Get info for a specific decoration');
   }
 

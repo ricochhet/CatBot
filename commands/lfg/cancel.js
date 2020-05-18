@@ -2,7 +2,7 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Cancel extends Command {
-  constructor(prefix) {
+  constructor() {
     super('cancel', 'cancel', 'Cancel your current active session', {
       args: false
     });

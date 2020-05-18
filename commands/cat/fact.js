@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class Facts extends Command {
-  constructor(prefix) {
+  constructor() {
     super('fact', 'fact', 'Shows random cat facts', {
       args: false,
       alias: ['facts']

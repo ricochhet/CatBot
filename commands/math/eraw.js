@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class Eraw extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'eraw',
       'eraw [sharpness] [true raw] [critical boost level] (monster hitzone)',

@@ -1,10 +1,9 @@
 const Command = require('../../utils/command.js');
 
 class About extends Command {
-  constructor(prefix) {
+  constructor() {
     super('about', 'about', 'Shows extra information about the bot', {
-      args: false,
-      prefix: prefix
+      args: false
     });
   }
 
@@ -20,11 +19,13 @@ class About extends Command {
       .addField('Version: ', `v${client.version}`, true)
       .addField(
         'Changelog: ',
-        `Do \`${this.prefix}changelog\` to see the latest version changes.`
+        `Do \`${client.prefix(
+          message
+        )}changelog\` to see the latest version changes.`
       )
       .addField(
         'Feedback / Requests: ',
-        `Do \`${this.prefix}support\` to go to the support server.`
+        `Do \`${client.prefix(message)}support\` to go to the support server.`
       )
       .setTimestamp()
       .setFooter('About Menu', client.user.avatarURL());

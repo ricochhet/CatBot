@@ -1,10 +1,9 @@
 const Command = require('../../utils/command.js');
 
-class About extends Command {
-  constructor(prefix) {
+class Changelog extends Command {
+  constructor() {
     super('changelog', 'changelog', 'Shows latest update log', {
-      args: false,
-      prefix: prefix
+      args: false
     });
   }
 
@@ -18,7 +17,7 @@ class About extends Command {
         🔧 Changed database to API
         📖 Tinkered mhw weapons & armor embeds so they were not so **THICC**
         📖 Added safi jiiva weapon data
-        📖 Added ${this.prefix}cat, Where we share our love of cats
+        📖 Added ${client.prefix(message)}cat, Where we share our love of cats
         `
       )
       .setTimestamp()
@@ -28,4 +27,4 @@ class About extends Command {
   }
 }
 
-module.exports = About;
+module.exports = Changelog;

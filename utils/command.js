@@ -159,7 +159,7 @@ class Command {
     return embed;
   }
 
-  usageEmbed() {
+  usageEmbed(prefix) {
     let embed = this.MessageEmbed();
 
     if (this.category) {
@@ -168,7 +168,7 @@ class Command {
 
       client[this.subTree].each(cmd => {
         data.push(
-          `**${this.prefix}${this.name} ${cmd.usage}** - ${cmd.description}`
+          `**${prefix}${this.name} ${cmd.usage}** - ${cmd.description}`
         );
       });
 

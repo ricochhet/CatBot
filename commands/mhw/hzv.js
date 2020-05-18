@@ -34,7 +34,7 @@ const TENDERIZED_WHITELIST = [
 const HZV_FILENAME = 'hzv.png';
 
 class Hzv extends Command {
-  constructor(prefix) {
+  constructor() {
     super('hzv', 'hzv [monster name]', 'Get hzv info for a specific monster');
   }
 

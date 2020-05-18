@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class Trueraw extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'trueraw',
       'trueraw [weapon type] [attack]',

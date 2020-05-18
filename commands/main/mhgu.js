@@ -1,14 +1,13 @@
 const Command = require('../../utils/command.js');
 
 class Mhgu extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'mhgu',
       'mhgu [command] [command arguments]',
       'MHGU - Monster Hunter Generations Ultimate',
       {
-        category: true,
-        prefix: prefix
+        category: true
       }
     );
   }

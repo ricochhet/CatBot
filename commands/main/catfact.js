@@ -1,16 +1,19 @@
 const Command = require('../../utils/command.js');
 
 class Catfacts extends Command {
-  constructor(prefix) {
+  constructor() {
     super('catfact', 'catfact', 'Shows a random cat fact', {
-      args: false,
-      prefix: prefix
+      args: false
     });
   }
 
   async run(client, message, args) {
     message.reply(
-      `CatFacts has been moved to ${this.prefix}cat facts, Also feel free to check out our new command ${this.prefix}cat pics`
+      `CatFacts has been moved to ${client.prefix(
+        message
+      )}cat facts, Also feel free to check out our new command ${client.prefix(
+        message
+      )}cat pics`
     );
   }
 }

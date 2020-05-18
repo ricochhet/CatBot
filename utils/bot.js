@@ -18,11 +18,10 @@ baseOptions = {
 };
 
 class Bot extends Client {
-  constructor(prefix, customOptions) {
+  constructor(customOptions) {
     // Merge options (custom will override base or default if given)
     const options = { ...baseOptions, ...customOptions };
     super(options);
-    this.prefix = prefix;
     this.Constants = Constants;
 
     this.on('ready', () => {
@@ -33,7 +32,7 @@ class Bot extends Client {
       );
 
       this.shard.broadcastEval(
-        `this.user.setActivity('for ${this.prefix}help', { type: 'WATCHING' });`
+        `this.user.setActivity('for ${this.prefix()}help', { type: 'WATCHING' });`
       );
 
       const dbl_token = config['bot']['dbl_token'];
@@ -51,6 +50,14 @@ class Bot extends Client {
         }, 1800000);
       }
     });
+  }
+
+  prefix(message = undefined) {
+    let prefixes = require('./prefixs.json');
+    let prefix = this.config['bot']['defaultPrefix'];
+    if (!prefix) prefix = '+';
+    if (!message) return prefix;
+    return prefixes[message.guild.id] ? prefixes[message.guild.id] : prefix;
   }
 
   buildCollection() {
@@ -73,7 +80,7 @@ class Bot extends Client {
           collectionName = collectionNameOverides[collectionName];
         if (!this[collectionName]) this[collectionName] = new Collection();
         let cmd = require(file);
-        this[collectionName].set(name, new cmd(this.prefix));
+        this[collectionName].set(name, new cmd());
       });
 
       this.on('message', this.listenForCommands);
@@ -139,12 +146,14 @@ class Bot extends Client {
       message.content.startsWith(`<@!${message.member.guild.me.id}>`) ||
       message.content.startsWith(`<@${message.member.guild.me.id}>`)
     )
-      return message.channel.send(`Use \`${this.prefix}help\` to get started!`);
+      return message.channel.send(
+        `Use \`${this.prefix(message)}help\` to get started!`
+      );
 
-    if (message.content[0] != this.prefix) return;
+    if (message.content.startsWith(this.prefix(message))) return;
 
     // Standard argument and command definitions
-    const content = message.content.slice(this.prefix.length).trim();
+    const content = message.content.slice(this.prefix(message).length).trim();
 
     const rawArgs = content.split(/ +/g);
 

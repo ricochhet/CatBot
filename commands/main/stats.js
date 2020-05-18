@@ -2,10 +2,9 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Stats extends Command {
-  constructor(prefix) {
+  constructor() {
     super('stats', 'stats', 'Usage stats', {
-      args: false,
-      prefix: prefix
+      args: false
       // secret: true
     });
   }

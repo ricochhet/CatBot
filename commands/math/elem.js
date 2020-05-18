@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class Elem extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'elem',
       'elem [sharpness] [true elem] (monster hitzone)',

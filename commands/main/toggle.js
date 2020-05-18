@@ -3,13 +3,12 @@ const DisableCmdHandler = require('../../utils/disableCmdHandler.js');
 const logger = require('../../utils/log.js');
 
 class Toggle extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'toggle',
       'toggle [command | category | list]',
       'Disable (category) commands **per guild**',
       {
-        prefix: prefix,
         admin: true,
         alias: ['enable', 'disable']
       }

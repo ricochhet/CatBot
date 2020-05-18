@@ -2,7 +2,7 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Monster extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'monster',
       'monster [monster name]',

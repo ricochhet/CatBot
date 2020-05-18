@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const { MessageAttachment } = require('discord.js');
 
 class Pic extends Command {
-  constructor(prefix) {
+  constructor() {
     super('pic', 'pic', 'Shows a random cat pictures', {
       args: false,
       alias: ['pics']

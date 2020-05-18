@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class List extends Command {
-  constructor(prefix) {
+  constructor() {
     super('list', 'list', 'List all monsters in MHW & Iceborne', {
       args: false
     });
