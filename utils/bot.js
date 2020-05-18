@@ -150,7 +150,7 @@ class Bot extends Client {
         `Use \`${this.prefix(message)}help\` to get started!`
       );
 
-    if (message.content.startsWith(this.prefix(message))) return;
+    if (!message.content.startsWith(this.prefix(message))) return;
 
     // Standard argument and command definitions
     const content = message.content.slice(this.prefix(message).length).trim();
@@ -219,7 +219,7 @@ class Bot extends Client {
 
     if (command.args && !args.length) {
       if (command.usage) {
-        message.channel.send(command.usageEmbed());
+        message.channel.send(command.usageEmbed(client.prefix(message)));
       }
       return;
     }

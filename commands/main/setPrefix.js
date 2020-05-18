@@ -5,17 +5,16 @@ class SetPrefix extends Command {
     super(
       'setprefix',
       'setPrefix [someSymbol]',
-      'Will set the bots prefix for this server only'
+      'Will set the bots prefix for this server only',
+      {
+        admin: true,
+        alias: ['prefix']
+      }
     );
-    this.allias = ['prefix'];
     this.caseSensitiveArgs = true;
   }
 
   async run(client, message, args) {
-    if (!message.member.hasPermission('ADMINISTRATOR'))
-      return message.channel.send(
-        'Sorry but you dont have the permissions to do this command :('
-      );
     let prefixes = require('../../utils/prefixs.json');
     const requestedPrefix = args[0];
 
