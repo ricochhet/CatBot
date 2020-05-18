@@ -14,9 +14,25 @@ class SetPrefix extends Command {
     this.caseSensitiveArgs = true;
   }
 
+  usageEmbed(prefix) {
+    let embed = this.MessageEmbed()
+      .setColor('#8fde5d')
+      .setDescription(`Current Prefix: **${prefix}**`)
+      .addField('Usage: ', this.usage, false)
+      .addField('Description: ', this.description, false)
+      .setTimestamp();
+
+    return embed;
+  }
+
   async run(client, message, args) {
     let prefixes = require('../../utils/prefixs.json');
     const requestedPrefix = args[0];
+
+    if (requestedPrefix.length > 6)
+      return message.channel.send(
+        'New prefix is too long,You can only set a prefix of length from **1 to 6**'
+      );
 
     if (
       requestedPrefix == client.config['bot']['defaultPrefix'] &&
