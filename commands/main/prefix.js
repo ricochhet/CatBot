@@ -3,12 +3,12 @@ const Command = require('../../utils/command.js');
 class SetPrefix extends Command {
   constructor() {
     super(
-      'setprefix',
-      'setPrefix [someSymbol]',
+      'prefix',
+      'prefix [someSymbol]',
       'Will set the bots prefix for this server only',
       {
         admin: true,
-        alias: ['prefix']
+        alias: ['setprefix']
       }
     );
     this.caseSensitiveArgs = true;
