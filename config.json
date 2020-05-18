@@ -1,8 +1,8 @@
 {
-    "bot": {        
-        "prefix": "+",
+    "bot": {
+        "defaultPrefix": "+",
         "dbl_token": null,
-        "token": "NjM2MDA1NzA2MTg4NzE4MTAw.Xrqh_A.dzufu3gO8qJyBt324Wp34XsEoGY"
+        "token": "INSERT TOKEN HERE"
     },
     "api": {
         "base_url": "http://localhost:8080/api/",
