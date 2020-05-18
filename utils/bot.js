@@ -141,19 +141,22 @@ class Bot extends Client {
       }
     });
 
-    // show help if bot gets mentioned (different syntax if mobile vs desktop)
-    if (
-      message.content.startsWith(`<@!${message.member.guild.me.id}>`) ||
-      message.content.startsWith(`<@${message.member.guild.me.id}>`)
-    )
-      return message.channel.send(
-        `Use \`${this.prefix(message)}help\` to get started!`
-      );
-
-    if (!message.content.startsWith(this.prefix(message))) return;
-
-    // Standard argument and command definitions
-    const content = message.content.slice(this.prefix(message).length).trim();
+    let content;
+    if (message.content.startsWith(this.prefix(message))) {
+      content = message.content.slice(this.prefix(message).length).trim();
+    } else if (
+      message.content.startsWith(`<@!${message.member.guild.me.id}>`)
+    ) {
+      content = message.content
+        .slice(`<@!${message.member.guild.me.id}>`.length)
+        .trim();
+    } else if (message.content.startsWith(message.member.guild.me.toString())) {
+      content = message.content
+        .slice(message.member.guild.me.toString().length)
+        .trim();
+    } else {
+      return;
+    }
 
     const rawArgs = content.split(/ +/g);
 
