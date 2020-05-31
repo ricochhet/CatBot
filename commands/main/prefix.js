@@ -26,7 +26,7 @@ class SetPrefix extends Command {
   }
 
   async run(client, message, args) {
-    let prefixes = require('../../utils/prefixs.json');
+    let prefixs = require('../../utils/prefixs.json');
     const requestedPrefix = args[0];
 
     if (requestedPrefix.length > 6)

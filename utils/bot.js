@@ -53,7 +53,7 @@ class Bot extends Client {
   }
 
   prefix(message = undefined) {
-    let prefixes = require('./prefixs.json');
+    let prefixs = require('./prefixs.json');
     let prefix = this.config['bot']['defaultPrefix'];
     if (!prefix) prefix = '+';
     if (!message) return prefix;
