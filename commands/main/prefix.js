@@ -26,7 +26,7 @@ class SetPrefix extends Command {
   }
 
   async run(client, message, args) {
-    let prefixs = require('../../utils/prefixs.json');
+    let prefixes = require('../../data/prefixes.json');
     const requestedPrefix = args[0];
 
     if (requestedPrefix.length > 6)
@@ -55,7 +55,7 @@ class SetPrefix extends Command {
     }
 
     this.saveJsonFile(
-      './utils/prefixs.json',
+      './data/prefixes.json',
       JSON.stringify(prefixes, null, 4)
     );
   }
