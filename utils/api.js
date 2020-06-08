@@ -38,6 +38,18 @@ class ApiClient {
             .catch(err => logger.error('Failed retrieving catfacts: ', err));
     }
 
+    // TODO - Subject to change (double check w/ CatbotServer)
+    async getCustomPrefixes() {
+        return this.getData(`database/${this.clientId}/server/customPrefixes?key=${this.key}`)
+              .catch(err => logger.error('Failed retrieving custom prefixes: ', err));
+    }
+
+    // TODO - Subject to change (double check w/ CatbotServer)
+    async updateCustomPrefixes(prefixes) {
+      return this.postData(`database/${this.clientId}/server/customPrefixes?key=${this.key}`, prefixes)
+            .catch(err => logger.error('Failed updating custom prefixes: ', err));
+    }
+
     async getIgnoredChannels() {
         return this.getData(`database/${this.clientId}/server/ignoredChannels?key=${this.key}`)
             .catch(err => logger.error('Failed retrieving ignored channels: ', err));

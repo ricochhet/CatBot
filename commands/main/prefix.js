@@ -26,6 +26,9 @@ class SetPrefix extends Command {
   }
 
   async run(client, message, args) {
+    // API version, probably something like this
+    // let prefixes = await client.apiClient.getCustomPrefixes();
+
     let prefixes = require('../../data/prefixes.json');
     const requestedPrefix = args[0];
 
@@ -48,11 +51,14 @@ class SetPrefix extends Command {
         (!prefixes[message.guild.id] &&
           requestedPrefix == client.config['bot']['defaultPrefix'])
       )
-        return message.channel.send(`Please only set **different** prefixes`);
+        return message.channel.send(`Please use a **different** prefix`);
 
       message.channel.send(`Prefix has been set to \`${requestedPrefix}\``);
       prefixes[message.guild.id] = requestedPrefix;
     }
+
+    // API version, probably something like this
+    // client.apiClient.updateCustomPrefixes(prefixes);
 
     this.saveJsonFile(
       './data/prefixes.json',
