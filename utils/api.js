@@ -8,7 +8,6 @@ const logger = require('./log.js')
 class ApiClient {
     constructor(config) {
         this.base = config['base_url'];
-        this.key = config['key'];
         this.clientId = config['client_id'];
     }
 
@@ -34,74 +33,74 @@ class ApiClient {
     }
 
     async getCatFacts() {
-        return this.getData(`catfacts?key=${this.key}`)
+        return this.getData(`catfacts`)
             .catch(err => logger.error('Failed retrieving catfacts: ', err));
     }
 
     // TODO - Subject to change (double check w/ CatbotServer)
     async getCustomPrefixes() {
-        return this.getData(`database/${this.clientId}/server/serverPrefixes?key=${this.key}`)
+        return this.getData(`database/${this.clientId}/server/serverPrefixes`)
               .catch(err => logger.error('Failed retrieving custom prefixes: ', err));
     }
 
     // TODO - Subject to change (double check w/ CatbotServer)
     async updateCustomPrefixes(prefixes) {
-      return this.postData(`database/${this.clientId}/server/serverPrefixes?key=${this.key}`, prefixes)
+      return this.postData(`database/${this.clientId}/server/serverPrefixes`, prefixes)
             .catch(err => logger.error('Failed updating custom prefixes: ', err));
     }
 
     async getIgnoredChannels() {
-        return this.getData(`database/${this.clientId}/server/ignoredChannels?key=${this.key}`)
+        return this.getData(`database/${this.clientId}/server/ignoredChannels`)
             .catch(err => logger.error('Failed retrieving ignored channels: ', err));
     }
 
     async updateIgnoredChannels(channels) {
-        return this.postData(`database/${this.clientId}/server/ignoredChannels?key=${this.key}`, channels)
+        return this.postData(`database/${this.clientId}/server/ignoredChannels`, channels)
             .catch(err => logger.error('Failed updating ignored channels: ', err));
     }
 
     async getDisabledCommands() {
-        return this.getData(`database/${this.clientId}/server/disabledCommands?key=${this.key}`)
+        return this.getData(`database/${this.clientId}/server/disabledCommands`)
             .catch(err => logger.error('Failed retrieving disabled commands: ', err));
     }
 
     async updateDisabledCommands(disabled) {
-        return this.postData(`database/${this.clientId}/server/disabledCommands?key=${this.key}`, disabled)
+        return this.postData(`database/${this.clientId}/server/disabledCommands`, disabled)
             .catch(err => logger.error('Failed updating disabled commands: ', err));
     }
 
     async getLfgPosts() {
-        return this.getData(`database/${this.clientId}/lfg/posts?key=${this.key}`)
+        return this.getData(`database/${this.clientId}/lfg/posts`)
             .catch(err => logger.error('Failed retrieving LFG posts: ', err));
     }
 
     async updateLfgPosts(posts) {        
-        return this.postData(`database/${this.clientId}/lfg/posts?key=${this.key}`, posts)
+        return this.postData(`database/${this.clientId}/lfg/posts`, posts)
             .catch(err => logger.error('Failed updating LFG posts: ', err));
     }
 
     async getLfgSubs() {
-        return this.getData(`database/${this.clientId}/lfg/subscribe?key=${this.key}`)
+        return this.getData(`database/${this.clientId}/lfg/subscribe`)
             .catch(err => logger.error('Failed retrieving LFG subs: ', err));
     }
 
     async updateLfgSubs(subs)  {
-        return this.postData(`database/${this.clientId}/lfg/subscribe?key=${this.key}`, subs)
+        return this.postData(`database/${this.clientId}/lfg/subscribe`, subs)
             .catch(err => logger.error('Failed updating LFG subs: ', err));
     }
 
     async getMhguMonsters() {
-        return this.getDataAsMap(`mhgu/monsters?key=${this.key}`)            
+        return this.getDataAsMap(`mhgu/monsters`)            
             .catch(err => logger.error('Failed retrieving mhgu monsters: ', err));
     }
 
     async getMhguWeapons() {
-        return this.getDataAsMap(`mhgu/weapons?key=${this.key}`)            
+        return this.getDataAsMap(`mhgu/weapons`)            
             .catch(err => logger.error('Failed retrieving mhgu weapons: ', err));
     }
     
     async getMhwArmors() {
-        return this.getDataAsMap(`mhw/armors?key=${this.key}`)
+        return this.getDataAsMap(`mhw/armors`)
             .then(map => {
                 let finalMap = {};
                 for (const [k, v] of map) {
@@ -160,7 +159,7 @@ class ApiClient {
     }
 
     async getMhwDecorations() {
-        return this.getDataAsMap(`mhw/decorations?key=${this.key}`)
+        return this.getDataAsMap(`mhw/decorations`)
             .then(map => {
                 let finalMap = {};
                 for (const [k, v] of map) {
@@ -187,17 +186,17 @@ class ApiClient {
     }
 
     async getMhwItems() {
-        return this.getDataAsMap(`mhw/items?key=${this.key}`)            
+        return this.getDataAsMap(`mhw/items`)            
             .catch(err => logger.error('Failed retrieving mhw items: ', err));        
     }
 
     async getMhwMonsters() {
-        return this.getDataAsMap(`mhw/monsters?key=${this.key}`)          
+        return this.getDataAsMap(`mhw/monsters`)          
             .catch(err => logger.error('Failed retrieving mhw monsters: ', err));
     }
 
     async getMhwSkills() {
-        return this.getDataAsMap(`mhw/skills?key=${this.key}`)
+        return this.getDataAsMap(`mhw/skills`)
             .then(map => {
                 let finalMap = {};
                 
@@ -224,7 +223,7 @@ class ApiClient {
     }
 
     async getMhwWeapons() {
-        return this.getDataAsMap(`mhw/weapons?key=${this.key}`)
+        return this.getDataAsMap(`mhw/weapons`)
             .then(map => {
                 let finalMap = {};
                 for (const [k, v] of map) {
