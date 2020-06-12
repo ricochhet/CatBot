@@ -33,9 +33,7 @@ class SetPrefix extends Command {
     const requestedPrefix = args[0];
 
     if (requestedPrefix.length > 6)
-      return message.channel.send(
-        'New prefix is too long,You can only set a prefix of length from **1 to 6**'
-      );
+      return message.channel.send('New prefix is too long - max length is 6**');
 
     if (
       requestedPrefix == client.config['bot']['defaultPrefix'] &&
@@ -51,7 +49,7 @@ class SetPrefix extends Command {
         (!prefixes[message.guild.id] &&
           requestedPrefix == client.config['bot']['defaultPrefix'])
       )
-        return message.channel.send(`Please use a **different** prefix`);
+        return message.channel.send(`Please use a different prefix`);
 
       message.channel.send(`Prefix has been set to \`${requestedPrefix}\``);
       prefixes[message.guild.id] = requestedPrefix;

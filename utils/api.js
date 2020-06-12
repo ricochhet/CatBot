@@ -40,13 +40,13 @@ class ApiClient {
 
     // TODO - Subject to change (double check w/ CatbotServer)
     async getCustomPrefixes() {
-        return this.getData(`database/${this.clientId}/server/customPrefixes?key=${this.key}`)
+        return this.getData(`database/${this.clientId}/server/serverPrefixes?key=${this.key}`)
               .catch(err => logger.error('Failed retrieving custom prefixes: ', err));
     }
 
     // TODO - Subject to change (double check w/ CatbotServer)
     async updateCustomPrefixes(prefixes) {
-      return this.postData(`database/${this.clientId}/server/customPrefixes?key=${this.key}`, prefixes)
+      return this.postData(`database/${this.clientId}/server/serverPrefixes?key=${this.key}`, prefixes)
             .catch(err => logger.error('Failed updating custom prefixes: ', err));
     }
 
