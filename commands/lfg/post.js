@@ -159,6 +159,7 @@ class Post extends Command {
       }
     }
 
+    // Default description
     if (!description) {
       description = 'No description provided.';
     }
@@ -214,9 +215,6 @@ class Post extends Command {
         newPost['userID'] = message.author.id;
         newPost['platform'] = platform;
         newPost['time'] = Date.now();
-
-        if (newPost['description'].length == 0)
-          newPost['description'] = 'No description provided.';
 
         // Create embed for SUCCESSFUL requests
         response

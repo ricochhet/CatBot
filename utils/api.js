@@ -7,7 +7,7 @@ const logger = require('./log.js')
 
 class ApiClient {
     constructor(config) {
-        this.base = config['base_url'];
+        this.base = config['base_url']; 
         this.clientId = config['client_id'];
     }
 
@@ -27,8 +27,7 @@ class ApiClient {
     }
 
     async postData(path, json) {
-        const content = {'message' : json};
-        return axios.post(`${this.base}${path}`, content)            
+        return axios.post(`${this.base}${path}`, json)            
             .catch(err => logger.error(err));
     }
 
@@ -39,53 +38,53 @@ class ApiClient {
 
     // TODO - Subject to change (double check w/ CatbotServer)
     async getCustomPrefixes() {
-        return this.getData(`database/${this.clientId}/server/serverPrefixes`)
+        return this.getData(`db/${this.clientId}/server/prefixes`)
               .catch(err => logger.error('Failed retrieving custom prefixes: ', err));
     }
 
     // TODO - Subject to change (double check w/ CatbotServer)
     async updateCustomPrefixes(prefixes) {
-      return this.postData(`database/${this.clientId}/server/serverPrefixes`, prefixes)
+      return this.postData(`db/${this.clientId}/server/prefixes`, prefixes)
             .catch(err => logger.error('Failed updating custom prefixes: ', err));
     }
 
     async getIgnoredChannels() {
-        return this.getData(`database/${this.clientId}/server/ignoredChannels`)
+        return this.getData(`db/${this.clientId}/server/ignored`)
             .catch(err => logger.error('Failed retrieving ignored channels: ', err));
     }
 
     async updateIgnoredChannels(channels) {
-        return this.postData(`database/${this.clientId}/server/ignoredChannels`, channels)
+        return this.postData(`db/${this.clientId}/server/ignored`, channels)
             .catch(err => logger.error('Failed updating ignored channels: ', err));
     }
 
     async getDisabledCommands() {
-        return this.getData(`database/${this.clientId}/server/disabledCommands`)
+        return this.getData(`db/${this.clientId}/server/disabled`)
             .catch(err => logger.error('Failed retrieving disabled commands: ', err));
     }
 
     async updateDisabledCommands(disabled) {
-        return this.postData(`database/${this.clientId}/server/disabledCommands`, disabled)
+        return this.postData(`db/${this.clientId}/server/disabled`, disabled)
             .catch(err => logger.error('Failed updating disabled commands: ', err));
     }
 
     async getLfgPosts() {
-        return this.getData(`database/${this.clientId}/lfg/posts`)
+        return this.getData(`db/${this.clientId}/lfg/posts`)
             .catch(err => logger.error('Failed retrieving LFG posts: ', err));
     }
 
     async updateLfgPosts(posts) {        
-        return this.postData(`database/${this.clientId}/lfg/posts`, posts)
+        return this.postData(`db/${this.clientId}/lfg/posts`, posts)
             .catch(err => logger.error('Failed updating LFG posts: ', err));
     }
 
     async getLfgSubs() {
-        return this.getData(`database/${this.clientId}/lfg/subscribe`)
+        return this.getData(`db/${this.clientId}/lfg/subs`)
             .catch(err => logger.error('Failed retrieving LFG subs: ', err));
     }
 
     async updateLfgSubs(subs)  {
-        return this.postData(`database/${this.clientId}/lfg/subscribe`, subs)
+        return this.postData(`db/${this.clientId}/lfg/subs`, subs)
             .catch(err => logger.error('Failed updating LFG subs: ', err));
     }
 
