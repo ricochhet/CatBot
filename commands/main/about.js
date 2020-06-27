@@ -8,6 +8,7 @@ class About extends Command {
   }
 
   async run(client, message, args) {
+    const prefix = await client.prefix(message);
     const rico = client.users.cache.get(client.config['user_ids']['rico_id']);
     const yofou = client.users.cache.get(client.config['user_ids']['yofou_id']);
     const chad = client.users.cache.get(client.config['user_ids']['chad_id']);
@@ -19,13 +20,11 @@ class About extends Command {
       .addField('Version: ', `v${client.version}`, true)
       .addField(
         'Changelog: ',
-        `Do \`${client.prefix(
-          message
-        )}changelog\` to see the latest version changes.`
+        `Do \`${prefix}changelog\` to see the latest version changes.`
       )
       .addField(
         'Feedback / Requests: ',
-        `Do \`${client.prefix(message)}support\` to go to the support server.`
+        `Do \`${prefix}support\` to go to the support server.`
       )
       .setTimestamp()
       .setFooter('About Menu', client.user.avatarURL());

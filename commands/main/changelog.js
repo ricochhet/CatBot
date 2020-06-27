@@ -8,6 +8,7 @@ class Changelog extends Command {
   }
 
   async run(client, message, args) {
+    const prefix = await client.prefix(message);
     const changelogEmbed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField(
@@ -17,10 +18,8 @@ class Changelog extends Command {
         🔧 Changed database to API
         📖 Tinkered mhw weapons & armor embeds so they were not so **THICC**
         📖 Added safi jiiva weapon data
-        📖 Added ${client.prefix(message)}cat, Where we share our love of cats
-        📖 Added ${client.prefix(
-          message
-        )}prefix, Where you can set your own custom prefix
+        📖 Added ${prefix}cat, Where we share our love of cats
+        📖 Added ${prefix}prefix, Where you can set your own custom prefix
         `
       )
       .setTimestamp()

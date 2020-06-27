@@ -263,7 +263,9 @@ class Hzv extends Command {
     }
 
     if (!client.mhwMonsters.has(input)) {
-      let msg = `That monster doesn't seem to exist! Check out \`${this.prefix}mhw list\` for the full list.`;
+      let msg = `That monster doesn't seem to exist! Check out \`${await client.prefix(
+        message
+      )}mhw list\` for the full list.`;
 
       const options = {
         input: input,

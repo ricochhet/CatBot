@@ -47,7 +47,7 @@ class Trueraw extends Command {
       !args[1] ||
       !this.weaponsRatio.has(args[0])
     ) {
-      message.channel.send(this.usageEmbed(client.prefix(message)));
+      message.channel.send(this.usageEmbed(await client.prefix(message)));
     } else {
       message.channel.send(this.truerawEmbed(rounded));
     }

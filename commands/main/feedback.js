@@ -35,13 +35,11 @@ class Feedback extends Command {
 
   async run(client, message, args) {
     let description = args.join(' ');
+    const prefix = await client.prefix(message);
 
     if (description.length > 512)
       return message.channel.send(
-        this.usageEmbed(
-          client.prefix(message),
-          'Description must be less than 512 characters'
-        )
+        this.usageEmbed(prefix, 'Description must be less than 512 characters')
       );
 
     let embed = this.MessageEmbed()

@@ -55,7 +55,7 @@ class Elem extends Command {
       !args[1] ||
       !this.elemSharpRatio.has(args[0])
     ) {
-      message.channel.send(this.usageEmbed(client.prefix(message)));
+      message.channel.send(this.usageEmbed(await client.prefix(message)));
     } else {
       message.channel.send(this.elemEmbed(rounded));
     }

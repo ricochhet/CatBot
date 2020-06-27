@@ -27,9 +27,7 @@ class SetPrefix extends Command {
 
   async run(client, message, args) {
     // API version, probably something like this
-    // let prefixes = await client.apiClient.getCustomPrefixes();
-
-    let prefixes = require('../../data/prefixes.json');
+    let prefixes = await client.apiClient.getCustomPrefixes();
     const requestedPrefix = args[0];
 
     if (requestedPrefix.length > 6)
@@ -56,12 +54,7 @@ class SetPrefix extends Command {
     }
 
     // API version, probably something like this
-    // client.apiClient.updateCustomPrefixes(prefixes);
-
-    this.saveJsonFile(
-      './data/prefixes.json',
-      JSON.stringify(prefixes, null, 4)
-    );
+    client.apiClient.updateCustomPrefixes(prefixes);
   }
 }
 

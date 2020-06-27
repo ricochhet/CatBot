@@ -50,6 +50,8 @@ class Ignore extends Command {
   }
 
   async run(client, message, args) {
+    const prefix = await client.prefix(message);
+
     client.apiClient
       .getIgnoredChannels()
       .then(ignored => {
@@ -180,7 +182,7 @@ class Ignore extends Command {
               if (!channel)
                 return message.channel.send(
                   this.usageEmbed(
-                    client.prefix(message),
+                    prefix,
                     `Can't find the channel by \`${channelID}\``
                   )
                 );

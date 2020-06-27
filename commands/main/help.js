@@ -10,6 +10,7 @@ class Help extends Command {
   async run(client, message, args) {
     const rico = client.users.cache.get(client.config['user_ids']['rico_id']);
     const helpEmbed = this.MessageEmbed().setColor('#8fde5d');
+    const prefix = await client.prefix(message);
 
     let data = [];
     data = [];
@@ -17,9 +18,7 @@ class Help extends Command {
       .filter(cmd => cmd.calc != true)
       .forEach(cmd => {
         if (cmd.category && !cmd.secret) {
-          data.push(
-            `**${client.prefix(message)}${cmd.name}** - ${cmd.description}`
-          );
+          data.push(`**${prefix}${cmd.name}** - ${cmd.description}`);
         }
       });
     helpEmbed.addField('Main', data.join('\n'));
@@ -32,9 +31,7 @@ class Help extends Command {
           !cmd.admin ||
           (cmd.admin && message.member.hasPermission('ADMINISTRATOR'))
         )
-          data.push(
-            `**${client.prefix(message)}${cmd.name}** - ${cmd.description}`
-          );
+          data.push(`**${prefix}${cmd.name}** - ${cmd.description}`);
       }
     });
     helpEmbed.addField('General', data.join('\n'));
@@ -51,7 +48,7 @@ class Help extends Command {
       .addField('\u200b', '\u200b')
       .addField(
         'Experiencing Issues? ',
-        `\`\`\`Contact ${rico.tag} | Do ${client.prefix(message)}support\`\`\``
+        `\`\`\`Contact ${rico.tag} | Do ${prefix}support\`\`\``
       )
       .addField(
         'Links',
@@ -59,9 +56,7 @@ class Help extends Command {
       )
       .setTimestamp()
       .setFooter(
-        `Help | Issues: Contact ${rico.tag} | Do ${client.prefix(
-          message
-        )}support`,
+        `Help | Issues: Contact ${rico.tag} | Do ${prefix}support`,
         client.user.avatarURL()
       );
 
@@ -71,7 +66,7 @@ class Help extends Command {
       .filter(cmd => cmd.calc != true)
       .forEach(cmd => {
         if (cmd.category) {
-          if (!cmd.secret) embeds.push(cmd.usageEmbed(client.prefix(message)));
+          if (!cmd.secret) embeds.push(cmd.usageEmbed(prefix));
         }
       });
 

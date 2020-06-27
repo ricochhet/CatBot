@@ -39,7 +39,7 @@ class Dmgtaken extends Command {
     let rounded = Math.round(calculate);
 
     if (Number.isNaN(calculate) || !args[0]) {
-      message.channel.send(this.usageEmbed(client.prefix(message)));
+      message.channel.send(this.usageEmbed(await client.prefix(message)));
     } else {
       message.channel.send(this.dmgTakenEmbed(rounded));
     }

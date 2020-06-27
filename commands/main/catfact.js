@@ -8,12 +8,9 @@ class Catfacts extends Command {
   }
 
   async run(client, message, args) {
+    const prefix = await client.prefix(message);
     message.reply(
-      `CatFacts has been moved to ${client.prefix(
-        message
-      )}cat facts, Also feel free to check out our new command ${client.prefix(
-        message
-      )}cat pics`
+      `CatFacts has been moved to ${prefix}cat facts, Also feel free to check out our new command ${prefix}cat pics`
     );
   }
 }

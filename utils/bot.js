@@ -24,7 +24,7 @@ class Bot extends Client {
     super(options);
     this.Constants = Constants;
 
-    this.on('ready', () => {
+    this.on('ready', async () => {
       logger.info(
         'Logged in as %s! (running version %s)',
         client.user.tag,
@@ -32,7 +32,7 @@ class Bot extends Client {
       );
 
       this.shard.broadcastEval(
-        `this.user.setActivity('for ${this.prefix()}help', { type: 'WATCHING' });`
+        `this.user.setActivity('for ${await this.prefix()}help', { type: 'WATCHING' });`
       );
 
       const dbl_token = config['bot']['dbl_token'];
@@ -52,10 +52,9 @@ class Bot extends Client {
     });
   }
 
-  prefix(message = undefined) {
+  async prefix(message = undefined) {
     // API version
-    // let prefixes = await client.apiClient.getCustomPrefixes();
-    let prefixes = require('../data/prefixes.json');
+    let prefixes = await client.apiClient.getCustomPrefixes();
 
     let prefix = this.config['bot']['defaultPrefix'];
     if (!prefix) prefix = '+';
@@ -144,9 +143,10 @@ class Bot extends Client {
       }
     });
 
+    const prefix = await this.prefix(message);
     let content;
-    if (message.content.startsWith(this.prefix(message))) {
-      content = message.content.slice(this.prefix(message).length).trim();
+    if (message.content.startsWith(prefix)) {
+      content = message.content.slice(prefix.length).trim();
     } else if (
       message.content.startsWith(`<@!${message.member.guild.me.id}>`)
     ) {
@@ -225,7 +225,7 @@ class Bot extends Client {
 
     if (command.args && !args.length) {
       if (command.usage) {
-        message.channel.send(command.usageEmbed(client.prefix(message)));
+        message.channel.send(command.usageEmbed(prefix));
       }
       return;
     }

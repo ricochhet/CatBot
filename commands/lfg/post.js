@@ -101,9 +101,12 @@ class Post extends Command {
 
   async run(client, message, args) {
     // Validate the arguments
+
+    const prefix = await client.prefix(message);
+
     if (args.length < 2)
       return message.channel.send(
-        this.usageEmbed(client.prefix(message), 'Session ID is required')
+        this.usageEmbed(prefix, 'Session ID is required')
       );
 
     let sessionID, description;
@@ -111,10 +114,7 @@ class Post extends Command {
 
     if (!['pc', 'ps4', 'xbox'].includes(platform)) {
       return message.channel.send(
-        this.usageEmbed(
-          client.prefix(message),
-          `${platform} is not valid platform.`
-        )
+        this.usageEmbed(prefix, `${platform} is not valid platform.`)
       );
     }
 
@@ -128,7 +128,7 @@ class Post extends Command {
       ) {
         return message.channel.send(
           this.usageEmbed(
-            client.prefix(message),
+            prefix,
             `PC session ids must be between 11 and 13 characters long \`${sessionID}\` is ${sessionID.length} characters long.`
           )
         );
@@ -152,7 +152,7 @@ class Post extends Command {
       if (!sessionID || sessionID.length !== 14) {
         return message.channel.send(
           this.usageEmbed(
-            client.prefix(message),
+            prefix,
             `XBOX/PS4 session ids must be in the format of \`xxxx xxxx xxxx\` or \`xxxx-xxxx-xxxx\`.`
           )
         );
@@ -166,10 +166,7 @@ class Post extends Command {
 
     if (description.length > 256) {
       return message.channel.send(
-        this.usageEmbed(
-          client.prefix(message),
-          'Description is larger than 256 characters.'
-        )
+        this.usageEmbed(prefix, 'Description is larger than 256 characters.')
       );
     }
 

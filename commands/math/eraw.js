@@ -67,7 +67,7 @@ class Eraw extends Command {
       !this.rawSharpRatio.has(args[0]) ||
       !this.critBoostLvl.has(args[2])
     ) {
-      message.channel.send(this.usageEmbed(client.prefix(message)));
+      message.channel.send(this.usageEmbed(await client.prefix(message)));
     } else {
       message.channel.send(this.erawEmbed(rounded));
     }
