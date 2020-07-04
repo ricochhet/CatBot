@@ -152,9 +152,7 @@ class Bot extends Client {
     ) {
       return message.reply(`Use ${prefix}help to get started!`);
     } else if (message.content.startsWith(message.member.guild.me.toString())) {
-      content = message.content
-        .slice(message.member.guild.me.toString().length)
-        .trim();
+      return message.reply(`Use ${prefix}help to get started!`);
     } else {
       return;
     }
