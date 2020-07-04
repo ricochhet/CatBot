@@ -32,7 +32,7 @@ class Bot extends Client {
       );
 
       this.shard.broadcastEval(
-        `this.user.setActivity('for ${await this.prefix()}help', { type: 'WATCHING' });`
+        `this.user.setActivity('for ${await this.prefix()}help or @CatBot', { type: 'WATCHING' });`
       );
 
       const dbl_token = config['bot']['dbl_token'];
@@ -150,9 +150,7 @@ class Bot extends Client {
     } else if (
       message.content.startsWith(`<@!${message.member.guild.me.id}>`)
     ) {
-      content = message.content
-        .slice(`<@!${message.member.guild.me.id}>`.length)
-        .trim();
+      return message.reply(`Use ${prefix}help to get started!`);
     } else if (message.content.startsWith(message.member.guild.me.toString())) {
       content = message.content
         .slice(message.member.guild.me.toString().length)
