@@ -1,9 +1,8 @@
 const Command = require('../../utils/command.js');
 
 class Reload extends Command {
-  constructor(prefix) {
+  constructor() {
     super('reload', 'reload', 'Reload any command', {
-      prefix: prefix,
       secret: true
     });
   }
@@ -21,7 +20,7 @@ class Reload extends Command {
       delete require.cache[require.resolve(`../mhw/${secondary}.js`)];
       client.mhw.delete(secondary);
       const props = require(`../mhw/${secondary}.js`);
-      client.mhw.set(secondary, new props(this.prefix));
+      client.mhw.set(secondary, new props());
       message.reply(
         `The command **${secondary}** from **${commandName}** has been reloaded`
       );
@@ -33,7 +32,7 @@ class Reload extends Command {
       delete require.cache[require.resolve(`../mhgu/${secondary}.js`)];
       client.mhgu.delete(secondary);
       const props = require(`../mhgu/${secondary}.js`);
-      client.mhgu.set(secondary, new props(this.prefix));
+      client.mhgu.set(secondary, new props());
       message.reply(
         `The command **${secondary}** from **${commandName}** has been reloaded`
       );
@@ -45,7 +44,7 @@ class Reload extends Command {
       delete require.cache[require.resolve(`../math/${secondary}.js`)];
       client.math.delete(secondary);
       const props = require(`../math/${secondary}.js`);
-      client.math.set(secondary, new props(this.prefix));
+      client.math.set(secondary, new props());
       message.reply(
         `The command **${secondary}** from **${commandName}** has been reloaded`
       );
@@ -57,7 +56,7 @@ class Reload extends Command {
       delete require.cache[require.resolve(`../lfg/${secondary}.js`)];
       client.lfg.delete(secondary);
       const props = require(`../lfg/${secondary}.js`);
-      client.lfg.set(secondary, new props(this.prefix));
+      client.lfg.set(secondary, new props());
       message.reply(
         `The command **${secondary}** from **${commandName}** has been reloaded`
       );
@@ -69,7 +68,7 @@ class Reload extends Command {
       delete require.cache[require.resolve(`./${commandName}.js`)];
       client.commands.delete(commandName);
       const props = require(`./${commandName}.js`);
-      client.commands.set(commandName, new props(this.prefix));
+      client.commands.set(commandName, new props());
       message.reply(`The command **${commandName}** has been reloaded`);
     }
   }

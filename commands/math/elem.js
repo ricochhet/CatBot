@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class Elem extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'elem',
       'elem [sharpness] [true elem] (monster hitzone)',
@@ -9,7 +9,7 @@ class Elem extends Command {
     );
   }
 
-  usageEmbed() {
+  usageEmbed(prefix) {
     const data = [];
     data.push(
       'sharpness: none, red, orange, yellow, green, blue, white, purple'
@@ -55,7 +55,7 @@ class Elem extends Command {
       !args[1] ||
       !this.elemSharpRatio.has(args[0])
     ) {
-      message.channel.send(this.usageEmbed());
+      message.channel.send(this.usageEmbed(await client.prefix(message)));
     } else {
       message.channel.send(this.elemEmbed(rounded));
     }

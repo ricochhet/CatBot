@@ -34,7 +34,7 @@ const TENDERIZED_WHITELIST = [
 const HZV_FILENAME = 'hzv.png';
 
 class Hzv extends Command {
-  constructor(prefix) {
+  constructor() {
     super('hzv', 'hzv [monster name]', 'Get hzv info for a specific monster');
   }
 
@@ -263,7 +263,9 @@ class Hzv extends Command {
     }
 
     if (!client.mhwMonsters.has(input)) {
-      let msg = `That monster doesn't seem to exist! Check out \`${this.prefix}mhw list\` for the full list.`;
+      let msg = `That monster doesn't seem to exist! Check out \`${await client.prefix(
+        message
+      )}mhw list\` for the full list.`;
 
       const options = {
         input: input,

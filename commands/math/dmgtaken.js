@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class Dmgtaken extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'dmgtaken',
       'dmgtaken [defense]',
@@ -9,7 +9,7 @@ class Dmgtaken extends Command {
     );
   }
 
-  usageEmbed() {
+  usageEmbed(prefix) {
     const data = [];
     data.push('defense: base defense value');
 
@@ -39,7 +39,7 @@ class Dmgtaken extends Command {
     let rounded = Math.round(calculate);
 
     if (Number.isNaN(calculate) || !args[0]) {
-      message.channel.send(this.usageEmbed());
+      message.channel.send(this.usageEmbed(await client.prefix(message)));
     } else {
       message.channel.send(this.dmgTakenEmbed(rounded));
     }

@@ -2,7 +2,7 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Post extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'post',
       'post [platform] [session id] (description)',
@@ -10,7 +10,7 @@ class Post extends Command {
     );
   }
 
-  usageEmbed(error = '') {
+  usageEmbed(prefix, error = '') {
     const data = [];
     data.push('platform: PC, PS4, or XBOX\n');
     data.push(
@@ -28,7 +28,7 @@ class Post extends Command {
       .addField('Parameters Help', data.join('\n'))
       .addField(
         'Examples',
-        `${this.prefix}lfg post pc u7Mpp4F8Z$Wh This is a test description\n${this.prefix}lfg post xbox 4ZjN zKwZ TCdX This is a test description`
+        `${prefix}lfg post pc u7Mpp4F8Z$Wh This is a test description\n${prefix}lfg post xbox 4ZjN zKwZ TCdX This is a test description`
       )
       .setTimestamp();
 
@@ -101,15 +101,20 @@ class Post extends Command {
 
   async run(client, message, args) {
     // Validate the arguments
+
+    const prefix = await client.prefix(message);
+
     if (args.length < 2)
-      return message.channel.send(this.usageEmbed('Session ID is required'));
+      return message.channel.send(
+        this.usageEmbed(prefix, 'Session ID is required')
+      );
 
     let sessionID, description;
     const platform = args[0].toLowerCase();
 
     if (!['pc', 'ps4', 'xbox'].includes(platform)) {
       return message.channel.send(
-        this.usageEmbed(`${platform} is not valid platform.`)
+        this.usageEmbed(prefix, `${platform} is not valid platform.`)
       );
     }
 
@@ -123,6 +128,7 @@ class Post extends Command {
       ) {
         return message.channel.send(
           this.usageEmbed(
+            prefix,
             `PC session ids must be between 11 and 13 characters long \`${sessionID}\` is ${sessionID.length} characters long.`
           )
         );
@@ -146,19 +152,21 @@ class Post extends Command {
       if (!sessionID || sessionID.length !== 14) {
         return message.channel.send(
           this.usageEmbed(
+            prefix,
             `XBOX/PS4 session ids must be in the format of \`xxxx xxxx xxxx\` or \`xxxx-xxxx-xxxx\`.`
           )
         );
       }
     }
 
+    // Default description
     if (!description) {
       description = 'No description provided.';
     }
 
     if (description.length > 256) {
       return message.channel.send(
-        this.usageEmbed('Description is larger than 256 characters.')
+        this.usageEmbed(prefix, 'Description is larger than 256 characters.')
       );
     }
 
@@ -204,9 +212,6 @@ class Post extends Command {
         newPost['userID'] = message.author.id;
         newPost['platform'] = platform;
         newPost['time'] = Date.now();
-
-        if (newPost['description'].length == 0)
-          newPost['description'] = 'No description provided.';
 
         // Create embed for SUCCESSFUL requests
         response

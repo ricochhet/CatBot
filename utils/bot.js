@@ -18,14 +18,13 @@ baseOptions = {
 };
 
 class Bot extends Client {
-  constructor(prefix, customOptions) {
+  constructor(customOptions) {
     // Merge options (custom will override base or default if given)
     const options = { ...baseOptions, ...customOptions };
     super(options);
-    this.prefix = prefix;
     this.Constants = Constants;
 
-    this.on('ready', () => {
+    this.on('ready', async () => {
       logger.info(
         'Logged in as %s! (running version %s)',
         client.user.tag,
@@ -33,7 +32,7 @@ class Bot extends Client {
       );
 
       this.shard.broadcastEval(
-        `this.user.setActivity('for ${this.prefix}help', { type: 'WATCHING' });`
+        `this.user.setActivity('for ${await this.prefix()}help or @CatBot', { type: 'WATCHING' });`
       );
 
       const dbl_token = config['bot']['dbl_token'];
@@ -51,6 +50,16 @@ class Bot extends Client {
         }, 1800000);
       }
     });
+  }
+
+  async prefix(message = undefined) {
+    // API version
+    let prefixes = await client.apiClient.getCustomPrefixes();
+
+    let prefix = this.config['bot']['defaultPrefix'];
+    if (!prefix) prefix = '+';
+    if (!message) return prefix;
+    return prefixes[message.guild.id] ? prefixes[message.guild.id] : prefix;
   }
 
   buildCollection() {
@@ -73,7 +82,7 @@ class Bot extends Client {
           collectionName = collectionNameOverides[collectionName];
         if (!this[collectionName]) this[collectionName] = new Collection();
         let cmd = require(file);
-        this[collectionName].set(name, new cmd(this.prefix));
+        this[collectionName].set(name, new cmd());
       });
 
       this.on('message', this.listenForCommands);
@@ -134,17 +143,19 @@ class Bot extends Client {
       }
     });
 
-    // show help if bot gets mentioned (different syntax if mobile vs desktop)
-    if (
-      message.content.startsWith(`<@!${message.member.guild.me.id}>`) ||
-      message.content.startsWith(`<@${message.member.guild.me.id}>`)
-    )
-      return message.channel.send(`Use \`${this.prefix}help\` to get started!`);
-
-    if (message.content[0] != this.prefix) return;
-
-    // Standard argument and command definitions
-    const content = message.content.slice(this.prefix.length).trim();
+    const prefix = await this.prefix(message);
+    let content;
+    if (message.content.startsWith(prefix)) {
+      content = message.content.slice(prefix.length).trim();
+    } else if (
+      message.content.startsWith(`<@!${message.member.guild.me.id}>`)
+    ) {
+      return message.reply(`Use ${prefix}help to get started!`);
+    } else if (message.content.startsWith(message.member.guild.me.toString())) {
+      return message.reply(`Use ${prefix}help to get started!`);
+    } else {
+      return;
+    }
 
     const rawArgs = content.split(/ +/g);
 
@@ -210,7 +221,7 @@ class Bot extends Client {
 
     if (command.args && !args.length) {
       if (command.usage) {
-        message.channel.send(command.usageEmbed());
+        message.channel.send(command.usageEmbed(prefix));
       }
       return;
     }

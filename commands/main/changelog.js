@@ -1,14 +1,14 @@
 const Command = require('../../utils/command.js');
 
-class About extends Command {
-  constructor(prefix) {
+class Changelog extends Command {
+  constructor() {
     super('changelog', 'changelog', 'Shows latest update log', {
-      args: false,
-      prefix: prefix
+      args: false
     });
   }
 
   async run(client, message, args) {
+    const prefix = await client.prefix(message);
     const changelogEmbed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField(
@@ -18,7 +18,8 @@ class About extends Command {
         🔧 Changed database to API
         📖 Tinkered mhw weapons & armor embeds so they were not so **THICC**
         📖 Added safi jiiva weapon data
-        📖 Added ${this.prefix}cat, Where we share our love of cats
+        📖 Added ${prefix}cat, Where we share our love of cats
+        📖 Added ${prefix}prefix, Where you can set your own custom prefix
         `
       )
       .setTimestamp()
@@ -28,4 +29,4 @@ class About extends Command {
   }
 }
 
-module.exports = About;
+module.exports = Changelog;

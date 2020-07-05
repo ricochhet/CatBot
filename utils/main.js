@@ -4,7 +4,7 @@ const config = require('../config.json');
 const ApiClient = require('./api.js');
 const logger = require('./log.js');
 
-client = new Bot(config['bot']['prefix']);
+client = new Bot(config['bot']['defaultPrefix']);
 client.apiClient = new ApiClient(config['api']);
 client.version = pjson.version;
 client.config = config;

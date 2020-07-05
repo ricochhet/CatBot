@@ -2,7 +2,7 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Monster extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'monster',
       'monster [monster name]',
@@ -53,7 +53,9 @@ class Monster extends Command {
     }
 
     if (!client.mhwMonsters.has(input)) {
-      let msg = `That monster doesn't seem to exist! Check out \`${this.prefix}mhw list\` for the full list.`;
+      let msg = `That monster doesn't seem to exist! Check out \`${await client.prefix(
+        message
+      )}mhw list\` for the full list.`;
 
       const options = {
         input: input,

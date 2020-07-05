@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class Trueraw extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'trueraw',
       'trueraw [weapon type] [attack]',
@@ -9,7 +9,7 @@ class Trueraw extends Command {
     );
   }
 
-  usageEmbed() {
+  usageEmbed(prefix) {
     const data = [];
     data.push(
       'weapon type: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns'
@@ -47,7 +47,7 @@ class Trueraw extends Command {
       !args[1] ||
       !this.weaponsRatio.has(args[0])
     ) {
-      message.channel.send(this.usageEmbed());
+      message.channel.send(this.usageEmbed(await client.prefix(message)));
     } else {
       message.channel.send(this.truerawEmbed(rounded));
     }

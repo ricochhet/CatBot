@@ -2,7 +2,7 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Find extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'find',
       'find',

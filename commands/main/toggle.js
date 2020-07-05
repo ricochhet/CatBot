@@ -3,13 +3,12 @@ const DisableCmdHandler = require('../../utils/disableCmdHandler.js');
 const logger = require('../../utils/log.js');
 
 class Toggle extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'toggle',
       'toggle [command | category | list]',
       'Disable (category) commands **per guild**',
       {
-        prefix: prefix,
         admin: true,
         alias: ['enable', 'disable']
       }
@@ -22,7 +21,7 @@ class Toggle extends Command {
     return this.blacklist.includes(name);
   }
 
-  usageEmbed(error = '') {
+  usageEmbed(prefix, error = '') {
     const data = [];
     data.push('**list:** show all the disabled commands');
     data.push('**category:** toggle a whole category on/off, e.g `lfg`');

@@ -2,14 +2,13 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Ignore extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'ignore',
       'ignore [channel_(id/mention/name) | all | clear | list]',
       'Allows the bot to ignore a channel\n*(run again to remove channel from list)*',
       {
         args: true,
-        prefix: prefix,
         admin: true
       }
     );
@@ -27,7 +26,7 @@ class Ignore extends Command {
     return chunks;
   }
 
-  usageEmbed(error = '') {
+  usageEmbed(prefix, error = '') {
     const data = [];
     data.push('**channel_id:** 18 digits (turn on developer mode to see them)');
     data.push('**channel_mention:** example -> #general');
@@ -51,6 +50,8 @@ class Ignore extends Command {
   }
 
   async run(client, message, args) {
+    const prefix = await client.prefix(message);
+
     client.apiClient
       .getIgnoredChannels()
       .then(ignored => {
@@ -180,7 +181,10 @@ class Ignore extends Command {
               );
               if (!channel)
                 return message.channel.send(
-                  this.usageEmbed(`Can't find the channel by \`${channelID}\``)
+                  this.usageEmbed(
+                    prefix,
+                    `Can't find the channel by \`${channelID}\``
+                  )
                 );
               channelID = channel.id;
 

@@ -11,7 +11,6 @@ const defaultOptions = {
   category: false,
   subTree: null,
   alias: [],
-  prefix: '',
   admin: false
 };
 
@@ -20,13 +19,12 @@ class Command {
     // Merge options (custom will override default if given)
     const options = { ...defaultOptions, ...customOptions };
     this.name = name;
-    this.usage = `${options['prefix']}${usage}`;
+    this.usage = `${usage}`;
     this.description = description;
     this.args = options['args'];
     this.secret = options['secret'];
     this.category = options['category'];
     this.subTree = options['subTree'];
-    this.prefix = options['prefix'];
     this.version = version;
     this.alias = options['alias'];
     this.admin = options['admin'];
@@ -97,10 +95,13 @@ class Command {
         !cmd.secret
     );
 
-    if (!commandFound) return message.channel.send(this.usageEmbed());
+    if (!commandFound)
+      return message.channel.send(this.usageEmbed(client.prefix(message)));
 
     if (commandFound.args && args.length == 0)
-      return message.channel.send(commandFound.usageEmbed());
+      return message.channel.send(
+        commandFound.usageEmbed(client.prefix(message))
+      );
 
     try {
       commandFound
@@ -159,7 +160,7 @@ class Command {
     return embed;
   }
 
-  usageEmbed() {
+  usageEmbed(prefix) {
     let embed = this.MessageEmbed();
 
     if (this.category) {
@@ -168,7 +169,7 @@ class Command {
 
       client[this.subTree].each(cmd => {
         data.push(
-          `**${this.prefix}${this.name} ${cmd.usage}** - ${cmd.description}`
+          `**${prefix}${this.name} ${cmd.usage}** - ${cmd.description}`
         );
       });
 

@@ -2,11 +2,10 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Status extends Command {
-  constructor(prefix) {
+  constructor() {
     super('status', 'status', 'Gives the CatBot status', {
       args: false,
-      secret: true,
-      prefix: prefix
+      secret: true
     });
   }
 

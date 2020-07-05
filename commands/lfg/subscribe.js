@@ -2,7 +2,7 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Subscribe extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'subscribe',
       'subscribe (channel name/id/mention)',

@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class RollHunt extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'rollhunt',
       'rollhunt',

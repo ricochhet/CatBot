@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class Monster extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'monster',
       'monster [monster name]',

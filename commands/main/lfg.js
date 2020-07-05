@@ -1,14 +1,13 @@
 const Command = require('../../utils/command.js');
 
 class Lfg extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'lfg',
       'lfg [command] [command arguments]',
       'LFG - Looking For Group',
       {
-        category: true,
-        prefix: prefix
+        category: true
       }
     );
 

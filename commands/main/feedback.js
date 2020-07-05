@@ -2,19 +2,18 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Feedback extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'feedback',
       'feedback (description)',
       'Send us some feedback about CatBot!',
       {
-        args: true,
-        prefix: prefix
+        args: true
       }
     );
   }
 
-  usageEmbed(error = '') {
+  usageEmbed(prefix, error = '') {
     let embed = this.MessageEmbed();
 
     if (error) {
@@ -27,7 +26,7 @@ class Feedback extends Command {
       .addField(
         'Description: ',
         this.description +
-          `\n\nIf you want to follow up or discuss more you can do ${this.prefix}support instead and join the support server`
+          `\n\nIf you want to follow up or discuss more you can do ${prefix}support instead and join the support server`
       )
       .setTimestamp();
 
@@ -36,10 +35,11 @@ class Feedback extends Command {
 
   async run(client, message, args) {
     let description = args.join(' ');
+    const prefix = await client.prefix(message);
 
     if (description.length > 512)
       return message.channel.send(
-        this.usageEmbed('Description must be less than 512 characters')
+        this.usageEmbed(prefix, 'Description must be less than 512 characters')
       );
 
     let embed = this.MessageEmbed()

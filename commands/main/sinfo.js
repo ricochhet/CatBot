@@ -2,9 +2,8 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Sinfo extends Command {
-  constructor(prefix) {
+  constructor() {
     super('sinfo', 'sinfo', 'Get info of a server', {
-      prefix: prefix,
       secret: true
     });
   }

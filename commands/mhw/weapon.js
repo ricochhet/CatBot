@@ -2,7 +2,7 @@ const Command = require('../../utils/command.js');
 const logger = require('../../utils/log.js');
 
 class Weapon extends Command {
-  constructor(prefix) {
+  constructor() {
     super('weapon', 'weapon [weapon name]', 'Get info for a specific weapon');
   }
 

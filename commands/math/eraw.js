@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class Eraw extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'eraw',
       'eraw [sharpness] [true raw] [critical boost level] (monster hitzone)',
@@ -9,7 +9,7 @@ class Eraw extends Command {
     );
   }
 
-  usageEmbed() {
+  usageEmbed(prefix) {
     const data = [];
     data.push(
       'weapon type: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns'
@@ -67,7 +67,7 @@ class Eraw extends Command {
       !this.rawSharpRatio.has(args[0]) ||
       !this.critBoostLvl.has(args[2])
     ) {
-      message.channel.send(this.usageEmbed());
+      message.channel.send(this.usageEmbed(await client.prefix(message)));
     } else {
       message.channel.send(this.erawEmbed(rounded));
     }

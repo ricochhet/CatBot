@@ -1,10 +1,9 @@
 const Command = require('../../utils/command.js');
 
 class Support extends Command {
-  constructor(prefix) {
+  constructor() {
     super('support', 'support', 'Support server for CatBot', {
-      args: false,
-      prefix: prefix
+      args: false
     });
   }
 

@@ -1,14 +1,13 @@
 const Command = require('../../utils/command.js');
 
 class Mhw extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'mhw',
       'mhw [command] [command arguments]',
       'MHW - Monster Hunter World: Iceborne',
       {
-        category: true,
-        prefix: prefix
+        category: true
       }
     );
   }

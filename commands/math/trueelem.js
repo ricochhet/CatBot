@@ -1,7 +1,7 @@
 const Command = require('../../utils/command.js');
 
 class Trueelem extends Command {
-  constructor(prefix) {
+  constructor() {
     super(
       'trueelem',
       'trueelem [attack]',
@@ -9,7 +9,7 @@ class Trueelem extends Command {
     );
   }
 
-  usageEmbed() {
+  usageEmbed(prefix) {
     const data = [];
     data.push('attack: in-game attack value');
 
@@ -39,7 +39,7 @@ class Trueelem extends Command {
     let rounded = Math.round(calculate);
 
     if (Number.isNaN(rounded) || !args[0]) {
-      message.channel.send(this.usageEmbed());
+      message.channel.send(this.usageEmbed(await client.prefix(message)));
     } else {
       message.channel.send(this.trueelemEmbed(rounded));
     }
