@@ -3,6 +3,7 @@ const Pages = require('./pagers.js');
 const similarity = require('./similarity.js');
 const logger = require('./log.js');
 const fs = require('fs');
+const ms = require('ms');
 // const { Attachment } = require('discord.js'); // This is to send the image via discord.
 
 const defaultOptions = {
@@ -30,6 +31,8 @@ class Command {
     this.admin = options['admin'];
     this.score = similarity.score;
     this.findAllMatching = similarity.findAllMatching;
+    this.cooldown = 0;
+    this.cooldowns = new Map();
 
     // Weapons multiplier
     this.weaponsRatio = new Map([
@@ -101,6 +104,28 @@ class Command {
 
     if (commandFound.args && args.length == 0)
       return message.channel.send(commandFound.usageEmbed(prefix));
+
+    const cooldownTimer = commandFound.cooldowns.get(message.author.id);
+    if (cooldownTimer && !commandFound.category) {
+      if (Date.now() < cooldownTimer) {
+        const timeDifference = cooldownTimer - Date.now();
+        return message.channel.send(
+          `You still have **${ms(timeDifference, {
+            long: true
+          })}** cooldown until you can do the \`${this.name} ${
+            commandFound.name
+          }\` command again.`
+        );
+      } else {
+        commandFound.cooldowns.delete(message.author.id);
+      }
+    }
+
+    if (!commandFound.category)
+      commandFound.cooldowns.set(
+        message.author.id,
+        Date.now() + commandFound.cooldown
+      );
 
     try {
       commandFound
