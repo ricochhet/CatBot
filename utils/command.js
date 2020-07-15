@@ -89,19 +89,18 @@ class Command {
   async run(client, message, args) {
     const subCommand = args[0];
     args = args.slice(1, args.length);
+    const prefix = await client.prefix(message);
+
     const commandFound = client[this.subTree].find(
       cmd =>
         (cmd.name === subCommand || cmd.alias.includes(subCommand)) &&
         !cmd.secret
     );
 
-    if (!commandFound)
-      return message.channel.send(this.usageEmbed(client.prefix(message)));
+    if (!commandFound) return message.channel.send(this.usageEmbed(prefix));
 
     if (commandFound.args && args.length == 0)
-      return message.channel.send(
-        commandFound.usageEmbed(client.prefix(message))
-      );
+      return message.channel.send(commandFound.usageEmbed(prefix));
 
     try {
       commandFound
