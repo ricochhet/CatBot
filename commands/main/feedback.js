@@ -8,7 +8,8 @@ class Feedback extends Command {
       'feedback (description)',
       'Send us some feedback about CatBot!',
       {
-        args: true
+        args: true,
+        cooldown: 300000
       }
     );
   }

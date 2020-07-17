@@ -12,7 +12,8 @@ const defaultOptions = {
   category: false,
   subTree: null,
   alias: [],
-  admin: false
+  admin: false,
+  cooldown: 1000
 };
 
 class Command {
@@ -31,7 +32,7 @@ class Command {
     this.admin = options['admin'];
     this.score = similarity.score;
     this.findAllMatching = similarity.findAllMatching;
-    this.cooldown = 0;
+    this.cooldown = options['cooldown'];
     this.cooldowns = new Map();
 
     // Weapons multiplier

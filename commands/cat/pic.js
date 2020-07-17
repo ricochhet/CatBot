@@ -6,7 +6,8 @@ class Pic extends Command {
   constructor() {
     super('pic', 'pic', 'Shows a random cat pictures', {
       args: false,
-      alias: ['pics']
+      alias: ['pics'],
+      cooldown: 2000
     });
   }
 
