@@ -6,7 +6,6 @@ const { parse } = require('path');
 const logger = require('./log.js');
 const DisableCmdHandler = require('./disableCmdHandler.js');
 const config = require('../config.json');
-const { data } = require('./log.js');
 const ms = require('ms');
 
 // params and defaults at https://discord.js.org/#/docs/main/v12/typedef/ClientOptions
