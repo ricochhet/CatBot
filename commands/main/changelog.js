@@ -14,12 +14,10 @@ class Changelog extends Command {
       .addField(
         `Changelog: v${client.version}`,
         `
-        🔧 CatBot has had a few more upgrades on the technical side
-        🔧 Changed database to API
-        📖 Tinkered mhw weapons & armor embeds so they were not so **THICC**
-        📖 Added safi jiiva weapon data
-        📖 Added ${prefix}cat, Where we share our love of cats
-        📖 Added ${prefix}prefix, Where you can set your own custom prefix
+        🔧 Various bugfixes (hzv, prefix, ignore)
+        🔧 Commands now have cooldowns! Spam responsibly. 
+        📖 Alatreon data added! 
+        📖 You can filter events by rank (added in previous update, see ${prefix}mhw)
         `
       )
       .setTimestamp()

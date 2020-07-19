@@ -16,7 +16,7 @@ class About extends Command {
     const aboutEmbed = this.MessageEmbed()
       .setColor('#8fde5d')
       .addField('Author: ', `${rico.tag}`, true)
-      .addField('Contributors', `${chad.tag}\n${yofou.tag}`, true)
+      .addField('Devs', `${chad.tag}\n${yofou.tag}`, true)
       .addField('Version: ', `v${client.version}`, true)
       .addField(
         'Changelog: ',

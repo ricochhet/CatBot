@@ -36,13 +36,11 @@ class ApiClient {
             .catch(err => logger.error('Failed retrieving catfacts: ', err));
     }
 
-    // TODO - Subject to change (double check w/ CatbotServer)
     async getCustomPrefixes() {
         return this.getData(`db/${this.clientId}/server/prefixes`)
               .catch(err => logger.error('Failed retrieving custom prefixes: ', err));
     }
 
-    // TODO - Subject to change (double check w/ CatbotServer)
     async updateCustomPrefixes(prefixes) {
       return this.postData(`db/${this.clientId}/server/prefixes`, prefixes)
             .catch(err => logger.error('Failed updating custom prefixes: ', err));
