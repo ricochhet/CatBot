@@ -13,7 +13,7 @@ const defaultOptions = {
   subTree: null,
   alias: [],
   admin: false,
-  cooldown: 1000
+  cooldown: 2000
 };
 
 class Command {

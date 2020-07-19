@@ -7,7 +7,7 @@ class Pic extends Command {
     super('pic', 'pic', 'Shows a random cat pictures', {
       args: false,
       alias: ['pics'],
-      cooldown: 2000
+      cooldown: 5000
     });
   }
 
