@@ -113,7 +113,7 @@ class Command {
         return message.channel.send(
           `You still have **${ms(timeDifference, {
             long: true
-          })}** cooldown until you can do the \`${this.name} ${
+          })}** until you can do the \`${this.name} ${
             commandFound.name
           }\` command again.`
         );

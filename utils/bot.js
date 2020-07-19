@@ -240,7 +240,7 @@ class Bot extends Client {
         return message.channel.send(
           `You still have **${ms(timeDifference, {
             long: true
-          })}** cooldown until you can do the \`${command.name}\` again.`
+          })}** until you can do the \`${command.name}\` command again.`
         );
       } else {
         command.cooldowns.delete(message.author.id);
