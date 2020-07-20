@@ -39,7 +39,7 @@ class Weapon extends Command {
       .addField('Elements', weapon.elements, true)
       .addField('Slots', weapon.slots, true)
       .addField('Coatings', weapon.coatings, true)
-      .addField('Sharpness', weapon.sharpness.base, true)
+      .addField('Sharpness (Handicraft 5)', weapon.sharpness.base, true)
       .addField('Forge', weapon.crafting, true)
       .addField('Upgrade', weapon.upgrade, true)
       .setTimestamp()

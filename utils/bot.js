@@ -6,6 +6,7 @@ const { parse } = require('path');
 const logger = require('./log.js');
 const DisableCmdHandler = require('./disableCmdHandler.js');
 const config = require('../config.json');
+const ms = require('ms');
 
 // params and defaults at https://discord.js.org/#/docs/main/v12/typedef/ClientOptions
 // these are the only values we're customizing (using defaults otherwise)
@@ -230,6 +231,23 @@ class Bot extends Client {
 
     if (!command.secret)
       logger.debug('command log', { type: 'commandRun', cmd: log });
+
+    const cooldownTimer = command.cooldowns.get(message.author.id);
+    if (cooldownTimer && !command.category) {
+      if (Date.now() < cooldownTimer) {
+        const timeDifference = cooldownTimer - Date.now();
+        return message.channel.send(
+          `You still have **${ms(timeDifference, {
+            long: true
+          })}** until you can do the \`${command.name}\` command again.`
+        );
+      } else {
+        command.cooldowns.delete(message.author.id);
+      }
+    }
+
+    if (!command.category)
+      command.cooldowns.set(message.author.id, Date.now() + command.cooldown);
 
     try {
       if (command.caseSensitiveArgs) {

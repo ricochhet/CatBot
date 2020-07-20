@@ -4,7 +4,8 @@ class Facts extends Command {
   constructor() {
     super('fact', 'fact', 'Shows random cat facts', {
       args: false,
-      alias: ['facts']
+      alias: ['facts'],
+      cooldown: 2000
     });
   }
 

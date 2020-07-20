@@ -20,16 +20,7 @@ const HEX_ORANGE = '#ffa500';
 const HEX_GREEN = '#78AB46';
 
 const ICON_SIZE_PX = 50;
-const TENDERIZED_WHITELIST = [
-  'slash',
-  'blunt',
-  'ranged',
-  'fire',
-  'water',
-  'thunder',
-  'ice',
-  'dragon'
-];
+const TENDERIZED_WHITELIST = ['slash', 'blunt', 'ranged'];
 
 const HZV_FILENAME = 'hzv.png';
 
@@ -59,8 +50,7 @@ class Hzv extends Command {
 
       // remove the first element because its the name of the monster
       parts.shift();
-
-      const canvasHeight = parts.length * (CANVAS_PART_HEIGHT + 5);
+      const canvasHeight = parts.length * (CANVAS_PART_HEIGHT + 10);
 
       // Figure out space needed (in pixels) for monster part names
       // by creating dummy canvas for each part and checking the width
@@ -182,10 +172,16 @@ class Hzv extends Command {
           }
 
           if (TENDERIZED_WHITELIST.includes(hitzone)) {
-            const tenderizeVal = Number(
+            let tenderizeVal = Number(
               monsterEnrageInfo.tenderizeFormula.split('+')[1]
             );
-            hzv = `${hzv} (${Math.round(hzv * 0.75 + tenderizeVal)})`;
+
+            let tenderizeCalc = hzv;
+            if (!isNaN(tenderizeVal))
+              tenderizeCalc = Math.round(hzv * 0.75 + tenderizeVal);
+
+            hzv = `${hzv} (${tenderizeCalc})`;
+
             hzvImage.addResponsiveText(hzv, x + 20, y).setColor(HEX_WHITE);
             if (
               TENDERIZED_WHITELIST[TENDERIZED_WHITELIST.length - 1] == hitzone
