@@ -12,9 +12,6 @@ class Eraw extends Command {
   usageEmbed(prefix) {
     const data = [];
     data.push(
-      'weapon type: bow, cb, db, gs, gl, hammer, hbg, hh, ig, lance, lbg, ls, sa, sns'
-    );
-    data.push(
       'sharpness: none, red, orange, yellow, green, blue, white, purple'
     );
     data.push('true raw: true raw damage value');

@@ -77,10 +77,9 @@ class Command {
 
     this.critBoostLvl = new Map([
       ['none', 1],
-      ['1', 1.25],
-      ['2', 1.3],
-      ['3', 1.35],
-      ['4', 1.4]
+      ['1', 1.3],
+      ['2', 1.35],
+      ['3', 1.4]
     ]);
 
     if (!this.category && this.subTree != null) {

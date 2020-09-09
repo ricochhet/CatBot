@@ -31,7 +31,9 @@ class SetPrefix extends Command {
     const requestedPrefix = args[0];
 
     if (requestedPrefix.length > 6)
-      return message.channel.send('New prefix is too long - max length is 6**');
+      return message.channel.send(
+        'New prefix is too long - **max length is 6 characters**'
+      );
 
     if (
       requestedPrefix == client.config['bot']['defaultPrefix'] &&
