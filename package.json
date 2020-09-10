@@ -1,6 +1,6 @@
 {
   "name": "catbot",
-  "version": "3.1.2",
+  "version": "3.2.2",
   "description": "Monster Hunter Discord Bot",
   "main": "index.js",
   "scripts": {
