@@ -134,15 +134,15 @@ class Bot extends Client {
       return;
 
     // Check if the channel should be ignored (bypassed for ADMINS)
-    client.apiClient.getIgnoredChannels().then(ignored => {
-      if (ignored.channels) {
-        if (
-          ignored.channels.includes(message.channel.id) &&
-          !message.member.hasPermission('ADMINISTRATOR')
-        )
-          return;
-      }
-    });
+    const ignored = await client.apiClient.getIgnoredChannels();
+
+    if (ignored.channels) {
+      if (
+        ignored.channels.includes(message.channel.id) &&
+        !message.member.hasPermission('ADMINISTRATOR')
+      )
+        return;
+    }
 
     const prefix = await this.prefix(message);
     let content;
