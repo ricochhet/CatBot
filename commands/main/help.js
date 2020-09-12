@@ -69,7 +69,7 @@ class Help extends Command {
           `**${prefix}${commands[0].name}** - ${commands[0].description}`
       )
       .join('\n');
-    const mainGenerel = client.commands
+    const mainGeneral = client.commands
       .filter(
         command =>
           !command.category &&
@@ -84,7 +84,7 @@ class Help extends Command {
     const main = this.MessageEmbed().setColor(color);
 
     if (mainList.length) main.addField('Main', mainList);
-    if (mainGenerel.length) main.addField('Generel', mainGenerel);
+    if (mainGeneral.length) main.addField('General', mainGeneral);
 
     main
       .addField('Syntax', mainSyntax)
