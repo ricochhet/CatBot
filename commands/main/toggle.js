@@ -7,7 +7,7 @@ class Toggle extends Command {
     super(
       'toggle',
       'toggle [command | category | list]',
-      'Disable (category) commands **per guild**',
+      'Disable (category) commands **per guild**\n`(Members with Administrator permissions bypass this toggle)`',
       {
         admin: true,
         alias: ['enable', 'disable']

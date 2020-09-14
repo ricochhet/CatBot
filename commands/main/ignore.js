@@ -6,7 +6,7 @@ class Ignore extends Command {
     super(
       'ignore',
       'ignore [channel_(id/mention/name) | all | clear | list]',
-      'Allows the bot to ignore a channel\n*(run again to remove channel from list)*',
+      'Allows the bot to ignore a channel\n*(run again to remove channel from list)*\n`(Members with Administrator permissions bypass this toggle)`',
       {
         args: true,
         admin: true
