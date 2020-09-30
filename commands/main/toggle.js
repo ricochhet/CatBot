@@ -1,6 +1,6 @@
-const Command = require('../../utils/command.js');
-const DisableCmdHandler = require('../../utils/disableCmdHandler.js');
-const logger = require('../../utils/log.js');
+const Command = require('../../bot/command.js');
+const DisableCmdHandler = require('../../bot/disableCmdHandler.js');
+const logger = require('../../bot/log.js');
 
 class Toggle extends Command {
   constructor() {

@@ -1,5 +1,5 @@
-const Command = require('../../utils/command.js');
-const logger = require('../../utils/log.js');
+const Command = require('../../bot/command.js');
+const logger = require('../../bot/log.js');
 
 class Monster extends Command {
   constructor() {
@@ -17,19 +17,16 @@ class Monster extends Command {
 
     const embed = rawEmbed()
       .setColor('#8fde5d')
-      .setTitle(monster.title)
+      .setTitle(`__**${monster.title}**__`)
       .setThumbnail(monster.thumbnail)
-      .setDescription(`${monster.description}\n\n${monster.info}`)
-      .addField(
-        `Slash: **${monster.hzv.slash}** Blunt: **${monster.hzv.blunt}** Shot: **${monster.hzv.shot}**`,
-        `🔥 **${monster.hzv.fire}** 💧 **${monster.hzv.water}** ⚡ **${monster.hzv.thunder}** ❄ **${monster.hzv.ice}** 🐉 **${monster.hzv.dragon}**`
-      )
+      .addField('Classification:', monster.description)
+      .addField('Characteristics:', monster.info)
       .addField('Elements', monster.elements, true)
       .addField('Ailments', monster.ailments, true)
       .addField('Blights', monster.blights, true)
       .addField('Locations', monster.locations, true)
       .setTimestamp()
-      .setFooter('Info Menu');
+      .setFooter(monster.title);
 
     return embed;
   }

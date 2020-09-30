@@ -1,4 +1,4 @@
-const Command = require('../../utils/command.js');
+const Command = require('../../bot/command.js');
 
 class Support extends Command {
   constructor() {
@@ -10,9 +10,8 @@ class Support extends Command {
   async run(client, message, args) {
     const inviteEmbed = this.MessageEmbed()
       .setColor('#8fde5d')
-      .setTitle('CatBot Support Server')
-      .setDescription('[Discord](https://discord.gg/srNyk8G)')
-      .addField('About: ', 'Support Server for CatBot')
+      .setTitle('CatBot Support')
+      .setDescription('[Join the Discord](https://discord.gg/srNyk8G)')
       .setTimestamp()
       .setFooter('Support Link Request', client.user.avatarURL());
 

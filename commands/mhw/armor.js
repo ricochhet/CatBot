@@ -1,5 +1,5 @@
-const Command = require('../../utils/command.js');
-const logger = require('../../utils/log.js');
+const Command = require('../../bot/command.js');
+const logger = require('../../bot/log.js');
 
 class Armor extends Command {
   constructor() {
@@ -42,13 +42,13 @@ class Armor extends Command {
       .addField('Resistances', formatted, true)
       .addField('Defenses', armor.defenses, true)
       .setTimestamp()
-      .setFooter('Info Menu');
+      .setFooter(armor.name);
 
     page2
       .addField('Slots', armor.slots, true)
       .addField('Skills', armor.skills, true)
       .setTimestamp()
-      .setFooter('Info Menu');
+      .setFooter(armor.name);
 
     let embeds = [page1, page2];
 

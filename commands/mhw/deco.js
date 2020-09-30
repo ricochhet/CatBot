@@ -1,5 +1,5 @@
-const Command = require('../../utils/command.js');
-const logger = require('../../utils/log.js');
+const Command = require('../../bot/command.js');
+const logger = require('../../bot/log.js');
 
 class Deco extends Command {
   constructor() {
@@ -23,7 +23,7 @@ class Deco extends Command {
       .addField('Rarity', decoration.rarity, true)
       .addField('Slot Level', decoration.slot, true)
       .setTimestamp()
-      .setFooter('Info Menu');
+      .setFooter(decoration.name);
 
     return embed;
   }

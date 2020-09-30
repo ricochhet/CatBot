@@ -1,4 +1,4 @@
-const Command = require('../../utils/command.js');
+const Command = require('../../bot/command.js');
 const fetch = require('node-fetch');
 const { MessageAttachment } = require('discord.js');
 
