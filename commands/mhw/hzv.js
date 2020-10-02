@@ -31,7 +31,7 @@ class Hzv extends Command {
         `Slash: **${monster.hzv.slash}** Blunt: **${monster.hzv.blunt}** Shot: **${monster.hzv.shot}**`,
         `🔥 **${monster.hzv.fire}** 💧 **${monster.hzv.water}** ⚡ **${monster.hzv.thunder}** ❄ **${monster.hzv.ice}** 🐉 **${monster.hzv.dragon}**`
       )
-      .attachFiles(`./source_files/MonsterDataImages/${image.imagePath}`)
+      .attachFiles(image.imagePath)
       .setImage(`attachment://${image.fileName}`)
       .setTimestamp()
       .setFooter(monster.title);

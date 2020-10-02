@@ -1,467 +1,467 @@
 {
   "agnaktor": {
     "title": "Agnaktor",
-    "imagePath": "assets/mhgu/monster/Agnaktor.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Agnaktor.png",
     "fileName": "Agnaktor.png"
   },
   "ahtal-ka": {
     "title": "Ahtal-Ka",
-    "imagePath": "assets/mhgu/monster/Ahtal-Ka.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Ahtal-Ka.png",
     "fileName": "Ahtal-Ka.png"
   },
   "akantor": {
     "title": "Akantor",
-    "imagePath": "assets/mhgu/monster/Akantor.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Akantor.png",
     "fileName": "Akantor.png"
   },
   "alatreon": {
     "title": "Alatreon",
-    "imagePath": "assets/mhgu/monster/Alatreon.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Alatreon.png",
     "fileName": "Alatreon.png"
   },
   "amatsu": {
     "title": "Amatsu",
-    "imagePath": "assets/mhgu/monster/Amatsu.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Amatsu.png",
     "fileName": "Amatsu.png"
   },
   "arzuros": {
     "title": "Arzuros",
-    "imagePath": "assets/mhgu/monster/Arzuros.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Arzuros.png",
     "fileName": "Arzuros.png"
   },
   "astalos": {
     "title": "Astalos",
-    "imagePath": "assets/mhgu/monster/Astalos.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Astalos.png",
     "fileName": "Astalos.png"
   },
   "barioth": {
     "title": "Barioth",
-    "imagePath": "assets/mhgu/monster/Barioth.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Barioth.png",
     "fileName": "Barioth.png"
   },
   "barroth": {
     "title": "Barroth",
-    "imagePath": "assets/mhgu/monster/Barroth.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Barroth.png",
     "fileName": "Barroth.png"
   },
   "basarios": {
     "title": "Basarios",
-    "imagePath": "assets/mhgu/monster/Basarios.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Basarios.png",
     "fileName": "Basarios.png"
   },
   "blangonga": {
     "title": "Blangonga",
-    "imagePath": "assets/mhgu/monster/Blangonga.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Blangonga.png",
     "fileName": "Blangonga.png"
   },
   "bloodbathdiablos": {
     "title": "Bloodbath Diablos",
-    "imagePath": "assets/mhgu/monster/Bloodbath Diablos.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Bloodbath Diablos.png",
     "fileName": "Bloodbath Diablos.png"
   },
   "boltreaverastalos": {
     "title": "Boltreaver Astalos",
-    "imagePath": "assets/mhgu/monster/Boltreaver Astalos.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Boltreaver Astalos.png",
     "fileName": "Boltreaver Astalos.png"
   },
   "brachydios": {
     "title": "Brachydios",
-    "imagePath": "assets/mhgu/monster/Brachydios.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Brachydios.png",
     "fileName": "Brachydios.png"
   },
   "bulldrome": {
     "title": "Bulldrome",
-    "imagePath": "assets/mhgu/monster/Bulldrome.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Bulldrome.png",
     "fileName": "Bulldrome.png"
   },
   "cephadrome": {
     "title": "Cephadrome",
-    "imagePath": "assets/mhgu/monster/Cephadrome.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Cephadrome.png",
     "fileName": "Cephadrome.png"
   },
   "chameleos": {
     "title": "Chameleos",
-    "imagePath": "assets/mhgu/monster/Chameleos.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Chameleos.png",
     "fileName": "Chameleos.png"
   },
   "chaoticgoremagala": {
     "title": "Chaotic Gore Magala",
-    "imagePath": "assets/mhgu/monster/Chaotic Gore Magala.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Chaotic Gore Magala.png",
     "fileName": "Chaotic Gore Magala.png"
   },
   "congalala": {
     "title": "Congalala",
-    "imagePath": "assets/mhgu/monster/Congalala.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Congalala.png",
     "fileName": "Congalala.png"
   },
   "crimsonfatalis": {
     "title": "Crimson Fatalis",
-    "imagePath": "assets/mhgu/monster/Crimson Fatalis.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Crimson Fatalis.png",
     "fileName": "Crimson Fatalis.png"
   },
   "crystalbearduragaan": {
     "title": "Crystalbeard Uragaan",
-    "imagePath": "assets/mhgu/monster/Crystalbeard Uragaan.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Crystalbeard Uragaan.png",
     "fileName": "Crystalbeard Uragaan.png"
   },
   "daimyohermitaur": {
     "title": "Daimyo Hermitaur",
-    "imagePath": "assets/mhgu/monster/Daimyo Hermitaur.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Daimyo Hermitaur.png",
     "fileName": "Daimyo Hermitaur.png"
   },
   "deadeyeyiangaruga": {
     "title": "Deadeye Yian Garuga",
-    "imagePath": "assets/mhgu/monster/Deadeye Yian Garuga.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Deadeye Yian Garuga.png",
     "fileName": "Deadeye Yian Garuga.png"
   },
   "deviljho": {
     "title": "Deviljho",
-    "imagePath": "assets/mhgu/monster/Deviljho.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Deviljho.png",
     "fileName": "Deviljho.png"
   },
   "diablos": {
     "title": "Diablos",
-    "imagePath": "assets/mhgu/monster/Diablos.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Diablos.png",
     "fileName": "Diablos.png"
   },
   "dreadkingrathalos": {
     "title": "Dreadking Rathalos",
-    "imagePath": "assets/mhgu/monster/Dreadking Rathalos.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Dreadking Rathalos.png",
     "fileName": "Dreadking Rathalos.png"
   },
   "dreadqueenrathian": {
     "title": "Dreadqueen Rathian",
-    "imagePath": "assets/mhgu/monster/Dreadqueen Rathian.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Dreadqueen Rathian.png",
     "fileName": "Dreadqueen Rathian.png"
   },
   "drilltusktetsucabra": {
     "title": "Drilltusk Tetsucabra",
-    "imagePath": "assets/mhgu/monster/Drilltusk Tetsucabra.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Drilltusk Tetsucabra.png",
     "fileName": "Drilltusk Tetsucabra.png"
   },
   "duramboros": {
     "title": "Duramboros",
-    "imagePath": "assets/mhgu/monster/Duramboros.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Duramboros.png",
     "fileName": "Duramboros.png"
   },
   "elderfrostgammoth": {
     "title": "Elderfrost Gammoth",
-    "imagePath": "assets/mhgu/monster/Elderfrost Gammoth.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Elderfrost Gammoth.png",
     "fileName": "Elderfrost Gammoth.png"
   },
   "fatalis": {
     "title": "Fatalis",
-    "imagePath": "assets/mhgu/monster/Fatalis.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Fatalis.png",
     "fileName": "Fatalis.png"
   },
   "furiousrajang": {
     "title": "Furious Rajang",
-    "imagePath": "assets/mhgu/monster/Furious Rajang.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Furious Rajang.png",
     "fileName": "Furious Rajang.png"
   },
   "gammoth": {
     "title": "Gammoth",
-    "imagePath": "assets/mhgu/monster/Gammoth.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Gammoth.png",
     "fileName": "Gammoth.png"
   },
   "gendrome": {
     "title": "Gendrome",
-    "imagePath": "assets/mhgu/monster/Gendrome.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Gendrome.png",
     "fileName": "Gendrome.png"
   },
   "giadrome": {
     "title": "Giadrome",
-    "imagePath": "assets/mhgu/monster/Giadrome.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Giadrome.png",
     "fileName": "Giadrome.png"
   },
   "glavenus": {
     "title": "Glavenus",
-    "imagePath": "assets/mhgu/monster/Glavenus.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Glavenus.png",
     "fileName": "Glavenus.png"
   },
   "goldrathian": {
     "title": "Gold Rathian",
-    "imagePath": "assets/mhgu/monster/Gold Rathian.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Gold Rathian.png",
     "fileName": "Gold Rathian.png"
   },
   "goremagala": {
     "title": "Gore Magala",
-    "imagePath": "assets/mhgu/monster/Gore Magala.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Gore Magala.png",
     "fileName": "Gore Magala.png"
   },
   "gravios": {
     "title": "Gravios",
-    "imagePath": "assets/mhgu/monster/Gravios.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Gravios.png",
     "fileName": "Gravios.png"
   },
   "greatmaccao": {
     "title": "Great Maccao",
-    "imagePath": "assets/mhgu/monster/Great Maccao.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Great Maccao.png",
     "fileName": "Great Maccao.png"
   },
   "grimclawtigrex": {
     "title": "Grimclaw Tigrex",
-    "imagePath": "assets/mhgu/monster/Grimclaw Tigrex.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Grimclaw Tigrex.png",
     "fileName": "Grimclaw Tigrex.png"
   },
   "gypceros": {
     "title": "Gypceros",
-    "imagePath": "assets/mhgu/monster/Gypceros.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Gypceros.png",
     "fileName": "Gypceros.png"
   },
   "hellbladeglavenus": {
     "title": "Hellblade Glavenus",
-    "imagePath": "assets/mhgu/monster/Hellblade Glavenus.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Hellblade Glavenus.png",
     "fileName": "Hellblade Glavenus.png"
   },
   "iodrome": {
     "title": "Iodrome",
-    "imagePath": "assets/mhgu/monster/Iodrome.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Iodrome.png",
     "fileName": "Iodrome.png"
   },
   "kechawacha": {
     "title": "Kecha Wacha",
-    "imagePath": "assets/mhgu/monster/Kecha Wacha.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Kecha Wacha.png",
     "fileName": "Kecha Wacha.png"
   },
   "khezu": {
     "title": "Khezu",
-    "imagePath": "assets/mhgu/monster/Khezu.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Khezu.png",
     "fileName": "Khezu.png"
   },
   "kirin": {
     "title": "Kirin",
-    "imagePath": "assets/mhgu/monster/Kirin.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Kirin.png",
     "fileName": "Kirin.png"
   },
   "kushaladaora": {
     "title": "Kushala Daora",
-    "imagePath": "assets/mhgu/monster/Kushala Daora.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Kushala Daora.png",
     "fileName": "Kushala Daora.png"
   },
   "lagiacrus": {
     "title": "Lagiacrus",
-    "imagePath": "assets/mhgu/monster/Lagiacrus.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Lagiacrus.png",
     "fileName": "Lagiacrus.png"
   },
   "lagombi": {
     "title": "Lagombi",
-    "imagePath": "assets/mhgu/monster/Lagombi.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Lagombi.png",
     "fileName": "Lagombi.png"
   },
   "lao-shanlung": {
     "title": "Lao-Shan Lung",
-    "imagePath": "assets/mhgu/monster/Lao-Shan Lung.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Lao-Shan Lung.png",
     "fileName": "Lao-Shan Lung.png"
   },
   "lavasioth": {
     "title": "Lavasioth",
-    "imagePath": "assets/mhgu/monster/Lavasioth.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Lavasioth.png",
     "fileName": "Lavasioth.png"
   },
   "malfestio": {
     "title": "Malfestio",
-    "imagePath": "assets/mhgu/monster/Malfestio.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Malfestio.png",
     "fileName": "Malfestio.png"
   },
   "mizutsune": {
     "title": "Mizutsune",
-    "imagePath": "assets/mhgu/monster/Mizutsune.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Mizutsune.png",
     "fileName": "Mizutsune.png"
   },
   "najarala": {
     "title": "Najarala",
-    "imagePath": "assets/mhgu/monster/Najarala.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Najarala.png",
     "fileName": "Najarala.png"
   },
   "nakarkos": {
     "title": "Nakarkos",
-    "imagePath": "assets/mhgu/monster/Nakarkos.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Nakarkos.png",
     "fileName": "Nakarkos.png"
   },
   "nargacuga": {
     "title": "Nargacuga",
-    "imagePath": "assets/mhgu/monster/Nargacuga.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Nargacuga.png",
     "fileName": "Nargacuga.png"
   },
   "nerscylla": {
     "title": "Nerscylla",
-    "imagePath": "assets/mhgu/monster/Nerscylla.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Nerscylla.png",
     "fileName": "Nerscylla.png"
   },
   "nibelsnarf": {
     "title": "Nibelsnarf",
-    "imagePath": "assets/mhgu/monster/Nibelsnarf.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Nibelsnarf.png",
     "fileName": "Nibelsnarf.png"
   },
   "nightcloakmalfestio": {
     "title": "Nightcloak Malfestio",
-    "imagePath": "assets/mhgu/monster/Nightcloak Malfestio.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Nightcloak Malfestio.png",
     "fileName": "Nightcloak Malfestio.png"
   },
   "plesioth": {
     "title": "Plesioth",
-    "imagePath": "assets/mhgu/monster/Plesioth.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Plesioth.png",
     "fileName": "Plesioth.png"
   },
   "ragingbrachydios": {
     "title": "Raging Brachydios",
-    "imagePath": "assets/mhgu/monster/Raging Brachydios.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Raging Brachydios.png",
     "fileName": "Raging Brachydios.png"
   },
   "rajang": {
     "title": "Rajang",
-    "imagePath": "assets/mhgu/monster/Rajang.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Rajang.png",
     "fileName": "Rajang.png"
   },
   "rathalos": {
     "title": "Rathalos",
-    "imagePath": "assets/mhgu/monster/Rathalos.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Rathalos.png",
     "fileName": "Rathalos.png"
   },
   "rathian": {
     "title": "Rathian",
-    "imagePath": "assets/mhgu/monster/Rathian.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Rathian.png",
     "fileName": "Rathian.png"
   },
   "redhelmarzuros": {
     "title": "Redhelm Arzuros",
-    "imagePath": "assets/mhgu/monster/Redhelm Arzuros.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Redhelm Arzuros.png",
     "fileName": "Redhelm Arzuros.png"
   },
   "royalludroth": {
     "title": "Royal Ludroth",
-    "imagePath": "assets/mhgu/monster/Royal Ludroth.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Royal Ludroth.png",
     "fileName": "Royal Ludroth.png"
   },
   "rustrazorceanataur": {
     "title": "Rustrazor Ceanataur",
-    "imagePath": "assets/mhgu/monster/Rustrazor Ceanataur.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Rustrazor Ceanataur.png",
     "fileName": "Rustrazor Ceanataur.png"
   },
   "savagedeviljho": {
     "title": "Savage Deviljho",
-    "imagePath": "assets/mhgu/monster/Savage Deviljho.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Savage Deviljho.png",
     "fileName": "Savage Deviljho.png"
   },
   "seltasqueen": {
     "title": "Seltas Queen",
-    "imagePath": "assets/mhgu/monster/Seltas Queen.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Seltas Queen.png",
     "fileName": "Seltas Queen.png"
   },
   "seltas": {
     "title": "Seltas",
-    "imagePath": "assets/mhgu/monster/Seltas.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Seltas.png",
     "fileName": "Seltas.png"
   },
   "seregios": {
     "title": "Seregios",
-    "imagePath": "assets/mhgu/monster/Seregios.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Seregios.png",
     "fileName": "Seregios.png"
   },
   "shagarumagala": {
     "title": "Shagaru Magala",
-    "imagePath": "assets/mhgu/monster/Shagaru Magala.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Shagaru Magala.png",
     "fileName": "Shagaru Magala.png"
   },
   "shogunceanataur": {
     "title": "Shogun Ceanataur",
-    "imagePath": "assets/mhgu/monster/Shogun Ceanataur.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Shogun Ceanataur.png",
     "fileName": "Shogun Ceanataur.png"
   },
   "silverrathalos": {
     "title": "Silver Rathalos",
-    "imagePath": "assets/mhgu/monster/Silver Rathalos.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Silver Rathalos.png",
     "fileName": "Silver Rathalos.png"
   },
   "silverwindnargacuga": {
     "title": "Silverwind Nargacuga",
-    "imagePath": "assets/mhgu/monster/Silverwind Nargacuga.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Silverwind Nargacuga.png",
     "fileName": "Silverwind Nargacuga.png"
   },
   "snowbaronlagombi": {
     "title": "Snowbaron Lagombi",
-    "imagePath": "assets/mhgu/monster/Snowbaron Lagombi.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Snowbaron Lagombi.png",
     "fileName": "Snowbaron Lagombi.png"
   },
   "soulseermizutsune": {
     "title": "Soulseer Mizutsune",
-    "imagePath": "assets/mhgu/monster/Soulseer Mizutsune.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Soulseer Mizutsune.png",
     "fileName": "Soulseer Mizutsune.png"
   },
   "stonefisthermitaur": {
     "title": "Stonefist Hermitaur",
-    "imagePath": "assets/mhgu/monster/Stonefist Hermitaur.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Stonefist Hermitaur.png",
     "fileName": "Stonefist Hermitaur.png"
   },
   "teostra": {
     "title": "Teostra",
-    "imagePath": "assets/mhgu/monster/Teostra.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Teostra.png",
     "fileName": "Teostra.png"
   },
   "tetsucabra": {
     "title": "Tetsucabra",
-    "imagePath": "assets/mhgu/monster/Tetsucabra.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Tetsucabra.png",
     "fileName": "Tetsucabra.png"
   },
   "thunderlordzinogre": {
     "title": "Thunderlord Zinogre",
-    "imagePath": "assets/mhgu/monster/Thunderlord Zinogre.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Thunderlord Zinogre.png",
     "fileName": "Thunderlord Zinogre.png"
   },
   "tigrex": {
     "title": "Tigrex",
-    "imagePath": "assets/mhgu/monster/Tigrex.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Tigrex.png",
     "fileName": "Tigrex.png"
   },
   "ukanlos": {
     "title": "Ukanlos",
-    "imagePath": "assets/mhgu/monster/Ukanlos.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Ukanlos.png",
     "fileName": "Ukanlos.png"
   },
   "uragaan": {
     "title": "Uragaan",
-    "imagePath": "assets/mhgu/monster/Uragaan.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Uragaan.png",
     "fileName": "Uragaan.png"
   },
   "valstrax": {
     "title": "Valstrax",
-    "imagePath": "assets/mhgu/monster/Valstrax.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Valstrax.png",
     "fileName": "Valstrax.png"
   },
   "velocidrome": {
     "title": "Velocidrome",
-    "imagePath": "assets/mhgu/monster/Velocidrome.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Velocidrome.png",
     "fileName": "Velocidrome.png"
   },
   "volvidon": {
     "title": "Volvidon",
-    "imagePath": "assets/mhgu/monster/Volvidon.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Volvidon.png",
     "fileName": "Volvidon.png"
   },
   "whitefatalis": {
     "title": "White Fatalis",
-    "imagePath": "assets/mhgu/monster/White Fatalis.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/White Fatalis.png",
     "fileName": "White Fatalis.png"
   },
   "yiangaruga": {
     "title": "Yian Garuga",
-    "imagePath": "assets/mhgu/monster/Yian Garuga.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Yian Garuga.png",
     "fileName": "Yian Garuga.png"
   },
   "yiankut-ku": {
     "title": "Yian Kut-Ku",
-    "imagePath": "assets/mhgu/monster/Yian Kut-Ku.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Yian Kut-Ku.png",
     "fileName": "Yian Kut-Ku.png"
   },
   "zamtrios": {
     "title": "Zamtrios",
-    "imagePath": "assets/mhgu/monster/Zamtrios.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Zamtrios.png",
     "fileName": "Zamtrios.png"
   },
   "zinogre": {
     "title": "Zinogre",
-    "imagePath": "assets/mhgu/monster/Zinogre.png",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhgu/monster/Zinogre.png",
     "fileName": "Zinogre.png"
   }
 }
