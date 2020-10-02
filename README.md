@@ -9,7 +9,7 @@ Source Code for CatBot.
 - Clone the repository and go into root folder (CatBot).
 - `npm install` to install dependencies
 - Edit `config.json` with correct values - only placeholders included.
-- Run the bot with `node .\index.js`
+- Run the bot with `node .`
 
 ### Configuration
 
