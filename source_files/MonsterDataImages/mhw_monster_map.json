@@ -109,6 +109,11 @@
     "imagePath": "./source_files/MonsterDataImages/assets/mhw/monster/Ebony_Odogaron_HZV.png",
     "fileName": "Ebony_Odogaron_HZV.png"
   },
+  "fatalis": {
+    "title": "Fatalis",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhw/monster/Fatalis_HZV.png",
+    "fileName": "Fatalis_HZV.png"
+  },
   "frostfangbarioth": {
     "title": "Frostfang Barioth",
     "imagePath": "./source_files/MonsterDataImages/assets/mhw/monster/Frostfang_Barioth_HZV.png",
