@@ -6,9 +6,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [4.0.0] [Unreleased]
-
-> Note: Could not test **+mhw hzv [monster name]** because internet sucks too much :'(
+## [4.0.0]
 
 - Renamed **utils** to **bot** (naming fits better).
 - Removed **mhw events**, the API we use does not get updated, nor is there a reason to use the command 90% of the time anyway. 
@@ -18,9 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Changed certain embed footers to display the name of the thing being searched for. 
 - Cleaned up **support** and **invite** commands.
 - Removed **effective elem** & **effective raw** commands (calc). 
-- Removed LFG - see [here](https://discordapp.com/channels/638517240475549736/717477453378879510/760659855039004692). 
-  - The real reason for deleting this is because I feel it never fit with the bot, I have no idea why I decided to add this in the first place, it's been a long time coming. **F**
-  - This was never the main purpose of the bot, nor do I feel removing would have a significant impact on peoples impact of the bot, use the in-game LFG system FFS.
+- Removed LFG commands.
 - Changed mhgu monster to mhgu hzv, added mhgu monster hzv.
 - Changed mhw hzv to be more detailed + image based.
 

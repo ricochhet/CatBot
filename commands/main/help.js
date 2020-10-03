@@ -78,7 +78,7 @@ class Help extends Command {
       )
       .map(command => `**${prefix}${command.name}** - ${command.description}`)
       .join('\n');
-    const mainIssues = `\`\`\`Contact ${rico.tag} | Do ${prefix}support\`\`\``;
+    const mainIssues = `\`\`\`Contact ${rico.tag} | Use ${prefix}support\`\`\``;
 
     const main = this.MessageEmbed().setColor(color);
 
