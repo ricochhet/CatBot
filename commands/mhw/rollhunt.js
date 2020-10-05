@@ -1,4 +1,4 @@
-const Command = require('../../utils/command.js');
+const Command = require('../../bot/command.js');
 
 class RollHunt extends Command {
   constructor() {
@@ -35,7 +35,7 @@ class RollHunt extends Command {
       .addField('Armor', armor.name)
       .addField('Weapon', `${weapon.type}: ${weapon.name}`)
       .setTimestamp()
-      .setFooter('Roll Menu');
+      .setFooter('RollHunt');
 
     return embed;
   }

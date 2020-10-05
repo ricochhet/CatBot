@@ -1,4 +1,4 @@
-const Command = require('../../utils/command.js');
+const Command = require('../../bot/command.js');
 
 class Changelog extends Command {
   constructor() {
@@ -14,10 +14,14 @@ class Changelog extends Command {
       .addField(
         `Changelog: v${client.version}`,
         `
-        🔧 Various bugfixes (hzv, prefix, ignore)
-        🔧 Commands now have cooldowns! Spam responsibly. 
-        📖 Alatreon data added! 
-        📖 You can filter events by rank (added in previous update, see ${prefix}mhw)
+        📖 Added better HZV data for Monster Hunter: World.
+        📖 Cleaned up support and invite commands.
+        📖 Added HZV data for Monster Hunter: GU.
+        🚫 Removed event command for Monster Hunter: World.
+        🚫 Removed unreliable math commands.
+        🚫 Removed feedback command.
+        🚫 Removed LFG commands.
+        🔧 Minor behind-the-scenes changes. 
         `
       )
       .setTimestamp()

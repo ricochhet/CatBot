@@ -1,10 +1,10 @@
 {
   "name": "catbot",
-  "version": "3.2.0",
+  "version": "4.0.0",
   "description": "Monster Hunter Discord Bot",
-  "main": "index.js",
+  "main": "shard.js",
   "scripts": {
-    "debug": "nodemon --exec node index.js",
+    "debug": "nodemon --exec node shard.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ricochet",

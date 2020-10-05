@@ -6,6 +6,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.0.0]
+
+- Renamed **utils** to **bot** (naming fits better).
+- Removed **mhw events**, the API we use does not get updated, nor is there a reason to use the command 90% of the time anyway. 
+- Combined **stats** & **status** command.
+- Removed **feedback** command.
+- Moved generic hzv status to **hzv** command rather than **monster**, why it wasn't like this before, who knows.
+- Changed certain embed footers to display the name of the thing being searched for. 
+- Cleaned up **support** and **invite** commands.
+- Removed **effective elem** & **effective raw** commands (calc). 
+- Removed LFG commands.
+- Changed mhgu monster to mhgu hzv, added mhgu monster hzv.
+- Changed mhw hzv to be more detailed + image based.
+
 ## [3.1.0]
 
 - Command cooldowns implemented

@@ -1,5 +1,5 @@
-const Command = require('../../utils/command.js');
-const DisableCmdHandler = require('../../utils/disableCmdHandler.js');
+const Command = require('../../bot/command.js');
+const DisableCmdHandler = require('../../bot/disableCmdHandler.js');
 
 const color = '#8fde5d';
 const mainSyntax =
@@ -28,8 +28,7 @@ class Help extends Command {
       [client.commands.get('mhw'), client.mhw],
       [client.commands.get('mhgu'), client.mhgu],
       [client.commands.get('cat'), client.cat],
-      [client.commands.get('calc'), client.math],
-      [client.commands.get('lfg'), client.lfg]
+      [client.commands.get('calc'), client.math]
     ].filter(commands => {
       const guild = handler.db[message.guild.id];
       if (!guild) return true;
@@ -79,7 +78,7 @@ class Help extends Command {
       )
       .map(command => `**${prefix}${command.name}** - ${command.description}`)
       .join('\n');
-    const mainIssues = `\`\`\`Contact ${rico.tag} | Do ${prefix}support\`\`\``;
+    const mainIssues = `\`\`\`Contact ${rico.tag} | Use ${prefix}support\`\`\``;
 
     const main = this.MessageEmbed().setColor(color);
 

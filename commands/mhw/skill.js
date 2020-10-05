@@ -1,5 +1,5 @@
-const Command = require('../../utils/command.js');
-const logger = require('../../utils/log.js');
+const Command = require('../../bot/command.js');
+const logger = require('../../bot/log.js');
 
 class Skill extends Command {
   constructor() {
@@ -17,7 +17,7 @@ class Skill extends Command {
       .setDescription(skill.description)
       .addField('Levels', skill.ranks, true)
       .setTimestamp()
-      .setFooter('Info Menu');
+      .setFooter(skill.name);
 
     return embed;
   }

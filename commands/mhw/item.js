@@ -1,5 +1,5 @@
-const Command = require('../../utils/command.js');
-const logger = require('../../utils/log.js');
+const Command = require('../../bot/command.js');
+const logger = require('../../bot/log.js');
 
 class Item extends Command {
   constructor() {
@@ -19,7 +19,7 @@ class Item extends Command {
       .addField('Max', item.carryLimit, true)
       .addField('Sell', item.value, true)
       .setTimestamp()
-      .setFooter('Info Menu');
+      .setFooter(item.name);
 
     return embed;
   }
