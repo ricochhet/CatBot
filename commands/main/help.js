@@ -5,7 +5,7 @@ const color = '#8fde5d';
 const mainSyntax =
   '_:bulb: Using a command w/o parameters gets extended help_\n[parameter] - Mandatory parameter\n(parameter) - Optional paramater';
 const mainLinks =
-  '[Vote](https://top.gg/bot/573958899582107653/vote) [Support](https://discord.gg/srNyk8G) [Invite](https://discordapp.com/oauth2/authorize?client_id=573958899582107653&permissions=339008&scope=bot)';
+  '[Vote](https://top.gg/bot/573958899582107653/vote) [Support](https://discord.gg/p5GRCSh) [Invite](https://discordapp.com/oauth2/authorize?client_id=573958899582107653&permissions=339008&scope=bot)';
 
 class Help extends Command {
   constructor() {
