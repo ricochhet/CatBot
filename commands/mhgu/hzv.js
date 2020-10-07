@@ -15,7 +15,7 @@ class Hzv extends Command {
     const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle(monster.title)
-      .attachFiles(`./source_files/MonsterDataImages/${monster.imagePath}`)
+      .attachFiles(monster.imagePath)
       .setImage(`attachment://${monster.fileName}`)
       .setTimestamp()
       .setFooter(monster.title);
