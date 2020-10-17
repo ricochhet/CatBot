@@ -148,11 +148,9 @@ class Bot extends Client {
     let content;
     if (message.content.startsWith(prefix)) {
       content = message.content.slice(prefix.length).trim();
-    } else if (
-      message.content.startsWith(`<@!${message.member.guild.me.id}>`)
-    ) {
+    } else if (message.content.startsWith(`<@!${this.user.id}>`)) {
       return message.reply(`Use ${prefix}help to get started!`);
-    } else if (message.content.startsWith(message.member.guild.me.toString())) {
+    } else if (message.content.startsWith(this.user.toString())) {
       return message.reply(`Use ${prefix}help to get started!`);
     } else {
       return;
