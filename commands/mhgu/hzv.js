@@ -20,6 +20,8 @@ class Hzv extends Command {
       .split("'")
       .join('')
       .split('-')
+      .join('')
+      .split(' ')
       .join('');
 
     const embed = rawEmbed()
