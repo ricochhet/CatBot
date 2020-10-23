@@ -10,15 +10,23 @@ class Hzv extends Command {
   }
 
   monsterEmbed(message, name, rawEmbed = this.MessageEmbed, menu = this.menu) {
-    const monster = imageMap.get(name);
+    const image = imageMap.get(name);
+
+    logger.debug('hzv log', { type: 'hzvRead', name: name });
+
+    const filename = image.fileName
+      .split("'")
+      .join('')
+      .split('-')
+      .join('');
 
     const embed = rawEmbed()
       .setColor('#8fde5d')
-      .setTitle(monster.title)
-      .attachFiles(monster.imagePath)
-      .setImage(`attachment://${monster.fileName}`)
+      .setTitle(`__**${image.title}**__`)
+      .attachFiles([new MessageAttachment(image.imagePath, filename)])
+      .setImage(`attachment://${filename}`)
       .setTimestamp()
-      .setFooter(monster.title);
+      .setFooter(image.title);
 
     return embed;
   }

@@ -19,11 +19,14 @@ class Hzv extends Command {
   ) {
     const monster = message.client.mhwMonsters.get(name);
     const image = imageMap.get(name);
-    console.log(image);
 
     logger.debug('hzv log', { type: 'hzvRead', name: name });
 
-    const filename = image.fileName.split("'").join('');
+    const filename = image.fileName
+      .split("'")
+      .join('')
+      .split('-')
+      .join('');
 
     const embed = rawEmbed()
       .setColor('#8fde5d')
