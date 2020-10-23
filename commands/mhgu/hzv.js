@@ -1,4 +1,6 @@
+const { MessageAttachment } = require('discord.js');
 const Command = require('../../bot/command.js');
+const logger = require('../../bot/log.js');
 const Utils = require('../../bot/utils');
 
 const imageJSON = require('../../source_files/MonsterDataImages/mhgu_monster_map.json');
