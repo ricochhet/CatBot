@@ -1,3 +1,4 @@
+const { MessageAttachment } = require('discord.js');
 const Command = require('../../bot/command.js');
 const logger = require('../../bot/log.js');
 const Utils = require('../../bot/utils');
@@ -18,8 +19,11 @@ class Hzv extends Command {
   ) {
     const monster = message.client.mhwMonsters.get(name);
     const image = imageMap.get(name);
+    console.log(image);
 
     logger.debug('hzv log', { type: 'hzvRead', name: name });
+
+    const filename = image.fileName.split("'").join('');
 
     const embed = rawEmbed()
       .setColor('#8fde5d')
@@ -31,8 +35,8 @@ class Hzv extends Command {
         `Slash: **${monster.hzv.slash}** Blunt: **${monster.hzv.blunt}** Shot: **${monster.hzv.shot}**`,
         `🔥 **${monster.hzv.fire}** 💧 **${monster.hzv.water}** ⚡ **${monster.hzv.thunder}** ❄ **${monster.hzv.ice}** 🐉 **${monster.hzv.dragon}**`
       )
-      .attachFiles(image.imagePath)
-      .setImage(`attachment://${image.fileName}`)
+      .attachFiles([new MessageAttachment(image.imagePath, filename)])
+      .setImage(`attachment://${filename}`)
       .setTimestamp()
       .setFooter(monster.title);
 
