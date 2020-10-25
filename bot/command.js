@@ -238,7 +238,7 @@ class Command {
 
     message.channel
       .send(checkPermissions, { embed: msg, files: null })
-      .then(async message2 => {
+      .then(async messageContent => {
         if (missingPermissions) return;
 
         let emojis = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣'].slice(
@@ -246,14 +246,14 @@ class Command {
           counter
         );
 
-        await message2
+        await messageContent
           .edit('**Wait until all reactions are placed before reacting**', msg)
           .then(async warnMessage => {
             for (let emoji of emojis) {
               // shuold be 'await' to guarantee order, but this seems just slow enough to be in order every time (slightly faster now)
-              await message2.react(emoji);
+              await messageContent.react(emoji);
             }
-            message2.edit(msg);
+            messageContent.edit(msg);
           })
           .catch(err => logger.error(err, { where: 'command.js 262' }));
 
@@ -261,7 +261,7 @@ class Command {
           return emojis.includes(reaction.emoji.name) && user.id === author;
         };
 
-        message2
+        messageContent
           .awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
           .then(async collected => {
             const reaction = collected.first();
@@ -272,7 +272,7 @@ class Command {
 
             logger.info('user selected %s', name);
 
-            await message2.delete();
+            await messageContent.delete();
             const embed = await embedTemplate(
               message,
               name,
@@ -288,11 +288,11 @@ class Command {
           .catch(async err => {
             if (err instanceof Error)
               logger.error(err, { where: 'command.js 243' }); // only log if its not a collection & an actual error
-            if (!message2) return;
-            await message2.reactions
+            if (!messageContent) return;
+            await messageContent.reactions
               .removeAll()
               .catch(err => logger.error('Failed to remove reactions %s', err));
-            await message2.react('❌');
+            await messageContent.react('❌');
           });
       });
   }
