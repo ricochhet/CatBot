@@ -7,8 +7,7 @@ const logger = require('./log.js')
 
 class ApiClient {
     constructor(config) {
-        this.base = config['base_url']; 
-        this.clientId = config['client_id'];
+        this.base = config['base_url'];
     }
 
     async getData(path) {
@@ -32,48 +31,38 @@ class ApiClient {
     }
 
     async getCatFacts() {
-        return this.getData(`catfacts`)
+        return this.getData(`cats/facts`)
             .catch(err => logger.error('Failed retrieving catfacts: ', err));
     }
 
     async getCustomPrefixes() {
-        return this.getData(`db/${this.clientId}/server/prefixes`)
+        return this.getData(`db/server/prefixes`)
               .catch(err => logger.error('Failed retrieving custom prefixes: ', err));
     }
 
     async updateCustomPrefixes(prefixes) {
-      return this.postData(`db/${this.clientId}/server/prefixes`, prefixes)
+      return this.postData(`db/server/prefixes`, prefixes)
             .catch(err => logger.error('Failed updating custom prefixes: ', err));
     }
 
     async getIgnoredChannels() {
-        return this.getData(`db/${this.clientId}/server/ignored`)
+        return this.getData(`db/server/ignoredchannels`)
             .catch(err => logger.error('Failed retrieving ignored channels: ', err));
     }
 
     async updateIgnoredChannels(channels) {
-        return this.postData(`db/${this.clientId}/server/ignored`, channels)
+        return this.postData(`db/server/ignoredchannels`, channels)
             .catch(err => logger.error('Failed updating ignored channels: ', err));
     }
 
     async getDisabledCommands() {
-        return this.getData(`db/${this.clientId}/server/disabled`)
+        return this.getData(`db/server/disabledcommands`)
             .catch(err => logger.error('Failed retrieving disabled commands: ', err));
     }
 
     async updateDisabledCommands(disabled) {
-        return this.postData(`db/${this.clientId}/server/disabled`, disabled)
+        return this.postData(`db/server/disabledcommands`, disabled)
             .catch(err => logger.error('Failed updating disabled commands: ', err));
-    }
-
-    async getMhguMonsters() {
-        return this.getDataAsMap(`mhgu/monsters`)            
-            .catch(err => logger.error('Failed retrieving mhgu monsters: ', err));
-    }
-
-    async getMhguWeapons() {
-        return this.getDataAsMap(`mhgu/weapons`)            
-            .catch(err => logger.error('Failed retrieving mhgu weapons: ', err));
     }
     
     async getMhwArmors() {
