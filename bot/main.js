@@ -24,29 +24,6 @@ function fetchDatabase() {
     .then(factsList => (client.catfacts = factsList))
     .catch(err => (client.catfacts = null));
 
-  /** MHGU Data - Monsters, Weapons */
-  client.apiClient
-    .getMhguMonsters()
-    .then(map => {
-      client.mhguMonsters = client.buildCollection();
-
-      for (const [k, v] of map) {
-        client.mhguMonsters.set(k, v);
-      }
-    })
-    .catch(err => (client.mhguMonsters = null));
-
-  client.apiClient
-    .getMhguWeapons()
-    .then(map => {
-      client.mhguWeapons = client.buildCollection();
-
-      for (const [k, v] of map) {
-        client.mhguWeapons.set(k, v);
-      }
-    })
-    .catch(err => (client.mhguWeapons = null));
-
   /** MHW Data - Armors, Decos, Items, Monsters, Skills, Weapons */
   client.apiClient
     .getMhwArmors()

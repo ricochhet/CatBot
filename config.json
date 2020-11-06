@@ -5,8 +5,7 @@
         "token": "INSERT TOKEN HERE"
     },
     "api": {
-        "base_url": "http://localhost:8080/api/",
-        "client_id": "573958899582107653"
+        "base_url": "http://localhost:8080/api/"
     },
     "user_ids": {
         "rico_id": "381239423645515776",
