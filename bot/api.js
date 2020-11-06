@@ -46,22 +46,22 @@ class ApiClient {
     }
 
     async getIgnoredChannels() {
-        return this.getData(`db/server/ignoredchannels`)
+        return this.getData(`db/server/ignored`)
             .catch(err => logger.error('Failed retrieving ignored channels: ', err));
     }
 
     async updateIgnoredChannels(channels) {
-        return this.postData(`db/server/ignoredchannels`, channels)
+        return this.postData(`db/server/ignored`, channels)
             .catch(err => logger.error('Failed updating ignored channels: ', err));
     }
 
     async getDisabledCommands() {
-        return this.getData(`db/server/disabledcommands`)
+        return this.getData(`db/server/disabled`)
             .catch(err => logger.error('Failed retrieving disabled commands: ', err));
     }
 
     async updateDisabledCommands(disabled) {
-        return this.postData(`db/server/disabledcommands`, disabled)
+        return this.postData(`db/server/disabled`, disabled)
             .catch(err => logger.error('Failed updating disabled commands: ', err));
     }
     
