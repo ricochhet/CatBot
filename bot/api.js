@@ -36,32 +36,32 @@ class ApiClient {
     }
 
     async getCustomPrefixes() {
-        return this.getData(`db/server/prefixes`)
+        return this.getData(`db/server/server_prefixes`)
               .catch(err => logger.error('Failed retrieving custom prefixes: ', err));
     }
 
     async updateCustomPrefixes(prefixes) {
-      return this.postData(`db/server/prefixes`, prefixes)
+      return this.postData(`db/server/server_prefixes`, prefixes)
             .catch(err => logger.error('Failed updating custom prefixes: ', err));
     }
 
     async getIgnoredChannels() {
-        return this.getData(`db/server/ignored`)
+        return this.getData(`db/server/ignored_channels`)
             .catch(err => logger.error('Failed retrieving ignored channels: ', err));
     }
 
     async updateIgnoredChannels(channels) {
-        return this.postData(`db/server/ignored`, channels)
+        return this.postData(`db/server/ignored_channels`, channels)
             .catch(err => logger.error('Failed updating ignored channels: ', err));
     }
 
     async getDisabledCommands() {
-        return this.getData(`db/server/disabled`)
+        return this.getData(`db/server/disabled_commands`)
             .catch(err => logger.error('Failed retrieving disabled commands: ', err));
     }
 
     async updateDisabledCommands(disabled) {
-        return this.postData(`db/server/disabled`, disabled)
+        return this.postData(`db/server/disabled_commands`, disabled)
             .catch(err => logger.error('Failed updating disabled commands: ', err));
     }
     
