@@ -22,6 +22,8 @@ class Hzv extends Command {
 
     logger.debug('hzv log', { type: 'hzvRead', name: name });
 
+    let title = null;
+
     const filename = image.fileName
       .split("'")
       .join('')
@@ -30,12 +32,22 @@ class Hzv extends Command {
       .split(' ')
       .join('');
 
+    if (monster.threat_level !== 'none') {
+      title = '__**' + monster.title + '**__' + '  ' + monster.threat_level;
+    } else {
+      title = '__**' + monster.title + '**__';
+    }
+
+    let attachment = new MessageAttachment(monster.icon, monster.filename);
+    let thumbnail = `attachment://${monster.filename}`;
+
     const embed = rawEmbed()
       .setColor('#8fde5d')
-      .setTitle(`__**${monster.title}**__`)
-      .setThumbnail(monster.thumbnail)
-      .addField('Classification:', monster.description)
-      .addField('Characteristics:', monster.info)
+      .setTitle(title)
+      .attachFiles(attachment)
+      .setThumbnail(thumbnail)
+      .addField('Classification:', monster.species)
+      .addField('Characteristics:', monster.description)
       .addField(
         `Slash: **${monster.hzv.slash}** Blunt: **${monster.hzv.blunt}** Shot: **${monster.hzv.shot}**`,
         `🔥 **${monster.hzv.fire}** 💧 **${monster.hzv.water}** ⚡ **${monster.hzv.thunder}** ❄ **${monster.hzv.ice}** 🐉 **${monster.hzv.dragon}**`

@@ -1,3 +1,4 @@
+const { MessageAttachment } = require('discord.js');
 const Command = require('../../bot/command.js');
 const logger = require('../../bot/log.js');
 
@@ -15,16 +16,47 @@ class Monster extends Command {
 
     logger.debug('monster log', { type: 'monsterRead', name: name });
 
+    const locales = [];
+    const weakness3 = [];
+    const weakness2 = [];
+    let title = null;
+
+    for (const i in monster.locations) {
+      locales.push(monster.locations[i]['name']);
+    }
+
+    monster.weakness.forEach(wk => {
+      const item = wk.split(' ');
+
+      if (item[1].substring(1, item[1].length - 1) === '⭐⭐⭐') {
+        weakness3.push(item[0]);
+      } else if (item[1].substring(1, item[1].length - 1) === '⭐⭐') {
+        weakness2.push(item[0]);
+      }
+    });
+
+    if (monster.threat_level !== 'none') {
+      title = '__**' + monster.title + '**__' + '  ' + monster.threat_level;
+    } else {
+      title = '__**' + monster.title + '**__';
+    }
+
+    let attachment = new MessageAttachment(monster.icon, monster.filename);
+    let thumbnail = `attachment://${monster.filename}`;
+
     const embed = rawEmbed()
       .setColor('#8fde5d')
-      .setTitle(`__**${monster.title}**__`)
-      .setThumbnail(monster.thumbnail)
-      .addField('Classification:', monster.description)
-      .addField('Characteristics:', monster.info)
-      .addField('Elements', monster.elements, true)
-      .addField('Ailments', monster.ailments, true)
-      .addField('Blights', monster.blights, true)
-      .addField('Locations', monster.locations, true)
+      .setTitle(title)
+      .attachFiles(attachment)
+      .setThumbnail(thumbnail)
+      .addField('Classification:', `${monster.species}`)
+      .addField('Characteristics:', monster.description)
+      .addField('Elements', monster.elements.join(', '), true)
+      .addField('Ailments', monster.ailments.join(', '), true)
+      .addField('Resistances', monster.resistances.join(', '), true)
+      .addField('**Weaknesses** ⭐⭐⭐', weakness3.join(', '))
+      .addField('**Weaknesses** ⭐⭐', weakness2.join(', '))
+      .addField('Locations', locales, true)
       .setTimestamp()
       .setFooter(monster.title);
 

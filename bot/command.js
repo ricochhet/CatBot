@@ -1,5 +1,5 @@
 const { MessageEmbed, TextChannel, version } = require('discord.js');
-const Pages = require('./pagers.js');
+const Pages = require('./paginator.js');
 const similarity = require('./similarity.js');
 const logger = require('./log.js');
 const fs = require('fs');
