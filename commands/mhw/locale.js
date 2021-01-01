@@ -83,30 +83,19 @@ class Item extends Command {
       }
     });
 
-    function sortObj(obj) {
-      return Object.keys(obj)
-        .sort()
-        .reverse()
-        .reduce(function(result, key) {
-          result[key] = obj[key];
-          return result;
-        }, {});
-    }
+    let sortedMonsterKeys = Object.keys(monsters)
+      .sort()
+      .reverse();
 
-    let sortedMonsters = sortObj(monsters);
-    Object.keys(sortedMonsters).forEach(key => {
-      let name = `Threat Level  ${key}`;
-      monsterFields.push({
-        name: '**' + name + ': **',
-        value: sortedMonsters[key].join(', ')
-      });
-    });
+    monsterFields = sortedMonsterKeys.map(key => ({
+      name: `**Threat Level ${key}:**`,
+      value: monsters[key].join(', ')
+    }));
 
     if (client.mhwMonsters == null) {
       return message.channel.send(this.serverErrorEmbed());
     }
 
-    let sortedMonsterKeys = Object.keys(sortedMonsters);
     if (!sortedMonsterKeys.length) {
       message.reply(
         `Sorry I can\'t find any monsters in a region called **${input}**!`
