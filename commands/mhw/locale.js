@@ -35,7 +35,6 @@ class Item extends Command {
     let color = '';
     let iconSrc = '';
     let monsterFields = [];
-    let counter = 0;
 
     logger.debug('locale log', { type: 'localeRead' });
 
@@ -101,15 +100,9 @@ class Item extends Command {
         `Sorry I can\'t find any monsters in a region called **${input}**!`
       );
     } else {
-      if (counter <= 7) {
-        const embed = this.localeEmbed(
-          iconSrc,
-          areaTitle,
-          color,
-          monsterFields
-        );
-        message.channel.send(embed);
-      }
+      const embed = this.localeEmbed(iconSrc, areaTitle, color, monsterFields);
+
+      message.channel.send(embed);
     }
   }
 }
