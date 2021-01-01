@@ -2,7 +2,7 @@
     "bot": {
         "defaultPrefix": "+",
         "dbl_token": null,
-        "token": "NjM2MDA1NzA2MTg4NzE4MTAw.Xa5UeA.0Apk2elvtlWBVlyOqR3G_lqhY30"
+        "token": "INSERT_TOKEN"
     },
     "api": {
         "base_url": "http://localhost:8080/api/"
