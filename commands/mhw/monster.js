@@ -16,29 +16,21 @@ class Monster extends Command {
 
     logger.debug('monster log', { type: 'monsterRead', name: name });
 
-    const locales = [];
-    const weakness3 = [];
-    const weakness2 = [];
-    let title = null;
+    const locales = monster.locations.map(location => location.name);
+    let title = `__**${monster.title}**__`;
 
-    for (const i in monster.locations) {
-      locales.push(monster.locations[i]['name']);
-    }
+    const weaknessFilter = stars => (acc, wk) => {
+      const target = wk.split(' ');
+      if (target[1] === stars) acc.push(target[0]);
 
-    monster.weakness.forEach(wk => {
-      const item = wk.split(' ');
+      return acc;
+    };
 
-      if (item[1].substring(1, item[1].length - 1) === '⭐⭐⭐') {
-        weakness3.push(item[0]);
-      } else if (item[1].substring(1, item[1].length - 1) === '⭐⭐') {
-        weakness2.push(item[0]);
-      }
-    });
+    const weakness3 = monster.weakness.reduce(weaknessFilter('(⭐⭐⭐)'), []);
+    const weakness2 = monster.weakness.reduce(weaknessFilter('(⭐⭐)'), []);
 
     if (monster.threat_level !== 'none') {
-      title = '__**' + monster.title + '**__' + '  ' + monster.threat_level;
-    } else {
-      title = '__**' + monster.title + '**__';
+      title += `  ${monster.threat_level}`;
     }
 
     let attachment = new MessageAttachment(monster.icon, monster.filename);
