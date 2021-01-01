@@ -22,7 +22,7 @@ class Hzv extends Command {
 
     logger.debug('hzv log', { type: 'hzvRead', name: name });
 
-    let title = null;
+    let title = `__**${monster.title}**__`;
 
     const filename = image.fileName
       .split("'")
@@ -33,9 +33,7 @@ class Hzv extends Command {
       .join('');
 
     if (monster.threat_level !== 'none') {
-      title = '__**' + monster.title + '**__' + '  ' + monster.threat_level;
-    } else {
-      title = '__**' + monster.title + '**__';
+      title += `  ${monster.threat_level}`;
     }
 
     let attachment = new MessageAttachment(monster.icon, monster.filename);
