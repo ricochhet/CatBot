@@ -23,35 +23,32 @@ class Hzv extends Command {
     logger.debug('hzv log', { type: 'hzvRead', name: name });
 
     let title = `__**${monster.title}**__`;
-
-    const filename = image.fileName
-      .split("'")
-      .join('')
-      .split('-')
-      .join('')
-      .split(' ')
-      .join('');
-
     if (monster.threat_level !== 'none') {
       title += `  ${monster.threat_level}`;
     }
 
-    let attachment = new MessageAttachment(monster.icon, monster.filename);
-    let thumbnail = `attachment://${monster.filename}`;
+    const thumbnail = new MessageAttachment(
+      monster.icon,
+      monster.filename.replace(/[',\s,-]/g, '')
+    );
+    const embedImage = new MessageAttachment(
+      image.imagePath,
+      image.fileName.replace(/[',\s,-]/g, '')
+    );
+    const attachUrl = name => `attachment://${name}`;
 
     const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle(title)
-      .attachFiles(attachment)
-      .setThumbnail(thumbnail)
+      .attachFiles([thumbnail, embedImage])
+      .setThumbnail(attachUrl(thumbnail.name))
       .addField('Classification:', monster.species)
       .addField('Characteristics:', monster.description)
       .addField(
         `Slash: **${monster.hzv.slash}** Blunt: **${monster.hzv.blunt}** Shot: **${monster.hzv.shot}**`,
         `🔥 **${monster.hzv.fire}** 💧 **${monster.hzv.water}** ⚡ **${monster.hzv.thunder}** ❄ **${monster.hzv.ice}** 🐉 **${monster.hzv.dragon}**`
       )
-      .attachFiles([new MessageAttachment(image.imagePath, filename)])
-      .setImage(`attachment://${filename}`)
+      .setImage(attachUrl(embedImage.name))
       .setTimestamp()
       .setFooter(monster.title);
 
@@ -61,11 +58,7 @@ class Hzv extends Command {
   async run(client, message, args) {
     let input = args.join('').toLowerCase();
 
-    if (client.mhwMonsters == null) {
-      return message.channel.send(this.serverErrorEmbed());
-    }
-
-    if (imageMap == null) {
+    if (client.mhwMonsters == null || imageMap == null) {
       return message.channel.send(this.serverErrorEmbed());
     }
 
