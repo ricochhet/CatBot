@@ -97,7 +97,9 @@ fetchDatabase();
 client
   .login(client.config['bot']['token'])
   .catch(err =>
-    logger.error(`Client can't login maybe check you're token\n${err}`)
+    logger.error(
+      `Client can't login - maybe check the bot token (config.json)\n${err}`
+    )
   );
 
 // Refresh database every 10 minutes
