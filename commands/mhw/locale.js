@@ -60,6 +60,10 @@ class Item extends Command {
       return false;
     };
 
+    if (client.mhwMonsters == null) {
+      return message.channel.send(this.serverErrorEmbed());
+    }
+
     client.mhwMonsters.forEach(monster => {
       if (monster.locations.some(isInArea) && monster['threat_level']) {
         let threat = monster['threat_level'];
@@ -87,10 +91,6 @@ class Item extends Command {
       name: `**Threat Level ${key}:**`,
       value: monsters[key].join(', ')
     }));
-
-    if (client.mhwMonsters == null) {
-      return message.channel.send(this.serverErrorEmbed());
-    }
 
     if (!sortedMonsterKeys.length) {
       message.reply(
