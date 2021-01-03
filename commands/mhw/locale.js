@@ -61,10 +61,7 @@ class Item extends Command {
     };
 
     client.mhwMonsters.forEach(monster => {
-      if (
-        monster.locations.some(isInArea) &&
-        monster['threat_level'] !== 'none'
-      ) {
+      if (monster.locations.some(isInArea) && monster['threat_level']) {
         let threat = monster['threat_level'];
         if (monster.locations.some(isTempered)) {
           if (!monsters[threat]) {
