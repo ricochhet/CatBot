@@ -20,31 +20,21 @@ class Hzv extends Command {
 
     logger.debug('hzv log', { type: 'hzvRead', name: name });
 
-    const filename = image.fileName
-      .split("'")
-      .join('')
-      .split('-')
-      .join('')
-      .split(' ')
-      .join('');
-
-    const iconFilename = icon.fileName
-      .split("'")
-      .join('')
-      .split('-')
-      .join('')
-      .split(' ')
-      .join('');
+    const thumbnail = new MessageAttachment(
+      icon.imagePath,
+      icon.fileName.replace(/[',\s,-]/g, '')
+    );
+    const embedImage = new MessageAttachment(
+      image.imagePath,
+      image.fileName.replace(/[',\s,-]/g, '')
+    );
 
     const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle(`__**${image.title}**__`)
-      .attachFiles([
-        new MessageAttachment(image.imagePath, filename),
-        new MessageAttachment(icon.imagePath, iconFilename)
-      ])
-      .setThumbnail(`attachment://${iconFilename}`)
-      .setImage(`attachment://${filename}`)
+      .attachFiles([embedImage, thumbnail])
+      .setThumbnail(`attachment://${thumbnail.name}`)
+      .setImage(`attachment://${embedImage.name}`)
       .setTimestamp()
       .setFooter(image.title);
 
