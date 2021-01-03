@@ -23,7 +23,7 @@ class Hzv extends Command {
     logger.debug('hzv log', { type: 'hzvRead', name: name });
 
     let title = `__**${monster.title}**__`;
-    if (monster.threat_level !== 'none') {
+    if (monster.threat_level) {
       title += `  ${monster.threat_level}`;
     }
 

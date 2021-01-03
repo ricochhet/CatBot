@@ -29,7 +29,7 @@ class Monster extends Command {
     const weakness3 = monster.weakness.reduce(weaknessFilter('(⭐⭐⭐)'), []);
     const weakness2 = monster.weakness.reduce(weaknessFilter('(⭐⭐)'), []);
 
-    if (monster.threat_level !== 'none') {
+    if (monster.threat_level) {
       title += `  ${monster.threat_level}`;
     }
 
