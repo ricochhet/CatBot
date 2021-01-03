@@ -29,12 +29,14 @@ class Hzv extends Command {
       image.fileName.replace(/[',\s,-]/g, '')
     );
 
+    const attachUrl = name => `attachment://${name}`;
+
     const embed = rawEmbed()
       .setColor('#8fde5d')
       .setTitle(`__**${image.title}**__`)
       .attachFiles([embedImage, thumbnail])
-      .setThumbnail(`attachment://${thumbnail.name}`)
-      .setImage(`attachment://${embedImage.name}`)
+      .setThumbnail(attachUrl(thumbnail.name))
+      .setImage(attachUrl(embedImage.name))
       .setTimestamp()
       .setFooter(image.title);
 
