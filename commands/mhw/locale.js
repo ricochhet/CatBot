@@ -1,13 +1,27 @@
 const { MessageAttachment, MessageEmbed } = require('discord.js');
 const Command = require('../../bot/command.js');
 const logger = require('../../bot/log.js');
+const { score } = require('../../bot/similarity.js');
+
+// TODO: figure out how to dynaimcally get these regions from our monster data
+const REGIONS = [
+  'forest',
+  'wildspire',
+  'coral',
+  'rotted',
+  'volcanic',
+  'tundra'
+];
+const AUTO_COMPLETE_THRESHOLD = 0.75;
 
 class Item extends Command {
   constructor() {
     super(
       'locale',
       'locale [locale name]',
-      'Get info for a guiding lands locale'
+      `Get info for a guiding lands locale\nAvailable regions: **${REGIONS.join(
+        ', '
+      )}**`
     );
   }
 
@@ -80,8 +94,18 @@ class Item extends Command {
     }));
 
     if (!sortedMonsterKeys.length) {
+      const scores = REGIONS.map(region => [region, score(input, region)]).sort(
+        (a, b) => b[1] - a[1]
+      );
+
+      const highest = scores[0]; // highest score will always be on top (first)
+
+      if (highest[1] > AUTO_COMPLETE_THRESHOLD)
+        return this.run(client, message, [highest[0]]);
       message.reply(
-        `Sorry I can\'t find any monsters in a region called **${input}**!`
+        `Sorry I can\'t find any monsters in a region called **${input}**!\nThey available regions are **${REGIONS.join(
+          ', '
+        )}**`
       );
     } else {
       const embed = this.localeEmbed(iconSrc, areaTitle, color, monsterFields);
