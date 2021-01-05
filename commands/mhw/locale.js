@@ -50,15 +50,9 @@ class Item extends Command {
       }
     };
 
-    let isTempered = locale => {
-      if (
-        locale.tempered &&
-        locale.name.toLowerCase().includes(`${input.toLowerCase()} region`)
-      ) {
-        return true;
-      }
-      return false;
-    };
+    let isTempered = locale =>
+      locale.tempered &&
+      locale.name.toLowerCase().includes(`${input.toLowerCase()} region`);
 
     if (client.mhwMonsters == null) {
       return message.channel.send(this.serverErrorEmbed());
@@ -67,19 +61,12 @@ class Item extends Command {
     client.mhwMonsters.forEach(monster => {
       if (monster.locations.some(isInArea) && monster['threat_level']) {
         let threat = monster['threat_level'];
-        if (monster.locations.some(isTempered)) {
-          if (!monsters[threat]) {
-            monsters[threat] = [`**${monster.title}**`];
-          } else {
-            monsters[threat].push(`**${monster.title}**`);
-          }
-        } else {
-          if (!monsters[threat]) {
-            monsters[threat] = [monster.title];
-          } else {
-            monsters[threat].push(monster.title);
-          }
-        }
+        if (!monsters[threat]) monsters[threat] = [];
+
+        let target = monster.locations.some(isTempered)
+          ? `**${monster.title}**`
+          : monster.title;
+        monsters[threat].push(target);
       }
     });
 
