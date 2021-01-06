@@ -92,9 +92,10 @@ class Bot extends Client {
 
   isDev(id) {
     let devs = [
-      config['user_ids']['rico_id'],
-      config['user_ids']['yofou_id'],
-      config['user_ids']['chad_id']
+      config['users']['rico_id'],
+      config['users']['yofou_id'],
+      config['users']['chad_id'],
+      config['users']['jesse_id']
     ];
     return devs.includes(id);
   }
