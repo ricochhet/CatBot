@@ -47,7 +47,7 @@ class Hzv extends Command {
     let input = args.join('').toLowerCase();
 
     if (imageMap == null) {
-      return message.channel.send(this.serverErrorEmbed());
+      return message.channel.send(await this.serverErrorEmbed());
     }
 
     if (!imageMap.has(input)) {

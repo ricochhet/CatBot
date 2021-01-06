@@ -28,7 +28,7 @@ class Item extends Command {
     let input = args.join('').toLowerCase();
 
     if (client.mhwItems == null) {
-      return message.channel.send(this.serverErrorEmbed());
+      return message.channel.send(await this.serverErrorEmbed());
     }
 
     if (!client.mhwItems.has(input)) {

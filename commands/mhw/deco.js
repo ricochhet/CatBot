@@ -51,7 +51,7 @@ class Deco extends Command {
     let input = args.join('').toLowerCase();
 
     if (client.mhwDecorations == null) {
-      return message.channel.send(this.serverErrorEmbed());
+      return message.channel.send(await this.serverErrorEmbed());
     }
 
     if (!client.mhwDecorations.has(input)) {

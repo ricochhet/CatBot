@@ -69,7 +69,7 @@ class Item extends Command {
       locale.name.toLowerCase().includes(`${input.toLowerCase()} region`);
 
     if (client.mhwMonsters == null) {
-      return message.channel.send(this.serverErrorEmbed());
+      return message.channel.send(await this.serverErrorEmbed());
     }
 
     client.mhwMonsters.forEach(monster => {

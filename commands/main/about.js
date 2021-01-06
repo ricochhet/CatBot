@@ -9,10 +9,18 @@ class About extends Command {
 
   async run(client, message, args) {
     const prefix = await client.prefix(message);
-    const rico = client.users.cache.get(client.config['user_ids']['rico_id']);
-    const yofou = client.users.cache.get(client.config['user_ids']['yofou_id']);
-    const chad = client.users.cache.get(client.config['user_ids']['chad_id']);
-    const jesse = client.users.cache.get(client.config['user_ids']['jesse_id']);
+    const rico = await client.users
+      .fetch(client.config.users.rico_id)
+      .catch(_ => client.config.users.rico_tag);
+    const yofou = await client.users
+      .fetch(client.config.users.yofou_id)
+      .catch(_ => client.config.users.yofou_tag);
+    const chad = await client.users
+      .fetch(client.config.users.chad_id)
+      .catch(_ => client.config.users.chad_tag);
+    const jesse = await client.users
+      .fetch(client.config.users.jesse_id)
+      .catch(_ => client.config.users.jesse_tag);
 
     const aboutEmbed = this.MessageEmbed()
       .setColor('#8fde5d')

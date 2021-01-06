@@ -137,9 +137,11 @@ class Command {
     return new Pages(channel, uid, pages, time, reactions, pageFooter);
   }
 
-  serverErrorEmbed() {
+  async serverErrorEmbed() {
     let embed = this.MessageEmbed();
-    const rico = client.users.cache.get(client.config['user_ids']['rico_id']);
+    const rico = await client.users
+      .fetch(client.config.users.rico_id)
+      .catch(_ => client.config.users.rico_tag);
 
     embed
       .setColor('#8fde5d')

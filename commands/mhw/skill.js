@@ -26,7 +26,7 @@ class Skill extends Command {
     let input = args.join('').toLowerCase();
 
     if (client.mhwSkills == null) {
-      return message.channel.send(this.serverErrorEmbed());
+      return message.channel.send(await this.serverErrorEmbed());
     }
 
     if (!client.mhwSkills.has(input)) {

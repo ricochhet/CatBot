@@ -15,12 +15,14 @@ class Help extends Command {
 
   async run(client, message, args) {
     const prefix = await client.prefix(message);
-    const rico = client.users.cache.get(client.config['user_ids']['rico_id']);
+    const rico = await client.users
+      .fetch(client.config.users.rico_id)
+      .catch(_ => client.config.users.rico_tag);
     const handler = new DisableCmdHandler(client.apiClient);
 
-    await handler.initDb().catch(err => {
+    await handler.initDb().catch(async err => {
       logger.error(err);
-      return message.channel.send(this.serverErrorEmbed());
+      return message.channel.send(await this.serverErrorEmbed());
     });
 
     const categorys = [

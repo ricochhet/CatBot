@@ -59,7 +59,7 @@ class Monster extends Command {
     let input = args.join('').toLowerCase();
 
     if (client.mhwMonsters == null) {
-      return message.channel.send(this.serverErrorEmbed());
+      return message.channel.send(await this.serverErrorEmbed());
     }
 
     for (let [name, monster] of client.mhwMonsters.entries()) {
