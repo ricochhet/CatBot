@@ -9,7 +9,7 @@ class List extends Command {
 
   async run(client, message, args) {
     if (client.mhwMonsters == null) {
-      return message.channel.send(this.serverErrorEmbed());
+      return message.channel.send(await this.serverErrorEmbed());
     }
 
     const monsterNames = client.mhwMonsters.map(monster => monster.title);

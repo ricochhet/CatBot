@@ -94,7 +94,13 @@ function fetchDatabase() {
 
 fetchDatabase();
 
-client.login(client.config['bot']['token']);
+client
+  .login(client.config['bot']['token'])
+  .catch(err =>
+    logger.error(
+      `Client can't login - maybe check the bot token (config.json)\n${err}`
+    )
+  );
 
 // Refresh database every 10 minutes
 setInterval(function() {

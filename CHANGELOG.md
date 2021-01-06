@@ -6,6 +6,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [5.0.0]
+
+- Added locale command for Monster Hunter: Worlds.
+- Threat level now displayed in mhw hzv.
+- Added monster icons to mhgu hzv.
+- Edited mhw monster embed display (threat level, weakness filters, etc.).
+- Removed rollhunt command
+- Added error handling for client login failing (e.g. missing token)
+- Renamed `pagers.js` to `paginator.js`
+- Extracted bot links to config
+  
 ## [4.0.0]
 
 - Renamed **utils** to **bot** (naming fits better).

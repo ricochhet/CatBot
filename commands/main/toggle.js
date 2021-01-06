@@ -46,9 +46,9 @@ class Toggle extends Command {
   async run(client, message, args) {
     const handler = new DisableCmdHandler(client.apiClient);
 
-    await handler.initDb().catch(err => {
+    await handler.initDb().catch(async err => {
       logger.error(err);
-      return message.channel.send(this.serverErrorEmbed());
+      return message.channel.send(await this.serverErrorEmbed());
     });
 
     const guildId = message.guild.id;

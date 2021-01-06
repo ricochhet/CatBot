@@ -13,14 +13,12 @@ class Changelog extends Command {
       .setColor('#8fde5d')
       .addField(
         `Changelog: v${client.version}`,
-        `
-        📖 Added better HZV data for Monster Hunter: World.
-        📖 Cleaned up support and invite commands.
-        📖 Added HZV data for Monster Hunter: GU.
-        🚫 Removed event command for Monster Hunter: World.
-        🚫 Removed unreliable math commands.
-        🚫 Removed feedback command.
-        🚫 Removed LFG commands.
+        `        
+        :new: Added locale command for Monster Hunter: Worlds. 
+        📖 Threat level :fire: now displayed in mhw hzv. 
+        📖 Added monster icons to mhgu hzv.
+        📖 Minor tweaks to the mhw monster display. 
+        🚫 Removed rollhunt command.
         🔧 Minor behind-the-scenes changes. 
         `
       )

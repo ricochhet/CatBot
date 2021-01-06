@@ -1,3 +1,4 @@
+const { MessageAttachment } = require('discord.js');
 const Command = require('../../bot/command.js');
 const logger = require('../../bot/log.js');
 
@@ -15,16 +16,39 @@ class Monster extends Command {
 
     logger.debug('monster log', { type: 'monsterRead', name: name });
 
+    const locales = monster.locations.map(location => location.name);
+    let title = `__**${monster.title}**__`;
+
+    const weaknessFilter = stars => (acc, wk) => {
+      const target = wk.split(' ');
+      if (target[1] === stars) acc.push(target[0]);
+
+      return acc;
+    };
+
+    const weakness3 = monster.weakness.reduce(weaknessFilter('(⭐⭐⭐)'), []);
+    const weakness2 = monster.weakness.reduce(weaknessFilter('(⭐⭐)'), []);
+
+    if (monster.threat_level) {
+      title += `  ${monster.threat_level}`;
+    }
+
+    let attachment = new MessageAttachment(monster.icon, monster.filename);
+    let thumbnail = `attachment://${monster.filename}`;
+
     const embed = rawEmbed()
       .setColor('#8fde5d')
-      .setTitle(`__**${monster.title}**__`)
-      .setThumbnail(monster.thumbnail)
-      .addField('Classification:', monster.description)
-      .addField('Characteristics:', monster.info)
-      .addField('Elements', monster.elements, true)
-      .addField('Ailments', monster.ailments, true)
-      .addField('Blights', monster.blights, true)
-      .addField('Locations', monster.locations, true)
+      .setTitle(title)
+      .attachFiles(attachment)
+      .setThumbnail(thumbnail)
+      .addField('Classification:', `${monster.species}`)
+      .addField('Characteristics:', monster.description)
+      .addField('Elements', monster.elements.join(', '), true)
+      .addField('Ailments', monster.ailments.join(', '), true)
+      .addField('Resistances', monster.resistances.join(', '), true)
+      .addField('**Weaknesses** ⭐⭐⭐', weakness3.join(', '))
+      .addField('**Weaknesses** ⭐⭐', weakness2.join(', '))
+      .addField('Locations', locales, true)
       .setTimestamp()
       .setFooter(monster.title);
 
@@ -35,7 +59,7 @@ class Monster extends Command {
     let input = args.join('').toLowerCase();
 
     if (client.mhwMonsters == null) {
-      return message.channel.send(this.serverErrorEmbed());
+      return message.channel.send(await this.serverErrorEmbed());
     }
 
     for (let [name, monster] of client.mhwMonsters.entries()) {

@@ -207,9 +207,9 @@ class Ignore extends Command {
 
         client.apiClient.updateIgnoredChannels(ignored);
       })
-      .catch(err => {
+      .catch(async err => {
         logger.error(err);
-        message.channel.send(this.serverErrorEmbed());
+        message.channel.send(await this.serverErrorEmbed());
       });
   }
 }

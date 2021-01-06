@@ -4,8 +4,7 @@ const DisableCmdHandler = require('../../bot/disableCmdHandler.js');
 const color = '#8fde5d';
 const mainSyntax =
   '_:bulb: Using a command w/o parameters gets extended help_\n[parameter] - Mandatory parameter\n(parameter) - Optional paramater';
-const mainLinks =
-  '[Vote](https://top.gg/bot/573958899582107653/vote) [Support](https://discord.gg/p5GRCSh) [Invite](https://discordapp.com/oauth2/authorize?client_id=573958899582107653&permissions=339008&scope=bot)';
+const mainLinks = `[Vote](${client.config['bot']['vote_link']}) [Support](${client.config['bot']['support_server']}) [Invite](${client.config['bot']['invite']})`;
 
 class Help extends Command {
   constructor() {
@@ -16,12 +15,14 @@ class Help extends Command {
 
   async run(client, message, args) {
     const prefix = await client.prefix(message);
-    const rico = client.users.cache.get(client.config['user_ids']['rico_id']);
+    const rico = await client.users
+      .fetch(client.config.users.rico_id)
+      .catch(_ => client.config.users.rico_tag);
     const handler = new DisableCmdHandler(client.apiClient);
 
-    await handler.initDb().catch(err => {
+    await handler.initDb().catch(async err => {
       logger.error(err);
-      return message.channel.send(this.serverErrorEmbed());
+      return message.channel.send(await this.serverErrorEmbed());
     });
 
     const categorys = [

@@ -10,7 +10,8 @@ class Facts extends Command {
   }
 
   async run(client, message, args) {
-    if (!client.catfacts) return message.channel.send(this.serverErrorEmbed());
+    if (!client.catfacts)
+      return message.channel.send(await this.serverErrorEmbed());
 
     const randomIndex = Math.floor(Math.random() * client.catfacts.length);
     message.channel.send(client.catfacts[randomIndex]);

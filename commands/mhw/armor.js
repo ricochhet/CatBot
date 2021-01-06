@@ -72,7 +72,7 @@ class Armor extends Command {
     let input = args.join('').toLowerCase();
 
     if (client.mhwArmors == null) {
-      return message.channel.send(this.serverErrorEmbed());
+      return message.channel.send(await this.serverErrorEmbed());
     }
 
     if (!client.mhwArmors.has(input)) {

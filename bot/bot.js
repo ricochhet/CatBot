@@ -92,9 +92,10 @@ class Bot extends Client {
 
   isDev(id) {
     let devs = [
-      config['user_ids']['rico_id'],
-      config['user_ids']['yofou_id'],
-      config['user_ids']['chad_id']
+      config['users']['rico_id'],
+      config['users']['yofou_id'],
+      config['users']['chad_id'],
+      config['users']['jesse_id']
     ];
     return devs.includes(id);
   }
@@ -170,9 +171,8 @@ class Bot extends Client {
 
     if (!command) return;
 
-    // Ignores Secret Commands if Not Owner
-    if (command.secret && message.author.id != config['user_ids']['rico_id'])
-      return;
+    // Ignores Secret Commands if Not Dev
+    if (command.secret && !this.isDev(message.author.id)) return;
 
     // Ignore admin only commands, unless user is dev
     if (
@@ -188,9 +188,9 @@ class Bot extends Client {
     // Check if command is disabled (bypass for ADMINS)
     let handler = new DisableCmdHandler(client.apiClient);
 
-    await handler.initDb().catch(err => {
+    await handler.initDb().catch(async err => {
       logger.error(err);
-      return message.channel.send(command.serverErrorEmbed());
+      return message.channel.send(await command.serverErrorEmbed());
     });
 
     if (
