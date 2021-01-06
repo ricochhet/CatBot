@@ -10,10 +10,14 @@
     "api": {
         "base_url": "http://localhost:8080/api/"
     },
-    "user_ids": {
+    "users": {
         "rico_id": "381239423645515776",
+        "rico_tag": "Ricochet#0001",
         "yofou_id": "264781399737892865",
+        "yofou_tag": "Yofou#0420",
         "chad_id": "123633666550136832",
-        "jesse_id": "381042290333843457"
+        "chad_tag": "Chad#0389",
+        "jesse_id": "381042290333843457",
+        "jesse_tag": "weakNPCdotCom#1985"
     }
 }
