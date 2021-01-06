@@ -103,9 +103,9 @@ class Item extends Command {
       if (highest[1] > AUTO_COMPLETE_THRESHOLD)
         return this.run(client, message, [highest[0]]);
       message.reply(
-        `Sorry I can\'t find any monsters in a region called **${input}**!\nThey available regions are **${REGIONS.join(
+        `Sorry I can\'t find any monsters in a region called **${input}**!\nThe available regions are **${REGIONS.join(
           ', '
-        )}**`
+        )}.**`
       );
     } else {
       const embed = this.localeEmbed(iconSrc, areaTitle, color, monsterFields);
