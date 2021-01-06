@@ -170,9 +170,8 @@ class Bot extends Client {
 
     if (!command) return;
 
-    // Ignores Secret Commands if Not Owner
-    if (command.secret && message.author.id != config['user_ids']['rico_id'])
-      return;
+    // Ignores Secret Commands if Not Dev
+    if (command.secret && !this.isDev(message.author.id)) return;
 
     // Ignore admin only commands, unless user is dev
     if (
