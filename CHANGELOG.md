@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [5.0.1] (2021-04-06)
+
+- Bring back rollhunt command (user request)
+
 ## [5.0.0]
 
 - Added locale command for Monster Hunter: Worlds.
