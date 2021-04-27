@@ -18,7 +18,6 @@ class Changelog extends Command {
         📖 Threat level :fire: now displayed in mhw hzv. 
         📖 Added monster icons to mhgu hzv.
         📖 Minor tweaks to the mhw monster display. 
-        🚫 Removed rollhunt command.
         🔧 Minor behind-the-scenes changes. 
         `
       )

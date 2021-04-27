@@ -1,6 +1,6 @@
 {
   "name": "catbot",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Monster Hunter Discord Bot",
   "main": "shard.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "Ricochet",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "canvas": "^2.6.1",
     "canvas-constructor": "^3.2.0",
     "dblapi.js": "^2.4.1",
