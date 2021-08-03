@@ -1,0 +1,30 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+plugins {
+    kotlin("jvm") version "1.4.30"
+}
+
+group = "me.yofou"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "Kotlin Discord"
+        url = uri("https://maven.kotlindiscord.com/repository/maven-public/")
+    }
+}
+
+dependencies {
+    implementation("com.kotlindiscord.kord.extensions:kord-extensions:1.4.3-SNAPSHOT")
+    implementation("org.slf4j:slf4j-simple:1.7.30")
+    implementation("org.reflections:reflections:0.9.11")
+}
+
+tasks.withType<KotlinCompile>() {
+    kotlinOptions.jvmTarget = "15"
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    languageVersion = "1.4"
+}
