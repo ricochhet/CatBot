@@ -12,6 +12,15 @@ val MhwDecoCommand: suspend SlashCommand<out MhwDeco>.() -> Unit = {
     autoAck = AutoAckType.PUBLIC
 
     action {
-        publicFollowUp { content = "ping" }
+        val searchTerm = arguments.decoName.lowercase().replace(" ", "")
+        val decoration = ApiClient.MHW.decorations[searchTerm]
+
+        publicFollowUp {
+            content = if (decoration == null) {
+                "not found"
+            } else {
+                "found"
+            }
+        }
     }
 }

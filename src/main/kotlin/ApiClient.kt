@@ -1,4 +1,5 @@
 
+import Serializers.MHWDecorationResponse
 import Serializers.MHWMonsterResponse
 import io.ktor.client.request.*
 import kotlinx.coroutines.runBlocking
@@ -17,8 +18,10 @@ object ApiClient {
             TODO("Not implement yet")
         }
 
-        val decorations: Nothing by lazy {
-            TODO("Not implement yet")
+        val decorations: Map<String, MHWDecorationResponse> by lazy {
+            runBlocking {
+                httpClient.get("http://localhost:8080/api/mhw/decorations")
+            }
         }
 
         val items: Nothing by lazy {
