@@ -1,6 +1,6 @@
 package extenstions.mhw
 
-import arguments.MhwSkill
+
 import arguments.MhwWeapon
 import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
 import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
@@ -13,6 +13,16 @@ val MhwWeaponCommand: suspend SlashCommand<out MhwWeapon>.() -> Unit = {
     autoAck = AutoAckType.PUBLIC
 
     action {
-        publicFollowUp { content = "ping" }
+        val searchTerm = arguments.weaponName.lowercase().replace(" ", "")
+        val weapon = ApiClient.MHW.weapons[searchTerm]
+
+        publicFollowUp {
+            content = if (weapon == null) {
+                "not found"
+            } else {
+                println( weapon )
+                "found"
+            }
+        }
     }
 }

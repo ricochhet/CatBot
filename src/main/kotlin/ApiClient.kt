@@ -1,6 +1,7 @@
 
 import Serializers.MHWDecorationResponse
 import Serializers.MHWMonsterResponse
+import Serializers.MHWWeaponResponse
 import io.ktor.client.request.*
 import kotlinx.coroutines.runBlocking
 
@@ -38,8 +39,10 @@ object ApiClient {
             TODO("Not implement yet")
         }
 
-        val weapons: Nothing by lazy {
-            TODO("Not implement yet")
+        val weapons: Map<String, MHWWeaponResponse> by lazy {
+            runBlocking {
+                httpClient.get("http://localhost:8080/api/mhw/weapons")
+            }
         }
     }
 }
