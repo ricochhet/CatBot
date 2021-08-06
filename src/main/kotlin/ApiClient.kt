@@ -48,5 +48,11 @@ object ApiClient {
                 httpClient.get("http://localhost:8080/api/mhw/weapons")
             }
         }
+
+        val monsterRewards: Map<String, List<MHWMonsterRewardsResponse>> by lazy {
+            runBlocking {
+                httpClient.get("http://localhost:8080/api/mhw/monsters/rewards")
+            }
+        }
     }
 }
