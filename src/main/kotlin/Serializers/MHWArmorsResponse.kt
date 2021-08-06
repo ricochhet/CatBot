@@ -1,10 +1,7 @@
 package Serializers
 
+
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.builtins.ListSerializer
-import kotlinx.serialization.json.JsonArray
-import kotlinx.serialization.json.JsonElement
-import kotlinx.serialization.json.JsonTransformingSerializer
 
 @Serializable
 data class ArmorBonus (
@@ -48,15 +45,8 @@ data class ArmorSlot (
     val rank: Int,
 )
 
-object ArmorSetBonusSerializer : JsonTransformingSerializer<List<ArmorBonus>>(ListSerializer(ArmorBonus.serializer())) {
-    override fun transformDeserialize(element: JsonElement): JsonElement =
-        if (element !is JsonArray) JsonArray(listOf()) else element
-}
-
-object ArmorSlotsSerializer : JsonTransformingSerializer<List<ArmorSlot>>(ListSerializer(ArmorSlot.serializer())) {
-    override fun transformDeserialize(element: JsonElement): JsonElement =
-        if (element !is JsonArray) JsonArray(listOf()) else element
-}
+object ArmorSlotsSerializer : EmptyListSerializer<ArmorSlot>(ArmorSlot.serializer())
+object ArmorSetBonusSerializer : EmptyListSerializer<ArmorBonus>(ArmorBonus.serializer())
 
 @Serializable
 data class MHWArmorsResponse (
