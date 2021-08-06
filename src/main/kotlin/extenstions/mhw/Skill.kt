@@ -12,6 +12,15 @@ val MhwSkillCommand: suspend SlashCommand<out MhwSkill>.() -> Unit = {
     autoAck = AutoAckType.PUBLIC
 
     action {
-        publicFollowUp { content = "ping" }
+        val searchTerm = arguments.skillName.lowercase().replace(" ", "")
+        val res = ApiClient.MHW.skills[searchTerm]
+        publicFollowUp {
+            content = if (res == null) {
+                "not found"
+            } else {
+                println( res )
+                "found"
+            }
+        }
     }
 }

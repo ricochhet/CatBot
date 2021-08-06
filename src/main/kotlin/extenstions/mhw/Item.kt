@@ -12,6 +12,15 @@ val MhwItemCommand: suspend SlashCommand<out MhwItem>.() -> Unit = {
     autoAck = AutoAckType.PUBLIC
 
     action {
-        publicFollowUp { content = "ping" }
+        val searchTerm = arguments.itemName.lowercase().replace("", "")
+        val res = ApiClient.MHW.items[searchTerm]
+        publicFollowUp {
+            content = if (res == null) {
+                "not found"
+            } else {
+                println(res)
+                "found"
+            }
+        }
     }
 }

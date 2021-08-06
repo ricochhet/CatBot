@@ -12,6 +12,15 @@ val MhwArmorCommand: suspend SlashCommand<out MhwArmor>.() -> Unit = {
     autoAck = AutoAckType.PUBLIC
 
     action {
-        publicFollowUp { content = "ping" }
+        val searchTerm = arguments.armorName.lowercase().replace(" ", "")
+        val res = ApiClient.MHW.armors[searchTerm]
+        publicFollowUp {
+            content = if (res == null) {
+                "not found"
+            } else {
+                println(res)
+                "found"
+            }
+        }
     }
 }

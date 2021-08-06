@@ -1,7 +1,5 @@
 
-import Serializers.MHWDecorationResponse
-import Serializers.MHWMonsterResponse
-import Serializers.MHWWeaponResponse
+import Serializers.*
 import io.ktor.client.request.*
 import kotlinx.coroutines.runBlocking
 
@@ -15,8 +13,10 @@ object ApiClient {
     }
 
     object MHW {
-        val armors: Nothing by lazy {
-            TODO("Not implement yet")
+        val armors: Map<String, MHWArmorsResponse> by lazy {
+            runBlocking {
+                httpClient.get("http://localhost:8080/api/mhw/armors")
+            }
         }
 
         val decorations: Map<String, MHWDecorationResponse> by lazy {
@@ -25,8 +25,10 @@ object ApiClient {
             }
         }
 
-        val items: Nothing by lazy {
-            TODO("Not implement yet")
+        val items: Map<String, MHWItemsResponse> by lazy {
+            runBlocking {
+                httpClient.get("http://localhost:8080/api/mhw/items")
+            }
         }
 
         val monsters: List<MHWMonsterResponse> by lazy {
@@ -35,8 +37,10 @@ object ApiClient {
             }
         }
 
-        val skills: Nothing by lazy {
-            TODO("Not implement yet")
+        val skills: Map<String, MHWSkillsResponse> by lazy {
+            runBlocking {
+                httpClient.get("http://localhost:8080/api/mhw/skills")
+            }
         }
 
         val weapons: Map<String, MHWWeaponResponse> by lazy {
