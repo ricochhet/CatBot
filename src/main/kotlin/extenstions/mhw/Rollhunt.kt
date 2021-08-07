@@ -3,10 +3,11 @@ package extenstions.mhw
 import com.kotlindiscord.kord.extensions.commands.parser.Arguments
 import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
 import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
+import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.interaction.embed
 import kotlinx.datetime.Clock
-import utils.CatBotColor
+import utils.CatBot
 
 @KordPreview
 val MhwRollHuntCommand: suspend SlashCommand<out Arguments>.() -> Unit = {
@@ -22,7 +23,7 @@ val MhwRollHuntCommand: suspend SlashCommand<out Arguments>.() -> Unit = {
         ephemeralFollowUp {
             embed {
                 title = "Roll Hunt"
-                color = CatBotColor
+                color = Color.CatBot
 
                 field {
                     name = "Monster"

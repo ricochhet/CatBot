@@ -8,11 +8,9 @@ import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.interaction.embed
-import utils.CatBotColor
 import java.io.File
 import java.io.InputStream
 
-// TODO: 07/08/2021 Add Locale thumbnail from resource (if possible)
 @OptIn(KordPreview::class)
 fun getLocaleThumbnail(locale: MhwLocaleChoice): InputStream {
     return when (locale) {
@@ -24,7 +22,6 @@ fun getLocaleThumbnail(locale: MhwLocaleChoice): InputStream {
         MhwLocaleChoice.Tundra_Region -> File("src/main/resources/source_files/MonsterDataImages/assets/mhw/locale_icons/localeFrost.png")
     }.inputStream()
 }
-
 
 @KordPreview
 val MhwLocaleCommand: suspend SlashCommand<out MhwLocale>.() -> Unit = {

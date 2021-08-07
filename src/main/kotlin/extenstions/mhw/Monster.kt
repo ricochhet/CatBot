@@ -7,7 +7,7 @@ import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.interaction.embed
 import kotlinx.datetime.Clock
-import utils.CatBotColor
+import utils.CatBot
 
 @KordPreview
 val MhwMonsterCommand: suspend SlashCommand<out MhwMonster>.() -> Unit = {
@@ -27,7 +27,7 @@ val MhwMonsterCommand: suspend SlashCommand<out MhwMonster>.() -> Unit = {
                 embed {
                     val monsterTitle = monster.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
                     title = "__**${monsterTitle}**__ ${monster.details.threat_level ?: ""}"
-                    color = CatBotColor
+                    color = Color.CatBot
 
                     thumbnail { url = monster.details.thumbnail }
 

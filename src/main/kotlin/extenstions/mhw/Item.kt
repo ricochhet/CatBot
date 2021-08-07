@@ -3,10 +3,11 @@ package extenstions.mhw
 import arguments.MhwItem
 import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
 import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
+import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.interaction.embed
 import kotlinx.datetime.Clock
-import utils.CatBotColor
+import utils.CatBot
 
 @KordPreview
 val MhwItemCommand: suspend SlashCommand<out MhwItem>.() -> Unit = {
@@ -24,7 +25,7 @@ val MhwItemCommand: suspend SlashCommand<out MhwItem>.() -> Unit = {
                 embed {
                     title = item.name
                     description = item.description
-                    color = CatBotColor
+                    color = Color.CatBot
 
                     field {
                         name = "Rarity"

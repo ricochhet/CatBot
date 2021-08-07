@@ -3,10 +3,11 @@ package extenstions.mhw
 import arguments.MhwSkill
 import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
 import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
+import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.interaction.embed
 import kotlinx.datetime.Clock
-import utils.CatBotColor
+import utils.CatBot
 
 @KordPreview
 val MhwSkillCommand: suspend SlashCommand<out MhwSkill>.() -> Unit = {
@@ -24,7 +25,7 @@ val MhwSkillCommand: suspend SlashCommand<out MhwSkill>.() -> Unit = {
                 embed {
                     title = skill.name
                     description = skill.description
-                    color = CatBotColor
+                    color = Color.CatBot
 
                     field {
                         name = "Levels"

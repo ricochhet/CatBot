@@ -10,7 +10,7 @@ import dev.kord.core.Kord
 import dev.kord.rest.builder.interaction.embed
 import kotlinx.coroutines.flow.first
 import kotlinx.datetime.Clock
-import utils.CatBotColor
+import utils.CatBot
 
 @OptIn(KordPreview::class)
 class Invite: Extension() {
@@ -32,7 +32,7 @@ class Invite: Extension() {
                     embed {
                         title = "CatBot Invite"
                         description = "[Invite the bot to your server]($invite)"
-                        color = CatBotColor
+                        color = Color.CatBot
 
                         footer {
                             text = "Invite Link Request"
