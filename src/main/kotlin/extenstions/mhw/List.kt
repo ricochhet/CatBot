@@ -33,7 +33,7 @@ val MhwListCommand: suspend SlashCommand<out Arguments>.() -> Unit = {
             runBlocking {
                 owner = user.asUserOrNull()
             }
-            
+
             pages.forEach {
                 page(it)
             }
