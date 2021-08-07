@@ -18,6 +18,7 @@ data class MonsterHZV (
 data class MonsterLocations (
     val name: String,
     val color: String,
+    val tempered: Boolean? = false
 )
 
 @Serializable

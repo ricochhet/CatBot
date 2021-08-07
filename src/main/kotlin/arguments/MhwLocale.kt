@@ -7,12 +7,12 @@ import com.kotlindiscord.kord.extensions.commands.slash.converters.impl.enumChoi
 import dev.kord.common.annotation.KordPreview
 
 enum class MhwLocaleChoice( override val readableName: String ): ChoiceEnum {
-    forest("forest"),
-    wildspire("wildspire"),
-    coral("coral"),
-    rotted("rotted"),
-    volcanic("volcanic"),
-    tundra("tundra")
+    Forest_Region("forest"),
+    Wildspire_Region("wildspire"),
+    Coral_Region("coral"),
+    Rotted_Region("rotted"),
+    Volcanic_Region("volcanic"),
+    Tundra_Region("tundra")
 }
 
 @KordPreview
