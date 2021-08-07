@@ -12,6 +12,10 @@ val MhwListCommand: suspend SlashCommand<out Arguments>.() -> Unit = {
     autoAck = AutoAckType.PUBLIC
 
     action {
-        publicFollowUp { content = "ping" }
+
+        publicFollowUp {
+            content = "ping"
+            files
+        }
     }
 }

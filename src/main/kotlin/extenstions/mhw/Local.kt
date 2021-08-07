@@ -2,14 +2,29 @@ package extenstions.mhw
 
 import Serializers.MHWMonsterResponse
 import arguments.MhwLocale
+import arguments.MhwLocaleChoice
 import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
 import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.interaction.embed
 import utils.CatBotColor
+import java.io.File
+import java.io.InputStream
 
 // TODO: 07/08/2021 Add Locale thumbnail from resource (if possible)
+@OptIn(KordPreview::class)
+fun getLocaleThumbnail(locale: MhwLocaleChoice): InputStream {
+    return when (locale) {
+        MhwLocaleChoice.Forest_Region -> File("src/main/resources/source_files/MonsterDataImages/assets/mhw/locale_icons/localeForest.png")
+        MhwLocaleChoice.Wildspire_Region -> File("src/main/resources/source_files/MonsterDataImages/assets/mhw/locale_icons/localeWaste.png")
+        MhwLocaleChoice.Coral_Region -> File("src/main/resources/source_files/MonsterDataImages/assets/mhw/locale_icons/localeCoral.png")
+        MhwLocaleChoice.Rotted_Region -> File("src/main/resources/source_files/MonsterDataImages/assets/mhw/locale_icons/localeRotten.png")
+        MhwLocaleChoice.Volcanic_Region -> File("src/main/resources/source_files/MonsterDataImages/assets/mhw/locale_icons/localeElder.png")
+        MhwLocaleChoice.Tundra_Region -> File("src/main/resources/source_files/MonsterDataImages/assets/mhw/locale_icons/localeFrost.png")
+    }.inputStream()
+}
+
 
 @KordPreview
 val MhwLocaleCommand: suspend SlashCommand<out MhwLocale>.() -> Unit = {
@@ -49,16 +64,22 @@ val MhwLocaleCommand: suspend SlashCommand<out MhwLocale>.() -> Unit = {
         }
 
         publicFollowUp {
+            files.add(
+                Pair(
+                    "locale.png",
+                    getLocaleThumbnail(arguments.localeName)
+                )
+            )
+
             embed {
                 title = region
-                color = when (region) {
-                    "Forest Region" -> Color(30, 158, 71)
-                    "Wildspire Region" -> Color(242, 162, 44)
-                    "Coral Region" -> Color(134, 224, 212)
-                    "Rotted Region" -> Color(191, 87, 38)
-                    "Volcanic Region" -> Color(237, 81, 47)
-                    "Tundra Region" -> Color(138, 190, 235)
-                    else -> CatBotColor
+                color = when (arguments.localeName) {
+                    MhwLocaleChoice.Forest_Region -> Color(30, 158, 71)
+                    MhwLocaleChoice.Wildspire_Region -> Color(242, 162, 44)
+                    MhwLocaleChoice.Coral_Region -> Color(134, 224, 212)
+                    MhwLocaleChoice.Rotted_Region -> Color(191, 87, 38)
+                    MhwLocaleChoice.Volcanic_Region -> Color(237, 81, 47)
+                    MhwLocaleChoice.Tundra_Region -> Color(138, 190, 235)
                 }
 
                 field {
@@ -74,6 +95,10 @@ val MhwLocaleCommand: suspend SlashCommand<out MhwLocale>.() -> Unit = {
                 field {
                     name = "Threat Level 🔥:"
                     value = threatlevels.first.joinToString(", ", transform = ::transformer)
+                }
+
+                thumbnail {
+                    url = "attachment://locale.png"
                 }
 
                 footer {
