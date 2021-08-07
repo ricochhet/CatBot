@@ -4,6 +4,9 @@ import arguments.MhwSkill
 import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
 import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
 import dev.kord.common.annotation.KordPreview
+import dev.kord.rest.builder.interaction.embed
+import kotlinx.datetime.Clock
+import utils.CatBotColor
 
 @KordPreview
 val MhwSkillCommand: suspend SlashCommand<out MhwSkill>.() -> Unit = {
@@ -13,13 +16,30 @@ val MhwSkillCommand: suspend SlashCommand<out MhwSkill>.() -> Unit = {
 
     action {
         val searchTerm = arguments.skillName.lowercase().replace(" ", "")
-        val res = ApiClient.MHW.skills[searchTerm]
+        val skill = ApiClient.MHW.skills[searchTerm]
         publicFollowUp {
-            content = if (res == null) {
-                "not found"
+            if (skill == null) {
+                content = "not found"
             } else {
-                println( res )
-                "found"
+                embed {
+                    title = skill.name
+                    description = skill.description
+                    color = CatBotColor
+
+                    field {
+                        name = "Levels"
+                        value = skill.ranks.joinToString("\n") { rank ->
+                            val index = skill.ranks.indexOf(rank)
+                            "LV${index + 1}: ${rank.description}"
+                        }
+                    }
+
+                    footer {
+                        text = skill.name
+                    }
+
+                    timestamp = Clock.System.now()
+                }
             }
         }
     }
