@@ -4,6 +4,9 @@ import arguments.MhwItem
 import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
 import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
 import dev.kord.common.annotation.KordPreview
+import dev.kord.rest.builder.interaction.embed
+import kotlinx.datetime.Clock
+import utils.CatBotColor
 
 @KordPreview
 val MhwItemCommand: suspend SlashCommand<out MhwItem>.() -> Unit = {
@@ -13,13 +16,40 @@ val MhwItemCommand: suspend SlashCommand<out MhwItem>.() -> Unit = {
 
     action {
         val searchTerm = arguments.itemName.lowercase().replace("", "")
-        val res = ApiClient.MHW.items[searchTerm]
+        val item = ApiClient.MHW.items[searchTerm]
         publicFollowUp {
-            content = if (res == null) {
-                "not found"
+            if (item == null) {
+                content = "not found"
             } else {
-                println(res)
-                "found"
+                embed {
+                    title = item.name
+                    description = item.description
+                    color = CatBotColor
+
+                    field {
+                        name = "Rarity"
+                        value = item.rarity.toString()
+                        inline = true
+                    }
+
+                    field {
+                        name = "Max"
+                        value = item.carryLimit.toString()
+                        inline = true
+                    }
+
+                    field {
+                        name = "Sell"
+                        value = item.value.toString()
+                        inline = true
+                    }
+
+                    footer {
+                        text = item.name
+                    }
+
+                    timestamp = Clock.System.now()
+                }
             }
         }
     }
