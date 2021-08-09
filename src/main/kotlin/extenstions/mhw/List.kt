@@ -16,7 +16,7 @@ val MhwListCommand: suspend SlashCommand<out Arguments>.() -> Unit = {
     description = "List all monsters in MHW & Iceborne"
     autoAck = AutoAckType.PUBLIC
 
-    val id = this.kord.selfId
+    val id = kord.selfId
     action {
         val botUser = guild?.members?.first { it.id == id }
         val pages = ApiClient.MHW.monsters
