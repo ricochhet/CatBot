@@ -21,12 +21,18 @@ val MhwListCommand: suspend SlashCommand<out Arguments>.() -> Unit = {
         val botUser = guild?.members?.first { it.id == id }
         val pages = ApiClient.MHW.monsters
             .chunked(20)
-            .map { monsters -> Page(
-                title = "Monsters list",
-                description = monsters.joinToString("\n") { it.details.title },
-                color = Color.CatBot,
-                footerIcon = botUser?.avatar?.url
-            ) }
+            .map { monsters ->
+                Page {
+                    title = "Monster list"
+                    description = monsters.joinToString("\n") { it.details.title }
+                    color = Color.CatBot
+
+                    footer {
+                        text = ""
+                        icon = botUser?.avatar?.url
+                    }
+                }
+            }
 
 
         val paginator = paginator {

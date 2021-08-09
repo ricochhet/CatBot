@@ -5,7 +5,6 @@ import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
 import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
 import com.kotlindiscord.kord.extensions.pagination.pages.Page
 import dev.kord.common.annotation.KordPreview
-import dev.kord.rest.builder.message.EmbedBuilder
 
 @KordPreview
 val MhwArmorCommand: suspend SlashCommand<out MhwArmor>.() -> Unit = {
@@ -15,7 +14,6 @@ val MhwArmorCommand: suspend SlashCommand<out MhwArmor>.() -> Unit = {
 
     action {
         val searchTerm = arguments.armorName.lowercase().replace(" ", "")
-
         val armor = ApiClient.MHW.armors[searchTerm]
 
         if (armor == null) {
@@ -23,9 +21,9 @@ val MhwArmorCommand: suspend SlashCommand<out MhwArmor>.() -> Unit = {
         } else {
             val paginator = paginator {
                 page(
-                    Page(
-                        description = ""
-                    )
+                    Page {
+
+                    }
                 )
             }
         }
