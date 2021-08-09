@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.kotlindiscord.kord.extensions:kord-extensions:1.4.3-SNAPSHOT")
+    implementation("com.kotlindiscord.kord.extensions:kord-extensions:1.4.4-RC2")
     implementation("io.github.cdimascio:dotenv-kotlin:6.2.2")
     implementation("org.slf4j:slf4j-simple:1.7.30")
     implementation("org.reflections:reflections:0.9.11")

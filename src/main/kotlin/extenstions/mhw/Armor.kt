@@ -3,7 +3,9 @@ package extenstions.mhw
 import arguments.MhwArmor
 import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
 import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
+import com.kotlindiscord.kord.extensions.pagination.pages.Page
 import dev.kord.common.annotation.KordPreview
+import dev.kord.rest.builder.message.EmbedBuilder
 
 @KordPreview
 val MhwArmorCommand: suspend SlashCommand<out MhwArmor>.() -> Unit = {
@@ -13,13 +15,18 @@ val MhwArmorCommand: suspend SlashCommand<out MhwArmor>.() -> Unit = {
 
     action {
         val searchTerm = arguments.armorName.lowercase().replace(" ", "")
-        val res = ApiClient.MHW.armors[searchTerm]
-        publicFollowUp {
-            content = if (res == null) {
-                "not found"
-            } else {
-                println(res)
-                "found"
+
+        val armor = ApiClient.MHW.armors[searchTerm]
+
+        if (armor == null) {
+            publicFollowUp { content = "not found" }
+        } else {
+            val paginator = paginator {
+                page(
+                    Page(
+                        description = ""
+                    )
+                )
             }
         }
     }

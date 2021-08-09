@@ -7,7 +7,7 @@ import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
 import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
-import dev.kord.rest.builder.interaction.embed
+import dev.kord.rest.builder.message.create.embed
 import java.io.File
 import java.io.InputStream
 

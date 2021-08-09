@@ -3,7 +3,14 @@ package extenstions.calc
 import arguments.CalcTElem
 import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
 import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
+import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
+import dev.kord.core.behavior.edit
+import dev.kord.rest.builder.message.EmbedBuilder
+import dev.kord.rest.builder.message.create.embed
+import kotlinx.datetime.Clock
+import utils.CatBot
+import kotlin.math.round
 
 @KordPreview
 val CalcTElemCommand: suspend SlashCommand<out CalcTElem>.() -> Unit = {
@@ -11,8 +18,27 @@ val CalcTElemCommand: suspend SlashCommand<out CalcTElem>.() -> Unit = {
     description = "True elemental value (removed bloat modifier)"
     autoAck = AutoAckType.PUBLIC
 
-
     action {
-        publicFollowUp { content = "test 2" }
+        val result = round(arguments.attack / 10)
+        publicFollowUp {
+            embed {
+                color = Color.CatBot
+
+                field {
+                    name = "Formula"
+                    value = "*Elemental / 10*"
+                }
+
+                field {
+                    name = "Answer"
+                    value = "**$result**"
+                }
+
+                timestamp = Clock.System.now()
+                footer {
+                    text = commandName.uppercase() + " Menu"
+                }
+            }
+        }
     }
 }

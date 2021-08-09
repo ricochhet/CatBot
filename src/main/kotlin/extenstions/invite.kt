@@ -7,7 +7,7 @@ import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
 import dev.kord.common.entity.Snowflake
 import dev.kord.core.Kord
-import dev.kord.rest.builder.interaction.embed
+import dev.kord.rest.builder.message.create.embed
 import kotlinx.coroutines.flow.first
 import kotlinx.datetime.Clock
 import utils.CatBot
