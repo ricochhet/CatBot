@@ -13,7 +13,7 @@ suspend fun main() {
         slashCommands { enabled = true }
 
         extensions {
-            val reflections = Reflections("extenstions")
+            val reflections = Reflections("extensions")
             for ( extension in reflections.getSubTypesOf( Extension::class.java ) ) {
                 val extenPrimeConstructor = extension.constructors.first()
                 add({ extenPrimeConstructor.newInstance() } as () -> Extension )
