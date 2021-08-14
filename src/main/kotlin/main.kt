@@ -1,11 +1,11 @@
 import com.kotlindiscord.kord.extensions.ExtensibleBot
-import com.kotlindiscord.kord.extensions.extensions.Extension
+import dev.kord.common.annotation.KordPreview
 import dev.kord.gateway.Intents
 import dev.kord.gateway.PrivilegedIntent
+import extensions.*
 import io.github.cdimascio.dotenv.dotenv
-import org.reflections.Reflections
 
-@OptIn(PrivilegedIntent::class)
+@OptIn(PrivilegedIntent::class, KordPreview::class)
 suspend fun main() {
     val env = dotenv()
     val client = ExtensibleBot(env["token"]) {
@@ -13,11 +13,14 @@ suspend fun main() {
         slashCommands { enabled = true }
 
         extensions {
-            val reflections = Reflections("extensions")
-            for ( extension in reflections.getSubTypesOf( Extension::class.java ) ) {
-                val extenPrimeConstructor = extension.constructors.first()
-                add({ extenPrimeConstructor.newInstance() } as () -> Extension )
-            }
+            add( ::About )
+            add( ::Calc )
+            add( ::Cat )
+            add( ::Changelog )
+            add( ::Invite )
+            add( ::Mhgu )
+            add( ::Mhw )
+            add( ::Support )
         }
     }
 
