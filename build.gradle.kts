@@ -3,6 +3,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.5.21"
     kotlin("plugin.serialization") version "1.5.21"
+    application
+}
+
+application {
+    mainClassName = "MainKt"
 }
 
 group = "me.yofou"
@@ -29,6 +34,7 @@ dependencies {
 
 tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "15"
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
 }
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
