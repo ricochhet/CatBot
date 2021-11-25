@@ -1,9 +1,10 @@
 package extensions.mhw
 
 import arguments.MhwArmor
-import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
-import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
+import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
 import com.kotlindiscord.kord.extensions.pagination.pages.Page
+import com.kotlindiscord.kord.extensions.types.editingPaginator
+import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
 import kotlinx.coroutines.flow.first
@@ -12,10 +13,9 @@ import kotlinx.datetime.Clock
 import utils.CatBot
 
 @KordPreview
-val MhwArmorCommand: suspend SlashCommand<out MhwArmor>.() -> Unit = {
+val MhwArmorCommand: suspend PublicSlashCommand<out MhwArmor>.() -> Unit = {
     name = "armor"
     description = "Get info for a specific armor set"
-    autoAck = AutoAckType.PUBLIC
 
     val id = kord.selfId
     action {
@@ -24,9 +24,9 @@ val MhwArmorCommand: suspend SlashCommand<out MhwArmor>.() -> Unit = {
         val armor = ApiClient.MHW.armors[searchTerm]
 
         if (armor == null) {
-            publicFollowUp { content = "not found" }
+            respond { content = "not found" }
         } else {
-            val paginator = paginator {
+            val paginator = editingPaginator {
                 runBlocking {
                     owner = user.asUserOrNull()
                 }

@@ -1,8 +1,8 @@
 package arguments
 
-import com.kotlindiscord.kord.extensions.commands.parser.Arguments
-import com.kotlindiscord.kord.extensions.commands.slash.converters.ChoiceEnum
-import com.kotlindiscord.kord.extensions.commands.slash.converters.impl.enumChoice
+import com.kotlindiscord.kord.extensions.commands.Arguments
+import com.kotlindiscord.kord.extensions.commands.application.slash.converters.ChoiceEnum
+import com.kotlindiscord.kord.extensions.commands.application.slash.converters.impl.enumChoice
 
 import dev.kord.common.annotation.KordPreview
 

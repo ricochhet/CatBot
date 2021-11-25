@@ -1,33 +1,33 @@
 package extensions.mhw
 
 import arguments.MhwHzv
-import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
-import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
+import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
+import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
+import dev.kord.rest.NamedFile
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
 import java.io.File
 
 @KordPreview
-val MhwHzvCommand: suspend SlashCommand<out MhwHzv>.() -> Unit = {
+val MhwHzvCommand: suspend PublicSlashCommand<out MhwHzv>.() -> Unit = {
     name = "hzv"
     description = "Get hzv info for a specific monster"
-    autoAck = AutoAckType.PUBLIC
 
     action {
         val monster = ApiClient.MHW.monsters.find {
             it.name == arguments.monsterName.lowercase().replace(" ", "")
         }
 
-        publicFollowUp {
+        respond {
             if (monster == null) {
                 content = "not found"
             } else {
                 val filename = monster.details.title.replace(" ", "_") + "_HZV.png"
                 files.add(
-                    Pair(
+                    NamedFile(
                         "HZV.png",
                         File("src/main/resources/source_files/MonsterDataImages/assets/mhw/monster/$filename").inputStream()
                     )

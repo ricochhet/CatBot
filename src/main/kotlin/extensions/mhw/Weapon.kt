@@ -2,9 +2,10 @@ package extensions.mhw
 
 
 import arguments.MhwWeapon
-import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
-import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
+import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
 import com.kotlindiscord.kord.extensions.pagination.pages.Page
+import com.kotlindiscord.kord.extensions.types.editingPaginator
+import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
 import kotlinx.coroutines.flow.first
@@ -15,10 +16,9 @@ import java.util.*
 import kotlin.math.round
 
 @KordPreview
-val MhwWeaponCommand: suspend SlashCommand<out MhwWeapon>.() -> Unit = {
+val MhwWeaponCommand: suspend PublicSlashCommand<out MhwWeapon>.() -> Unit = {
     name = "weapon"
     description = "Get info for a specific weapon\n"
-    autoAck = AutoAckType.PUBLIC
 
     val id = kord.selfId
     action {
@@ -27,9 +27,9 @@ val MhwWeaponCommand: suspend SlashCommand<out MhwWeapon>.() -> Unit = {
         val weapon = ApiClient.MHW.weapons[searchTerm]
 
         if (weapon == null) {
-            publicFollowUp { content = "not found" }
+            respond { content = "not found" }
         } else {
-            val paginator = paginator {
+            val paginator = editingPaginator {
                 runBlocking {
                     owner = user.asUserOrNull()
                 }

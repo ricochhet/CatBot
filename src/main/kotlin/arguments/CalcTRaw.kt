@@ -1,11 +1,10 @@
 package arguments
 
 
+import com.kotlindiscord.kord.extensions.commands.Arguments
+import com.kotlindiscord.kord.extensions.commands.application.slash.converters.ChoiceEnum
+import com.kotlindiscord.kord.extensions.commands.application.slash.converters.impl.enumChoice
 import com.kotlindiscord.kord.extensions.commands.converters.impl.decimal
-import com.kotlindiscord.kord.extensions.commands.converters.impl.int
-import com.kotlindiscord.kord.extensions.commands.parser.Arguments
-import com.kotlindiscord.kord.extensions.commands.slash.converters.ChoiceEnum
-import com.kotlindiscord.kord.extensions.commands.slash.converters.impl.enumChoice
 import dev.kord.common.annotation.KordPreview
 
 enum class CalcTRawChoice( override val readableName: String ): ChoiceEnum {

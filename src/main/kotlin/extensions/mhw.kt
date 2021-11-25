@@ -1,8 +1,10 @@
 package extensions
 
 import arguments.*
-import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
+import com.kotlindiscord.kord.extensions.commands.application.slash.ephemeralSubCommand
+import com.kotlindiscord.kord.extensions.commands.application.slash.publicSubCommand
 import com.kotlindiscord.kord.extensions.extensions.Extension
+import com.kotlindiscord.kord.extensions.extensions.publicSlashCommand
 import dev.kord.common.annotation.KordPreview
 import dev.kord.common.entity.Snowflake
 import extensions.mhw.*
@@ -11,22 +13,21 @@ import extensions.mhw.*
 class Mhw: Extension() {
     override val name = "Mhw"
     override suspend fun setup() {
-        slashCommand {
+        publicSlashCommand {
             name = "mhw"
             description = "Monster Hunter World: Iceborne"
-            autoAck = AutoAckType.PUBLIC
             guild( Snowflake("638517240475549736") )
 
-            subCommand(::MhwArmor, MhwArmorCommand)
-            subCommand(::MhwDeco, MhwDecoCommand)
-            subCommand(::MhwHzv, MhwHzvCommand)
-            subCommand(::MhwItem, MhwItemCommand)
-            subCommand(MhwListCommand)
-            subCommand(::MhwLocale, MhwLocaleCommand)
-            subCommand(::MhwMonster, MhwMonsterCommand)
-            subCommand(MhwRollHuntCommand)
-            subCommand(::MhwSkill, MhwSkillCommand)
-            subCommand(::MhwWeapon, MhwWeaponCommand)
+            publicSubCommand(::MhwArmor, MhwArmorCommand)
+            publicSubCommand(::MhwDeco, MhwDecoCommand)
+            publicSubCommand(::MhwHzv, MhwHzvCommand)
+            publicSubCommand(::MhwItem, MhwItemCommand)
+            publicSubCommand(MhwListCommand)
+            publicSubCommand(::MhwLocale, MhwLocaleCommand)
+            publicSubCommand(::MhwMonster, MhwMonsterCommand)
+            ephemeralSubCommand(MhwRollHuntCommand)
+            publicSubCommand(::MhwSkill, MhwSkillCommand)
+            publicSubCommand(::MhwWeapon, MhwWeaponCommand)
         }
     }
 }

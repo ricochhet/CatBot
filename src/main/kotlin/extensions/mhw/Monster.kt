@@ -1,8 +1,8 @@
 package extensions.mhw
 
 import arguments.MhwMonster
-import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
-import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
+import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
+import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.message.create.embed
@@ -10,17 +10,16 @@ import kotlinx.datetime.Clock
 import utils.CatBot
 
 @KordPreview
-val MhwMonsterCommand: suspend SlashCommand<out MhwMonster>.() -> Unit = {
+val MhwMonsterCommand: suspend PublicSlashCommand<out MhwMonster>.() -> Unit = {
     name = "monster"
     description = "Get info for a specific monster"
-    autoAck = AutoAckType.PUBLIC
 
     action {
         val monster = ApiClient.MHW.monsters.find {
             it.name.lowercase() == arguments.monsterName.lowercase()
         }
 
-        publicFollowUp {
+        respond {
             if (monster === null) {
                 content = "Not found"
             } else {

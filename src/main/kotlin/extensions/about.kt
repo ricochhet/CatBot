@@ -1,6 +1,7 @@
 package extensions
-import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
 import com.kotlindiscord.kord.extensions.extensions.Extension
+import com.kotlindiscord.kord.extensions.extensions.publicSlashCommand
+import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.annotation.KordPreview
 import dev.kord.common.entity.Snowflake
 
@@ -9,15 +10,14 @@ class About: Extension() {
     override val name = "About"
 
     override suspend fun setup() {
-        slashCommand {
+        publicSlashCommand {
             name = "about"
             description = "Shows extra information about the bot"
             guild( Snowflake("638517240475549736") )
-            autoAck = AutoAckType.PUBLIC
 
             action {
-                publicFollowUp {
-                    content = "ping"
+                respond {
+                    content = "Ping"
                 }
             }
         }

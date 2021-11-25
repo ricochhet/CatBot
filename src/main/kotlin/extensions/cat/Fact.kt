@@ -1,19 +1,17 @@
 package extensions.cat
 
-
-import com.kotlindiscord.kord.extensions.commands.parser.Arguments
-import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
-import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
+import com.kotlindiscord.kord.extensions.commands.Arguments
+import com.kotlindiscord.kord.extensions.commands.application.slash.EphemeralSlashCommand
+import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.annotation.KordPreview
 
 @KordPreview
-val CatFactCommand: suspend SlashCommand<out Arguments>.() -> Unit = {
+val CatFactCommand: suspend EphemeralSlashCommand<out Arguments>.() -> Unit = {
     name = "fact"
     description = "Shows random cat facts"
-    autoAck = AutoAckType.EPHEMERAL
 
     action {
         val facts = ApiClient.CAT.facts
-        ephemeralFollowUp { content = facts.random() }
+        respond { content = facts.random() }
     }
 }

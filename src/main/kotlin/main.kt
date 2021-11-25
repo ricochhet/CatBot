@@ -10,7 +10,6 @@ suspend fun main() {
     val env = dotenv()
     val client = ExtensibleBot(env["token"]) {
         intents { +Intents.all }
-        slashCommands { enabled = true }
 
         extensions {
             add( ::About )

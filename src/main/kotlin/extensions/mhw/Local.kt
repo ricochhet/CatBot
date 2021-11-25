@@ -3,10 +3,11 @@ package extensions.mhw
 import serializers.MHWMonsterResponse
 import arguments.MhwLocale
 import arguments.MhwLocaleChoice
-import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
-import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
+import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
+import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
+import dev.kord.rest.NamedFile
 import dev.kord.rest.builder.message.create.embed
 import java.io.File
 import java.io.InputStream
@@ -24,10 +25,9 @@ fun getLocaleThumbnail(locale: MhwLocaleChoice): InputStream {
 }
 
 @KordPreview
-val MhwLocaleCommand: suspend SlashCommand<out MhwLocale>.() -> Unit = {
+val MhwLocaleCommand: suspend PublicSlashCommand<out MhwLocale>.() -> Unit = {
     name = "locale"
     description = "Get info for a guiding lands locale"
-    autoAck = AutoAckType.PUBLIC
 
     action {
         val region = arguments.localeName.name.replace("_", " ")
@@ -60,9 +60,9 @@ val MhwLocaleCommand: suspend SlashCommand<out MhwLocale>.() -> Unit = {
             }
         }
 
-        publicFollowUp {
+        respond {
             files.add(
-                Pair(
+                NamedFile(
                     "locale.png",
                     getLocaleThumbnail(arguments.localeName)
                 )

@@ -1,9 +1,9 @@
 package extensions.mhw
 
-import com.kotlindiscord.kord.extensions.commands.parser.Arguments
-import com.kotlindiscord.kord.extensions.commands.slash.AutoAckType
-import com.kotlindiscord.kord.extensions.commands.slash.SlashCommand
+import com.kotlindiscord.kord.extensions.commands.Arguments
+import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
 import com.kotlindiscord.kord.extensions.pagination.pages.Page
+import com.kotlindiscord.kord.extensions.types.editingPaginator
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
 import kotlinx.coroutines.flow.first
@@ -11,10 +11,9 @@ import kotlinx.coroutines.runBlocking
 import utils.CatBot
 
 @KordPreview
-val MhwListCommand: suspend SlashCommand<out Arguments>.() -> Unit = {
+val MhwListCommand: suspend PublicSlashCommand<out Arguments>.() -> Unit = {
     name = "list"
     description = "List all monsters in MHW & Iceborne"
-    autoAck = AutoAckType.PUBLIC
 
     val id = kord.selfId
     action {
@@ -35,7 +34,7 @@ val MhwListCommand: suspend SlashCommand<out Arguments>.() -> Unit = {
             }
 
 
-        val paginator = paginator {
+        val paginator = editingPaginator {
             runBlocking {
                 owner = user.asUserOrNull()
             }
