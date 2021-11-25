@@ -5,9 +5,10 @@ import dev.kord.gateway.PrivilegedIntent
 import extensions.*
 import io.github.cdimascio.dotenv.dotenv
 
+val env = dotenv()
+
 @OptIn(PrivilegedIntent::class, KordPreview::class)
 suspend fun main() {
-    val env = dotenv()
     val client = ExtensibleBot(env["token"]) {
         intents { +Intents.all }
 
