@@ -8,6 +8,7 @@ import dev.kord.common.entity.Snowflake
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
+import utils.version
 
 @OptIn(KordPreview::class)
 class About: Extension() {
@@ -54,7 +55,7 @@ class About: Extension() {
 
                         field {
                             name = "Version:"
-                            value = "6.0.0-RC1"
+                            value = version
                         }
 
                         field {
