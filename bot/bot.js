@@ -32,9 +32,9 @@ class Bot extends Client {
         client.version
       );
 
-      this.shard.broadcastEval(
-        `this.user.setActivity('for ${await this.prefix()}help or @CatBot', { type: 'WATCHING' });`
-      );
+      client.user.setActivity(`for ${await this.prefix()}help or @CatBot`, {
+        type: 'WATCHING'
+      });
 
       const dbl_token = config['bot']['dbl_token'];
       if (dbl_token) {
