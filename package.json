@@ -1,6 +1,6 @@
 {
   "name": "catbot",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Monster Hunter Discord Bot",
   "main": "shard.js",
   "scripts": {
