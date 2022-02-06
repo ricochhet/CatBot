@@ -6,5 +6,8 @@ import dev.kord.common.annotation.KordPreview
 
 @KordPreview
 class CalcTElem: Arguments() {
-    val attack by decimal("attack", "in-game attack value")
+    val attack by decimal {
+        name = "attack"
+        description = "in-game attack value"
+    }
 }

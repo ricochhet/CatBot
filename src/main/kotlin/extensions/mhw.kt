@@ -25,7 +25,7 @@ class Mhw: Extension() {
             publicSubCommand(MhwListCommand)
             publicSubCommand(::MhwLocale, MhwLocaleCommand)
             publicSubCommand(::MhwMonster, MhwMonsterCommand)
-            ephemeralSubCommand(MhwRollHuntCommand)
+            ephemeralSubCommand(::MhwRollHunt, MhwRollHuntCommand)
             publicSubCommand(::MhwSkill, MhwSkillCommand)
             publicSubCommand(::MhwWeapon, MhwWeaponCommand)
         }

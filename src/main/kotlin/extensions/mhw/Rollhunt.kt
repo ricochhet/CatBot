@@ -1,6 +1,6 @@
 package extensions.mhw
 
-import com.kotlindiscord.kord.extensions.commands.Arguments
+import arguments.MhwRollHunt
 import com.kotlindiscord.kord.extensions.commands.application.slash.EphemeralSlashCommand
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
@@ -10,14 +10,17 @@ import kotlinx.datetime.Clock
 import utils.CatBot
 
 @KordPreview
-val MhwRollHuntCommand: suspend EphemeralSlashCommand<out Arguments>.() -> Unit = {
+val MhwRollHuntCommand: suspend EphemeralSlashCommand<out MhwRollHunt>.() -> Unit = {
     name = "rollhunt"
     description = "Get a random roll of what monster you should hunt with which gear"
 
     action {
         val monster = ApiClient.MHW.monsters.random()
         val armor = ApiClient.MHW.armors.values.random()
-        val weapon = ApiClient.MHW.weapons.values.random()
+        val weapon = ApiClient.MHW.weapons.values.filter {
+            if (arguments.weaponType?.name == null) return@filter true
+            it.type == arguments.weaponType?.readableName
+        }.random()
 
         respond {
             embed {

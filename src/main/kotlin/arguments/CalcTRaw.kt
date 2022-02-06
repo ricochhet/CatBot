@@ -1,6 +1,5 @@
 package arguments
 
-
 import com.kotlindiscord.kord.extensions.commands.Arguments
 import com.kotlindiscord.kord.extensions.commands.application.slash.converters.ChoiceEnum
 import com.kotlindiscord.kord.extensions.commands.application.slash.converters.impl.enumChoice
@@ -43,6 +42,14 @@ enum class CalcTRawChoice( override val readableName: String ): ChoiceEnum {
 
 @KordPreview
 class CalcTRaw: Arguments() {
-    val weaponType by enumChoice<CalcTRawChoice>("weapon_type", "choice of weapon", typeName = "test")
-    val attack by decimal("attack", "in-game attack value")
+    val weaponType by enumChoice<CalcTRawChoice> {
+        name = "weapon_type"
+        description = "choice of weapon"
+        typeName = "test"
+    }
+
+    val attack by decimal {
+        name = "attack"
+        description = "in-game attack value"
+    }
 }

@@ -17,5 +17,9 @@ enum class MhwLocaleChoice( override val readableName: String ): ChoiceEnum {
 
 @KordPreview
 class MhwLocale: Arguments() {
-    val localeName by enumChoice<MhwLocaleChoice>("locale_name", "Available regions", typeName = "test")
+    val localeName by enumChoice<MhwLocaleChoice>{
+        name = "locale_name"
+        description = "Available regions"
+        typeName = "test"
+    }
 }
