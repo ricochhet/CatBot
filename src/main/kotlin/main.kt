@@ -10,7 +10,9 @@ val env = dotenv()
 @OptIn(PrivilegedIntent::class, KordPreview::class)
 suspend fun main() {
     val client = ExtensibleBot(env["token"]) {
-        intents { +Intents.all }
+        intents {
+            +Intents.nonPrivileged
+        }
 
         extensions {
             add( ::About )

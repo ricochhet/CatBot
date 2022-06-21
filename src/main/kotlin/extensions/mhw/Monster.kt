@@ -24,7 +24,7 @@ val MhwMonsterCommand: suspend PublicSlashCommand<out MhwMonster>.() -> Unit = {
                 content = "Not found"
             } else {
                 embed {
-                    val monsterTitle = monster.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+                    val monsterTitle = monster.details.title.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
                     title = "__**${monsterTitle}**__ ${monster.details.threat_level ?: ""}"
                     color = Color.CatBot
 

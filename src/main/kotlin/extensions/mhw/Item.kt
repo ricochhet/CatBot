@@ -15,7 +15,7 @@ val MhwItemCommand: suspend PublicSlashCommand<out MhwItem>.() -> Unit = {
     description = "Get info for a specific item"
 
     action {
-        val searchTerm = arguments.itemName.lowercase().replace("", "")
+        val searchTerm = arguments.itemName.lowercase().replace(" ", "")
         val item = ApiClient.MHW.items[searchTerm]
         respond {
             if (item == null) {
