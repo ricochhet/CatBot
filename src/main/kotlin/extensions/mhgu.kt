@@ -15,7 +15,6 @@ class Mhgu: Extension() {
         publicSlashCommand {
             name = "mhgu"
             description = "Monster Hunter Generations Ultimate"
-            guild( Snowflake("638517240475549736") )
 
             publicSubCommand(::MhguHzv, MhguHzvCommand)
         }

@@ -16,7 +16,6 @@ class Mhw: Extension() {
         publicSlashCommand {
             name = "mhw"
             description = "Monster Hunter World: Iceborne"
-            guild( Snowflake("638517240475549736") )
 
             publicSubCommand(::MhwArmor, MhwArmorCommand)
             publicSubCommand(::MhwDeco, MhwDecoCommand)

@@ -18,7 +18,6 @@ class Calc: Extension() {
         publicSlashCommand {
             name = "calc"
             description = "Math/Calculation (MHWI)"
-            guild( Snowflake("638517240475549736") )
 
             publicSubCommand(::CalcTElem, CalcTElemCommand)
             publicSubCommand(::CalcTRaw, CalcTRawCommand)

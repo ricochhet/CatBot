@@ -25,7 +25,6 @@ class About: Extension() {
         publicSlashCommand {
             name = "about"
             description = "Shows extra information about the bot"
-            guild( Snowflake("638517240475549736") )
 
             action {
                 val kord = this@publicSlashCommand.kord

@@ -24,7 +24,6 @@ class Changelog: Extension() {
         publicSlashCommand {
             name = "changelog"
             description = "Shows latest update log"
-            guild( Snowflake("638517240475549736") )
 
             action {
                 val kord = this@publicSlashCommand.kord

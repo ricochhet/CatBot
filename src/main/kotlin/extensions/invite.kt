@@ -21,7 +21,6 @@ class Invite: Extension() {
         publicSlashCommand {
             name = "invite"
             description = "Invite CatBot to your Server"
-            guild( Snowflake("638517240475549736") )
             val id = bot.getKoin().get<Kord>().selfId
             val invite = "https://discord.com/oauth2/authorize?client_id=573958899582107653&permissions=339008&scope=bot"
 

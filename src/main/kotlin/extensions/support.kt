@@ -18,7 +18,6 @@ class Support: Extension() {
         publicSlashCommand {
             name = "support"
             description = "Support server for CatBot"
-            guild( Snowflake("638517240475549736") )
 
             val invite = "https://discord.gg/p5GRCSh"
             action {

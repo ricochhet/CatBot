@@ -14,7 +14,6 @@ class Cat: Extension() {
         ephemeralSlashCommand {
             name = "cat"
             description = "Where we show our love for cats"
-            guild( Snowflake("638517240475549736") )
 
             ephemeralSubCommand(CatFactCommand)
             ephemeralSubCommand(CatPicCommand)
