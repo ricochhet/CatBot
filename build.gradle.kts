@@ -4,6 +4,7 @@ plugins {
     kotlin("jvm") version "1.6.10"
     kotlin("plugin.serialization") version "1.6.10"
     application
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 application {
@@ -11,7 +12,7 @@ application {
 }
 
 group = "me.yofou"
-version = "1.0-SNAPSHOT"
+version = "6.0"
 
 repositories {
     mavenCentral()
