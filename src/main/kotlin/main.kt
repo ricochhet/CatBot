@@ -4,12 +4,16 @@ import dev.kord.gateway.Intents
 import dev.kord.gateway.PrivilegedIntent
 import extensions.*
 import io.github.cdimascio.dotenv.dotenv
+import java.util.logging.Logger
 
 val env = dotenv()
 
 @OptIn(PrivilegedIntent::class, KordPreview::class)
 suspend fun main() {
-    val client = ExtensibleBot(env["token"]) {
+
+    val log = Logger.getLogger("Main")
+
+    val client = ExtensibleBot(env["bot_token"]) {
         intents {
             +Intents.nonPrivileged
         }
@@ -23,6 +27,26 @@ suspend fun main() {
             add( ::Mhgu )
             add( ::Mhw )
             add( ::Support )
+        }
+
+        hooks {
+            kordShutdownHook = true
+
+            afterExtensionsAdded {
+                log.info("Done adding all extensions.")
+            }
+
+            beforeStart {
+                log.info("About to try connecting to Discord...")
+            }
+
+            created {
+                log.info("Bot has been created.")
+            }
+
+            setup {
+                log.info("Bot has been created and fully setup.")
+            }
         }
     }
 

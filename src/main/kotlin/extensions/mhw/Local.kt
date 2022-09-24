@@ -11,6 +11,7 @@ import dev.kord.rest.NamedFile
 import dev.kord.rest.builder.message.create.embed
 import java.io.File
 import java.io.InputStream
+import java.util.logging.Logger
 
 @OptIn(KordPreview::class)
 fun getLocaleThumbnail(locale: MhwLocaleChoice): InputStream {
@@ -30,6 +31,9 @@ val MhwLocaleCommand: suspend PublicSlashCommand<out MhwLocale>.() -> Unit = {
     description = "Get info for a guiding lands locale"
 
     action {
+        val log = Logger.getLogger("Mhw")
+        log.info("Received command: mhw %s (locale=%s)".format(commandName, arguments.localeName))
+
         val region = arguments.localeName.name.replace("_", " ")
 
         val monsters = ApiClient.MHW.monsters.filter { monster ->

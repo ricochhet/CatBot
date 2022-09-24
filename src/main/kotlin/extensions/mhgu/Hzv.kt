@@ -11,6 +11,7 @@ import dev.kord.rest.builder.message.create.embed
 import utils.CatBot
 import java.io.File
 import java.util.*
+import java.util.logging.Logger
 
 // this is so we can handle cases like Ahtal-Ka
 fun String.capitalizeDashes(locale: Locale? = null): String {
@@ -31,6 +32,9 @@ val MhguHzvCommand: suspend PublicSlashCommand<out MhguHzv>.() -> Unit = {
 
     val dir = "./src/main/resources/source_files/MonsterDataImages/assets/mhgu"
     action {
+        val log = Logger.getLogger("Mhgu")
+        log.info("Received command: mhgu %s (monster=%s)".format(commandName, arguments.monsterName))
+
         respond {
             try {
                 val monsterName = arguments.monsterName.lowercase().capitalizeWords().capitalizeDashes()

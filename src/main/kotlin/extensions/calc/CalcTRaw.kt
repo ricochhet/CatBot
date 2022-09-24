@@ -8,6 +8,7 @@ import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
+import java.util.logging.Logger
 import kotlin.math.round
 
 @KordPreview
@@ -16,6 +17,9 @@ val CalcTRawCommand: suspend PublicSlashCommand<out CalcTRaw>.() -> Unit = {
     description = "True attack value (removed bloat modifier)"
 
     action {
+        val log = Logger.getLogger("Calc")
+        log.info("Received command: calc %s (attack=%s, weapon=%s)".format(commandName, arguments.attack, arguments.weaponType.name))
+
         val result = round(arguments.attack / arguments.weaponType.bloat)
         respond {
             embed {

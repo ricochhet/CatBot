@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import kotlinx.datetime.Clock
 import utils.CatBot
+import java.util.logging.Logger
 
 @KordPreview
 val MhwArmorCommand: suspend PublicSlashCommand<out MhwArmor>.() -> Unit = {
@@ -19,6 +20,9 @@ val MhwArmorCommand: suspend PublicSlashCommand<out MhwArmor>.() -> Unit = {
 
     val id = kord.selfId
     action {
+        val log = Logger.getLogger("Mhw")
+        log.info("Received command: mhw %s (armor=%s)".format(commandName, arguments.armorName))
+
         val botUser = guild?.members?.first { it.id == id }
         val searchTerm = arguments.armorName.lowercase().replace(" ", "")
         val armor = ApiClient.MHW.armors[searchTerm]

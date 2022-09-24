@@ -9,9 +9,15 @@ import dev.kord.common.entity.Snowflake
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
+import java.util.logging.Logger
 
 @OptIn(KordPreview::class)
 class Support: Extension() {
+
+    companion object {
+        val LOG = Logger.getLogger(Support::class.java.name)
+    }
+
     override val name = "Support"
 
     override suspend fun setup() {
@@ -21,6 +27,9 @@ class Support: Extension() {
 
             val invite = "https://discord.gg/p5GRCSh"
             action {
+
+                LOG.info("Received command: support")
+
                 val kord = this@publicSlashCommand.kord
                 respond {
                     embed {

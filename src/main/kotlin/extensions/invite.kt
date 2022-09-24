@@ -12,9 +12,14 @@ import dev.kord.rest.builder.message.create.embed
 import kotlinx.coroutines.flow.first
 import kotlinx.datetime.Clock
 import utils.CatBot
+import java.util.logging.Logger
 
 @OptIn(KordPreview::class)
 class Invite: Extension() {
+    companion object {
+        val LOG = Logger.getLogger(Invite::class.java.name)
+    }
+
     override val name = "Invite"
 
     override suspend fun setup() {
@@ -25,6 +30,9 @@ class Invite: Extension() {
             val invite = "https://discord.com/oauth2/authorize?client_id=573958899582107653&permissions=339008&scope=bot"
 
             action {
+
+                LOG.info("Received command: invite")
+
                 val botUser = guild?.members?.first { it.id == id }
 
                 respond {

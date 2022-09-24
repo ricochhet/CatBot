@@ -8,6 +8,7 @@ import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
+import java.util.logging.Logger
 
 @KordPreview
 val MhwDecoCommand: suspend PublicSlashCommand<out MhwDeco>.() -> Unit = {
@@ -16,6 +17,9 @@ val MhwDecoCommand: suspend PublicSlashCommand<out MhwDeco>.() -> Unit = {
 
     // TODO: 08/08/2021 Implement searching for decoration by skill as backup if a exact match cannot be found.
     action {
+        val log = Logger.getLogger("Mhw")
+        log.info("Received command: mhw %s (deco=%s)".format(commandName, arguments.decoName))
+
         val searchTerm = arguments.decoName.lowercase().replace(" ", "")
         val decoration = ApiClient.MHW.decorations[searchTerm]
 

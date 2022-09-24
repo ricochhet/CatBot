@@ -10,10 +10,16 @@ import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
 import utils.version
+import java.util.logging.Logger
 
 
 @OptIn(KordPreview::class)
 class Changelog: Extension() {
+
+    companion object {
+        val LOG = Logger.getLogger(Changelog::class.java.name)
+    }
+
     override val name = "ChangeLog"
 
     val changelog = """
@@ -26,6 +32,8 @@ class Changelog: Extension() {
             description = "Shows latest update log"
 
             action {
+                LOG.info("Received command: changelog")
+
                 val kord = this@publicSlashCommand.kord
                 respond {
                     embed {

@@ -8,6 +8,7 @@ import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
+import java.util.logging.Logger
 
 @KordPreview
 val MhwSkillCommand: suspend PublicSlashCommand<out MhwSkill>.() -> Unit = {
@@ -15,6 +16,9 @@ val MhwSkillCommand: suspend PublicSlashCommand<out MhwSkill>.() -> Unit = {
     description = "Get info for a specific skill"
 
     action {
+        val log = Logger.getLogger("Mhw")
+        log.info("Received command: mhw %s (skill=%s)".format(commandName, arguments.skillName))
+
         val searchTerm = arguments.skillName.lowercase().replace(" ", "")
         val skill = ApiClient.MHW.skills[searchTerm]
         respond {

@@ -10,6 +10,7 @@ import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
 import java.io.File
+import java.util.logging.Logger
 
 @KordPreview
 val MhwHzvCommand: suspend PublicSlashCommand<out MhwHzv>.() -> Unit = {
@@ -17,6 +18,9 @@ val MhwHzvCommand: suspend PublicSlashCommand<out MhwHzv>.() -> Unit = {
     description = "Get hzv info for a specific monster"
 
     action {
+        val log = Logger.getLogger("Mhw")
+        log.info("Received command: mhw %s (monster=%s)".format(commandName, arguments.monsterName))
+
         val monster = ApiClient.MHW.monsters.find {
             it.name == arguments.monsterName.lowercase().replace(" ", "")
         }

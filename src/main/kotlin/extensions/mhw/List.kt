@@ -9,6 +9,7 @@ import dev.kord.common.annotation.KordPreview
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import utils.CatBot
+import java.util.logging.Logger
 
 @KordPreview
 val MhwListCommand: suspend PublicSlashCommand<out Arguments>.() -> Unit = {
@@ -17,6 +18,9 @@ val MhwListCommand: suspend PublicSlashCommand<out Arguments>.() -> Unit = {
 
     val id = kord.selfId
     action {
+        val log = Logger.getLogger("Mhw")
+        log.info("Received command: mhw %s".format(commandName))
+
         val botUser = guild?.members?.first { it.id == id }
         val pages = ApiClient.MHW.monsters
             .chunked(20)

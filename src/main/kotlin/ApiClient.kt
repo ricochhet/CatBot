@@ -4,7 +4,7 @@ import io.ktor.client.request.*
 import kotlinx.coroutines.runBlocking
 
 object ApiClient {
-    val host = env["host"]
+    val host = env["bot_api_url"]
 
     object CAT {
         val facts: List<String> by lazy {

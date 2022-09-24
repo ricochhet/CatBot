@@ -13,6 +13,7 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.datetime.Clock
 import utils.CatBot
 import java.util.*
+import java.util.logging.Logger
 import kotlin.math.round
 
 @KordPreview
@@ -22,6 +23,9 @@ val MhwWeaponCommand: suspend PublicSlashCommand<out MhwWeapon>.() -> Unit = {
 
     val id = kord.selfId
     action {
+        val log = Logger.getLogger("Mhw")
+        log.info("Received command: mhw %s (weapon=%s)".format(commandName, arguments.weaponName))
+
         val botUser = guild?.members?.first { it.id == id }
         val searchTerm = arguments.weaponName.lowercase().replace(" ", "")
         val weapon = ApiClient.MHW.weapons[searchTerm]

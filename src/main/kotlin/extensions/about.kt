@@ -9,9 +9,15 @@ import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
 import utils.version
+import java.util.logging.Logger
 
 @OptIn(KordPreview::class)
 class About: Extension() {
+
+    companion object {
+        val LOG = Logger.getLogger(About::class.java.name)
+    }
+
     override val name = "About"
 
     private val owner = Snowflake("838048123367456779")
@@ -27,9 +33,12 @@ class About: Extension() {
             description = "Shows extra information about the bot"
 
             action {
+                LOG.info("Received command: about")
+
                 val kord = this@publicSlashCommand.kord
                 val rico = kord.getUser( owner )?.tag ?: "Ricochet#9237"
                 val team = devs.mapNotNull { dev -> kord.getUser(dev)?.tag }
+
                 respond {
                     embed {
                         color = Color.CatBot

@@ -8,6 +8,7 @@ import serializers.CatImageResponse
 import httpClient
 import dev.kord.common.annotation.KordPreview
 import io.ktor.client.request.*
+import java.util.logging.Logger
 
 @KordPreview
 val CatPicCommand: suspend EphemeralSlashCommand<out Arguments>.() -> Unit = {
@@ -15,6 +16,9 @@ val CatPicCommand: suspend EphemeralSlashCommand<out Arguments>.() -> Unit = {
     description = "Shows a random cat pictures"
 
     action {
+        val log = Logger.getLogger("Cat")
+        log.info("Received command: cat %s ".format(commandName))
+
         val pic: List<CatImageResponse> = httpClient.get("https://api.thecatapi.com/v1/images/search")
         respond {
             content = pic.firstOrNull()?.url ?: ""

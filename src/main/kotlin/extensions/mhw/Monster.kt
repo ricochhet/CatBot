@@ -8,6 +8,7 @@ import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
+import java.util.logging.Logger
 
 @KordPreview
 val MhwMonsterCommand: suspend PublicSlashCommand<out MhwMonster>.() -> Unit = {
@@ -15,6 +16,9 @@ val MhwMonsterCommand: suspend PublicSlashCommand<out MhwMonster>.() -> Unit = {
     description = "Get info for a specific monster"
 
     action {
+        val log = Logger.getLogger("Mhw")
+        log.info("Received command: mhw %s (monster=%s)".format(commandName, arguments.monsterName))
+
         val monster = ApiClient.MHW.monsters.find {
             it.name.lowercase() == arguments.monsterName.lowercase()
         }
