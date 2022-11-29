@@ -1,9 +1,9 @@
-FROM gradle:7-jdk18 AS build
-COPY --chown=gradle:gradle . /home/gradle/src
-WORKDIR /home/gradle/src
-RUN gradle build --no-daemon
-
 FROM amazoncorretto:18
-RUN mkdir /app
-COPY --from=build /home/gradle/src/build/libs/*-all.jar /app/catbot.jar
+
+WORKDIR /app
+
+COPY ./src/main/resources/source_files /app/src/main/resources/source_files
+
+COPY build/libs/*-all.jar /app/catbot.jar
+
 ENTRYPOINT ["java","-jar","/app/catbot.jar"]

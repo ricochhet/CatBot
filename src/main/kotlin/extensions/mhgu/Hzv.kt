@@ -54,6 +54,7 @@ val MhguHzvCommand: suspend PublicSlashCommand<out MhguHzv>.() -> Unit = {
                     }
                 }
             } catch (e: Exception) {
+                e.printStackTrace();
                 content = "not found"
             }
         }
