@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [6.0.0] (2022-12-01)
+
+- Switch all commands from message events to newer Slash commands
+- CatBot Kotlin rewrite: see [project board](https://github.com/ricochhet/CatBot/projects/2)
+
 ## [5.0.2] (2022-01-19)
 
 - Add optional weapon type to rollhunt
