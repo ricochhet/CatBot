@@ -36,6 +36,27 @@ Most of the bot data is server from the associated REST API (see https://github.
 
 It needs to be running at localhost:8080. 
 
+### Docker deployment
+
+Quick steps for running using docker
+
+````shell
+# create shared network
+docker network create catbot-net
+
+# run api container
+cd ../CatbotServer/
+docker build . --tag catbot-api --file python-api/Dockerfile
+docker run -d -p 8080:8080 -v "./databases:/app/databases" --network catbot-net --name catbotapi --restart unless-stopped catbot-api
+
+# run bot container - update config.json with real token and api url (http://catbotapi:8080/api/)
+cd ../CatBot/
+docker build . --tag catbot --file ./Dockerfile
+docker run -d --network catbot-net -it --name catbot --restart unless-stopped catbot
+
+
+````
+
 ### References
 
 - [Kotlin Docs](https://kotlinlang.org/docs/home.html)
