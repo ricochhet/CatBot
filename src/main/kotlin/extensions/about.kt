@@ -24,7 +24,6 @@ class About: Extension() {
     private val devs = listOf(
         Snowflake("264781399737892865"),
         Snowflake("123633666550136832"),
-        Snowflake("381042290333843457"),
     )
 
     override suspend fun setup() {
