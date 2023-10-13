@@ -1,6 +1,6 @@
 package extensions
 import com.kotlindiscord.kord.extensions.extensions.Extension
-import com.kotlindiscord.kord.extensions.extensions.publicSlashCommand
+import com.kotlindiscord.kord.extensions.extensions.ephemeralSlashCommand
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
@@ -24,18 +24,17 @@ class About: Extension() {
     private val devs = listOf(
         Snowflake("264781399737892865"),
         Snowflake("123633666550136832"),
-        Snowflake("381042290333843457"),
     )
 
     override suspend fun setup() {
-        publicSlashCommand {
+        ephemeralSlashCommand {
             name = "about"
             description = "Shows extra information about the bot"
 
             action {
                 LOG.info("Received command: about")
 
-                val kord = this@publicSlashCommand.kord
+                val kord = this@ephemeralSlashCommand.kord
                 val rico = kord.getUser( owner )?.tag ?: "Ricochet#9237"
                 val team = devs.mapNotNull { dev -> kord.getUser(dev)?.tag }
 

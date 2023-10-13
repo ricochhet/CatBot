@@ -1,7 +1,7 @@
 package extensions
 
 import com.kotlindiscord.kord.extensions.extensions.Extension
-import com.kotlindiscord.kord.extensions.extensions.publicSlashCommand
+import com.kotlindiscord.kord.extensions.extensions.ephemeralSlashCommand
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
@@ -27,14 +27,14 @@ class Changelog: Extension() {
     """.trimIndent()
 
     override suspend fun setup() {
-        publicSlashCommand {
+        ephemeralSlashCommand {
             name = "changelog"
             description = "Shows latest update log"
 
             action {
                 LOG.info("Received command: changelog")
 
-                val kord = this@publicSlashCommand.kord
+                val kord = this@ephemeralSlashCommand.kord
                 respond {
                     embed {
                         color = Color.CatBot

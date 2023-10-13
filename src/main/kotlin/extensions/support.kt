@@ -1,7 +1,7 @@
 package extensions
 
 import com.kotlindiscord.kord.extensions.extensions.Extension
-import com.kotlindiscord.kord.extensions.extensions.publicSlashCommand
+import com.kotlindiscord.kord.extensions.extensions.ephemeralSlashCommand
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
@@ -21,16 +21,16 @@ class Support: Extension() {
     override val name = "Support"
 
     override suspend fun setup() {
-        publicSlashCommand {
+        ephemeralSlashCommand {
             name = "support"
             description = "Support server for CatBot"
 
-            val invite = "https://discord.gg/p5GRCSh"
+            val invite = "https://discord.gg/FugAFKzTMw"
             action {
 
                 LOG.info("Received command: support")
 
-                val kord = this@publicSlashCommand.kord
+                val kord = this@ephemeralSlashCommand.kord
                 respond {
                     embed {
                         color = Color.CatBot
