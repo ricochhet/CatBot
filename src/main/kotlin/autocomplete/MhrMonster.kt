@@ -9,7 +9,10 @@ import java.io.File
 object MhrAutoCache {
     private const val dir = "./src/main/resources/source_files/MonsterDataImages/assets/mhr"
     private val folder = File("$dir/monster/")
-    val monsters = folder.walkBottomUp().maxDepth(1).toSet().map { File(it.toURI()).nameWithoutExtension }
+    val monsters = folder.walkBottomUp().maxDepth(1).toSet().map { 
+        val name = File(it.toURI()).nameWithoutExtension
+        name.replace("_HZV", "") // Not sure if this'll actually work.
+    }
 }
 
 val MhrMonsterAutoComplete: suspend AutoCompleteInteraction.(AutoCompleteInteractionCreateEvent) -> Unit = {
