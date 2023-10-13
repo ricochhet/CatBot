@@ -8,7 +8,7 @@ import java.io.File
 
 object MhrAutoCache {
     private const val dir = "./src/main/resources/source_files/MonsterDataImages/assets/mhr"
-    private val folder = File("$dir/monster_hzv/")
+    private val folder = File("$dir/monster/")
     val monsters = folder.walkBottomUp().maxDepth(1).toSet().map { File(it.toURI()).nameWithoutExtension }
 }
 
