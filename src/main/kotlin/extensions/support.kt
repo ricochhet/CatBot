@@ -25,7 +25,7 @@ class Support: Extension() {
             name = "support"
             description = "Support server for CatBot"
 
-            val invite = "https://discord.gg/p5GRCSh"
+            val invite = "https://discord.gg/FugAFKzTMw"
             action {
 
                 LOG.info("Received command: support")
