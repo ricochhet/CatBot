@@ -7,11 +7,11 @@ import dev.kord.core.event.interaction.AutoCompleteInteractionCreateEvent
 import java.io.File
 
 object MhrAutoCache {
-    private const val dir = "./src/main/resources/source_files/MonsterDataImages/assets/mhr"
+    private const val dir = "src/main/resources/source_files/MonsterDataImages/assets/mhr"
     private val folder = File("$dir/monster/")
     val monsters = folder.walkBottomUp().maxDepth(1).toSet().map { 
         val name = File(it.toURI()).nameWithoutExtension
-        name.replace("_HZV", "") // Not sure if this'll actually work.
+        name.replace("_HZV", "")
     }
 }
 

@@ -30,7 +30,7 @@ val MhrHzvCommand: suspend PublicSlashCommand<out MhrHzv>.() -> Unit = {
     name = "hzv"
     description = "Get hzv info for a specific monster\n"
 
-    val dir = "./src/main/resources/source_files/MonsterDataImages/assets/mhr"
+    val dir = "src/main/resources/source_files/MonsterDataImages/assets/mhr"
     action {
         val log = Logger.getLogger("Mhr")
         log.info("Received command: mhr %s (monster=%s)".format(commandName, arguments.monsterName))
@@ -38,19 +38,19 @@ val MhrHzvCommand: suspend PublicSlashCommand<out MhrHzv>.() -> Unit = {
         respond {
             try {
                 val monsterName = arguments.monsterName.lowercase().capitalizeWords().capitalizeDashes()
-                val icon = File("$dir/monster/assets/icons/${monsterName}_Icon.PNG")
-                val hzv = File("$dir/monster/${monsterName}_HZV.PNG")
+                val icon = File("$dir/monster/assets/icons/${monsterName}_Icon.png").replace("HR_", "")
+                val hzv = File("$dir/monster/${monsterName}_HZV.png")
 
                 files.add(NamedFile("icon.png", icon.inputStream()))
-                files.add(NamedFile("hzv.PNG", hzv.inputStream()))
+                files.add(NamedFile("hzv.png", hzv.inputStream()))
 
                 embed {
                     title = "__${monsterName}__"
                     color = Color.CatBot
 
-                    image = "attachment://hzv.PNG"
+                    image = "attachment://hzv.png"
                     thumbnail {
-                        url = "attachment://icon.PNG"
+                        url = "attachment://icon.png"
                     }
                 }
             } catch (e: Exception) {

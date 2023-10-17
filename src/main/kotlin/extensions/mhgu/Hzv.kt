@@ -30,7 +30,7 @@ val MhguHzvCommand: suspend PublicSlashCommand<out MhguHzv>.() -> Unit = {
     name = "hzv"
     description = "Get hzv info for a specific monster\n"
 
-    val dir = "./src/main/resources/source_files/MonsterDataImages/assets/mhgu"
+    val dir = "src/main/resources/source_files/MonsterDataImages/assets/mhgu"
     action {
         val log = Logger.getLogger("Mhgu")
         log.info("Received command: mhgu %s (monster=%s)".format(commandName, arguments.monsterName))

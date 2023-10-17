@@ -57,12 +57,8 @@ write(
   './source_files/MonsterDataImages/mhr_monster_map.json',
   mhrFileObjects
 );
-// write(
-//   './source_files/MonsterDataImages/mhr_monster_icon_map.json',
-//   mhrIconFileObjects
-// );
-blah()
-function blah() {
+
+function fixMhrIconMap() {
   const fix = {}
   for (const i in mhrIconFileObjects) {
     item = mhrIconFileObjects[i]
@@ -74,6 +70,8 @@ function blah() {
     fix
   );
 }
+
+fixMhrIconMap()
 
 function replaceAll(string, searchString, replaceString) {
   if (string.includes(searchString) === false) return string;
