@@ -11,7 +11,7 @@ object MhrAutoCache {
     private val folder = File("$dir/monster/")
     val monsters = folder.walkBottomUp().maxDepth(1).toSet().map { 
         val name = File(it.toURI()).nameWithoutExtension
-        name.replace("_HZV", "")
+        name.replace("_HZV", "").replace("_", " ")
     }
 }
 

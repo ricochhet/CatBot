@@ -8,6 +8,7 @@ import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.NamedFile
 import dev.kord.rest.builder.message.create.embed
+import extensions.mhgu.capitalizeDashes
 import utils.CatBot
 import java.io.File
 import java.util.*
@@ -37,15 +38,18 @@ val MhrHzvCommand: suspend PublicSlashCommand<out MhrHzv>.() -> Unit = {
 
         respond {
             try {
-                val monsterName = arguments.monsterName.lowercase().capitalizeWords().capitalizeDashes()
-                val icon = File("$dir/monster/assets/icons/${monsterName}_Icon.png").replace("HR_", "")
+                val monsterName = arguments.monsterName.replace(" ", "_")
+                val icon = File(
+                    "$dir/monster/assets/icons/${monsterName}_Icon.png".replace("HR_", "")
+                )
                 val hzv = File("$dir/monster/${monsterName}_HZV.png")
 
                 files.add(NamedFile("icon.png", icon.inputStream()))
                 files.add(NamedFile("hzv.png", hzv.inputStream()))
 
                 embed {
-                    title = "__${monsterName}__"
+                    val humanReadableMonsterName = arguments.monsterName.lowercase().capitalizeWords().capitalizeDashes()
+                    title = "__${humanReadableMonsterName}__"
                     color = Color.CatBot
 
                     image = "attachment://hzv.png"
