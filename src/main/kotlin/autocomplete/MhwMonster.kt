@@ -22,5 +22,12 @@ val MhwMonsterAutoComplete: suspend AutoCompleteInteraction.(AutoCompleteInterac
             results.associate { monster -> Pair(monster.details.title, monster.name) },
             FilterStrategy { _, _ -> true }
         )
+    } else {
+        val results = ApiClient.MHW.monsters.take(25)
+
+        suggestStringMap(
+            results.associate { monster -> Pair(monster.details.title, monster.name) },
+            FilterStrategy { _, _ -> true }
+        )
     }
 }

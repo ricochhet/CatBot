@@ -2,23 +2,24 @@ package extensions.mhw
 
 import arguments.MhwHzv
 import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
+import com.kotlindiscord.kord.extensions.components.forms.ModalForm
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
-import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.NamedFile
 import dev.kord.rest.builder.message.create.embed
+import io.ktor.client.request.forms.*
+import io.ktor.utils.io.jvm.javaio.*
 import kotlinx.datetime.Clock
 import utils.CatBot
 import java.io.File
 import java.util.logging.Logger
 
-@KordPreview
-val MhwHzvCommand: suspend PublicSlashCommand<out MhwHzv>.() -> Unit = {
+val MhwHzvCommand: suspend PublicSlashCommand<out MhwHzv, ModalForm>.() -> Unit = {
     name = "hzv"
     description = "Get hzv info for a specific monster"
 
     action {
-        val log = Logger.getLogger("Mhw")
+    val log = Logger.getLogger("Mhw")
         log.info("Received command: mhw %s (monster=%s)".format(commandName, arguments.monsterName))
 
         val monster = ApiClient.MHW.monsters.find {
@@ -31,10 +32,11 @@ val MhwHzvCommand: suspend PublicSlashCommand<out MhwHzv>.() -> Unit = {
             } else {
                 val filename = monster.details.title.replace(" ", "_") + "_HZV.png"
                 files.add(
-                    NamedFile(
-                        "HZV.png",
-                        File("src/main/resources/source_files/MonsterDataImages/assets/mhw/monster/$filename").inputStream()
-                    )
+                    NamedFile("HZV.png",
+                        ChannelProvider {
+                            File("src/main/resources/source_files/MonsterDataImages/assets/mhw/monster/$filename").inputStream()
+                                .toByteReadChannel()
+                        })
                 )
 
                 embed {

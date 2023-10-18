@@ -31,5 +31,11 @@ val MhrMonsterAutoComplete: suspend AutoCompleteInteraction.(AutoCompleteInterac
             results.associateWith { monster -> monster },
             FilterStrategy { _, _ -> true }
         )
+    } else {
+        val results = MhrAutoCache.monsters.take(25)
+        suggestStringMap(
+            results.associateWith { monster -> monster },
+            FilterStrategy { _, _ -> true }
+        )
     }
 }

@@ -15,22 +15,26 @@ group = "me.yofou"
 version = "6.0"
 
 repositories {
+    google()
     mavenCentral()
+
     maven {
-        name = "Kotlin Discord"
-        url = uri("https://maven.kotlindiscord.com/repository/maven-public/")
+        name = "Sonatype Snapshots"
+        url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots")
     }
 }
 
 dependencies {
-    implementation("com.kotlindiscord.kord.extensions:kord-extensions:1.5.2-RC1")
+    implementation("com.kotlindiscord.kord.extensions:kord-extensions:1.5.10-SNAPSHOT")
     implementation("io.github.cdimascio:dotenv-kotlin:6.4.0")
     implementation("org.slf4j:slf4j-simple:2.0.5")
-    implementation("io.ktor:ktor-client-core:1.6.7")
-    implementation("io.ktor:ktor-client-cio:1.6.7")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     implementation("info.debatty:java-string-similarity:2.0.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("io.ktor:ktor-client-content-negotiation:2.3.4")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.4")
+    implementation("io.ktor:ktor-client-core-jvm:2.3.4")
+    implementation("io.ktor:ktor-client-cio-jvm:2.3.4")
 }
 
 tasks.withType<KotlinCompile>() {

@@ -21,5 +21,12 @@ val MhwSkillAutoComplete: suspend AutoCompleteInteraction.(AutoCompleteInteracti
             results.associate { skill -> Pair(skill.value.name, skill.value.name) },
             FilterStrategy { _, _ -> true }
         )
+    } else {
+        val results = ApiClient.MHW.skills.entries.take(25)
+
+        suggestStringMap(
+            results.associate { skill -> Pair(skill.value.name, skill.value.name) },
+            FilterStrategy { _, _ -> true }
+        )
     }
 }

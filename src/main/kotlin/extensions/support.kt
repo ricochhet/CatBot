@@ -4,14 +4,11 @@ import com.kotlindiscord.kord.extensions.extensions.Extension
 import com.kotlindiscord.kord.extensions.extensions.ephemeralSlashCommand
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
-import dev.kord.common.annotation.KordPreview
-import dev.kord.common.entity.Snowflake
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
 import java.util.logging.Logger
 
-@OptIn(KordPreview::class)
 class Support: Extension() {
 
     companion object {
@@ -38,7 +35,7 @@ class Support: Extension() {
                         description = "[Join the Discord]($invite)"
 
                         timestamp = Clock.System.now()
-                        footer { text = "Support Link Request"; icon = kord.getSelf().avatar?.url  }
+                        footer { text = "Support Link Request"; icon = kord.getSelf().avatar?.cdnUrl?.toUrl()  }
                     }
                 }
             }

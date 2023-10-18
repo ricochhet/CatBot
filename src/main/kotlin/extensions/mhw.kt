@@ -5,13 +5,11 @@ import com.kotlindiscord.kord.extensions.commands.application.slash.ephemeralSub
 import com.kotlindiscord.kord.extensions.commands.application.slash.publicSubCommand
 import com.kotlindiscord.kord.extensions.extensions.Extension
 import com.kotlindiscord.kord.extensions.extensions.publicSlashCommand
-import dev.kord.common.annotation.KordPreview
-import dev.kord.common.entity.Snowflake
 import extensions.mhw.*
 
-@KordPreview
 class Mhw: Extension() {
     override val name = "Mhw"
+
     override suspend fun setup() {
         publicSlashCommand {
             name = "mhw"

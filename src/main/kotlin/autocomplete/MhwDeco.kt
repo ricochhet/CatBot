@@ -37,5 +37,12 @@ val MhwDecoAutoComplete: suspend AutoCompleteInteraction.(AutoCompleteInteractio
             results.associate { deco -> Pair(deco.name, deco.name) },
             FilterStrategy { _, _ -> true }
         )
+    } else {
+        val results = ApiClient.MHW.decorations.entries.take(25).map { it.value }
+
+        suggestStringMap(
+            results.associate { deco -> Pair(deco.name, deco.name) },
+            FilterStrategy { _, _ -> true }
+        )
     }
 }

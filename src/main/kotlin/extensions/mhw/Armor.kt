@@ -2,19 +2,18 @@ package extensions.mhw
 
 import arguments.MhwArmor
 import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
+import com.kotlindiscord.kord.extensions.components.forms.ModalForm
 import com.kotlindiscord.kord.extensions.pagination.pages.Page
 import com.kotlindiscord.kord.extensions.types.editingPaginator
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
-import dev.kord.common.annotation.KordPreview
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import kotlinx.datetime.Clock
 import utils.CatBot
 import java.util.logging.Logger
 
-@KordPreview
-val MhwArmorCommand: suspend PublicSlashCommand<out MhwArmor>.() -> Unit = {
+val MhwArmorCommand: suspend PublicSlashCommand<out MhwArmor, ModalForm>.() -> Unit = {
     name = "armor"
     description = "Get info for a specific armor set"
 
@@ -78,7 +77,7 @@ val MhwArmorCommand: suspend PublicSlashCommand<out MhwArmor>.() -> Unit = {
 
                         footer {
                             text = ""
-                            icon = botUser?.avatar?.url
+                            icon = botUser?.avatar?.cdnUrl?.toUrl()
                         }
 
                         timestamp = Clock.System.now()
@@ -108,7 +107,7 @@ val MhwArmorCommand: suspend PublicSlashCommand<out MhwArmor>.() -> Unit = {
 
                         footer {
                             text = ""
-                            icon = botUser?.avatar?.url
+                            icon = botUser?.avatar?.cdnUrl?.toUrl()
                         }
 
                         timestamp = Clock.System.now()

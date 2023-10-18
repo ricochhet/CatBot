@@ -1,21 +1,23 @@
 import com.kotlindiscord.kord.extensions.ExtensibleBot
-import dev.kord.common.annotation.KordPreview
 import dev.kord.gateway.Intents
-import dev.kord.gateway.PrivilegedIntent
+import dev.kord.gateway.NON_PRIVILEGED
 import extensions.*
 import io.github.cdimascio.dotenv.dotenv
 import java.util.logging.Logger
 
 val env = dotenv()
 
-@OptIn(PrivilegedIntent::class, KordPreview::class)
 suspend fun main() {
 
     val log = Logger.getLogger("Main")
 
     val client = ExtensibleBot(env["bot_token"]) {
         intents {
-            +Intents.nonPrivileged
+            +Intents.NON_PRIVILEGED
+        }
+
+        presence {
+            playing("Type / and click CatBot to get started")
         }
 
         extensions {

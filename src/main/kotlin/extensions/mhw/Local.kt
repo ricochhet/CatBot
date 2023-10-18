@@ -4,16 +4,18 @@ import serializers.MHWMonsterResponse
 import arguments.MhwLocale
 import arguments.MhwLocaleChoice
 import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
+import com.kotlindiscord.kord.extensions.components.forms.ModalForm
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
-import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.NamedFile
 import dev.kord.rest.builder.message.create.embed
+import io.ktor.client.request.forms.*
+import io.ktor.utils.io.jvm.javaio.*
 import java.io.File
 import java.io.InputStream
 import java.util.logging.Logger
 
-@OptIn(KordPreview::class)
+
 fun getLocaleThumbnail(locale: MhwLocaleChoice): InputStream {
     return when (locale) {
         MhwLocaleChoice.Forest_Region -> File("src/main/resources/source_files/MonsterDataImages/assets/mhw/locale_icons/localeForest.png")
@@ -25,8 +27,8 @@ fun getLocaleThumbnail(locale: MhwLocaleChoice): InputStream {
     }.inputStream()
 }
 
-@KordPreview
-val MhwLocaleCommand: suspend PublicSlashCommand<out MhwLocale>.() -> Unit = {
+
+val MhwLocaleCommand: suspend PublicSlashCommand<out MhwLocale, ModalForm>.() -> Unit = {
     name = "locale"
     description = "Get info for a guiding lands locale"
 
@@ -66,10 +68,11 @@ val MhwLocaleCommand: suspend PublicSlashCommand<out MhwLocale>.() -> Unit = {
 
         respond {
             files.add(
-                NamedFile(
-                    "locale.png",
-                    getLocaleThumbnail(arguments.localeName)
-                )
+                NamedFile("locale.png",
+                    ChannelProvider {
+                        getLocaleThumbnail(arguments.localeName)
+                            .toByteReadChannel()
+                    })
             )
 
             embed {

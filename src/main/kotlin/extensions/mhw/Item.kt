@@ -2,6 +2,7 @@ package extensions.mhw
 
 import arguments.MhwItem
 import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
+import com.kotlindiscord.kord.extensions.components.forms.ModalForm
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
@@ -10,8 +11,8 @@ import kotlinx.datetime.Clock
 import utils.CatBot
 import java.util.logging.Logger
 
-@KordPreview
-val MhwItemCommand: suspend PublicSlashCommand<out MhwItem>.() -> Unit = {
+
+val MhwItemCommand: suspend PublicSlashCommand<out MhwItem, ModalForm>.() -> Unit = {
     name = "item"
     description = "Get info for a specific item"
 

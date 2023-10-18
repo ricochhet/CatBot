@@ -4,8 +4,6 @@ import com.kotlindiscord.kord.extensions.extensions.Extension
 import com.kotlindiscord.kord.extensions.extensions.ephemeralSlashCommand
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
-import dev.kord.common.annotation.KordPreview
-import dev.kord.common.entity.Snowflake
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
@@ -13,7 +11,6 @@ import utils.version
 import java.util.logging.Logger
 
 
-@OptIn(KordPreview::class)
 class Changelog: Extension() {
 
     companion object {
@@ -44,7 +41,7 @@ class Changelog: Extension() {
                         }
 
                         timestamp = Clock.System.now()
-                        footer { text = "Changelog Menu"; icon = kord.getSelf().avatar?.url }
+                        footer { text = "Changelog Menu"; icon = kord.getSelf().avatar?.cdnUrl?.toUrl() }
                     }
                 }
             }

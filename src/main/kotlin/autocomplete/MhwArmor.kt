@@ -21,5 +21,12 @@ val MhwArmorAutoComplete: suspend AutoCompleteInteraction.(AutoCompleteInteracti
             results.associate { armor -> Pair(armor.name, armor.name) },
             FilterStrategy { _, _ -> true }
         )
+    } else {
+        val results = ApiClient.MHW.armors.values.take(25)
+
+        suggestStringMap(
+            results.associate { armor -> Pair(armor.name, armor.name) },
+            FilterStrategy { _, _ -> true }
+        )
     }
 }
