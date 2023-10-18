@@ -2,16 +2,20 @@ const fs = require('fs');
 const { parse } = require('path');
 const mhwFolder = './source_files/MonsterDataImages/assets/mhw/monster/';
 const mhguFolder = './source_files/MonsterDataImages/assets/mhgu/monster/';
-const mhguIconFolder =
-  './source_files/MonsterDataImages/assets/mhgu/monster_icons/';
+const mhguIconFolder ='./source_files/MonsterDataImages/assets/mhgu/monster_icons/';
+const mhrFolder = './source_files/MonsterDataImages/assets/mhr/monster/';
+const mhrIconFolder ='./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/';
 
 const mhwFileNames = [];
 const mhwFileObjects = {};
 const mhguFileNames = [];
 const mhguFileObjects = {};
-
 const mhguIconFileNames = [];
 const mhguIconFileObjects = {};
+const mhrFileNames = [];
+const mhrFileObjects = {};
+const mhrIconFileNames = [];
+const mhrIconFileObjects = {};
 
 fs.readdirSync(mhwFolder).forEach(file => {
   mhwFileNames.push(file);
@@ -25,9 +29,20 @@ fs.readdirSync(mhguIconFolder).forEach(file => {
   mhguIconFileNames.push(file);
 });
 
+fs.readdirSync(mhrFolder).forEach(file => {
+  mhrFileNames.push(file);
+});
+
+fs.readdirSync(mhrIconFolder).forEach(file => {
+  mhrIconFileNames.push(file);
+});
+
+
 fill(mhwFileNames, mhwFileObjects, mhwFolder);
 fill(mhguFileNames, mhguFileObjects, mhguFolder);
 fill(mhguIconFileNames, mhguIconFileObjects, mhguIconFolder);
+fill(mhrFileNames, mhrFileObjects, mhrFolder);
+fill(mhrIconFileNames, mhrIconFileObjects, mhrIconFolder);
 
 write('./source_files/MonsterDataImages/mhw_monster_map.json', mhwFileObjects);
 write(
@@ -38,6 +53,25 @@ write(
   './source_files/MonsterDataImages/mhgu_monster_icon_map.json',
   mhguIconFileObjects
 );
+write(
+  './source_files/MonsterDataImages/mhr_monster_map.json',
+  mhrFileObjects
+);
+
+function fixMhrIconMap() {
+  const fix = {}
+  for (const i in mhrIconFileObjects) {
+    item = mhrIconFileObjects[i]
+    item["title"] = item["title"].replace(" Icon", "")
+    fix[item["title"].toLowerCase().split(" ").join("")] = item
+  }
+  write(
+    './source_files/MonsterDataImages/mhr_monster_icon_map.json',
+    fix
+  );
+}
+
+fixMhrIconMap()
 
 function replaceAll(string, searchString, replaceString) {
   if (string.includes(searchString) === false) return string;

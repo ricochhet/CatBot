@@ -7,7 +7,7 @@ import dev.kord.core.event.interaction.AutoCompleteInteractionCreateEvent
 import java.io.File
 
 object MhguAutoCache {
-    private const val dir = "./src/main/resources/source_files/MonsterDataImages/assets/mhgu"
+    private const val dir = "src/main/resources/source_files/MonsterDataImages/assets/mhgu"
     private val folder = File("$dir/monster_hzv/")
     val monsters = folder.walkBottomUp().maxDepth(1).toSet().map { File(it.toURI()).nameWithoutExtension }
 }

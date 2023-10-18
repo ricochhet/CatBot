@@ -64,3 +64,11 @@ docker run -d --network catbot-net -it --name catbot --restart unless-stopped ca
 - [Kord Extensions](https://kordex.kotlindiscord.com/)
 
 - [Kord Wiki](https://github.com/kordlib/kord/wiki)
+
+### Suggestions & PRs
+
+Suggestions and pull requests are very appreciated, just keep in mind to follow the project architecture to keep it consistent.
+
+### License
+
+MIT

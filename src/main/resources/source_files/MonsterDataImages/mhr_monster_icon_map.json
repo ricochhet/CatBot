@@ -1,0 +1,397 @@
+{
+  "aknosom": {
+    "title": "Aknosom",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Aknosom_Icon.png",
+    "fileName": "Aknosom_Icon.png"
+  },
+  "almudron": {
+    "title": "Almudron",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Almudron_Icon.png",
+    "fileName": "Almudron_Icon.png"
+  },
+  "amatsu": {
+    "title": "Amatsu",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Amatsu_Icon.png",
+    "fileName": "Amatsu_Icon.png"
+  },
+  "anjanath": {
+    "title": "Anjanath",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Anjanath_Icon.png",
+    "fileName": "Anjanath_Icon.png"
+  },
+  "apexarzuros": {
+    "title": "Apex Arzuros",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Apex_Arzuros_Icon.png",
+    "fileName": "Apex_Arzuros_Icon.png"
+  },
+  "apexdiablos": {
+    "title": "Apex Diablos",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Apex_Diablos_Icon.png",
+    "fileName": "Apex_Diablos_Icon.png"
+  },
+  "apexmizutsune": {
+    "title": "Apex Mizutsune",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Apex_Mizutsune_Icon.png",
+    "fileName": "Apex_Mizutsune_Icon.png"
+  },
+  "apexrathalos": {
+    "title": "Apex Rathalos",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Apex_Rathalos_Icon.png",
+    "fileName": "Apex_Rathalos_Icon.png"
+  },
+  "apexrathian": {
+    "title": "Apex Rathian",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Apex_Rathian_Icon.png",
+    "fileName": "Apex_Rathian_Icon.png"
+  },
+  "apexzinogre": {
+    "title": "Apex Zinogre",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Apex_Zinogre_Icon.png",
+    "fileName": "Apex_Zinogre_Icon.png"
+  },
+  "arzuros": {
+    "title": "Arzuros",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Arzuros_Icon.png",
+    "fileName": "Arzuros_Icon.png"
+  },
+  "astalos": {
+    "title": "Astalos",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Astalos_Icon.png",
+    "fileName": "Astalos_Icon.png"
+  },
+  "aurorasomnacanth": {
+    "title": "Aurora Somnacanth",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Aurora_Somnacanth_Icon.png",
+    "fileName": "Aurora_Somnacanth_Icon.png"
+  },
+  "barioth": {
+    "title": "Barioth",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Barioth_Icon.png",
+    "fileName": "Barioth_Icon.png"
+  },
+  "barroth": {
+    "title": "Barroth",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Barroth_Icon.png",
+    "fileName": "Barroth_Icon.png"
+  },
+  "basarios": {
+    "title": "Basarios",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Basarios_Icon.png",
+    "fileName": "Basarios_Icon.png"
+  },
+  "bazelgeuse": {
+    "title": "Bazelgeuse",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Bazelgeuse_Icon.png",
+    "fileName": "Bazelgeuse_Icon.png"
+  },
+  "bishaten": {
+    "title": "Bishaten",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Bishaten_Icon.png",
+    "fileName": "Bishaten_Icon.png"
+  },
+  "bloodorangebishaten": {
+    "title": "Blood Orange Bishaten",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Blood_Orange_Bishaten_Icon.png",
+    "fileName": "Blood_Orange_Bishaten_Icon.png"
+  },
+  "chameleos": {
+    "title": "Chameleos",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Chameleos_Icon.png",
+    "fileName": "Chameleos_Icon.png"
+  },
+  "chaoticgoremagala": {
+    "title": "Chaotic Gore Magala",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Chaotic_Gore_Magala_Icon.png",
+    "fileName": "Chaotic_Gore_Magala_Icon.png"
+  },
+  "crimsonglowvalstrax": {
+    "title": "Crimson Glow Valstrax",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Crimson_Glow_Valstrax_Icon.png",
+    "fileName": "Crimson_Glow_Valstrax_Icon.png"
+  },
+  "daimyohermitaur": {
+    "title": "Daimyo Hermitaur",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Daimyo_Hermitaur_Icon.png",
+    "fileName": "Daimyo_Hermitaur_Icon.png"
+  },
+  "diablos": {
+    "title": "Diablos",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Diablos_Icon.png",
+    "fileName": "Diablos_Icon.png"
+  },
+  "espinas": {
+    "title": "Espinas",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Espinas_Icon.png",
+    "fileName": "Espinas_Icon.png"
+  },
+  "flamingespinas": {
+    "title": "Flaming Espinas",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Flaming_Espinas_Icon.png",
+    "fileName": "Flaming_Espinas_Icon.png"
+  },
+  "furiousrajang": {
+    "title": "Furious Rajang",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Furious_Rajang_Icon.png",
+    "fileName": "Furious_Rajang_Icon.png"
+  },
+  "gaismagorm": {
+    "title": "Gaismagorm",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Gaismagorm_Icon.png",
+    "fileName": "Gaismagorm_Icon.png"
+  },
+  "garangolm": {
+    "title": "Garangolm",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Garangolm_Icon.png",
+    "fileName": "Garangolm_Icon.png"
+  },
+  "goldrathian": {
+    "title": "Gold Rathian",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Gold_Rathian_Icon.png",
+    "fileName": "Gold_Rathian_Icon.png"
+  },
+  "goremagala": {
+    "title": "Gore Magala",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Gore_Magala_Icon.png",
+    "fileName": "Gore_Magala_Icon.png"
+  },
+  "gossharag": {
+    "title": "Goss Harag",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Goss_Harag_Icon.png",
+    "fileName": "Goss_Harag_Icon.png"
+  },
+  "greatbaggi": {
+    "title": "Great Baggi",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Great_Baggi_Icon.png",
+    "fileName": "Great_Baggi_Icon.png"
+  },
+  "greatizuchi": {
+    "title": "Great Izuchi",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Great_Izuchi_Icon.png",
+    "fileName": "Great_Izuchi_Icon.png"
+  },
+  "greatwroggi": {
+    "title": "Great Wroggi",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Great_Wroggi_Icon.png",
+    "fileName": "Great_Wroggi_Icon.png"
+  },
+  "jyuratodus": {
+    "title": "Jyuratodus",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Jyuratodus_Icon.png",
+    "fileName": "Jyuratodus_Icon.png"
+  },
+  "khezu": {
+    "title": "Khezu",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Khezu_Icon.png",
+    "fileName": "Khezu_Icon.png"
+  },
+  "kulu-ya-ku": {
+    "title": "Kulu-Ya-Ku",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Kulu-Ya-Ku_Icon.png",
+    "fileName": "Kulu-Ya-Ku_Icon.png"
+  },
+  "kushaladaora": {
+    "title": "Kushala Daora",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Kushala_Daora_Icon.png",
+    "fileName": "Kushala_Daora_Icon.png"
+  },
+  "lagombi": {
+    "title": "Lagombi",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Lagombi_Icon.png",
+    "fileName": "Lagombi_Icon.png"
+  },
+  "lucentnargacuga": {
+    "title": "Lucent Nargacuga",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Lucent_Nargacuga_Icon.png",
+    "fileName": "Lucent_Nargacuga_Icon.png"
+  },
+  "lunagaron": {
+    "title": "Lunagaron",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Lunagaron_Icon.png",
+    "fileName": "Lunagaron_Icon.png"
+  },
+  "magmaalmudron": {
+    "title": "Magma Almudron",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Magma_Almudron_Icon.png",
+    "fileName": "Magma_Almudron_Icon.png"
+  },
+  "magnamalo": {
+    "title": "Magnamalo",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Magnamalo_Icon.png",
+    "fileName": "Magnamalo_Icon.png"
+  },
+  "malzeno": {
+    "title": "Malzeno",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Malzeno_Icon.png",
+    "fileName": "Malzeno_Icon.png"
+  },
+  "mizutsune": {
+    "title": "Mizutsune",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Mizutsune_Icon.png",
+    "fileName": "Mizutsune_Icon.png"
+  },
+  "nargacuga": {
+    "title": "Nargacuga",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Nargacuga_Icon.png",
+    "fileName": "Nargacuga_Icon.png"
+  },
+  "narwatheallmother": {
+    "title": "Narwa The Allmother",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Narwa_The_Allmother_Icon.png",
+    "fileName": "Narwa_The_Allmother_Icon.png"
+  },
+  "primordialmalzeno": {
+    "title": "Primordial Malzeno",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Primordial_Malzeno_Icon.png",
+    "fileName": "Primordial_Malzeno_Icon.png"
+  },
+  "pukei-pukei": {
+    "title": "Pukei-Pukei",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Pukei-Pukei_Icon.png",
+    "fileName": "Pukei-Pukei_Icon.png"
+  },
+  "pyrerakna-kadaki": {
+    "title": "Pyre Rakna-Kadaki",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Pyre_Rakna-Kadaki_Icon.png",
+    "fileName": "Pyre_Rakna-Kadaki_Icon.png"
+  },
+  "rajang": {
+    "title": "Rajang",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Rajang_Icon.png",
+    "fileName": "Rajang_Icon.png"
+  },
+  "rakna-kadaki": {
+    "title": "Rakna-Kadaki",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Rakna-Kadaki_Icon.png",
+    "fileName": "Rakna-Kadaki_Icon.png"
+  },
+  "rathalos": {
+    "title": "Rathalos",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Rathalos_Icon.png",
+    "fileName": "Rathalos_Icon.png"
+  },
+  "rathian": {
+    "title": "Rathian",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Rathian_Icon.png",
+    "fileName": "Rathian_Icon.png"
+  },
+  "risenchameleos": {
+    "title": "Risen Chameleos",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Risen_Chameleos_Icon.png",
+    "fileName": "Risen_Chameleos_Icon.png"
+  },
+  "risencrimsonglowvalstrax": {
+    "title": "Risen Crimson Glow Valstrax",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Risen_Crimson_Glow_Valstrax_Icon.png",
+    "fileName": "Risen_Crimson_Glow_Valstrax_Icon.png"
+  },
+  "risenkushaladaora": {
+    "title": "Risen Kushala Daora",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Risen_Kushala_Daora_Icon.png",
+    "fileName": "Risen_Kushala_Daora_Icon.png"
+  },
+  "risenshagarumagala": {
+    "title": "Risen Shagaru Magala",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Risen_Shagaru_Magala_Icon.png",
+    "fileName": "Risen_Shagaru_Magala_Icon.png"
+  },
+  "risenteostra": {
+    "title": "Risen Teostra",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Risen_Teostra_Icon.png",
+    "fileName": "Risen_Teostra_Icon.png"
+  },
+  "royalludroth": {
+    "title": "Royal Ludroth",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Royal_Ludroth_Icon.png",
+    "fileName": "Royal_Ludroth_Icon.png"
+  },
+  "scornedmagnamalo": {
+    "title": "Scorned Magnamalo",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Scorned_Magnamalo_Icon.png",
+    "fileName": "Scorned_Magnamalo_Icon.png"
+  },
+  "seethingbazelgeuse": {
+    "title": "Seething Bazelgeuse",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Seething_Bazelgeuse_Icon.png",
+    "fileName": "Seething_Bazelgeuse_Icon.png"
+  },
+  "seregios": {
+    "title": "Seregios",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Seregios_Icon.png",
+    "fileName": "Seregios_Icon.png"
+  },
+  "shagarumagala": {
+    "title": "Shagaru Magala",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Shagaru_Magala_Icon.png",
+    "fileName": "Shagaru_Magala_Icon.png"
+  },
+  "shogunceanataur": {
+    "title": "Shogun Ceanataur",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Shogun_Ceanataur_Icon.png",
+    "fileName": "Shogun_Ceanataur_Icon.png"
+  },
+  "silverrathalos": {
+    "title": "Silver Rathalos",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Silver_Rathalos_Icon.png",
+    "fileName": "Silver_Rathalos_Icon.png"
+  },
+  "somnacanth": {
+    "title": "Somnacanth",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Somnacanth_Icon.png",
+    "fileName": "Somnacanth_Icon.png"
+  },
+  "teostra": {
+    "title": "Teostra",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Teostra_Icon.png",
+    "fileName": "Teostra_Icon.png"
+  },
+  "tetranadon": {
+    "title": "Tetranadon",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Tetranadon_Icon.png",
+    "fileName": "Tetranadon_Icon.png"
+  },
+  "thunderserpentnarwa": {
+    "title": "Thunder Serpent Narwa",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Thunder_Serpent_Narwa_Icon.png",
+    "fileName": "Thunder_Serpent_Narwa_Icon.png"
+  },
+  "tigrex": {
+    "title": "Tigrex",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Tigrex_Icon.png",
+    "fileName": "Tigrex_Icon.png"
+  },
+  "toadversary": {
+    "title": "Toadversary",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Toadversary_Icon.png",
+    "fileName": "Toadversary_Icon.png"
+  },
+  "tobi-kadachi": {
+    "title": "Tobi-Kadachi",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Tobi-Kadachi_Icon.png",
+    "fileName": "Tobi-Kadachi_Icon.png"
+  },
+  "velkhana": {
+    "title": "Velkhana",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Velkhana_Icon.png",
+    "fileName": "Velkhana_Icon.png"
+  },
+  "violetmizutsune": {
+    "title": "Violet Mizutsune",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Violet_Mizutsune_Icon.png",
+    "fileName": "Violet_Mizutsune_Icon.png"
+  },
+  "volvidon": {
+    "title": "Volvidon",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Volvidon_Icon.png",
+    "fileName": "Volvidon_Icon.png"
+  },
+  "windserpentibushi": {
+    "title": "Wind Serpent Ibushi",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Wind_Serpent_Ibushi_Icon.png",
+    "fileName": "Wind_Serpent_Ibushi_Icon.png"
+  },
+  "zinogre": {
+    "title": "Zinogre",
+    "imagePath": "./source_files/MonsterDataImages/assets/mhr/monster/assets/icons/Zinogre_Icon.png",
+    "fileName": "Zinogre_Icon.png"
+  }
+}

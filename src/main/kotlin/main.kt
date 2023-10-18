@@ -25,6 +25,7 @@ suspend fun main() {
             add( ::Changelog )
             add( ::Invite )
             add( ::Mhgu )
+            add( ::Mhr )
             add( ::Mhw )
             add( ::Support )
         }
