@@ -10,7 +10,6 @@ import utils.CatBot
 import utils.version
 import java.util.logging.Logger
 
-
 class Changelog: Extension() {
 
     companion object {
@@ -20,7 +19,10 @@ class Changelog: Extension() {
     override val name = "ChangeLog"
 
     val changelog = """
-        🆕 Rewrote Whole Ass Bot - (message commands to slash commands)
+        - General maintenance 
+        - Added MH rise category along with a HZV command.
+        - Changed error response to be an embed.
+        - Auto complete will now respond with first 25 results if empty string.
     """.trimIndent()
 
     override suspend fun setup() {

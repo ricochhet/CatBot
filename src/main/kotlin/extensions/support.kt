@@ -5,6 +5,7 @@ import com.kotlindiscord.kord.extensions.extensions.ephemeralSlashCommand
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
 import dev.kord.rest.builder.message.create.embed
+import env
 import kotlinx.datetime.Clock
 import utils.CatBot
 import java.util.logging.Logger
@@ -22,7 +23,7 @@ class Support: Extension() {
             name = "support"
             description = "Support server for CatBot"
 
-            val invite = "https://discord.gg/FugAFKzTMw"
+            val invite = env.get("invite_url")
             action {
 
                 LOG.info("Received command: support")

@@ -1,3 +1,3 @@
 package utils
 
-const val version = "6.0"
+const val version = "6.1"

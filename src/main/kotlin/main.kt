@@ -13,7 +13,6 @@ import java.util.logging.Logger
 val env = dotenv()
 
 suspend fun main() {
-
     val log = Logger.getLogger("Main")
 
     var avatarUrl: String? = null;
@@ -39,7 +38,7 @@ suspend fun main() {
         }
 
         errorResponse { message, type ->
-            val invite = "https://discord.gg/FugAFKzTMw"
+            val invite = env.get("invite_url")
             embed {
                 color = Color.CatBotError
                 title = "CatBot Error"

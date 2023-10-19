@@ -10,6 +10,7 @@ fun String.capitalizeDashes(locale: Locale? = null): String {
                 it.titlecase(locale ?: Locale.getDefault())
             } else {
                 it.toString()
-            } }
+            }
+        }
     }
 }

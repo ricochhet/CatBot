@@ -15,7 +15,6 @@ val MhwMonsterCommand: suspend PublicSlashCommand<out MhwMonster, ModalForm>.() 
     description = "Get info for a specific monster"
 
     action {
-        throw Error("dummy error")
         val log = Logger.getLogger("Mhw")
         log.info("Received command: mhw %s (monster=%s)".format(commandName, arguments.monsterName))
 

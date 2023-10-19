@@ -15,8 +15,6 @@ import utils.capitalizeDashes
 import java.io.File
 import java.util.logging.Logger
 
-
-
 val MhrHzvCommand: suspend PublicSlashCommand<out MhrHzv, ModalForm>.() -> Unit = {
     name = "hzv"
     description = "Get hzv info for a specific monster\n"
