@@ -3,30 +3,13 @@ package serializers
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.builtins.nullable
-import kotlinx.serialization.builtins.serializer
-import kotlinx.serialization.descriptors.SerialDescriptor
-import kotlinx.serialization.descriptors.nullable
-import kotlinx.serialization.encoding.Decoder
-import kotlinx.serialization.encoding.Encoder
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.JsonTransformingSerializer
 
 @OptIn(ExperimentalSerializationApi::class)
-open class NullableSerializer <T> (private val serialName: String, private val delegate: KSerializer<T>) : KSerializer<T> {
-    override val descriptor: SerialDescriptor = SerialDescriptor(serialName, delegate.descriptor.nullable)
-    private val stringDelegate = String.serializer().nullable
-
-    override fun deserialize(decoder: Decoder): T {
-        val res = try {
-            delegate.deserialize(decoder)
-        } catch (e: Exception) {
-            stringDelegate.deserialize(decoder)
-        }
-
-        return if ( res is String ) {
-            null as T
-        } else {
-            res as T
-        }
-    }
-
-    override fun serialize(encoder: Encoder, value: T) = TODO("Not yet implemented")
+open class NullableSerializer <T: Any> (test: KSerializer<T>) : JsonTransformingSerializer<T>(test.nullable as KSerializer<T>) {
+    @OptIn(ExperimentalSerializationApi::class)
+    override fun transformDeserialize(element: JsonElement): JsonElement =
+        if (element == JsonPrimitive("-")) JsonPrimitive(null) else element
 }

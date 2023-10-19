@@ -28,5 +28,11 @@ val MhguMonsterAutoComplete: suspend AutoCompleteInteraction.(AutoCompleteIntera
             results.associateWith { monster -> monster },
             FilterStrategy { _, _ -> true }
         )
+    } else {
+        val results = MhguAutoCache.monsters.take(25)
+        suggestStringMap(
+            results.associateWith { monster -> monster },
+            FilterStrategy { _, _ -> true }
+        )
     }
 }

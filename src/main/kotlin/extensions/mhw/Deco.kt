@@ -2,6 +2,7 @@ package extensions.mhw
 
 import arguments.MhwDeco
 import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
+import com.kotlindiscord.kord.extensions.components.forms.ModalForm
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
 import dev.kord.common.annotation.KordPreview
@@ -10,8 +11,7 @@ import kotlinx.datetime.Clock
 import utils.CatBot
 import java.util.logging.Logger
 
-@KordPreview
-val MhwDecoCommand: suspend PublicSlashCommand<out MhwDeco>.() -> Unit = {
+val MhwDecoCommand: suspend PublicSlashCommand<out MhwDeco, ModalForm>.() -> Unit = {
     name = "deco"
     description = "Get info for a specific decoration"
 

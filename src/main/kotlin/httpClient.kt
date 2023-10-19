@@ -1,12 +1,14 @@
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
-import io.ktor.client.features.json.*
-import io.ktor.client.features.json.serializer.*
+import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.serialization.kotlinx.json.*
+import kotlinx.serialization.json.Json
+
 
 private val clientConfig: HttpClientConfig<CIOEngineConfig>.() -> Unit = {
-    install(JsonFeature) {
-        serializer = KotlinxSerializer(kotlinx.serialization.json.Json {
-            ignoreUnknownKeys = true
+    install(ContentNegotiation) {
+        json(Json {
+            ignoreUnknownKeys = true;
         })
     }
 }

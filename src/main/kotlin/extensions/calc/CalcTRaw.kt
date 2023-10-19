@@ -2,17 +2,16 @@ package extensions.calc
 
 import arguments.CalcTRaw
 import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
+import com.kotlindiscord.kord.extensions.components.forms.ModalForm
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
-import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
 import java.util.logging.Logger
 import kotlin.math.round
 
-@KordPreview
-val CalcTRawCommand: suspend PublicSlashCommand<out CalcTRaw>.() -> Unit = {
+val CalcTRawCommand: suspend PublicSlashCommand<out CalcTRaw, ModalForm>.() -> Unit = {
     name = "traw"
     description = "True attack value (removed bloat modifier)"
 

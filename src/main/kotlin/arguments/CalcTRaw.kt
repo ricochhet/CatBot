@@ -4,7 +4,6 @@ import com.kotlindiscord.kord.extensions.commands.Arguments
 import com.kotlindiscord.kord.extensions.commands.application.slash.converters.ChoiceEnum
 import com.kotlindiscord.kord.extensions.commands.application.slash.converters.impl.enumChoice
 import com.kotlindiscord.kord.extensions.commands.converters.impl.decimal
-import dev.kord.common.annotation.KordPreview
 
 enum class CalcTRawChoice( override val readableName: String ): ChoiceEnum {
     bow("bow"),
@@ -40,7 +39,6 @@ enum class CalcTRawChoice( override val readableName: String ): ChoiceEnum {
     }
 }
 
-@KordPreview
 class CalcTRaw: Arguments() {
     val weaponType by enumChoice<CalcTRawChoice> {
         name = "weapon_type"

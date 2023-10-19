@@ -1,13 +1,12 @@
 package extensions.mhw
 
-
 import arguments.MhwWeapon
 import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
+import com.kotlindiscord.kord.extensions.components.forms.ModalForm
 import com.kotlindiscord.kord.extensions.pagination.pages.Page
 import com.kotlindiscord.kord.extensions.types.editingPaginator
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
-import dev.kord.common.annotation.KordPreview
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import kotlinx.datetime.Clock
@@ -16,8 +15,7 @@ import java.util.*
 import java.util.logging.Logger
 import kotlin.math.round
 
-@KordPreview
-val MhwWeaponCommand: suspend PublicSlashCommand<out MhwWeapon>.() -> Unit = {
+val MhwWeaponCommand: suspend PublicSlashCommand<out MhwWeapon, ModalForm>.() -> Unit = {
     name = "weapon"
     description = "Get info for a specific weapon\n"
 
@@ -134,7 +132,7 @@ val MhwWeaponCommand: suspend PublicSlashCommand<out MhwWeapon>.() -> Unit = {
 
                         footer {
                             text = ""
-                            icon = botUser?.avatar?.url
+                            icon = botUser?.avatar?.cdnUrl?.toUrl()
                         }
 
                         timestamp = Clock.System.now()
@@ -167,7 +165,7 @@ val MhwWeaponCommand: suspend PublicSlashCommand<out MhwWeapon>.() -> Unit = {
                         timestamp = Clock.System.now()
                         footer {
                             text = ""
-                            icon = botUser?.avatar?.url
+                            icon = botUser?.avatar?.cdnUrl?.toUrl()
                         }
                     }
                 )

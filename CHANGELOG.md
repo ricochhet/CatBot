@@ -6,6 +6,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [6.1.0] (2023-10-18)
+
+- Upgraded deps, kord ex (1.5.10), ktor (2.3.4) and kotlin (1.9.10).
+- Added License (MIT).
+- Added MH rise category along with a HZV command.
+- Changed error response to be an embed.
+- Auto complete will now respond with first 25 results if empty string.
+- Updated ENV file to include invite_url.
+
 ## [6.0.0] (2022-12-01)
 
 - Switch all commands from message events to newer Slash commands

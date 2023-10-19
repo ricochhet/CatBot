@@ -2,16 +2,15 @@ package extensions.mhw
 
 import arguments.MhwMonster
 import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
+import com.kotlindiscord.kord.extensions.components.forms.ModalForm
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
-import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
 import java.util.logging.Logger
 
-@KordPreview
-val MhwMonsterCommand: suspend PublicSlashCommand<out MhwMonster>.() -> Unit = {
+val MhwMonsterCommand: suspend PublicSlashCommand<out MhwMonster, ModalForm>.() -> Unit = {
     name = "monster"
     description = "Get info for a specific monster"
 

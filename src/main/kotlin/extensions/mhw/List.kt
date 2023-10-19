@@ -2,17 +2,16 @@ package extensions.mhw
 
 import com.kotlindiscord.kord.extensions.commands.Arguments
 import com.kotlindiscord.kord.extensions.commands.application.slash.PublicSlashCommand
+import com.kotlindiscord.kord.extensions.components.forms.ModalForm
 import com.kotlindiscord.kord.extensions.pagination.pages.Page
 import com.kotlindiscord.kord.extensions.types.editingPaginator
 import dev.kord.common.Color
-import dev.kord.common.annotation.KordPreview
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import utils.CatBot
 import java.util.logging.Logger
 
-@KordPreview
-val MhwListCommand: suspend PublicSlashCommand<out Arguments>.() -> Unit = {
+val MhwListCommand: suspend PublicSlashCommand<out Arguments, ModalForm>.() -> Unit = {
     name = "list"
     description = "List all monsters in MHW & Iceborne"
 
@@ -32,7 +31,7 @@ val MhwListCommand: suspend PublicSlashCommand<out Arguments>.() -> Unit = {
 
                     footer {
                         text = ""
-                        icon = botUser?.avatar?.url
+                        icon = botUser?.avatar?.cdnUrl?.toUrl()
                     }
                 }
             }

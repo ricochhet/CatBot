@@ -2,16 +2,16 @@ package extensions.mhw
 
 import arguments.MhwRollHunt
 import com.kotlindiscord.kord.extensions.commands.application.slash.EphemeralSlashCommand
+import com.kotlindiscord.kord.extensions.components.forms.ModalForm
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.Color
-import dev.kord.common.annotation.KordPreview
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import utils.CatBot
 import java.util.logging.Logger
 
-@KordPreview
-val MhwRollHuntCommand: suspend EphemeralSlashCommand<out MhwRollHunt>.() -> Unit = {
+
+val MhwRollHuntCommand: suspend EphemeralSlashCommand<out MhwRollHunt, ModalForm>.() -> Unit = {
     name = "rollhunt"
     description = "Get a random roll of what monster you should hunt with which gear"
 
