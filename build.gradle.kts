@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.8.10"
-    kotlin("plugin.serialization") version "1.8.10"
+    kotlin("jvm") version "1.9.10"
+    kotlin("plugin.serialization") version "1.9.10"
     application
     id("com.github.johnrengelman.shadow") version "7.1.2"
 }
@@ -43,5 +43,5 @@ tasks.withType<KotlinCompile>() {
 }
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
-    languageVersion = "1.8"
+    languageVersion = "1.9"
 }
